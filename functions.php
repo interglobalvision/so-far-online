@@ -71,4 +71,20 @@ get_template_part( 'lib/functions-filters' );
 get_template_part( 'lib/functions-hooks' );
 get_template_part( 'lib/functions-utility' );
 
+add_action('admin_head', 'igv_admin_css');
+
+function igv_admin_css() {
+?>
+<style>
+  #wp-_igv_featured_caption-wrap .mce-btn {
+    display: none;
+  }
+  #wp-_igv_featured_caption-wrap #mceu_2,
+  #wp-_igv_featured_caption-wrap #mceu_9 {
+    display: inline-block;
+  }
+</style>
+<?php
+}
+
 ?>

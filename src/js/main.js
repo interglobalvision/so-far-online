@@ -3,6 +3,7 @@
 
 // Import dependencies
 import lazySizes from 'lazysizes';
+import Swiper from 'swiper';
 
 // Import style
 import '../styl/site.styl';
@@ -23,7 +24,29 @@ class Site {
 
   onReady() {
     lazySizes.init();
+    this.initSwiper();
+  }
 
+  initSwiper() {
+    $('.swiper-scroll').each(function(index, element) {
+      $(this).addClass('swiper-instance-'+index);
+      var swiperInstance = new Swiper ('.swiper-instance-'+index, {
+        simulateTouch: true,
+        slidesPerView: 'auto',
+        freeMode: true,
+        mousewheel: {
+          sensitivity: 1,
+          forceToAxis: true,
+          invert: true,
+        },
+        scrollbar: {
+          el: '.swiper-scrollbar',
+          draggable: true,
+          hide: false,
+          snapOnRelease: false,
+        },
+      });
+    })
   }
 
   fixWidows() {

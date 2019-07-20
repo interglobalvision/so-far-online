@@ -3,9 +3,7 @@ get_header();
 ?>
 
 <main id="main-content">
-  <section id="posts">
-    <div class="grid-row">
-      
+
 <?php
 if (have_posts()) {
   while (have_posts()) {
@@ -25,8 +23,6 @@ if (have_posts()) {
 }
 ?>
 
-    </div>
-  </section>
 </main>
 
 <?php
