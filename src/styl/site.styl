@@ -69,6 +69,11 @@ body
 
 $color-black = rgb(0, 0, 0)
 $color-white = rgb(255, 255, 255)
+$color-pink = rgb(241, 229, 223)
+$color-pale = rgb(246, 243, 239)
+$color-grey-dark = rgb(148, 148, 148)
+$color-grey-medium = rgb(190, 190, 190)
+$color-grey-light = rgb(220, 220, 220)
 
 // ******************************************************
 
@@ -76,7 +81,7 @@ $color-white = rgb(255, 255, 255)
 
 html
   color: $color-black
-  background-color: $color-white
+  background-color: $color-pink
 
 img
   height: auto
@@ -101,9 +106,3 @@ img
 @import 'responsive/laptop'
 
 @import 'responsive/desktop'
-
-@import 'responsive/hd'
-
-@media screen and (min-width: 1920px)
-
-  grid-maker(1800px)

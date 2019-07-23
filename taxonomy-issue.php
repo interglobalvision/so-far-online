@@ -23,7 +23,7 @@ $chapters = get_terms( array(
 ?>
 
 <main id="main-content">
-
+<div class="container">
 <?php
 if (count($chapters) > 0) {
   $issue = get_term($issue_id);
@@ -31,7 +31,7 @@ if (count($chapters) > 0) {
 
   foreach ($chapters as $index => $chapter) {
     $chapter_number = get_term_meta($chapter->term_id, '_igv_issue_number', true);
-    $background_class = $index % 2 ? 'background-pink' : '';
+    $background_class = $index % 1 ? 'background-pale' : '';
 
     $articles_args = array(
       'post_type' => 'post',
@@ -107,7 +107,7 @@ if (count($chapters) > 0) {
   }
 }
 ?>
-
+</div>
 </main>
 
 <?php

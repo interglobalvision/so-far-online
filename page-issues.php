@@ -20,6 +20,7 @@ $issues = get_terms( array(
 ?>
 
 <main id="main-content">
+<div class="container">
 
 <?php
 if (count($issues) > 0) {
@@ -29,9 +30,9 @@ if (count($issues) > 0) {
     $subtitle = get_term_meta($issue->term_id, '_igv_subtitle', true);
     $contributors = get_term_meta($issue->term_id, '_igv_issue_contributors', true);
     $image_id = get_term_meta($issue->term_id, '_igv_issue_image_id', true);
-    $background_class = $index % 2 ? 'background-pink' : '';
+    $background_class = $index % 1 ? 'background-pale' : '';
 ?>
-  <div <?php post_class($background_class); ?> id="issue-<?php echo $issue->term_id; ?>">
+  <div id="issue-<?php echo $issue->term_id; ?>">
     <a href="<?php echo get_term_link($issue); ?>">
       <div class="desktop-only">
         <div class="grid-row">
@@ -70,6 +71,7 @@ if (count($issues) > 0) {
   }
 }
 ?>
+</div>
 </main>
 
 <?php

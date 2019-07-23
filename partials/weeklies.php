@@ -8,8 +8,8 @@ $weeklies_query = new WP_Query($args);
 
 if ( $weeklies_query->have_posts() ) {
 ?>
-<section class="background-pink">
-  <div><h2 class="text-align-center font-uppercase">Weeklies</h2></div>
+
+  <h2 class="text-align-center font-uppercase">Weeklies</h2>
   <div class="swiper-container swiper-scroll">
     <div class="swiper-wrapper padding-bottom-mid">
   <?php
@@ -41,7 +41,7 @@ if ( $weeklies_query->have_posts() ) {
     </div>
     <div class="swiper-scrollbar"></div>
   </div>
-</section>
+
 <?php
 } // endif
 

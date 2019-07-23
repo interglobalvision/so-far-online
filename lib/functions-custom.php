@@ -24,3 +24,15 @@ function get_name_list($id, $term) {
   }
   return false;
 }
+
+// shortcode
+function footnote_shortcode( $atts ) {
+  $a = shortcode_atts( array(
+    'index' => false,
+  ), $atts );
+  if ($a['index']) {
+  	return '<a id="article-ref-' . $a['index'] . '" href="#footnote-ref-' . $a['index'] . '">[' . $a['index'] . ']</a>';
+  }
+  return;
+}
+add_shortcode( 'footnote', 'footnote_shortcode' );

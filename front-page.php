@@ -3,6 +3,7 @@ get_header();
 ?>
 
 <main id="main-content">
+<div class="container">
 <?php
 $now = time();
 
@@ -68,7 +69,7 @@ if (count($issues) > 0) {
         $contributors = get_name_list($post->ID, 'contributor');
         $artists = get_name_list($post->ID, 'artist');
         $reverse = $index % 2;
-        $background_class = !$reverse && $index > 0 ? 'background-pink' : '';
+        $background_class = $reverse || $index === 0 ? 'background-pale' : '';
 ?>
 
   <article <?php post_class($background_class); ?> id="post-<?php the_ID(); ?>">
@@ -92,7 +93,7 @@ if (count($issues) > 0) {
       </div>
     </div>
 
-    <div class="grid-row justify-start <?php echo $reverse ? 'flex-reverse' : ''; ?>">
+    <div class="grid-row justify-start <?php echo $reverse ? 'row-l-reverse' : ''; ?>">
       <div class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter <?php echo $reverse ? 'text-align-right' : ''; ?>">
         <a href="<?php the_permalink() ?>">
           <?php the_post_thumbnail(); ?>
@@ -110,8 +111,9 @@ if (count($issues) > 0) {
         <div class="grid-item item-s-12">
           <span><?php echo $subtitle; ?></span>
         </div>
+        <?php } ?>
         <div class="grid-item item-s-12 offset-m-4 offset-l-2 offset-xl-4">
-        <?php } if ($contributors) { ?>
+        <?php if ($contributors) { ?>
           <div>
             <span>Text by: <?php echo $contributors; ?></span>
           </div>
@@ -134,7 +136,7 @@ if (count($issues) > 0) {
     } else {
       get_template_part('partials/weeklies');
     }
-    
+
     wp_reset_postdata();
 
     $products_args = array(
@@ -174,7 +176,7 @@ if (count($issues) > 0) {
   }
 }
 ?>
-
+</div>
 </main>
 
 <?php

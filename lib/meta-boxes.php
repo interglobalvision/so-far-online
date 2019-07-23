@@ -61,6 +61,29 @@ function igv_cmb_metaboxes() {
 		),
 	) );
 
+  $article_metabox->add_field( array(
+		'name' => esc_html__( 'Footnotes', 'cmb2' ),
+    'desc' => 'Use [footnote index="#"] in the content to generate the corresponding references',
+		'id'   => $prefix . 'footnotes',
+		'type' => 'text',
+    'repeatable' => 'true',
+	) );
+
+  $article_metabox->add_field( array(
+		'name'      	=> __( 'Featured Artworks', 'cmb2' ),
+		'id'        	=> $prefix . 'article_artworks',
+		'type'      	=> 'post_search_ajax',
+		'desc'			=> __( '(Start typing product title)', 'cmb2' ),
+		// Optional :
+		'limit'      	=> 3, 		// Limit selection to X items only (default 1)
+		'sortable' 	 	=> true, 	// Allow selected items to be sortable (default false)
+		'query_args'	=> array(
+			'post_type'			=> array( 'product' ),
+			'post_status'		=> array( 'publish' ),
+			'posts_per_page'	=> -1
+		)
+	) );
+
   $artwork_metabox = new_cmb2_box( array(
  		'id'               => $prefix . 'artwork_metabox',
  		'title'            => esc_html__( 'Options', 'cmb2' ), // Doesn't output for term boxes
@@ -130,6 +153,26 @@ function igv_cmb_metaboxes() {
 		'type' => 'file',
 	) );
 
+  $bio_metabox = new_cmb2_box( array(
+		'id'               => $prefix . 'artist_contributor_metabox',
+		'title'            => esc_html__( 'Options', 'cmb2' ), // Doesn't output for term boxes
+		'object_types'     => array( 'term' ), // Tells CMB2 to use term_meta vs post_meta
+		'taxonomies'       => array( 'artist', 'contributor' ), // Tells CMB2 which taxonomies should have these fields
+		'new_term_section' => true, // Will display in the "Add New Category" section
+	) );
+
+  $bio_metabox->add_field( array(
+		'name' => esc_html__( 'Birth Year', 'cmb2' ),
+		'id'   => $prefix . 'bio_year',
+		'type' => 'text_small',
+	) );
+
+  $bio_metabox->add_field( array(
+		'name' => esc_html__( 'Photo', 'cmb2' ),
+		'id'   => $prefix . 'bio_photo',
+		'type' => 'file',
+	) );
+
   $about_page = get_page_by_path('about');
 
   if (!empty($about_page)) {
@@ -177,6 +220,12 @@ function igv_cmb_metaboxes() {
   	) );
 
     $about_metabox->add_group_field( $about_team_id, array(
+  		'name' => esc_html__( 'Photo', 'cmb2' ),
+  		'id'   => 'photo',
+  		'type' => 'file',
+  	) );
+
+    $about_metabox->add_group_field( $about_team_id, array(
   		'name'       => esc_html__( 'Name', 'cmb2' ),
   		'id'         => 'name',
   		'type'       => 'text',
@@ -186,12 +235,6 @@ function igv_cmb_metaboxes() {
   		'name'        => esc_html__( 'Bio', 'cmb2' ),
   		'id'          => 'bio',
   		'type'        => 'textarea_small',
-  	) );
-
-  	$about_metabox->add_group_field( $about_team_id, array(
-  		'name' => esc_html__( 'Photo', 'cmb2' ),
-  		'id'   => 'photo',
-  		'type' => 'file',
   	) );
 
     $about_metabox->add_field( array(
@@ -252,7 +295,8 @@ function igv_cmb_metaboxes() {
     $about_metabox->add_group_field( $about_partners_id, array(
   		'name'       => esc_html__( 'Link', 'cmb2' ),
   		'id'         => 'link',
-  		'type'       => 'text',
+  		'type' => 'text_url',
+  		'protocols' => array('http', 'https'),
   	) );
 
   }

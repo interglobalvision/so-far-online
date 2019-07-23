@@ -11,12 +11,24 @@
 
   $font-size-basic = 16px
 
-  grid-maker(1000px, $gutter, l)
+  grid-maker(100%, $gutter, l)
 
   space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-mid, $margin-large)
 
   font-sizes($font-size-basic)
+  
+  .mobile-only
+    display: none !important
 
   .desktop-only
     display: initial !important
 
+  .row-l-reverse
+    flex-direction: row-reverse
+
+  #article-content
+    p
+      max-width: 58.333333333333336%
+      margin-left: 25%
+      padding-left: $margin-tiny
+      padding-right: $margin-tiny
