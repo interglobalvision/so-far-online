@@ -28,9 +28,8 @@ class Site {
   }
 
   initSwiper() {
-    $('.swiper-scroll').each(function(index, element) {
-      $(this).addClass('swiper-instance-'+index);
-      var swiperInstance = new Swiper ('.swiper-instance-'+index, {
+    var swiperArgs = {
+      scroll: {
         simulateTouch: true,
         slidesPerView: 'auto',
         freeMode: true,
@@ -45,8 +44,28 @@ class Site {
           hide: false,
           snapOnRelease: false,
         },
-      });
-    })
+      },
+      slide: {
+        simulateTouch: true,
+        slidesPerView: 1,
+        loop: true,
+        navigation: {
+          nextEl: '.slide-next',
+          prevEl: '.slide-prev',
+        },
+      },
+    }
+
+    $('.swiper-container').each(function(index, element) {
+      $(this).addClass('swiper-instance-' + index);
+      var type = $(this).attr('data-carousel-type');
+      var swiperInstance = new Swiper ('.swiper-instance-' + index, swiperArgs[type]);
+      if (type === 'slide') {
+        swiperInstance.on('slideChange', function () {
+          $('.current-slide').html(swiperInstance.realIndex + 1);
+        });
+      }
+    });
   }
 
   fixWidows() {

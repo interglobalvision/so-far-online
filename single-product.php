@@ -24,6 +24,15 @@ if (have_posts()) {
           <div class="grid-row">
             <div class="grid-item item-s-12 item-l-7 offset-l-1">
             <?php if (!empty($images)) { ?>
+              <div class="swiper-container" data-carousel-type="slide">
+                <div class="swiper-wrapper">
+                <?php foreach ($images as $image) { ?>
+                  <div class="swiper-slide">
+                    <?php echo wp_get_attachment_image(attachment_url_to_postid($image)); ?>
+                  </div>
+                <?php } ?>
+                </div>
+              </div>
             <?php } ?>
             </div>
             <div class="grid-item item-s-12 item-l-3">
@@ -36,6 +45,12 @@ if (have_posts()) {
                 <li><?php echo $spec; ?></li>
                 <?php } ?>
               </ul>
+              <?php } if (!empty($images)) { ?>
+              <div>
+                <span class="slide-prev u-pointer"><</span>
+                <span><span class="current-slide">1</span>/<span><?php echo count($images); ?></span></span>
+                <span class="slide-next u-pointer">></span>
+              </div>
               <?php } ?>
               <div><span class="gws-product-price"></span></div>
             </div>

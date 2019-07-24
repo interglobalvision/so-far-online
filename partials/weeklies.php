@@ -10,8 +10,8 @@ if ( $weeklies_query->have_posts() ) {
 ?>
 
   <h2 class="text-align-center font-uppercase">Weeklies</h2>
-  <div class="swiper-container swiper-scroll">
-    <div class="swiper-wrapper padding-bottom-mid">
+  <div class="swiper-container" data-carousel-type="scroll">
+    <div class="swiper-wrapper padding-bottom-small">
   <?php
   	while ( $weeklies_query->have_posts() ) {
       $weeklies_query->the_post();
