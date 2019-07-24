@@ -8,6 +8,9 @@ get_header();
 if (have_posts()) {
   while (have_posts()) {
     the_post();
+?>
+<div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+<?php
     $headline = get_post_meta($post->ID, '_igv_about_headline', true);
     $mission = get_post_meta($post->ID, '_igv_about_mission', true);
     $team = get_post_meta($post->ID, '_igv_about_team', true);
@@ -99,6 +102,9 @@ if (have_posts()) {
   </section>
 <?php
     }
+?>
+</div>
+<?php
   }
 }
 ?>

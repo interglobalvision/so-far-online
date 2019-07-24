@@ -73,7 +73,7 @@ function create_custom_taxonomies() {
 	);
 
 	$args = array(
-		'hierarchical'      => false,
+		'hierarchical'      => true,
 		'labels'            => $labels,
 		'show_ui'           => true,
 		'show_admin_column' => true,
@@ -111,6 +111,62 @@ function create_custom_taxonomies() {
 	);
 
 	register_taxonomy( 'weeklytype', array( 'weekly' ), $args );
+
+  $labels = array(
+    'name'              => _x( 'Collections', 'taxonomy general name', 'igv' ),
+    'singular_name'     => _x( 'Collection', 'taxonomy singular name', 'igv' ),
+    'search_items'      => __( 'Search Collections', 'igv' ),
+    'all_items'         => __( 'All Collections', 'igv' ),
+    'parent_item'       => __( 'Parent Collection', 'igv' ),
+    'parent_item_colon' => __( 'Parent Collection:', 'igv' ),
+    'edit_item'         => __( 'Edit Collection', 'igv' ),
+    'update_item'       => __( 'Update Collection', 'igv' ),
+    'add_new_item'      => __( 'Add New Collection', 'igv' ),
+    'new_item_name'     => __( 'New Collection Name', 'igv' ),
+    'menu_name'         => __( 'Collection', 'igv' ),
+  );
+
+  $args = array(
+    'hierarchical'      => false,
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'rewrite'           => array( 'slug' => 'collection' ),
+    'public'            => true,
+    'show_in_rest'      => true,
+  );
+
+  register_taxonomy( 'collection', array( 'product' ), $args );
+
+  wp_insert_term( 'Featured', 'collection' );
+
+  $labels = array(
+    'name'              => _x( 'Mediums', 'taxonomy general name', 'igv' ),
+    'singular_name'     => _x( 'Medium', 'taxonomy singular name', 'igv' ),
+    'search_items'      => __( 'Search Mediums', 'igv' ),
+    'all_items'         => __( 'All Mediums', 'igv' ),
+    'parent_item'       => __( 'Parent Medium', 'igv' ),
+    'parent_item_colon' => __( 'Parent Medium:', 'igv' ),
+    'edit_item'         => __( 'Edit Medium', 'igv' ),
+    'update_item'       => __( 'Update Medium', 'igv' ),
+    'add_new_item'      => __( 'Add New Medium', 'igv' ),
+    'new_item_name'     => __( 'New Medium Name', 'igv' ),
+    'menu_name'         => __( 'Medium', 'igv' ),
+  );
+
+  $args = array(
+    'hierarchical'      => false,
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'rewrite'           => array( 'slug' => 'medium' ),
+    'public'            => true,
+    'show_in_rest'      => true,
+  );
+
+  register_taxonomy( 'medium', array( 'product' ), $args );
 
 }
 ?>

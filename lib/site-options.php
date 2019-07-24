@@ -58,6 +58,31 @@ function igv_register_theme_options_metabox() {
     // 'save_button'     => esc_html__( 'Save Theme Options', 'cmb2' ), // The text for the options-page save button. Defaults to 'Save'.
   ) );
 
+  $site_options->add_field( array(
+    'name'    => esc_html__( 'Products', 'cmb2' ),
+    'desc'    => esc_html__( 'This text appears on the product page', 'cmb2' ),
+    'id'      => $prefix . 'sales_title',
+    'type'    => 'title',
+  ) );
+
+  $site_options->add_field( array(
+    'name'    => esc_html__( 'Authenticity', 'cmb2' ),
+    'id'      => 'product_authenticity',
+    'type'    => 'textarea',
+  ) );
+
+  $site_options->add_field( array(
+    'name'    => esc_html__( 'Framing & Installation', 'cmb2' ),
+    'id'      => 'product_framing',
+    'type'    => 'textarea',
+  ) );
+
+  $site_options->add_field( array(
+    'name'    => esc_html__( 'Shipping & Taxes', 'cmb2' ),
+    'id'      => 'product_shipping',
+    'type'    => 'textarea',
+  ) );
+
   // Social Media variables
 
   $site_options->add_field( array(

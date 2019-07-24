@@ -48,7 +48,7 @@ if (count($chapters) > 0) {
     $articles_query = new WP_Query($articles_args);
 ?>
 
-  <div <?php post_class($background_class); ?> id="chapter-<?php echo $chapter->term_id; ?>">
+  <div <?php post_class($background_class); ?> id="term-<?php echo $chapter->term_id; ?>">
     <div class="grid-row">
       <div class="grid-item item-s-12">
         <span><?php

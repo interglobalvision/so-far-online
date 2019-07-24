@@ -84,6 +84,8 @@ function igv_cmb_metaboxes() {
 		)
 	) );
 
+  // ARTWORK
+
   $artwork_metabox = new_cmb2_box( array(
  		'id'               => $prefix . 'artwork_metabox',
  		'title'            => esc_html__( 'Options', 'cmb2' ), // Doesn't output for term boxes
@@ -101,6 +103,22 @@ function igv_cmb_metaboxes() {
 		'id'   => $prefix . 'artwork_year',
 		'type' => 'text_small',
 	) );
+
+  $artwork_metabox->add_field( array(
+		'name' => esc_html__( 'Specs', 'cmb2' ),
+		'id'   => $prefix . 'artwork_specs',
+		'type' => 'text',
+    'repeatable' => true,
+	) );
+
+  $artwork_metabox->add_field( array(
+		'name' => esc_html__( 'Images', 'cmb2' ),
+		'id'   => $prefix . 'artwork_images',
+		'type' => 'file_list',
+    'preview_size' => array( 150, 150 ),
+	) );
+
+  // ISSUE
 
   $issue_metabox = new_cmb2_box( array(
 		'id'               => $prefix . 'issue_metabox',
@@ -153,6 +171,8 @@ function igv_cmb_metaboxes() {
 		'type' => 'file',
 	) );
 
+  // BIO
+
   $bio_metabox = new_cmb2_box( array(
 		'id'               => $prefix . 'artist_contributor_metabox',
 		'title'            => esc_html__( 'Options', 'cmb2' ), // Doesn't output for term boxes
@@ -172,6 +192,8 @@ function igv_cmb_metaboxes() {
 		'id'   => $prefix . 'bio_photo',
 		'type' => 'file',
 	) );
+
+  // ABOUT
 
   $about_page = get_page_by_path('about');
 

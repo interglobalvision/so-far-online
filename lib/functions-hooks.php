@@ -27,3 +27,34 @@ function create_custom_pages() {
   }
 }
 add_filter( 'after_setup_theme', 'create_custom_pages' );
+
+function igv_allowed_block_types( $allowed_blocks, $post ) {
+  $allowed_blocks = array(
+		'core/paragraph',
+		'core/heading',
+		'core/list',
+	);
+
+  if( $post->post_type !== 'product' ) {
+		$allowed_blocks = array_merge($allowed_blocks, array(
+      'core/image',
+      'core/quote',
+      'core/pullquote',
+      'core-embed/twitter',
+      'core-embed/youtube',
+      'core-embed/instagram',
+      'core-embed/vimeo',
+    ));
+	};
+
+	return $allowed_blocks;
+}
+add_filter( 'allowed_block_types', 'igv_allowed_block_types', 10, 2 );
+
+function igv_product_post_type_args( $args, $post_type ) {
+  if ( $post_type === 'product' ) {
+    $args['show_in_rest'] = true;
+  }
+  return $args;
+}
+add_filter( 'register_post_type_args', 'igv_product_post_type_args', 20, 2 );

@@ -23,16 +23,14 @@ $issues = get_terms( array(
 <div class="container">
 
 <?php
-if (count($issues) > 0) {
-  foreach ($issues as $index => $issue) {
-    $number = get_term_meta($issue->term_id, '_igv_issue_number', true);
-    $season = get_term_meta($issue->term_id, '_igv_issue_season', true);
-    $subtitle = get_term_meta($issue->term_id, '_igv_subtitle', true);
-    $contributors = get_term_meta($issue->term_id, '_igv_issue_contributors', true);
-    $image_id = get_term_meta($issue->term_id, '_igv_issue_image_id', true);
-    $background_class = $index % 1 ? 'background-pale' : '';
+foreach ($issues as $index => $issue) {
+  $number = get_term_meta($issue->term_id, '_igv_issue_number', true);
+  $season = get_term_meta($issue->term_id, '_igv_issue_season', true);
+  $subtitle = get_term_meta($issue->term_id, '_igv_subtitle', true);
+  $contributors = get_term_meta($issue->term_id, '_igv_issue_contributors', true);
+  $image_id = get_term_meta($issue->term_id, '_igv_issue_image_id', true);
 ?>
-  <div id="issue-<?php echo $issue->term_id; ?>">
+  <div id="term-<?php echo $issue->term_id; ?>">
     <a href="<?php echo get_term_link($issue); ?>">
       <div class="desktop-only">
         <div class="grid-row">
@@ -68,7 +66,6 @@ if (count($issues) > 0) {
     </a>
   </div>
 <?php
-  }
 }
 ?>
 </div>
