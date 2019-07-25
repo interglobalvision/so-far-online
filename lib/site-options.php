@@ -93,21 +93,31 @@ function igv_register_theme_options_metabox() {
   ) );
 
   $site_options->add_field( array(
-    'name'    => esc_html__( 'Facebook Page URL', 'cmb2' ),
-    'id'      => 'socialmedia_facebook_url',
+    'name'    => esc_html__( 'Facebook Account Handle', 'cmb2' ),
+    'id'      => 'socialmedia_facebook',
     'type'    => 'text',
+    'default' => 'sofaronline',
   ) );
 
   $site_options->add_field( array(
     'name'    => esc_html__( 'Twitter Account Handle', 'cmb2' ),
     'id'      => 'socialmedia_twitter',
     'type'    => 'text',
+    'default' => 'so_faronline',
   ) );
 
   $site_options->add_field( array(
     'name'    => esc_html__( 'Instagram Account Handle', 'cmb2' ),
     'id'      => 'socialmedia_instagram',
     'type'    => 'text',
+    'default' => 'sofaronline',
+  ) );
+
+  $site_options->add_field( array(
+    'name'    => esc_html__( 'Vimeo Account Handle', 'cmb2' ),
+    'id'      => 'socialmedia_vimeo',
+    'type'    => 'text',
+    'default' => 'sofaronline',
   ) );
 
   // Metadata options

@@ -11,8 +11,8 @@ function create_custom_pages() {
     'about' => 'About',
     'contribute' => 'Contribute',
     'contact' => 'Contact',
-    'terms' => 'Terms & Conditions',
     'faq' => 'FAQ',
+    'terms-and-conditions' => 'Terms & Conditions',
   );
   foreach($custom_pages as $page_name => $page_title) {
     $page = get_page_by_path($page_name);
