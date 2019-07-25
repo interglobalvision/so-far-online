@@ -188,16 +188,27 @@ var Site = function () {
     $(window).resize(this.onResize.bind(this));
 
     $(document).ready(this.onReady.bind(this));
+
+    this.onScroll = this.onScroll.bind(this);
+    this.onScrollInterval = this.onScrollInterval.bind(this);
   }
 
   _createClass(Site, [{
     key: 'onResize',
-    value: function onResize() {}
+    value: function onResize() {
+      this.navbarHeight = $('#header').outerHeight();
+    }
   }, {
     key: 'onReady',
     value: function onReady() {
+      this.didScroll = false;
+      this.lastScrollTop = 0;
+      this.delta = 5;
+      this.navbarHeight = $('#header').outerHeight();
+
       _lazysizes2.default.init();
       this.initSwiper();
+      this.bindStickyHeader();
     }
   }, {
     key: 'initSwiper',
@@ -240,6 +251,50 @@ var Site = function () {
           });
         }
       });
+    }
+  }, {
+    key: 'bindStickyHeader',
+    value: function bindStickyHeader() {
+      $(window).scroll(this.onScroll);
+
+      setInterval(this.onScrollInterval, 250);
+    }
+  }, {
+    key: 'onScroll',
+    value: function onScroll() {
+      this.didScroll = true;
+    }
+  }, {
+    key: 'onScrollInterval',
+    value: function onScrollInterval() {
+      if (this.didScroll) {
+        this.hasScrolled();
+        this.didScroll = false;
+      }
+    }
+  }, {
+    key: 'hasScrolled',
+    value: function hasScrolled() {
+      var st = $(window).scrollTop();
+
+      // Make sure they scroll more than delta
+      if (Math.abs(this.lastScrollTop - st) <= this.delta) {
+        return;
+      }
+
+      // If they scrolled down and are past the navbar, add class .nav-up.
+      // This is necessary so you never see what is "behind" the navbar.
+      if (st > this.lastScrollTop && st > this.navbarHeight) {
+        // Scroll Down
+        $('#header').removeClass('nav-down').addClass('nav-up');
+      } else {
+        // Scroll Up
+        if (st + $(window).height() < $(document).height()) {
+          $('#header').removeClass('nav-up').addClass('nav-down');
+        }
+      }
+
+      this.lastScrollTop = st;
     }
   }, {
     key: 'fixWidows',

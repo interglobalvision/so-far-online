@@ -30,6 +30,53 @@ get_template_part('partials/seo');
 
   <header id="header">
     <div class="container">
-      <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+      <h1 class="u-visuallyhidden"><?php bloginfo('name'); ?></h1>
+      <div class="grid-row justify-between">
+        <div class="grid-item">
+          <a href="<?php echo home_url(); ?>">Logo</a>
+        </div>
+        <div id="main-nav">
+          <ul class="grid-row text-align-center">
+            <li class="grid-item item-s-12 item-l-auto">
+              <a href="<?php echo home_url('issues'); ?>">Issues</a>
+            </li>
+            <li class="grid-item item-s-12 item-l-auto">
+              <a href="<?php echo home_url('weeklies'); ?>">Weeklies</a>
+            </li>
+            <li class="grid-item item-s-12 item-l-auto">
+              <a href="<?php echo home_url('artists'); ?>">Artists</a>
+            </li>
+            <li class="grid-item item-s-12 item-l-auto">
+              <a href="<?php echo home_url('shop'); ?>">Shop</a>
+            </li>
+            <li class="grid-item item-s-12 item-l-auto">
+              <a href="<?php echo home_url('about'); ?>">About</a>
+            </li>
+          </ul>
+          <div class="mobile-only">
+            <div class="grid-row justify-center">
+              <div class="grid-item">
+                <a href="<?php echo home_url('cart'); ?>">Cart</a>
+              </div>
+              <div class="grid-item">
+                Search
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item not-desktop">
+          <div><span>Toggle</span></div>
+        </div>
+        <div class="desktop-only">
+          <div class="grid-row">
+            <div class="grid-item">
+              <a href="<?php echo home_url('cart'); ?>">Cart</a>
+            </div>
+            <div class="grid-item">
+              Search
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </header>

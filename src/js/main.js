@@ -16,15 +16,23 @@ class Site {
 
     $(document).ready(this.onReady.bind(this));
 
+    this.onScroll = this.onScroll.bind(this);
+    this.onScrollInterval = this.onScrollInterval.bind(this);
   }
 
   onResize() {
-
+    this.navbarHeight = $('#header').outerHeight();
   }
 
   onReady() {
+    this.didScroll = false;
+    this.lastScrollTop = 0;
+    this.delta = 5;
+    this.navbarHeight = $('#header').outerHeight();
+
     lazySizes.init();
     this.initSwiper();
+    this.bindStickyHeader();
   }
 
   initSwiper() {
@@ -66,6 +74,46 @@ class Site {
         });
       }
     });
+  }
+
+  bindStickyHeader() {
+    $(window).scroll(this.onScroll);
+
+    setInterval(this.onScrollInterval, 250);
+  }
+
+  onScroll() {
+    this.didScroll = true;
+  }
+
+  onScrollInterval() {
+    if (this.didScroll) {
+      this.hasScrolled();
+      this.didScroll = false;
+    }
+  }
+
+  hasScrolled() {
+    var st = $(window).scrollTop();
+
+    // Make sure they scroll more than delta
+    if(Math.abs(this.lastScrollTop - st) <= this.delta) {
+      return;
+    }
+
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > this.lastScrollTop && st > this.navbarHeight){
+      // Scroll Down
+      $('#header').removeClass('nav-down').addClass('nav-up');
+    } else {
+      // Scroll Up
+      if(st + $(window).height() < $(document).height()) {
+        $('#header').removeClass('nav-up').addClass('nav-down');
+      }
+    }
+
+    this.lastScrollTop = st;
   }
 
   fixWidows() {
