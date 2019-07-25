@@ -4,13 +4,24 @@ $options = get_site_option('_igv_site_options');
 
   <footer id="footer">
     <div class="grid-row">
-      <div class="item-s-12 item-l-6">
-        <div class="grid-row">
-          <div class="grid-item">
-            Newsletter
+      <div class="item-s-12 item-l-6 text-align-center">
+        <form novalidate="true" id="mailchimp-form" class="grid-row align-items-center">
+          <div class="grid-item item-s-12 item-m-6">
+            <input type="email" name="EMAIL" placeholder="Email Address" id="mailchimp-email">
           </div>
-        </div>
+          <div class="grid-item item-s-12 item-m-6">
+            <input type="name" name="FIRSTNAME" placeholder="First Name" id="mailchimp-first">
+          </div>
+          <div class="grid-item item-s-12">
+            <input type="name" name="LASTNAME" placeholder="Last Name" id="mailchimp-last">
+          </div>
+          <div class="grid-item item-s-12">
+            <button type="submit" id="mailchimp-submit">Subscribe</button>
+          </div>
+        </form>
+        <div id="mailchimp-response" class="font-size-micro">&nbsp;</div>
       </div>
+
       <div class="item-s-12 item-l-6">
         <div id="footer-nav">
           <ul class="grid-row">
