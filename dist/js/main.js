@@ -10063,8 +10063,9 @@ var Mailchimp = function () {
   }, {
     key: 'successMessage',
     value: function successMessage(response) {
+      console.log(response);
       var msg = '';
-      var successMsg = WP.lang === 'en_US' ? 'You\'ve been successfully subscribed' : 'Has sido suscrito exitosamente';
+      var successMsg = 'You\'ve been successfully subscribed';
 
       if (response.result === 'success') {
 
@@ -10106,15 +10107,15 @@ var Mailchimp = function () {
         }
 
         if (msg === 'An email address must contain a single @') {
-          msg = WP.lang === 'en_US' ? 'Your email is missing the @' : 'A tu email le falta el @';
+          msg = 'Your email is missing the @';
         } else if (msg === 'The domain portion of the email address is invalid (the portion after the @: )') {
-          msg = WP.lang === 'en_US' ? 'Your email\'s domain doesn\'t look right' : 'El dominio de tu email no se ve correcto';
+          msg = 'Your email\'s domain doesn\'t look right';
         } else if (msg === 'This email cannot be added to this list. Please enter a different email address.') {
-          msg = WP.lang === 'en_US' ? 'Please use a different email' : 'Por favor use otro email';
+          msg = 'Please use a different email';
         }
       }
 
-      if (this.alreadySubscribed(msg)) {
+      if (this.alreadySubscribed(response.msg)) {
 
         msg = successMsg;
 
