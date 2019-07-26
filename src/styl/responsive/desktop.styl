@@ -4,6 +4,15 @@
 
   grid-maker(100%, $gutter, xl)
 
+  $header-height = 22px
+  $footer-height = 91px
+
+  #main-container
+    padding-top: $header-height
+
+  #main-content
+    min-height: calc('100vh - ' + ($footer-height + $header-height))
+
   #article-content
     p
       padding-left: $margin-tiny

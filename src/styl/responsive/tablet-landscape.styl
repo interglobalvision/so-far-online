@@ -17,6 +17,15 @@
 
   font-sizes($font-size-basic)
 
+  $header-height = 22px
+  $footer-height = 91px
+
+  #main-container
+    padding-top: $header-height
+
+  #main-content
+    min-height: calc('100vh - ' + ($footer-height + $header-height))
+
   .mobile-only
     display: none !important
 

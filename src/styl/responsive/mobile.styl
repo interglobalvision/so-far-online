@@ -21,9 +21,13 @@ space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-m
 font-sizes($font-size-basic, $font-size-extra, $font-size-large, $font-size-mid, $font-size-small, $font-size-tiny)
 
 $header-height = 22px
+$footer-height = 91px
 
 #main-container
   padding-top: $header-height
+
+#main-content
+  min-height: calc('100vh - ' + ($footer-height + $header-height))
 
 .container
   max-width: 1440px
