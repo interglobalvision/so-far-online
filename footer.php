@@ -7,20 +7,20 @@ $options = get_site_option('_igv_site_options');
     <?php if (!empty($options['mailchimp_action'])) { ?>
       <div class="item-s-12 item-l-6 text-align-center padding-bottom-small">
         <form novalidate="true" id="mailchimp-form" class="grid-row align-items-center">
-          <div class="grid-item item-s-12 item-m-6 margin-bottom-tiny">
+          <div class="grid-item item-s-12 item-m-6 margin-bottom-micro">
             <input type="name" name="FNAME" placeholder="First Name" id="mailchimp-first">
           </div>
-          <div class="grid-item item-s-12 item-m-6 margin-bottom-tiny">
+          <div class="grid-item item-s-12 item-m-6 margin-bottom-micro">
             <input type="name" name="LNAME" placeholder="Last Name" id="mailchimp-last">
           </div>
-          <div class="grid-item item-s-12 margin-bottom-tiny">
+          <div class="grid-item item-s-12 margin-bottom-micro">
             <input type="email" name="EMAIL" placeholder="Email Address" id="mailchimp-email">
           </div>
           <div class="grid-item item-s-12">
             <button type="submit" id="mailchimp-submit">Subscribe</button>
           </div>
         </form>
-        <div id="mailchimp-response" class="margin-top-tiny">&nbsp;</div>
+        <div id="mailchimp-response" class="margin-top-micro">&nbsp;</div>
       </div>
     <?php } ?>
 
