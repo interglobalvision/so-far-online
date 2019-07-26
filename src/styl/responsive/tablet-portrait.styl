@@ -1,4 +1,4 @@
-@media screen and (min-width: 720px)
+@media screen and (min-width: 550px)
 
   $gutter = 30px
 
@@ -18,7 +18,7 @@
   font-sizes($font-size-basic)
 
   $header-height = 49px
-  $footer-height = 91px
+  $footer-height = 292px
 
   #main-container
     padding-top: $header-height
@@ -28,7 +28,7 @@
       top: -($header-height)
 
   #mobile-nav
-    top: -($header-height)
+    top: 0
     padding-top: $header-height
 
   #main-content
@@ -36,3 +36,21 @@
 
   .row-m-reverse
     flex-direction: row-reverse
+
+  .swiper-container
+    &[data-carousel-type='scroll']
+      width: calc('100vw - ' + $margin-small)
+      .swiper-slide
+        width: 300px
+        &:not(:first-child)
+          padding-left: $margin-tiny
+        &:not(:last-child)
+          padding-right: $margin-tiny
+
+  .swiper-scrollbar
+    height: 2px !important
+    background-color: $color-grey
+
+  .swiper-scrollbar-drag
+    height: 6px
+    margin-top: -2px

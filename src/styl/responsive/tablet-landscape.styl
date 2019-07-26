@@ -18,10 +18,20 @@
   font-sizes($font-size-basic)
 
   $header-height = 62px
-  $footer-height = 91px
+  $footer-height = 132px
 
   #main-container
     padding-top: $header-height
+
+  .no-gutter-left
+    padding-left: 0 !important
+
+  .no-gutter-right
+    padding-right: 0 !important
+
+  #header
+    &.nav-up
+      top: -($header-height)
 
   #main-content
     min-height: calc('100vh - ' + ($footer-height + $header-height))
@@ -37,6 +47,16 @@
 
   .row-l-reverse
     flex-direction: row-reverse
+
+  .swiper-container
+    &[data-carousel-type='scroll']
+      width: calc('83.3333333333vw - ' + $margin-small)
+      .swiper-slide
+        width: 400px
+        &:not(:first-child)
+          padding-left: $margin-tiny
+        &:not(:last-child)
+          padding-right: $margin-tiny
 
   #article-content
     p

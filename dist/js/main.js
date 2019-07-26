@@ -232,7 +232,8 @@ var Site = function () {
             el: '.swiper-scrollbar',
             draggable: true,
             hide: false,
-            snapOnRelease: false
+            snapOnRelease: false,
+            dragSize: 200
           }
         },
         slide: {

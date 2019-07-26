@@ -14,10 +14,14 @@
   space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-mid, $margin-large)
 
   $header-height = 82px
-  $footer-height = 91px
+  $footer-height = 152px
 
   #main-container
     padding-top: $header-height
+
+  #header
+    &.nav-up
+      top: -($header-height)
 
   #main-content
     min-height: calc('100vh - ' + ($footer-height + $header-height))
@@ -26,3 +30,12 @@
     p
       padding-left: $margin-tiny
       padding-right: $margin-tiny
+
+  .swiper-container
+    &[data-carousel-type='scroll']
+      width: calc('83.3333333333vw - ' + $margin-basic)
+      .swiper-slide
+        &:not(:first-child)
+          padding-left: $margin-tiny
+        &:not(:last-child)
+          padding-right: $margin-tiny

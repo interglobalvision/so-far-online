@@ -53,6 +53,7 @@ class Site {
           draggable: true,
           hide: false,
           snapOnRelease: false,
+          dragSize: 200,
         },
       },
       slide: {

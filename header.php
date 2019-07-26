@@ -55,7 +55,7 @@ get_template_part('partials/seo');
           </ul>
         </div>
         <div class="grid-item not-desktop">
-          <div><span class="js-toggle-menu">Toggle</span></div>
+          <div><span class="js-toggle-menu u-pointer">Toggle</span></div>
         </div>
         <div class="desktop-only">
           <div class="grid-row">
@@ -72,30 +72,30 @@ get_template_part('partials/seo');
   </header>
 
   <div id="mobile-nav" class="not-desktop">
-    <ul class="grid-row text-align-center">
-      <li class="grid-item item-s-12 item-l-auto">
-        <a href="<?php echo home_url('issues'); ?>">Issues</a>
+    <ul class="grid-row text-align-center padding-top-basic">
+      <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
+        <a href="<?php echo home_url('issues'); ?>" class="padding-top-tiny padding-bottom-tiny">Issues</a>
       </li>
-      <li class="grid-item item-s-12 item-l-auto">
-        <a href="<?php echo home_url('weeklies'); ?>">Weeklies</a>
+      <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
+        <a href="<?php echo home_url('weeklies'); ?>" class="padding-top-tiny padding-bottom-tiny">Weeklies</a>
       </li>
-      <li class="grid-item item-s-12 item-l-auto">
-        <a href="<?php echo home_url('artists'); ?>">Artists</a>
+      <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
+        <a href="<?php echo home_url('artists'); ?>" class="padding-top-tiny padding-bottom-tiny">Artists</a>
       </li>
-      <li class="grid-item item-s-12 item-l-auto">
-        <a href="<?php echo home_url('shop'); ?>">Shop</a>
+      <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
+        <a href="<?php echo home_url('shop'); ?>" class="padding-top-tiny padding-bottom-tiny">Shop</a>
       </li>
-      <li class="grid-item item-s-12 item-l-auto">
-        <a href="<?php echo home_url('about'); ?>">About</a>
+      <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
+        <a href="<?php echo home_url('about'); ?>" class="padding-top-tiny padding-bottom-tiny">About</a>
       </li>
     </ul>
     <div>
       <div class="grid-row justify-center">
-        <div class="grid-item">
-          <a href="<?php echo home_url('bag'); ?>">Bag</a>
+        <div class="grid-item padding-bottom-basic">
+          <a href="<?php echo home_url('bag'); ?>" class="padding-top-tiny padding-bottom-tiny">Bag</a>
         </div>
-        <div class="grid-item">
-          Search
+        <div class="grid-item padding-bottom-basic">
+          <span class="padding-top-tiny padding-bottom-tiny">Search</span>
         </div>
       </div>
     </div>

@@ -12,10 +12,10 @@ $reverse = $index % 2;
 $background_class = $reverse || $index === 0 ? 'background-pale' : '';
 ?>
 
-<article <?php post_class($background_class); ?> id="post-<?php the_ID(); ?>">
+<article <?php post_class($background_class . ' padding-top-small padding-bottom-basic'); ?> id="post-<?php the_ID(); ?>">
   <div class="container">
     <div class="desktop-only">
-      <div class="grid-row">
+      <div class="grid-row padding-bottom-small">
         <div class="grid-item item-l-7 offset-l-1">
           <span><?php
             echo 'Issue';
@@ -34,35 +34,36 @@ $background_class = $reverse || $index === 0 ? 'background-pale' : '';
     </div>
 
     <div class="grid-row justify-start <?php echo $reverse ? 'row-l-reverse' : ''; ?>">
-      <div class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter <?php echo $reverse ? 'text-align-right' : ''; ?>">
+      <div class="grid-item item-s-12 item-l-6 item-xl-7 <?php echo $reverse ? 'text-align-right no-gutter-right' : 'no-gutter-left'; ?>">
         <a href="<?php the_permalink() ?>">
           <?php the_post_thumbnail(); ?>
         </a>
         <?php if (!empty($featured_caption)) { ?>
-          <div><span><?php echo $featured_caption; ?></span></div>
+          <div class="padding-top-tiny text-align-center"><span><?php echo $featured_caption; ?></span></div>
         <?php } ?>
       </div>
 
       <a href="<?php the_permalink() ?>" class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter grid-row align-content-end">
-        <div class="grid-item item-s-12">
-          <h3><?php the_title(); ?></h3>
+        <div class="grid-item item-s-12 margin-bottom-basic">
+          <h1><?php the_title(); ?></h1>
         </div>
         <?php if (!empty($subtitle)) { ?>
         <div class="grid-item item-s-12">
           <span><?php echo $subtitle; ?></span>
         </div>
-        <?php } ?>
-        <div class="grid-item item-s-12 offset-m-4 offset-l-2 offset-xl-4">
+        <?php } if ($contributor_names || $artist_names) { ?>
+        <div class="grid-item item-s-12 offset-m-4 offset-l-2 offset-xl-4 margin-top-small">
         <?php if ($contributor_names) { ?>
-          <div>
+          <div class="margin-top-tiny">
             <span>Text by: <?php echo $contributor_names; ?></span>
           </div>
         <?php } if ($artist_names) { ?>
-          <div>
+          <div class="margin-top-tiny">
             <span>Artwork by: <?php echo $artist_names; ?></span>
           </div>
         <?php } ?>
         </div>
+        <?php } ?>
       </a>
     </div>
   </div>

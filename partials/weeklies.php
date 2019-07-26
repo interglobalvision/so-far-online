@@ -8,8 +8,8 @@ $weeklies_query = new WP_Query($args);
 
 if ( $weeklies_query->have_posts() ) {
 ?>
-
-  <h2 class="text-align-center font-uppercase">Weeklies</h2>
+<section id="weeklies-carousel" class="padding-top-small padding-bottom-small">
+  <h2 class="text-align-center font-uppercase padding-bottom-small">Weeklies</h2>
   <div class="swiper-container" data-carousel-type="scroll">
     <div class="swiper-wrapper padding-bottom-small">
   <?php
@@ -19,21 +19,22 @@ if ( $weeklies_query->have_posts() ) {
       $contributors = get_name_list($post->ID, 'contributor');
   ?>
       <div class="swiper-slide text-align-center">
-        <div>
-          <span><?php echo $type ? $type : '&nbsp;'; ?></span>
-        </div>
-        <?php the_post_thumbnail(); ?>
-        <?php the_title(); ?>
-        <?php
-          if ($contributors) {
-        ?>
-        <div>
-          <span><?php echo $contributors; ?></span>
-        </div>
-        <?php
-          }
-        ?>
-
+        <a href="<?php the_permalink(); ?>">
+          <div>
+            <span><?php echo $type ? $type : '&nbsp;'; ?></span>
+          </div>
+          <?php the_post_thumbnail(); ?>
+          <?php the_title(); ?>
+          <?php
+            if ($contributors) {
+          ?>
+          <div>
+            <span><?php echo $contributors; ?></span>
+          </div>
+          <?php
+            }
+          ?>
+        </a>
       </div>
   <?php
   	} // end while
@@ -41,7 +42,7 @@ if ( $weeklies_query->have_posts() ) {
     </div>
     <div class="swiper-scrollbar"></div>
   </div>
-
+</section>
 <?php
 } // endif
 

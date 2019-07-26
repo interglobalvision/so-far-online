@@ -2,7 +2,7 @@
 $options = get_site_option('_igv_site_options');
 ?>
 
-  <footer id="footer">
+  <footer id="footer" class="background-pale padding-top-small">
     <div class="grid-row">
       <div class="item-s-12 item-l-6 text-align-center">
         <form novalidate="true" id="mailchimp-form" class="grid-row align-items-center">

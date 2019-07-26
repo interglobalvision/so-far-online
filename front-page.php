@@ -92,9 +92,9 @@ if ($issues) {
     $products_query = new WP_Query($products_args);
     if ($products_query->have_posts()) {
 ?>
-  <section>
+  <section class="padding-top-small padding-bottom-small">
     <div class="container">
-      <h2 class="text-align-center font-uppercase">Recent Artworks</h2>
+      <h2 class="text-align-center font-uppercase padding-bottom-small">Recent Artworks</h2>
       <div class="grid-row justify-end">
 <?php
       while ($products_query->have_posts()) {

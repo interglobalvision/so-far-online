@@ -21,21 +21,21 @@ if (have_posts()) {
     $partners = get_post_meta($post->ID, '_igv_about_partners', true);
 ?>
 
-  <section>
+  <section class="padding-top-small padding-bottom-small">
     <div class="grid-row">
       <div class="grid-item item-s-12 item-l-8 offset-l-2">
         <?php if (!empty($headline)) { ?>
-        <div><span><?php echo $headline; ?></span></div>
+        <div class="padding-bottom-small"><span><?php echo $headline; ?></span></div>
         <?php } the_content(); ?>
       </div>
     </div>
   </section>
-  <section class="text-align-center">
+  <section class="text-align-center padding-bottom-small">
     <?php the_post_thumbnail(); ?>
   </section>
 <?php if (!empty($mission)) { ?>
-  <section>
-    <h2 class="text-align-center font-uppercase">Our Mission</h2>
+  <section class="padding-top-small padding-bottom-small">
+    <h2 class="text-align-center font-uppercase padding-bottom-small">Our Mission</h2>
     <div class="grid-row">
       <div class="grid-item item-s-12 item-l-8 offset-l-2">
         <div><?php echo apply_filters('the_content', $mission); ?></div>
@@ -43,23 +43,23 @@ if (have_posts()) {
     </div>
   </section>
 <?php } if (!empty($team)) { ?>
-  <section>
-    <h2 class="text-align-center font-uppercase">Our Team</h2>
+  <section class="padding-top-small padding-bottom-small">
+    <h2 class="text-align-center font-uppercase padding-bottom-small">Our Team</h2>
     <div class="grid-row justify-center">
     <?php foreach($team as $member) { ?>
       <div class="grid-item item-s-12 item-m-4 item-l-3">
         <div><?php echo !empty($member['photo_id']) ? wp_get_attachment_image($member['photo_id']) : ''; ?></div>
-        <div><span><?php echo !empty($member['name']) ? $member['name'] : ''; ?></span></div>
-        <div><?php echo !empty($member['bio']) ? apply_filters('the_content', $member['bio']) : ''; ?></div>
+        <div class="margin-top-micro"><span><?php echo !empty($member['name']) ? $member['name'] : ''; ?></span></div>
+        <div class="margin-top-micro"><?php echo !empty($member['bio']) ? apply_filters('the_content', $member['bio']) : ''; ?></div>
       </div>
     <?php } ?>
     </div>
   </section>
 <?php } if (!empty($contributors_text) || !empty($contributors_image_id)) { ?>
-  <section>
-    <h2 class="text-align-center font-uppercase">Contributors</h2>
+  <section class="padding-top-small padding-bottom-small">
+    <h2 class="text-align-center font-uppercase padding-bottom-small">Contributors</h2>
     <div class="grid-row">
-      <div class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter">
+      <div class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter-left">
         <?php echo !empty($contributors_image_id) ? wp_get_attachment_image($contributors_image_id) : ''; ?>
       </div>
       <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter">
@@ -68,10 +68,10 @@ if (have_posts()) {
     </div>
   </section>
 <?php } if (!empty($artists_text) || !empty($artists_image_id)) { ?>
-  <section>
-    <h2 class="text-align-center font-uppercase">Artists</h2>
+  <section class="padding-top-small padding-bottom-small">
+    <h2 class="text-align-center font-uppercase padding-bottom-small">Artists</h2>
     <div class="grid-row row-l-reverse">
-      <div class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter">
+      <div class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter-right">
         <?php echo !empty($artists_image_id) ? wp_get_attachment_image($artists_image_id) : ''; ?>
       </div>
       <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter">
@@ -80,14 +80,14 @@ if (have_posts()) {
     </div>
   </section>
 <?php } if (!empty($partners)) { ?>
-  <section>
-    <h2 class="text-align-center font-uppercase">Partners</h2>
-    <div>
+  <section class="padding-top-small padding-bottom-tiny">
+    <h2 class="text-align-center font-uppercase padding-bottom-small">Partners</h2>
+    <div class="grid-row justify-center">
     <?php
       foreach ($partners as $partner) {
         if (!empty($partner['logo_id'])) {
     ?>
-      <div class="u-inlineblock">
+      <div class="grid-item padding-bottom-tiny">
         <?php
           echo !empty($partner['link']) ? '<a href="' . $partner['link'] . '">' : '';
           echo wp_get_attachment_image($partner['logo_id']);
