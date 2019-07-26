@@ -18,7 +18,7 @@
   font-sizes($font-size-basic)
 
   $header-height = 62px
-  $footer-height = 132px
+  $footer-height = 256px
 
   #main-container
     padding-top: $header-height
@@ -49,7 +49,7 @@
     flex-direction: row-reverse
 
   .swiper-container
-    &[data-carousel-type='scroll']
+    &[data-swiper-type='scroll']
       width: calc('83.3333333333vw - ' + $margin-small)
       .swiper-slide
         width: 400px

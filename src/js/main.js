@@ -19,6 +19,8 @@ class Site {
 
     this.onScroll = this.onScroll.bind(this);
     this.onScrollInterval = this.onScrollInterval.bind(this);
+    this.setupSwiperInstance = this.setupSwiperInstance.bind(this);
+    this.handleOpenOverlay = this.handleOpenOverlay.bind(this);
   }
 
   onResize() {
@@ -30,15 +32,17 @@ class Site {
     this.lastScrollTop = 0;
     this.delta = 5;
     this.navbarHeight = $('#header').outerHeight();
+    this.swiperInstance = {};
 
     lazySizes.init();
     this.initSwiper();
     this.bindStickyHeader();
     this.bindMenuToggle();
+    this.bindOverlayTriggers();
   }
 
   initSwiper() {
-    var swiperArgs = {
+    this.swiperArgs = {
       scroll: {
         simulateTouch: true,
         slidesPerView: 'auto',
@@ -59,7 +63,9 @@ class Site {
       slide: {
         simulateTouch: true,
         slidesPerView: 1,
+        initialSlide: 0,
         loop: true,
+        effect: 'slide',
         navigation: {
           nextEl: '.slide-next',
           prevEl: '.slide-prev',
@@ -69,20 +75,59 @@ class Site {
           bulletClass: 'slide-pagination-bullet',
           bulletActiveClass: 'slide-pagination-bullet-active',
           type: 'bullets',
+          clickable: true,
         },
       },
+      overlay: {
+        simulateTouch: true,
+        slidesPerView: 1,
+        initialSlide: 0,
+        loop: true,
+        effect: 'slide',
+        navigation: {
+          nextEl: '.overlay-next',
+          prevEl: '.overlay-prev',
+        },
+      },
+    };
+
+    $('.swiper-container').each(this.setupSwiperInstance);
+  }
+
+  setupSwiperInstance(index, element) {
+    var type = $(element).attr('data-swiper-type');
+    var selector = '.swiper-container[data-swiper-type="' + type + '"]';
+
+    if (type === 'scroll') {
+      $(element).addClass('swiper-instance-' + index);
+      selector = 'swiper-instance-' + index;
     }
 
-    $('.swiper-container').each(function(index, element) {
-      $(this).addClass('swiper-instance-' + index);
-      var type = $(this).attr('data-carousel-type');
-      var swiperInstance = new Swiper ('.swiper-instance-' + index, swiperArgs[type]);
-      if (type === 'slide') {
-        swiperInstance.on('slideChange', function () {
-          $('.current-slide').html(swiperInstance.realIndex + 1);
-        });
+    var swiperInstance = new Swiper (selector, this.swiperArgs[type]);
+
+    if (type === 'slide' || type === 'overlay') {
+      swiperInstance.on('slideChange', function () {
+        $('.' + type + '-current').html(swiperInstance.realIndex + 1);
+      });
+      this.swiperInstance[type] = swiperInstance;
+    }
+  }
+
+  bindOverlayTriggers() {
+    $('.trigger-overlay').on('click', this.handleOpenOverlay);
+
+    $('#overlay-gallery').on('click', function(e) {
+      if (e.target !== this) {
+        return;
       }
-    });
+      $('body').removeClass('overlay-open');
+    })
+  }
+
+  handleOpenOverlay(e) {
+    var slideIndex = this.swiperInstance['slide'].activeIndex;
+    this.swiperInstance['overlay'].slideTo(slideIndex, 0);
+    $('body').addClass('overlay-open');
   }
 
   bindMenuToggle() {

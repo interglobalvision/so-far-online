@@ -95,28 +95,11 @@ if ($issues) {
   <section class="padding-top-small padding-bottom-small">
     <div class="container">
       <h2 class="text-align-center font-uppercase padding-bottom-small">Recent Artworks</h2>
-      <div class="grid-row justify-end">
+      <div class="grid-row justify-center">
 <?php
       while ($products_query->have_posts()) {
         $products_query->the_post();
-        $artist_names = get_name_list($post->ID, 'artist');
-        $title = get_post_meta($post->ID, '_igv_artwork_title', true);
-        $year = get_post_meta($post->ID, '_igv_artwork_year', true);
-?>
-        <div class="grid-item item-s-12 item-l-3 no-gutter">
-          <a href="<?php the_permalink(); ?>">
-            <div><?php the_post_thumbnail(); ?></div>
-            <div><span><?php echo !empty($artist_names) ? $artist_names : ''; ?></span></div>
-            <div><span>
-              <?php
-                echo !empty($title) ? $title : '';
-                echo !empty($title) && !empty($year) ? ', ' : '';
-                echo !empty($year) ? $year : '';
-              ?>
-            </span></div>
-          </a>
-        </div>
-<?php
+        get_template_part('partials/product-item');
       }
 ?>
       </div>

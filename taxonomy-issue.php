@@ -75,14 +75,14 @@ if (count($chapters) > 0) {
       <?php
       if ($articles_query->have_posts()) {
       ?>
-      <div class="swiper-container" data-carousel-type="scroll">
+      <div class="swiper-container" data-swiper-type="scroll">
         <div class="swiper-wrapper padding-bottom-small">
         <?php
           while ($articles_query->have_posts()) {
             $articles_query->the_post();
             $authors = get_name_list($post->ID, 'contributor');
         ?>
-          <div class="swiper-slide text-align-center">
+          <article class="swiper-slide text-align-center">
             <div><span>Published on <?php echo get_the_date(); ?></span></div>
             <div>
               <a href="<?php the_permalink(); ?>">
@@ -91,7 +91,7 @@ if (count($chapters) > 0) {
               </a>
             </div>
             <div class="padding-bottom-tiny"><span><?php echo $authors ? 'by ' . $authors : ''; ?></span></div>
-          </div>
+          </article>
         <?php
           }
         ?>

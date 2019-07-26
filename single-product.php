@@ -30,11 +30,11 @@ if (have_posts()) {
           <div class="grid-row">
             <div class="grid-item item-s-12 item-l-7 offset-l-1">
             <?php if (!empty($images)) { ?>
-              <div class="swiper-container" data-carousel-type="slide">
+              <div class="swiper-container" data-swiper-type="slide">
                 <div class="swiper-wrapper">
                 <?php foreach ($images as $image) { ?>
-                  <div class="swiper-slide">
-                    <?php echo wp_get_attachment_image(attachment_url_to_postid($image)); ?>
+                  <div class="swiper-slide trigger-overlay">
+                    <?php echo wp_get_attachment_image(attachment_url_to_postid($image), 'full'); ?>
                   </div>
                 <?php } ?>
                 </div>
@@ -59,7 +59,7 @@ if (have_posts()) {
               </div>
               <div class="margin-bottom-small desktop-only">
                 <span class="slide-prev u-pointer"><</span>
-                <span><span class="current-slide">1</span>/<span><?php echo count($images); ?></span></span>
+                <span><span class="slide-current">1</span>/<span><?php echo count($images); ?></span></span>
                 <span class="slide-next u-pointer">></span>
               </div>
               <?php } ?>
@@ -184,8 +184,12 @@ if (have_posts()) {
 
   wp_reset_postdata();
 }
-?>
 
+if (!empty($images)) {
+  global $images;
+  get_template_part('partials/overlay-gallery');
+}
+?>
 </main>
 
 <?php
