@@ -19,7 +19,7 @@ if (have_posts()) {
 
     <article <?php post_class('gws-product'); ?> id="post-<?php the_ID(); ?>" data-gws-product-handle="<?php echo $product_handle; ?>">
 
-      <section>
+      <section class="padding-top-small padding-bottom-small">
         <div class="container">
           <div class="grid-row">
             <div class="grid-item item-s-12 item-l-7 offset-l-1">
@@ -58,7 +58,7 @@ if (have_posts()) {
         </div>
       </section>
 
-      <section>
+      <section class="padding-top-small padding-bottom-small background-pale">
         <div class="container">
           <div class="grid-row">
             <div class="grid-item item-s-12 item-l-7 offset-l-1">
@@ -100,9 +100,9 @@ if (have_posts()) {
 
   if($artists) {
 ?>
-    <section>
+    <section class="padding-top-small padding-bottom-small">
       <div class="container">
-        <h2 class="text-align-center font-uppercase">Meet the Artist</h2>
+        <h2 class="text-align-center font-uppercase padding-bottom-small">Meet the Artist</h2>
         <?php
           foreach($artists as $bio) {
             global $bio;
@@ -131,12 +131,12 @@ if (have_posts()) {
   if ($articles_query->have_posts()) {
 ?>
     <section>
-      <h2 class="text-align-center font-uppercase">This artwork appears in...</h2>
+      <h2 class="text-align-center font-uppercase background-pale padding-top-small padding-bottom-small">This artwork appears in...</h2>
 <?php
     while ($articles_query->have_posts()) {
       $articles_query->the_post();
 
-      $index = $articles_query->current_post;
+      $index = $articles_query->current_post + 1;
       global $index;
 
       $issue_terms = get_the_terms($post, 'issue');

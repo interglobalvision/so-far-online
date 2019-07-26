@@ -1,9 +1,10 @@
 <?php
 global $index;
-global $$issue_number;
+global $issue_number;
 global $issue;
 global $chapter_number;
 global $chapter;
+
 $featured_caption = get_post_meta($post->ID, '_igv_featured_caption', true);
 $subtitle = get_post_meta($post->ID, '_igv_subtitle', true);
 $contributor_names = get_name_list($post->ID, 'contributor');
