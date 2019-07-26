@@ -56,7 +56,7 @@ get_template_part('partials/seo');
           <div class="mobile-only">
             <div class="grid-row justify-center">
               <div class="grid-item">
-                <a href="<?php echo home_url('cart'); ?>">Cart</a>
+                <a href="<?php echo home_url('bag'); ?>">Bag</a>
               </div>
               <div class="grid-item">
                 Search
@@ -70,7 +70,7 @@ get_template_part('partials/seo');
         <div class="desktop-only">
           <div class="grid-row">
             <div class="grid-item">
-              <a href="<?php echo home_url('cart'); ?>">Cart</a>
+              <a href="<?php echo home_url('bag'); ?>">Bag</a>
             </div>
             <div class="grid-item">
               Search
