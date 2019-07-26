@@ -150,7 +150,7 @@ if (have_posts()) {
   if ($articles_query->have_posts()) {
 ?>
     <section>
-      <h2 class="text-align-center font-uppercase background-pale padding-top-small padding-bottom-small">This artwork appears in...</h2>
+      <h2 class="text-align-center font-uppercase background-pale padding-top-small">This artwork appears in...</h2>
 <?php
     while ($articles_query->have_posts()) {
       $articles_query->the_post();

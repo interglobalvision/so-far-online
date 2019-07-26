@@ -46,18 +46,18 @@ $options = get_site_option('_igv_site_options');
         </div>
 
         <div class="grid-row padding-bottom-small">
-          <div class="grid-item item-s-12 item-l-auto">
+          <div class="grid-item item-s-12 item-l-auto margin-bottom-micro">
             Connect with us on
           </div>
-          <ul class="grid-row">
+          <ul class="grid-row item-s-12 item-l-auto">
           <?php if (!empty($options['socialmedia_instagram'])) { ?>
-            <li class="grid-item item-s-12 item-l-auto"><a href="https://instagram.com/<?php echo $options['socialmedia_instagram']; ?>">IG</a></li>
+            <li class="grid-item"><a href="https://instagram.com/<?php echo $options['socialmedia_instagram']; ?>">IG</a></li>
           <?php } if (!empty($options['socialmedia_facebook'])) { ?>
-            <li class="grid-item item-s-12 item-l-auto"><a href="https://facebook.com/<?php echo $options['socialmedia_facebook']; ?>">FB</a></li>
+            <li class="grid-item"><a href="https://facebook.com/<?php echo $options['socialmedia_facebook']; ?>">FB</a></li>
           <?php } if (!empty($options['socialmedia_twitter'])) { ?>
-            <li class="grid-item item-s-12 item-l-auto"><a href="https://twitter.com/<?php echo $options['socialmedia_twitter']; ?>">TW</a></li>
+            <li class="grid-item"><a href="https://twitter.com/<?php echo $options['socialmedia_twitter']; ?>">TW</a></li>
           <?php } if (!empty($options['socialmedia_vimeo'])) { ?>
-            <li class="grid-item item-s-12 item-l-auto"><a href="https://vimeo.com/<?php echo $options['socialmedia_vimeo']; ?>">VI</a></li>
+            <li class="grid-item"><a href="https://vimeo.com/<?php echo $options['socialmedia_vimeo']; ?>">VI</a></li>
           <?php } ?>
           </ul>
         </div>
