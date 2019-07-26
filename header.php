@@ -28,14 +28,14 @@ get_template_part('partials/seo');
 
 <section id="main-container">
 
-  <header id="header">
+  <header id="header" class="padding-top-tiny padding-bottom-tiny">
     <div class="container">
       <h1 class="u-visuallyhidden"><?php bloginfo('name'); ?></h1>
       <div class="grid-row justify-between">
         <div class="grid-item">
           <a href="<?php echo home_url(); ?>">Logo</a>
         </div>
-        <div id="main-nav">
+        <div id="main-nav" class="desktop-only">
           <ul class="grid-row text-align-center">
             <li class="grid-item item-s-12 item-l-auto">
               <a href="<?php echo home_url('issues'); ?>">Issues</a>
@@ -53,19 +53,9 @@ get_template_part('partials/seo');
               <a href="<?php echo home_url('about'); ?>">About</a>
             </li>
           </ul>
-          <div class="mobile-only">
-            <div class="grid-row justify-center">
-              <div class="grid-item">
-                <a href="<?php echo home_url('bag'); ?>">Bag</a>
-              </div>
-              <div class="grid-item">
-                Search
-              </div>
-            </div>
-          </div>
         </div>
         <div class="grid-item not-desktop">
-          <div><span>Toggle</span></div>
+          <div><span class="js-toggle-menu">Toggle</span></div>
         </div>
         <div class="desktop-only">
           <div class="grid-row">
@@ -80,3 +70,33 @@ get_template_part('partials/seo');
       </div>
     </div>
   </header>
+
+  <div id="mobile-nav" class="not-desktop">
+    <ul class="grid-row text-align-center">
+      <li class="grid-item item-s-12 item-l-auto">
+        <a href="<?php echo home_url('issues'); ?>">Issues</a>
+      </li>
+      <li class="grid-item item-s-12 item-l-auto">
+        <a href="<?php echo home_url('weeklies'); ?>">Weeklies</a>
+      </li>
+      <li class="grid-item item-s-12 item-l-auto">
+        <a href="<?php echo home_url('artists'); ?>">Artists</a>
+      </li>
+      <li class="grid-item item-s-12 item-l-auto">
+        <a href="<?php echo home_url('shop'); ?>">Shop</a>
+      </li>
+      <li class="grid-item item-s-12 item-l-auto">
+        <a href="<?php echo home_url('about'); ?>">About</a>
+      </li>
+    </ul>
+    <div>
+      <div class="grid-row justify-center">
+        <div class="grid-item">
+          <a href="<?php echo home_url('bag'); ?>">Bag</a>
+        </div>
+        <div class="grid-item">
+          Search
+        </div>
+      </div>
+    </div>
+  </div>

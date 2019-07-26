@@ -1,6 +1,6 @@
 @media screen and (min-width: 720px)
 
-  $gutter = 21px
+  $gutter = 30px
 
   $margin-micro = ($gutter / 3)
   $margin-tiny = ($gutter / 2)
@@ -17,10 +17,18 @@
 
   font-sizes($font-size-basic)
 
-  $header-height = 22px
+  $header-height = 49px
   $footer-height = 91px
 
   #main-container
+    padding-top: $header-height
+
+  #header
+    &.nav-up
+      top: -($header-height)
+
+  #mobile-nav
+    top: -($header-height)
     padding-top: $header-height
 
   #main-content

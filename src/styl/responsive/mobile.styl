@@ -1,4 +1,4 @@
-$gutter = 14px
+$gutter = 10px
 
 $margin-micro = ($gutter / 3)
 $margin-tiny = ($gutter / 2)
@@ -20,7 +20,7 @@ space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-m
 
 font-sizes($font-size-basic, $font-size-extra, $font-size-large, $font-size-mid, $font-size-small, $font-size-tiny)
 
-$header-height = 22px
+$header-height = 27px
 $footer-height = 91px
 
 #main-container
@@ -32,6 +32,14 @@ $footer-height = 91px
 .container
   max-width: 1440px
 
+body
+  &.nav-open
+    #mobile-nav
+      transform: translateY(0)
+    #header
+      &.nav-up
+        top: 0
+
 #header
   background-color: $color-pink
   border-bottom: 1px solid $color-black
@@ -39,9 +47,20 @@ $footer-height = 91px
   top: 0
   width: 100%
   transition: top 0.2s ease-in-out
-  z-index: 100
+  z-index: 200
   &.nav-up
     top: -($header-height)
+
+#mobile-nav
+  position: fixed
+  top: 0
+  padding-top: $header-height
+  width: 100%
+  z-index: 100
+  background-color: $color-pink
+  border-bottom: 1px solid $color-black
+  transform: translateY(-100%)
+  transition: transform .5s ease-in-out
 
 #wp-_igv_featured_caption-wrap
   .mce-btn

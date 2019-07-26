@@ -34,6 +34,7 @@ class Site {
     lazySizes.init();
     this.initSwiper();
     this.bindStickyHeader();
+    this.bindMenuToggle();
   }
 
   initSwiper() {
@@ -74,6 +75,13 @@ class Site {
           $('.current-slide').html(swiperInstance.realIndex + 1);
         });
       }
+    });
+  }
+
+  bindMenuToggle() {
+    $('.js-toggle-menu').on('click', function() {
+      $('body').toggleClass('nav-open');
+      $('#header').removeClass('nav-up');
     });
   }
 

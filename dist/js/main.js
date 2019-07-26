@@ -213,6 +213,7 @@ var Site = function () {
       _lazysizes2.default.init();
       this.initSwiper();
       this.bindStickyHeader();
+      this.bindMenuToggle();
     }
   }, {
     key: 'initSwiper',
@@ -254,6 +255,14 @@ var Site = function () {
             $('.current-slide').html(swiperInstance.realIndex + 1);
           });
         }
+      });
+    }
+  }, {
+    key: 'bindMenuToggle',
+    value: function bindMenuToggle() {
+      $('.js-toggle-menu').on('click', function () {
+        $('body').toggleClass('nav-open');
+        $('#header').removeClass('nav-up');
       });
     }
   }, {
