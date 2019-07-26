@@ -31,7 +31,7 @@ if (have_posts()) {
     </div>
   </section>
   <section class="text-align-center padding-bottom-small">
-    <?php the_post_thumbnail(); ?>
+    <?php the_post_thumbnail('full'); ?>
   </section>
 <?php if (!empty($mission)) { ?>
   <section class="padding-top-small padding-bottom-small">
@@ -48,7 +48,7 @@ if (have_posts()) {
     <div class="grid-row justify-center">
     <?php foreach($team as $member) { ?>
       <div class="grid-item item-s-12 item-m-4 item-l-3">
-        <div><?php echo !empty($member['photo_id']) ? wp_get_attachment_image($member['photo_id']) : ''; ?></div>
+        <div><?php echo !empty($member['photo_id']) ? wp_get_attachment_image($member['photo_id'], 'full') : ''; ?></div>
         <div class="margin-top-micro"><span><?php echo !empty($member['name']) ? $member['name'] : ''; ?></span></div>
         <div class="margin-top-micro"><?php echo !empty($member['bio']) ? apply_filters('the_content', $member['bio']) : ''; ?></div>
       </div>
@@ -60,10 +60,13 @@ if (have_posts()) {
     <h2 class="text-align-center font-uppercase padding-bottom-small">Contributors</h2>
     <div class="grid-row">
       <div class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter-left">
-        <?php echo !empty($contributors_image_id) ? wp_get_attachment_image($contributors_image_id) : ''; ?>
+        <?php echo !empty($contributors_image_id) ? wp_get_attachment_image($contributors_image_id, 'full') : ''; ?>
       </div>
       <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter">
         <?php echo !empty($contributors_text) ? apply_filters('the_content', $contributors_text) : ''; ?>
+        <div class="padding-top-small text-align-center font-uppercase">
+          <a class="button" href="<?php echo home_url('contributors'); ?>">Meet our contributors</a>
+        </div>
       </div>
     </div>
   </section>
@@ -72,10 +75,13 @@ if (have_posts()) {
     <h2 class="text-align-center font-uppercase padding-bottom-small">Artists</h2>
     <div class="grid-row row-l-reverse">
       <div class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter-right">
-        <?php echo !empty($artists_image_id) ? wp_get_attachment_image($artists_image_id) : ''; ?>
+        <?php echo !empty($artists_image_id) ? wp_get_attachment_image($artists_image_id, 'full') : ''; ?>
       </div>
       <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter">
         <?php echo !empty($artists_text) ? apply_filters('the_content', $artists_text) : ''; ?>
+        <div class="padding-top-small text-align-center font-uppercase">
+          <a class="button" href="<?php echo home_url('artists'); ?>">Meet our artists</a>
+        </div>
       </div>
     </div>
   </section>

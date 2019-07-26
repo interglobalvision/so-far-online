@@ -8,6 +8,7 @@ function create_custom_pages() {
     'issues' => 'Issues',
     'weeklies' => 'Weeklies',
     'artists' => 'Artists',
+    'contributors' => 'Contributors',
     'about' => 'About',
     'contribute' => 'How to Contribute',
     'contact' => 'Contact Us',
@@ -28,6 +29,15 @@ function create_custom_pages() {
   }
 }
 add_filter( 'after_setup_theme', 'create_custom_pages' );
+
+function assign_bio_archive_template( $page_template ) {
+  global $post;
+  if ($post->post_name === 'artists' || $post->post_name === 'contributors') {
+    $page_template = get_template_directory() . '/bio-archive.php';
+  }
+  return $page_template;
+}
+add_filter( 'page_template', 'assign_bio_archive_template' );
 
 function igv_allowed_block_types( $allowed_blocks, $post ) {
   $allowed_blocks = array(

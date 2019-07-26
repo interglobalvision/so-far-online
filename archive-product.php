@@ -24,9 +24,9 @@ foreach ($collections as $collection) {
 
   if ($products_query->have_posts()) {
 ?>
-  <section>
+  <section class="padding-top-small padding-bottom-small">
     <div class="container">
-      <h2 class="text-align-center font-uppercase"><?php echo $collection->name; ?></h2>
+      <h2 class="text-align-center font-uppercase padding-bottom-small"><?php echo $collection->name; ?></h2>
       <div class="grid-row">
       <?php
         while ($products_query->have_posts()) {
