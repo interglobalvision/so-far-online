@@ -90,13 +90,24 @@ body
 
 .swiper-scrollbar
   height: 2px !important
-  background-color: $color-grey
+  background-color: $color-grey-medium
 
 .swiper-scrollbar-drag
   height: 4px
   margin-top: -1px
   border-radius: 0
   background-color: $color-black
+
+.slide-pagination-bullet
+  width: 10px
+  height: 10px
+  display: inline-block
+  border-radius: 100%
+  background: transparent
+  border: 1px solid $color-grey-dark
+  margin: 0 5px
+  &.slide-pagination-bullet-active
+    background: $color-grey-medium
 
 article
   ol
@@ -109,8 +120,7 @@ input
   appearance: none
   width: 100%
   border: 1px solid $color-black
-  padding-top: .8rem
-  padding-bottom: .8rem
+  padding: .8rem .4rem
   background: $color-grey-light
   background-image: radial-gradient(circle, $color-grey-light 0%, $color-grey-medium 100%)
   +placeholder()
@@ -121,3 +131,28 @@ button
   background: transparent
   border: none
   cursor: pointer
+  &:disabled
+    cursor: default
+  &.shop-button
+    background: $color-black
+    padding: .4rem 3rem
+    color: $color-white
+    &:disabled
+      background: $color-grey-medium
+      color: $color-grey-light
+
+.gws-product
+  .product-sold
+    display: none
+  .item-in-cart
+    display: none
+  &[data-gws-available='false']
+    .product-sold
+      display: block
+    .product-price
+      display: none
+  &[data-gws-in-cart='true']
+    .item-in-cart
+      display: block
+    .add-to-cart
+      display: none

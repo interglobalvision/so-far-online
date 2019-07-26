@@ -64,6 +64,12 @@ class Site {
           nextEl: '.slide-next',
           prevEl: '.slide-prev',
         },
+        pagination: {
+          el: '.slide-pagination',
+          bulletClass: 'slide-pagination-bullet',
+          bulletActiveClass: 'slide-pagination-bullet-active',
+          type: 'bullets',
+        },
       },
     }
 

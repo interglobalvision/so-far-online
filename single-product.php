@@ -17,7 +17,13 @@ if (have_posts()) {
     $artists = get_the_terms($post, 'artist');
 ?>
 
-    <article <?php post_class('gws-product'); ?> id="post-<?php the_ID(); ?>" data-gws-product-handle="<?php echo $product_handle; ?>">
+    <article
+      <?php post_class('gws-product'); ?>
+      id="post-<?php the_ID(); ?>"
+      <?php echo !empty($product_handle) ? 'data-gws-product-handle="' . $product_handle . '"' : ''; ?>
+      data-gws-available="true"
+      data-gws-post-id="<?php echo $post->post_name; ?>"
+    >
 
       <section class="padding-top-small padding-bottom-small">
         <div class="container">
@@ -33,26 +39,39 @@ if (have_posts()) {
                 <?php } ?>
                 </div>
               </div>
+              <div class="slide-pagination text-align-center margin-top-micro">
+              </div>
             <?php } ?>
             </div>
             <div class="grid-item item-s-12 item-l-3">
               <h1 class="u-visuallyhidden"><?php the_title(); ?></h1>
-              <?php echo !empty($artist_names) ? '<div><span>' . $artist_names . '</span></div>' : ''; ?>
-              <?php echo !empty($title) ? '<div><span>' . $title . '</span></div>' : ''; ?>
+              <?php echo !empty($artist_names) ? '<div class="margin-bottom-tiny margin-top-tiny"><span>' . $artist_names . '</span></div>' : ''; ?>
+              <?php echo !empty($title) ? '<div class="margin-bottom-micro"><span>' . $title . '</span></div>' : ''; ?>
               <?php if (!empty($specs)) { ?>
               <ul>
                 <?php foreach ($specs as $spec) { ?>
-                <li><?php echo $spec; ?></li>
+                <li class="margin-bottom-micro"><?php echo $spec; ?></li>
                 <?php } ?>
               </ul>
               <?php } if (!empty($images)) { ?>
-              <div>
+              <div class="padding-top-tiny padding-bottom-small desktop-only">
+                <span>More views of this artwork</span>
+              </div>
+              <div class="margin-bottom-small desktop-only">
                 <span class="slide-prev u-pointer"><</span>
                 <span><span class="current-slide">1</span>/<span><?php echo count($images); ?></span></span>
                 <span class="slide-next u-pointer">></span>
               </div>
               <?php } ?>
-              <div><span class="gws-product-price"></span></div>
+              <div class="margin-bottom-tiny">
+                <div class="product-price"><span class="gws-product-price"></span></div>
+                <div class="product-sold"><span>Sold</span></div>
+              </div>
+              <form class="gws-product-form cart grid-row" method="post" enctype='multipart/form-data'>
+                <input type="hidden" name="variant-id" class="gws-variant-id" value="" />
+                <button type="submit" class="shop-button gws-product-add add-to-cart js-product-button item-s-6 item-m-4 item-l-12">Aquire this work</button>
+                <button class="shop-button item-in-cart item-s-6 item-m-4 item-l-12" disabled>Added to Bag</button>
+              </form>
             </div>
           </div>
         </div>
