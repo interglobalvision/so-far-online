@@ -13,6 +13,7 @@ function create_custom_pages() {
     'contact' => 'Contact',
     'faq' => 'FAQ',
     'terms-and-conditions' => 'Terms & Conditions',
+    'bag' => 'Bag',
   );
   foreach($custom_pages as $page_name => $page_title) {
     $page = get_page_by_path($page_name);
