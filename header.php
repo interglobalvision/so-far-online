@@ -61,7 +61,7 @@ get_template_part('partials/seo');
           <div class="grid-row">
             <div class="grid-item font-size-zero no-gutter-right header-bag-holder">
               <a href="<?php echo home_url('bag'); ?>"><img class="header-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-bag.png" /></a>
-              <div class="header-bag-count font-size-tiny"><span class="gws-cart-counter"></span></div>
+              <!--div class="header-bag-count font-size-tiny"><span class="gws-cart-counter"></span></div-->
             </div>
             <div class="grid-item">
               <a><img class="header-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-search.png" /></a>
