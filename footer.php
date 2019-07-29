@@ -52,13 +52,29 @@ $options = get_site_option('_igv_site_options');
             </div>
             <ul class="grid-row item-s-12 item-l-auto">
             <?php if (!empty($options['socialmedia_instagram'])) { ?>
-              <li class="grid-item"><a href="https://instagram.com/<?php echo $options['socialmedia_instagram']; ?>">IG</a></li>
+              <li class="grid-item">
+                <a href="https://instagram.com/<?php echo $options['socialmedia_instagram']; ?>">
+                  <img class="social-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-instagram.png" />
+                </a>
+              </li>
             <?php } if (!empty($options['socialmedia_facebook'])) { ?>
-              <li class="grid-item"><a href="https://facebook.com/<?php echo $options['socialmedia_facebook']; ?>">FB</a></li>
+              <li class="grid-item">
+                <a href="https://facebook.com/<?php echo $options['socialmedia_facebook']; ?>">
+                  <img class="social-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-facebook.png" />
+                </a>
+              </li>
             <?php } if (!empty($options['socialmedia_twitter'])) { ?>
-              <li class="grid-item"><a href="https://twitter.com/<?php echo $options['socialmedia_twitter']; ?>">TW</a></li>
+              <li class="grid-item">
+                <a href="https://twitter.com/<?php echo $options['socialmedia_twitter']; ?>">
+                  <img class="social-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-twitter.png" />
+                </a>
+              </li>
             <?php } if (!empty($options['socialmedia_vimeo'])) { ?>
-              <li class="grid-item"><a href="https://vimeo.com/<?php echo $options['socialmedia_vimeo']; ?>">VI</a></li>
+              <li class="grid-item">
+                <a href="https://vimeo.com/<?php echo $options['socialmedia_vimeo']; ?>">
+                  <img class="social-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-vimeo.png" />
+                </a>
+              </li>
             <?php } ?>
             </ul>
           </div>
