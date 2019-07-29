@@ -100,7 +100,7 @@ class Site {
 
     if (type === 'scroll') {
       $(element).addClass('swiper-instance-' + index);
-      selector = 'swiper-instance-' + index;
+      selector = '.swiper-instance-' + index;
     }
 
     var swiperInstance = new Swiper (selector, this.swiperArgs[type]);

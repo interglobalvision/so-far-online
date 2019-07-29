@@ -8,7 +8,6 @@ $issue_id = get_queried_object()->term_id;
 $chapters = get_terms( array(
   'taxonomy' => 'issue',
   'parent' => $issue_id,
-  'number' => 1,
   'orderby' => 'meta_value_num',
   'meta_key' => '_igv_publish_date',
   'meta_query' => array(
@@ -18,8 +17,9 @@ $chapters = get_terms( array(
       'compare' => '<='
     ),
   ),
-  'hide_empty' => true,
+  'hide_empty' => false,
 ) );
+
 ?>
 
 <main id="main-content">

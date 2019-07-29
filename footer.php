@@ -18,7 +18,7 @@ $options = get_site_option('_igv_site_options');
               <input type="email" name="EMAIL" placeholder="Email Address" id="mailchimp-email">
             </div>
             <div class="grid-item item-s-12">
-              <button type="submit" id="mailchimp-submit">Subscribe</button>
+              <button type="submit" id="mailchimp-submit" class="font-heavy">Subscribe</button>
             </div>
           </form>
           <div id="mailchimp-response" class="margin-top-micro">&nbsp;</div>

@@ -33,8 +33,10 @@ if (have_posts()) {
               <div class="swiper-container" data-swiper-type="slide">
                 <div class="swiper-wrapper">
                 <?php foreach ($images as $image) { ?>
-                  <div class="swiper-slide trigger-overlay">
-                    <?php echo wp_get_attachment_image(attachment_url_to_postid($image), 'full'); ?>
+                  <div class="swiper-slide trigger-overlay grid-row justify-center align-items-center">
+                    <div>
+                      <?php echo wp_get_attachment_image(attachment_url_to_postid($image), 'full'); ?>
+                    </div>
                   </div>
                 <?php } ?>
                 </div>

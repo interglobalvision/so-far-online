@@ -54,7 +54,7 @@ if (have_posts()) {
               <div class="grid-row justify-end row-l-reverse">
                 <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter grid-row align-content-end">
                   <div class="grid-item item-s-12 margin-bottom-basic">
-                    <h1><?php the_title(); ?></h1>
+                    <h1 class="font-serif"><?php the_title(); ?></h1>
                   </div>
                   <?php if (!empty($subtitle)) { ?>
                   <div class="grid-item item-s-12">

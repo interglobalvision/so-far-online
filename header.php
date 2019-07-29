@@ -31,9 +31,9 @@ get_template_part('partials/seo');
   <header id="header" class="padding-top-tiny padding-bottom-tiny">
     <div class="container">
       <h1 class="u-visuallyhidden"><?php bloginfo('name'); ?></h1>
-      <div class="grid-row justify-between">
-        <div class="grid-item">
-          <a href="<?php echo home_url(); ?>">Logo</a>
+      <div class="grid-row justify-between align-items-center">
+        <div class="grid-item font-size-zero">
+          <a href="<?php echo home_url(); ?>"><img id="logo" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/so-far-logo.png" /></a>
         </div>
         <div id="main-nav" class="desktop-only">
           <ul class="grid-row text-align-center">
@@ -59,11 +59,12 @@ get_template_part('partials/seo');
         </div>
         <div class="desktop-only">
           <div class="grid-row">
-            <div class="grid-item">
-              <a href="<?php echo home_url('bag'); ?>">Bag</a>
+            <div class="grid-item font-size-zero no-gutter-right header-bag-holder">
+              <a href="<?php echo home_url('bag'); ?>"><img class="header-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-bag.png" /></a>
+              <div class="header-bag-count font-size-tiny"><span class="gws-cart-counter"></span></div>
             </div>
             <div class="grid-item">
-              Search
+              <a><img class="header-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-search.png" /></a>
             </div>
           </div>
         </div>
@@ -91,11 +92,11 @@ get_template_part('partials/seo');
     </ul>
     <div>
       <div class="grid-row justify-center">
-        <div class="grid-item padding-bottom-basic">
+        <div class="grid-item padding-bottom-basic font-size-zero">
           <a href="<?php echo home_url('bag'); ?>" class="padding-top-tiny padding-bottom-tiny">Bag</a>
         </div>
-        <div class="grid-item padding-bottom-basic">
-          <span class="padding-top-tiny padding-bottom-tiny">Search</span>
+        <div class="grid-item padding-bottom-basic font-size-zero">
+          <span class="padding-top-tiny padding-bottom-tiny"><a><img class="header-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-search.png" /></a></span>
         </div>
       </div>
     </div>

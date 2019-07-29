@@ -7,12 +7,12 @@ $margin-basic = ($gutter * 2)
 $margin-mid = ($gutter * 3.5)
 $margin-large = ($gutter * 5)
 
-$font-size-basic = 12px
+$font-size-basic = 16px
 $font-size-extra = 48px
-$font-size-large = 36px
+$font-size-large = 32px
 $font-size-mid = 24px
-$font-size-small = 18px
-$font-size-tiny = 8px
+$font-size-small = 12px
+$font-size-tiny = 10px
 
 grid-maker(100%, $gutter, s)
 
@@ -20,8 +20,11 @@ space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-m
 
 font-sizes($font-size-basic, $font-size-extra, $font-size-large, $font-size-mid, $font-size-small, $font-size-tiny)
 
-$header-height = 32px
+$header-height = 44px
 $footer-height = 334px
+
+.desktop-only
+  display: none !important
 
 #main-container
   padding-top: $header-height
@@ -31,6 +34,9 @@ $footer-height = 334px
 
 .background-pale
   background-color: $color-pale
+
+.font-size-zero
+  font-size: 0
 
 body
   overflow-x: hidden
@@ -55,6 +61,30 @@ body
   z-index: 200
   &.nav-up
     top: -($header-height)
+
+#logo
+  height: 28px
+
+.header-icon
+  height: 21px
+
+.header-bag-holder
+  position: relative
+
+.header-bag-count
+  padding: .1em .2em
+  border-radius: 100%
+  background: $color-pink
+  border: 2px solid $color-black
+  display: flex
+  justify-content: center
+  align-items: center
+  text-align: center
+  font-weight: 500
+  position: absolute
+  bottom: 0
+  right: 0
+  pointer-events: none
 
 #mobile-nav
   position: fixed
@@ -82,7 +112,7 @@ body
 .swiper-container
   width: 100%
   &[data-swiper-type='scroll']
-    width: calc('100vw - ' + $margin-small)
+    width: calc('100% - ' + $margin-small)
     margin: 0 auto
     overflow: visible
     .swiper-slide
@@ -91,6 +121,10 @@ body
         padding-left: $margin-tiny
       &:not(:last-child)
         padding-right: $margin-tiny
+  &[data-swiper-type='slide']
+    .swiper-slide
+      img
+        pointer-events: none
 
 .swiper-scrollbar
   height: 2px !important
@@ -139,13 +173,14 @@ body
 .trigger-overlay
   cursor: zoom-in
 
-.swiper-slide
-  img
-    pointer-events: none
-
-article
+#article-content
+  p
+    font-family: $font-serif
+    font-weight: 300
   ol
     list-style-type: decimal
+  ul
+    list-style-type: circle
 
 #footer
   border-top: 1px solid $color-black
@@ -158,17 +193,22 @@ input
   background: $color-grey-light
   background-image: radial-gradient(circle, $color-grey-light 0%, $color-grey-medium 100%)
   text-align: center
+  font-family: $font-sans
+  font-weight: normal
   &:focus
     outline: none
     background: $color-white
   +placeholder()
     text-align: center
+    color: $color-grey-dark
 
 button
   appearance: none
   background: transparent
   border: none
   cursor: pointer
+  font-family: $font-sans
+  font-weight: normal
   &:focus
     outline: none
     text-decoration: underline

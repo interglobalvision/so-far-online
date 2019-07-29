@@ -25,7 +25,7 @@ function get_name_list($id, $term) {
   return false;
 }
 
-// shortcode
+// shortcodes
 function footnote_shortcode( $atts ) {
   $a = shortcode_atts( array(
     'index' => false,
@@ -36,3 +36,14 @@ function footnote_shortcode( $atts ) {
   return;
 }
 add_shortcode( 'footnote', 'footnote_shortcode' );
+
+function button_shortcode( $atts, $content = null ) {
+  $a = shortcode_atts( array(
+    'url' => false,
+  ), $atts );
+  if ($a['url']) {
+  	return '<a class="button" href="' . $a['url'] . '">' . $content . '</a>';
+  }
+  return;
+}
+add_shortcode( 'button', 'button_shortcode' );

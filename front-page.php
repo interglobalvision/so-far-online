@@ -103,6 +103,11 @@ if ($issues) {
       }
 ?>
       </div>
+      <div class="grid-row justify-center">
+        <div>
+          <a class="button" href="<?php echo home_url('shop'); ?>">Visit the shop</a>
+        </div>
+      </div>
     </div>
   </section>
 <?php

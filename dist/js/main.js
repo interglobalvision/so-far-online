@@ -281,7 +281,7 @@ var Site = function () {
 
       if (type === 'scroll') {
         $(element).addClass('swiper-instance-' + index);
-        selector = 'swiper-instance-' + index;
+        selector = '.swiper-instance-' + index;
       }
 
       var swiperInstance = new _swiper2.default(selector, this.swiperArgs[type]);

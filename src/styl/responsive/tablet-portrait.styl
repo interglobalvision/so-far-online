@@ -17,8 +17,11 @@
 
   font-sizes($font-size-basic)
 
-  $header-height = 49px
+  $header-height = 59px
   $footer-height = 405px
+
+  .mobile-only
+    display: none !important
 
   #main-container
     padding-top: $header-height
@@ -39,7 +42,7 @@
 
   .swiper-container
     &[data-swiper-type='scroll']
-      width: calc('100vw - ' + $margin-small)
+      width: calc('100% - ' + $margin-small)
       .swiper-slide
         width: 300px
         &:not(:first-child)

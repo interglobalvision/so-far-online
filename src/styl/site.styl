@@ -23,7 +23,7 @@ normalize()
 @import 'fonts/fonts'
 
 $font-sans = font-stack('Helvetica')
-$font-serif = font-stack('Georgia')
+$font-serif = 'GT Sectra', font-stack('Georgia')
 
 // ******************************************************
 
@@ -48,6 +48,15 @@ html
 body
   line-height: $font-leading-basic
 
+.font-light
+  font-weight: 300
+
+.font-regular
+  font-weight: normal
+
+.font-heavy, strong
+  font-weight: bold
+
 .font-sans
   font-family: $font-sans
 
@@ -62,6 +71,8 @@ body
 
 .line-larger
   line-height: $font-leading-larger
+
+
 
 // ******************************************************
 
@@ -87,11 +98,8 @@ img
   height: auto
   max-width: 100%
 
-.mobile-only
-  display: initial !important
-
-.desktop-only
-  display: none !important
+.font-color-grey
+  color: $color-grey-dark
 
 // ******************************************************
 

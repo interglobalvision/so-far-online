@@ -29,8 +29,9 @@ foreach ($issues as $index => $issue) {
   $subtitle = get_term_meta($issue->term_id, '_igv_subtitle', true);
   $contributors = get_term_meta($issue->term_id, '_igv_issue_contributors', true);
   $image_id = get_term_meta($issue->term_id, '_igv_issue_image_id', true);
+  $background_class = $index % 2 ? '' : 'background-pale' ;
 ?>
-  <section id="term-<?php echo $issue->term_id; ?>" class="padding-bottom-basic">
+  <section id="term-<?php echo $issue->term_id; ?>" class="padding-bottom-basic <?php echo $background_class; ?>">
     <div class="container">
       <a href="<?php echo get_term_link($issue); ?>">
         <div class="desktop-only">

@@ -17,8 +17,14 @@
 
   font-sizes($font-size-basic)
 
-  $header-height = 62px
+  $header-height = 73px
   $footer-height = 256px
+
+  .not-desktop
+    display: none !important
+
+  .desktop-only
+    display: block !important
 
   #main-container
     padding-top: $header-height
@@ -33,24 +39,21 @@
     &.nav-up
       top: -($header-height)
 
+  #logo
+    height: 32px
+
+  .header-icon
+    height: 24px
+
   #main-content
     min-height: calc('100vh - ' + ($footer-height + $header-height))
-
-  .mobile-only
-    display: none !important
-
-  .not-desktop
-    display: none !important
-
-  .desktop-only
-    display: initial !important
 
   .row-l-reverse
     flex-direction: row-reverse
 
   .swiper-container
     &[data-swiper-type='scroll']
-      width: calc('83.3333333333vw - ' + $margin-small)
+      width: calc('83.3333333333% - ' + $margin-small)
       .swiper-slide
         width: 400px
         &:not(:first-child)
