@@ -28,19 +28,19 @@ $options = get_site_option('_igv_site_options');
         <div class="item-s-12 item-l-6">
           <div id="footer-nav" class="padding-bottom-small">
             <ul class="grid-row">
-              <li class="grid-item item-s-12 item-l-4">
+              <li class="grid-item item-s-12 item-l-4 padding-bottom-tiny">
                 <a href="<?php echo home_url('contribute'); ?>">Contribute</a>
               </li>
-              <li class="grid-item item-s-12 item-l-4">
+              <li class="grid-item item-s-12 item-l-4 padding-bottom-tiny">
                 <a href="<?php echo home_url('contact'); ?>">Contact</a>
               </li>
-              <li class="grid-item item-s-12 item-l-4">
+              <li class="grid-item item-s-12 item-l-4 padding-bottom-tiny">
                 <a href="<?php echo home_url('faq'); ?>">FAQ</a>
               </li>
-              <li class="grid-item item-s-12 item-l-4">
+              <li class="grid-item item-s-12 item-l-4 padding-bottom-tiny">
                 <a href="<?php echo home_url('terms-and-conditions'); ?>">Terms & Conditions</a>
               </li>
-              <li class="grid-item item-s-12 item-l-4">
+              <li class="grid-item item-s-12 item-l-4 padding-bottom-tiny">
                 <a href="<?php echo home_url('privacy-policy'); ?>">Privacy Policy</a>
               </li>
             </ul>
