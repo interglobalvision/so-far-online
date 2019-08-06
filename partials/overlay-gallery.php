@@ -15,8 +15,8 @@ global $images;
     </div>
   </div>
   <div class="grid-row <?php echo count($images) === 1 ? 'u-hidden' : ''; ?>">
-    <div><span class="overlay-prev u-pointer"><</div>
+    <div><span class="overlay-nav overlay-prev u-pointer"><</div>
     <div><span class="overlay-current">1</span>/<span><?php echo count($images); ?></span></div>
-    <div><span class="overlay-next u-pointer">></div>
+    <div><span class="overlay-nav overlay-next u-pointer">></div>
   </div>
 </div>

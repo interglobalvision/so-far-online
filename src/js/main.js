@@ -121,9 +121,10 @@ class Site {
     $('.trigger-overlay').on('click', this.handleOpenOverlay);
 
     $('#overlay-gallery').on('click', function(e) {
-      if (e.target !== this) {
+      if (e.target.tagName === 'IMG' || $(e.target).hasClass('overlay-nav')) {
         return;
       }
+
       $('body').removeClass('overlay-open');
     })
   }
