@@ -41,7 +41,7 @@ if (have_posts()) {
                 <?php } ?>
                 </div>
               </div>
-              <div class="slide-pagination text-align-center margin-top-micro">
+              <div class="slide-pagination text-align-center margin-top-micro <?php echo count($images) === 1 ? 'u-hidden' : ''; ?>">
               </div>
             <?php } ?>
             </div>
@@ -57,9 +57,9 @@ if (have_posts()) {
               </ul>
               <?php } if (!empty($images)) { ?>
               <div class="padding-top-tiny padding-bottom-small desktop-only">
-                <span>More views of this artwork</span>
+                <span class="<?php echo count($images) === 1 ? 'u-hidden' : ''; ?>">More views of this artwork </span>
               </div>
-              <div class="margin-bottom-small desktop-only">
+              <div class="margin-bottom-small desktop-only <?php echo count($images) === 1 ? 'u-hidden' : ''; ?>">
                 <span class="slide-prev u-pointer"><</span>
                 <span><span class="slide-current">1</span>/<span><?php echo count($images); ?></span></span>
                 <span class="slide-next u-pointer">></span>

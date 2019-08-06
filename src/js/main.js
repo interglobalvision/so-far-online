@@ -103,7 +103,11 @@ class Site {
       selector = '.swiper-instance-' + index;
     }
 
-    var swiperInstance = new Swiper (selector, this.swiperArgs[type]);
+    var slidesLength = $(selector).find('.swiper-slide').length;
+    var swiperArgs = this.swiperArgs[type];
+    swiperArgs['simulateTouch'] = slidesLength > 1 ? true : false;
+
+    var swiperInstance = new Swiper (selector, swiperArgs);
 
     if (type === 'slide' || type === 'overlay') {
       swiperInstance.on('slideChange', function () {

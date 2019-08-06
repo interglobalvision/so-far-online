@@ -40,5 +40,7 @@
     "swiper": "^4.5.0",
     "webpack": "^3.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
+  }
 }
