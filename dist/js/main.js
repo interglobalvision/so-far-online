@@ -173,11 +173,11 @@ var _swiper = __webpack_require__(4);
 
 var _swiper2 = _interopRequireDefault(_swiper);
 
-var _mailchimp = __webpack_require__(12);
+var _mailchimp = __webpack_require__(6);
 
 var _mailchimp2 = _interopRequireDefault(_mailchimp);
 
-__webpack_require__(6);
+__webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10013,17 +10013,6 @@ exports.scroll = scroll;
 
 /***/ }),
 /* 6 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10195,6 +10184,12 @@ var Mailchimp = function () {
 }();
 
 exports.default = Mailchimp;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

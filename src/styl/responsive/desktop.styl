@@ -16,6 +16,9 @@
   $header-height = 97px
   $footer-height = 316px
 
+  figcaption
+    font-size: $font-size-small
+    
   #main-container
     padding-top: $header-height
 
@@ -26,11 +29,6 @@
   #main-content
     min-height: calc('100vh - ' + ($footer-height + $header-height))
 
-  #article-content
-    p
-      padding-left: $margin-tiny
-      padding-right: $margin-tiny
-
   .swiper-container
     &[data-swiper-type='scroll']
       width: calc('83.3333333333% - ' + $margin-small)
@@ -39,3 +37,20 @@
           padding-left: $margin-tiny
         &:not(:last-child)
           padding-right: $margin-tiny
+
+  #article-content
+    h2, h3, h4, h5, h6, ol, ul, cite, figcaption
+      padding-left: $margin-tiny
+      padding-right: $margin-tiny
+    h2, h3, h4, h5, h6
+      font-size: $font-size-mid
+    p
+      padding-left: $margin-tiny
+      padding-right: $margin-tiny
+      &:first-of-type
+        font-size: $font-size-mid
+    .wp-block-quote
+      p
+        font-size: $font-size-basic
+      cite
+        font-size: $font-size-small

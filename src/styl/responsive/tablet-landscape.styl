@@ -26,6 +26,9 @@
   .desktop-only
     display: block !important
 
+  figcaption
+    font-size: $font-size-small
+
   #main-container
     padding-top: $header-height
 
@@ -62,8 +65,26 @@
           padding-right: $margin-tiny
 
   #article-content
+    h2, h3, h4, h5, h6, ol, ul, cite, figcaption
+      padding-left: $margin-tiny
+      padding-right: $margin-tiny
+    h2, h3, h4, h5, h6
+      width: 66.66666666666667%
+      margin-left: 16.666666666666668%
+      font-size: $font-size-mid
     p
       max-width: 58.333333333333336%
       margin-left: 25%
-      padding-left: $margin-tiny
-      padding-right: $margin-tiny
+      &:first-of-type
+        font-size: $font-size-mid
+    .wp-block-quote
+      p, cite
+        width: 50%
+        margin-left: 33.333333333333336%
+      p
+        font-size: $font-size-basic
+      cite
+        font-size: $font-size-small
+    .wp-block-pullquote
+      cite
+        margin-left: 8.333333333333334%

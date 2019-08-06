@@ -38,6 +38,22 @@ $footer-height = 334px
 .font-size-zero
   font-size: 0
 
+figure
+  margin: 0
+
+figcaption
+  font-size: $font-size-small
+  width: 80%
+  color: $color-grey-dark
+  text-align: center
+  margin: .5em 0 1em 10%
+  strong
+    color: $color-black
+  p
+    color: $color-grey-dark
+    strong
+      color: $color-black
+
 body
   overflow-x: hidden
   &.nav-open
@@ -174,13 +190,48 @@ body
   cursor: zoom-in
 
 #article-content
+  color: $color-black
+  h2, h3, h4, h5, h6, ol, ul, cite, figcaption
+    padding-left: $margin-tiny
+    padding-right: $margin-tiny
+  h2, h3, h4, h5, h6
+    margin-bottom: 1rem
+    font-size: $font-size-mid
+    font-family: $font-serif
+    font-weight: normal
   p
     font-family: $font-serif
     font-weight: 300
+    &:first-of-type
+      font-size: $font-size-mid
   ol
     list-style-type: decimal
   ul
     list-style-type: circle
+  .wp-block-quote
+    margin-bottom: 1rem
+    p, cite
+      width: 91.66666666666667%
+      margin-left: 8.333333333333334%
+    p
+      font-size: $font-size-basic
+      &:last-of-type
+        margin-bottom: 0
+    cite
+      font-size: $font-size-small
+      &:before
+        content: '—'
+        padding: 0 .2rem
+  .wp-block-pullquote
+    p, cite
+      font-family: $font-sans
+      font-weight: normal
+  .wp-block-image
+    text-align: center
+    padding-top: 3em
+    padding-bottom: 3em
+  a
+    text-decoration: underline !important
 
 #footer
   border-top: 1px solid $color-black

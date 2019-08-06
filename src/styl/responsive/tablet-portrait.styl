@@ -23,6 +23,9 @@
   .mobile-only
     display: none !important
 
+  figcaption
+    font-size: $font-size-small
+
   #main-container
     padding-top: $header-height
 
@@ -57,3 +60,18 @@
   .swiper-scrollbar-drag
     height: 6px
     margin-top: -2px
+
+  #article-content
+    h2, h3, h4, h5, h6, ol, ul, cite, figcaption
+      padding-left: $margin-tiny
+      padding-right: $margin-tiny
+    h2, h3, h4, h5, h6
+      font-size: $font-size-mid
+    p
+      &:first-of-type
+        font-size: $font-size-mid
+    .wp-block-quote
+      p
+        font-size: $font-size-basic
+      cite
+        font-size: $font-size-small
