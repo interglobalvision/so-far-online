@@ -38,6 +38,10 @@ $footer-height = 334px
 .font-size-zero
   font-size: 0
 
+.border
+  background: $color-grey-dark
+  height: 1px
+
 figure
   margin: 0
 
@@ -258,6 +262,23 @@ input
     text-align: center
     color: $color-grey-dark
 
+input[type="checkbox"]
+  background: transparent
+  width: 2em
+  height: 2em
+  position: relative
+  &:checked:after
+  	content: '\2714'
+  	font-size: $font-size-basic
+  	position: absolute
+  	top: .4em
+  	left: .5em
+  	color: $color-black
+
+input[type="number"]
+  background: transparent
+  width: 4em
+
 button
   appearance: none
   background: transparent
@@ -299,6 +320,12 @@ a, button
       display: block
     .add-to-cart
       display: none
+
+.gws-cart-thumb
+  width: 200px
+  height: 200px
+  background-size: cover
+  background-position: center
 
 .social-icon
   width: 22px
