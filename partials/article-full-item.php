@@ -35,14 +35,14 @@ $background_class = $reverse || $index === 0 ? 'background-pale' : '';
     </div>
 
     <div class="grid-row justify-start <?php echo $reverse ? 'row-l-reverse' : ''; ?>">
-      <div class="grid-item item-s-12 item-l-6 item-xl-7 <?php echo $reverse ? 'text-align-right no-gutter-right' : 'no-gutter-left'; ?>">
+      <figure class="grid-item item-s-12 item-l-6 item-xl-7 <?php echo $reverse ? 'text-align-right no-gutter-right' : 'no-gutter-left'; ?>">
         <a href="<?php the_permalink() ?>">
           <?php the_post_thumbnail(); ?>
         </a>
         <?php if (!empty($featured_caption)) { ?>
-          <div class="padding-top-tiny text-align-center"><span><?php echo $featured_caption; ?></span></div>
+          <figcaption><?php echo $featured_caption; ?></figcaption>
         <?php } ?>
-      </div>
+      </figure>
 
       <a href="<?php the_permalink() ?>" class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter grid-row align-content-end">
         <div class="grid-item item-s-12 margin-bottom-basic">
