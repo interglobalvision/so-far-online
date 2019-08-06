@@ -83,6 +83,7 @@ function igv_admin_css() {
     display: none;
   }
   #wp-_igv_featured_caption-wrap #mceu_2,
+  #wp-_igv_featured_caption-wrap #mceu_1,
   #wp-_igv_featured_caption-wrap #mceu_9 {
     display: inline-block;
   }
