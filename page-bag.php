@@ -66,7 +66,7 @@ if (have_posts()) {
           <div class="grid-item item-s-12 item-l-4 offset-l-4">
             <label class="grid-row align-items-center">
               <input type="checkbox" class="gws-cart-attribute" data-gws-cart-attr-key="Contact about framing">
-              <span>Contact me about framing</span>
+              <span class="grid-item">Contact me about framing</span>
             </label>
           </div>
         </div>
