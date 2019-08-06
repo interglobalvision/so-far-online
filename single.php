@@ -61,7 +61,7 @@ if (have_posts()) {
                     <span><?php echo $subtitle; ?></span>
                   </div>
                   <?php } if ($contributor_names || $artist_names) { ?>
-                  <div class="grid-item item-s-12 offset-m-4 offset-l-2 offset-xl-4 margin-top-small">
+                  <div class="grid-item item-s-12 offset-m-4 offset-l-2 offset-xl-4 margin-top-small font-color-grey">
                   <?php if ($contributor_names) { ?>
                     <div class="margin-top-tiny">
                       <span>Text by: <?php echo $contributor_names; ?></span>
@@ -75,19 +75,19 @@ if (have_posts()) {
                   <?php } ?>
                 </div>
 
-                <div class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter-left">
+                <figure class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter-left">
                   <?php the_post_thumbnail(); ?>
                   <?php if (!empty($featured_caption)) { ?>
-                    <div class="padding-top-tiny text-align-center"><span><?php echo $featured_caption; ?></span></div>
+                    <figcaption><?php echo $featured_caption; ?></figcaption>
                   <?php } ?>
-                </div>
+                </figure>
               </div>
             </div>
           </header>
 
           <section class="padding-bottom-small">
             <div class="container">
-              <div id="article-content" class="grid-row">
+              <div id="article-content">
                 <?php the_content(); ?>
               </div>
             </div>
