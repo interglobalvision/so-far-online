@@ -183,13 +183,14 @@ if (have_posts()) {
           <?php
             $artists = !$artists ? array() : $artists;
             $contributors = !$contributors ? array() : $contributors;
+
             $bios = array_merge($artists, $contributors);
           ?>
           <section class="padding-top-small padding-bottom-basic">
             <div class="container">
               <h2 class="text-align-center font-uppercase padding-bottom-small font-size-mid">Artists & Contributors</h2>
               <?php
-                foreach($artists as $bio) {
+                foreach($bios as $bio) {
                   global $bio;
                   get_template_part('partials/bio');
                 }
