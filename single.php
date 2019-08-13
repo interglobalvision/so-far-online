@@ -38,30 +38,30 @@ if (have_posts()) {
                 <div class="grid-row padding-top-small padding-bottom-small font-size-small font-uppercase">
                   <div class="grid-item item-s-12 item-l-7 offset-l-1">
                     <span>
-                    <?php
-                      if ($post_type === 'weekly') {
-                        echo !empty($weekly_type) ? $weekly_type[0]->name : '';
-                      }
-                      if ($post_type === 'post') {
-                        echo 'Issue';
-                        echo !empty($issue_number) ? $issue_number . ': ' : ': ';
-                        echo $issue->name;
-                      }
-                    ?>
+                      <?php
+                        if ($post_type === 'weekly') {
+                          echo !empty($weekly_type) ? $weekly_type[0]->name : '';
+                        }
+                        if ($post_type === 'post') {
+                          echo 'Issue';
+                          echo !empty($issue_number) ? $issue_number . ': ' : ': ';
+                          echo $issue->name;
+                        }
+                      ?>
                     </span>
                   </div>
                   <div class="grid-item item-s-12 item-l-3">
                     <span>
-                    <?php
-                      if ($post_type === 'weekly') {
-                        echo $the_date;
-                      }
-                      if ($post_type === 'post') {
-                        echo 'Chapter ';
-                        echo !empty($chapter_number) ? $chapter_number . ': ' : ': ';
-                        echo $chapter->name;
-                      }
-                    ?>
+                      <?php
+                        if ($post_type === 'weekly') {
+                          echo $the_date;
+                        }
+                        if ($post_type === 'post') {
+                          echo 'Chapter ';
+                          echo !empty($chapter_number) ? $chapter_number . ': ' : ': ';
+                          echo $chapter->name;
+                        }
+                      ?>
                     </span>
                   </div>
                 </div>

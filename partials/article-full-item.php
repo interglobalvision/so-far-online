@@ -11,28 +11,46 @@ $contributor_names = get_name_list($post->ID, 'contributor');
 $artist_names = get_name_list($post->ID, 'artist');
 $reverse = $index % 2;
 $background_class = $reverse || $index === 0 ? 'background-pale' : '';
+$the_date = get_the_date('j F, Y');
+$weekly_type = get_the_terms($post, 'weeklytype');
 ?>
 
 <article <?php post_class($background_class . ' padding-top-small padding-bottom-basic'); ?> id="post-<?php the_ID(); ?>">
   <div class="container">
+    <?php if ($chapter || $post_type === 'weekly') { ?>
     <div class="desktop-only">
       <div class="grid-row padding-bottom-small font-size-small">
         <div class="grid-item item-l-7 offset-l-1">
-          <span><?php
-            echo 'Issue';
-            echo !empty($issue_number) ? $issue_number . ': ' : ': ';
-            echo $issue->name;
-          ?></span>
+          <span>
+            <?php
+              if ($post_type === 'weekly') {
+                echo !empty($weekly_type) ? $weekly_type[0]->name : '';
+              }
+              if ($post_type === 'post') {
+                echo 'Issue';
+                echo !empty($issue_number) ? $issue_number . ': ' : ': ';
+                echo $issue->name;
+              }
+            ?>
+          </span>
         </div>
         <div class="grid-item item-l-3">
-          <span><?php
-            echo 'Chapter ';
-            echo !empty($chapter_number) ? $chapter_number . ': ' : ': ';
-            echo $chapter->name;
-          ?></span>
+          <span>
+            <?php
+              if ($post_type === 'weekly') {
+                echo $the_date;
+              }
+              if ($post_type === 'post') {
+                echo 'Chapter ';
+                echo !empty($chapter_number) ? $chapter_number . ': ' : ': ';
+                echo $chapter->name;
+              }
+            ?>
+          </span>
         </div>
       </div>
     </div>
+    <?php } ?>
 
     <div class="grid-row justify-start <?php echo $reverse ? 'row-l-reverse' : ''; ?>">
       <figure class="grid-item item-s-12 item-l-6 item-xl-7 <?php echo $reverse ? 'text-align-right no-gutter-right' : 'no-gutter-left'; ?>">
