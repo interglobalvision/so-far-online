@@ -186,7 +186,7 @@ if (have_posts()) {
 
             $bios = array_merge($artists, $contributors);
           ?>
-          <section class="padding-top-small padding-bottom-basic">
+          <section class="padding-top-small padding-bottom-small">
             <div class="container">
               <h2 class="text-align-center font-uppercase padding-bottom-small font-size-mid">Artists & Contributors</h2>
               <?php
