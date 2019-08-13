@@ -13,7 +13,7 @@ $artists = get_terms( 'artist' );
           foreach ($mediums as $term) {
             $params = array('filter' => 'medium', 'by' => $term->slug);
         ?>
-          <li class="margin-bottom-tiny"><a href="<?php echo add_query_arg($params, '/shop'); ?>"><?php echo $term->name; ?></a></li>
+          <li class="margin-bottom-tiny"><a href="<?php echo add_query_arg($params); ?>"><?php echo $term->name; ?></a></li>
         <?php } ?>
       </div>
       <div class="grid-item item-s-12 item-m-6 item-l-3">
@@ -23,7 +23,7 @@ $artists = get_terms( 'artist' );
           foreach ($artists as $term) {
             $params = array('filter' => 'artist', 'by' => $term->slug);
         ?>
-          <li class="margin-bottom-tiny"><a href="<?php echo add_query_arg($params, '/shop'); ?>"><?php echo $term->name; ?></a></li>
+          <li class="margin-bottom-tiny"><a href="<?php echo add_query_arg($params); ?>"><?php echo $term->name; ?></a></li>
         <?php } ?>
       </div>
       <div class="grid-item item-s-12 item-m-6 item-l-3">
@@ -33,7 +33,7 @@ $artists = get_terms( 'artist' );
           foreach ($collections as $term) {
             $params = array('filter' => 'collection', 'by' => $term->slug);
         ?>
-          <li class="margin-bottom-tiny"><a href="<?php echo add_query_arg($params, '/shop'); ?>"><?php echo $term->name; ?></a></li>
+          <li class="margin-bottom-tiny"><a href="<?php echo add_query_arg($params); ?>"><?php echo $term->name; ?></a></li>
         <?php } ?>
       </div>
     </div>
