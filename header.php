@@ -41,7 +41,7 @@ get_template_part('partials/seo');
               <a href="<?php echo home_url('issues'); ?>">Issues</a>
             </li>
             <li class="grid-item item-s-12 item-l-auto">
-              <a href="<?php echo home_url('weeklies'); ?>">Weeklies</a>
+              <a href="<?php echo get_post_type_archive_link('weekly'); ?>">Weeklies</a>
             </li>
             <li class="grid-item item-s-12 item-l-auto">
               <a href="<?php echo home_url('artists'); ?>">Artists</a>

@@ -23,6 +23,14 @@ $issues = get_terms( array(
   'hide_empty' => true,
 ) );
 
+$weeklies_args = array(
+  'post_type' => 'weekly',
+  'posts_per_page' => 12,
+);
+$weeklies_section_title = 'Weeklies';
+global $weeklies_args;
+global $weeklies_section_title;
+
 if ($issues) {
   $issue = $issues[0];
   $issue_number = get_term_meta($issue->term_id, '_igv_issue_number', true);

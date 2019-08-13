@@ -1,16 +1,14 @@
 <?php
-$args = array(
-  'post_type' => 'weekly',
-  'posts_per_page' => 12,
-);
+global $weeklies_args;
+global $weeklies_section_title;
 
-$weeklies_query = new WP_Query($args);
+$weeklies_query = new WP_Query($weeklies_args);
 
 if ( $weeklies_query->have_posts() ) {
 ?>
 <section id="weeklies-carousel" class="padding-top-small padding-bottom-small">
   <div class="container">
-    <h2 class="text-align-center font-uppercase padding-bottom-small font-size-mid">Weeklies</h2>
+    <h2 class="text-align-center font-uppercase padding-bottom-small font-size-mid"><?php echo $weeklies_section_title; ?></h2>
     <div class="swiper-container" data-swiper-type="scroll">
       <div class="swiper-wrapper padding-bottom-small">
     <?php
