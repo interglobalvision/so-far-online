@@ -16,9 +16,11 @@ if (have_posts()) {
     $artworks = get_post_meta($post->ID, '_igv_article_artworks', true);
     $artists = get_the_terms($post, 'artist');
     $contributors = get_the_terms($post, 'contributor');
-
+    $weekly_type = get_the_terms($post, 'weeklytype');
     $issue_terms = get_the_terms($post, 'issue');
+    $the_date = get_the_date('j F, Y');
     $chapter = false;
+    $post_type = get_post_type($post);
     if (!empty($issue_terms)) {
       $chapter = $issue_terms[0]->parent !== 0 ? $issue_terms[0] : false;
     }
@@ -32,21 +34,35 @@ if (have_posts()) {
         <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
           <header class="padding-bottom-basic">
             <div class="container">
-              <?php if ($chapter) { ?>
-                <div class="grid-row padding-top-small padding-bottom-small font-size-small">
+              <?php if ($chapter || $post_type === 'weekly') { ?>
+                <div class="grid-row padding-top-small padding-bottom-small font-size-small font-uppercase">
                   <div class="grid-item item-s-12 item-l-7 offset-l-1">
-                    <span><?php
-                      echo 'Issue';
-                      echo !empty($issue_number) ? $issue_number . ': ' : ': ';
-                      echo $issue->name;
-                    ?></span>
+                    <span>
+                    <?php
+                      if ($post_type === 'weekly') {
+                        echo !empty($weekly_type) ? $weekly_type[0]->name : '';
+                      }
+                      if ($post_type === 'post') {
+                        echo 'Issue';
+                        echo !empty($issue_number) ? $issue_number . ': ' : ': ';
+                        echo $issue->name;
+                      }
+                    ?>
+                    </span>
                   </div>
                   <div class="grid-item item-s-12 item-l-3">
-                    <span><?php
-                      echo 'Chapter ';
-                      echo !empty($chapter_number) ? $chapter_number . ': ' : ': ';
-                      echo $chapter->name;
-                    ?></span>
+                    <span>
+                    <?php
+                      if ($post_type === 'weekly') {
+                        echo $the_date;
+                      }
+                      if ($post_type === 'post') {
+                        echo 'Chapter ';
+                        echo !empty($chapter_number) ? $chapter_number . ': ' : ': ';
+                        echo $chapter->name;
+                      }
+                    ?>
+                    </span>
                   </div>
                 </div>
               <?php } ?>
