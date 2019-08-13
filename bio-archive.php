@@ -17,7 +17,7 @@ $list = get_terms( array(
 <main id="main-content">
 <div class="container">
   <h1 class="font-uppercase text-align-center padding-top-small padding-bottom-small"><?php the_title(); ?></h1>
-  <div class="grid-row justify-center padding-bottom-small">
+  <div class="grid-row justify-center padding-bottom-basic">
     <div class="grid-item item-s-12 item-m-10 item-l-8 text-columns-m-2 text-columns-l-3">
     <?php
       foreach ($list as $index => $item) {
