@@ -1,6 +1,5 @@
 <?php
 get_header();
-$options = get_site_option('_igv_site_options');
 ?>
 
 <main id="main-content">
@@ -16,6 +15,9 @@ if (have_posts()) {
     $year = get_post_meta($post->ID, '_igv_artwork_year', true);
     $specs = get_post_meta($post->ID, '_igv_artwork_specs', true);
     $artists = get_the_terms($post, 'artist');
+    $authenticity = get_post_meta($post->ID, '_igv_product_authenticity', true);
+    $framing = get_post_meta($post->ID, '_igv_product_framing', true);
+    $shipping = get_post_meta($post->ID, '_igv_product_shipping', true);
 ?>
 
     <article
@@ -102,25 +104,25 @@ if (have_posts()) {
               <div><?php the_content(); ?></div>
             </div>
             <div class="grid-item item-s-12 item-l-3 grid-row">
-            <?php if (!empty($options['product_authenticity'])) { ?>
-              <div>
+            <?php if (!empty($authenticity)) { ?>
+              <div class="margin-bottom-tiny item-s-12 item-m-4 item-l-12">
                 <h3 class="margin-bottom-tiny font-size-small">Authenticity</h3>
                 <div class="font-size-tiny">
-                  <?php echo apply_filters('the_content', $options['product_authenticity']); ?>
+                  <?php echo apply_filters('the_content', $authenticity); ?>
                 </div>
               </div>
-            <?php } if (!empty($options['product_framing'])) { ?>
-              <div class="margin-top-tiny">
+            <?php } if (!empty($framing)) { ?>
+              <div class="margin-bottom-tiny item-s-12 item-m-4 item-l-12">
                 <h3 class="margin-bottom-tiny font-size-small">Framing & Installation</h3>
                 <div class="font-size-tiny">
-                  <?php echo apply_filters('the_content', $options['product_framing']); ?>
+                  <?php echo apply_filters('the_content', $framing); ?>
                 </div>
               </div>
-            <?php } if (!empty($options['product_shipping'])) { ?>
-              <div class="margin-top-tiny">
+            <?php } if (!empty($shipping)) { ?>
+              <div class="item-s-12 item-m-4 item-l-12">
                 <h3 class="margin-bottom-tiny font-size-small">Shipping & Taxes</h3>
                 <div class="font-size-tiny">
-                  <?php echo apply_filters('the_content', $options['product_shipping']); ?>
+                  <?php echo apply_filters('the_content', $shipping); ?>
                 </div>
               </div>
             <?php } ?>
