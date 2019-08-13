@@ -5,32 +5,37 @@ get_header();
 <main id="main-content">
 
 <?php
-$collections = get_terms( 'collection' );
+get_template_part('partials/shop-filter');
 
-foreach ($collections as $collection) {
-  $products_args = array(
+$filter_tax = get_query_var('filter');
+$filter_slug = get_query_var('by');
+
+if (!empty($filter_tax)) {
+
+  $filter_args = array(
     'post_type' => 'product',
     'tax_query' => array(
       array(
-        'taxonomy' => 'collection',
-        'field' => 'term_id',
-        'terms' => $collection->term_id,
+        'taxonomy' => $filter_tax,
+        'field' => 'slug',
+        'terms' => $filter_slug,
       ),
     ),
     'posts_per_page' => -1,
   );
 
-  $products_query = new WP_Query($products_args);
+  $filter_query = new WP_Query($filter_args);
 
-  if ($products_query->have_posts()) {
+  if ($filter_query->have_posts()) {
+    $term = get_term_by('slug', $filter_slug, $filter_tax);
 ?>
   <section class="padding-top-small padding-bottom-small">
     <div class="container">
-      <h2 class="text-align-center font-uppercase padding-bottom-small"><?php echo $collection->name; ?></h2>
+      <h2 class="text-align-center font-uppercase padding-bottom-small"><?php echo $term->name; ?></h2>
       <div class="grid-row">
       <?php
-        while ($products_query->have_posts()) {
-          $products_query->the_post();
+        while ($filter_query->have_posts()) {
+          $filter_query->the_post();
           get_template_part('partials/product-item');
         }
       ?>
@@ -38,6 +43,50 @@ foreach ($collections as $collection) {
     </div>
   </section>
 <?php
+  }
+
+  wp_reset_postdata();
+
+} else {
+
+  $collections = get_terms( 'collection' );
+
+  foreach ($collections as $collection) {
+
+    $collection_args = array(
+      'post_type' => 'product',
+      'tax_query' => array(
+        array(
+          'taxonomy' => 'collection',
+          'field' => 'slug',
+          'terms' => $collection->slug,
+        ),
+      ),
+      'posts_per_page' => -1,
+    );
+
+    $collection_query = new WP_Query($collection_args);
+
+    if ($collection_query->have_posts()) {
+  ?>
+    <section class="padding-top-small padding-bottom-small">
+      <div class="container">
+        <h2 class="text-align-center font-uppercase padding-bottom-small"><?php echo $collection->name; ?></h2>
+        <div class="grid-row">
+        <?php
+          while ($collection_query->have_posts()) {
+            $collection_query->the_post();
+
+            get_template_part('partials/product-item');
+          }
+        ?>
+        </div>
+      </div>
+    </section>
+  <?php
+    }
+
+    wp_reset_postdata();
   }
 }
 ?>

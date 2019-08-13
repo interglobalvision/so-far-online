@@ -45,3 +45,10 @@ function add_lazysize_on_srcset($attr) {
 
 }
 add_filter('wp_get_attachment_image_attributes', 'add_lazysize_on_srcset');
+
+function custom_query_vars_filter($vars) {
+  $vars[] .= 'filter';
+  $vars[] .= 'by';
+  return $vars;
+}
+add_filter( 'query_vars', 'custom_query_vars_filter' );

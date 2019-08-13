@@ -42,6 +42,9 @@ $footer-height = 334px
   background: $color-grey-dark
   height: 1px
 
+.border-bottom
+  border-bottom 1px solid $color-grey-dark
+
 figure
   margin: 0
 
@@ -79,7 +82,7 @@ body
 
 #header
   background-color: $color-pink
-  border-bottom: 1px solid $color-black
+  border-bottom: 1px solid $color-grey-dark
   position: fixed
   top: 0
   width: 100%
@@ -97,7 +100,7 @@ body
   z-index: 100
   transition: transform 0.2s ease-in-out
   transform: translateY(-100% - 1px - $header-height)
-  border-bottom: 1px solid $color-black
+  border-bottom: 1px solid $color-grey-dark
   background-color: $color-pink
 
 #fixed-search-underlay
@@ -143,7 +146,7 @@ body
   width: 100%
   z-index: 100
   background-color: $color-pink
-  border-bottom: 1px solid $color-black
+  border-bottom: 1px solid $color-grey-dark
   transform: translateY(-100%)
   transition: transform .5s ease-in-out
   max-height: 100vh
@@ -276,12 +279,12 @@ ol
   list-style-type: decimal
 
 #footer
-  border-top: 1px solid $color-black
+  border-top: 1px solid $color-grey-dark
 
 input
   appearance: none
   width: 100%
-  border: 1px solid $color-black
+  border: 1px solid $color-grey-dark
   padding: .8rem .4rem
   background: $color-grey-light
   background-image: radial-gradient(circle, $color-grey-light 0%, $color-grey-medium 100%)
