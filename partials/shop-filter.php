@@ -1,7 +1,7 @@
 <?php
-$collections = get_terms( 'collection' );
-$mediums = get_terms( 'medium' );
-$artists = get_terms( 'artist' );
+$collections = get_terms_by_post_type( array('collection'), array('product') );
+$mediums = get_terms_by_post_type( array('medium'), array('product') );
+$artists = get_terms_by_post_type( array('artist'), array('product') );
 ?>
 <section class="padding-top-small padding-bottom-small background-pale border-bottom">
   <div class="container">
