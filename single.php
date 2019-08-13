@@ -80,11 +80,11 @@ if (have_posts()) {
                   <div class="grid-item item-s-12 offset-m-4 offset-l-2 offset-xl-4 margin-top-small font-color-grey font-size-small">
                   <?php if ($contributor_names) { ?>
                     <div class="margin-top-tiny">
-                      <span>Text by: <?php echo $contributor_names; ?></span>
+                      <span>Text by <?php echo $contributor_names; ?></span>
                     </div>
                   <?php } if ($artist_names) { ?>
                     <div class="margin-top-tiny">
-                      <span>Artwork by: <?php echo $artist_names; ?></span>
+                      <span>Artwork by <?php echo $artist_names; ?></span>
                     </div>
                   <?php } ?>
                   </div>
