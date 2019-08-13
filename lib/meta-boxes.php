@@ -118,6 +118,24 @@ function igv_cmb_metaboxes() {
     'preview_size' => array( 150, 150 ),
 	) );
 
+  $artwork_metabox->add_field( array(
+    'name'    => esc_html__( 'Authenticity', 'cmb2' ),
+    'id'      => $prefix . 'product_authenticity',
+    'type'    => 'textarea',
+  ) );
+
+  $artwork_metabox->add_field( array(
+    'name'    => esc_html__( 'Framing & Installation', 'cmb2' ),
+    'id'      => $prefix . 'product_framing',
+    'type'    => 'textarea',
+  ) );
+
+  $artwork_metabox->add_field( array(
+    'name'    => esc_html__( 'Shipping & Taxes', 'cmb2' ),
+    'id'      => $prefix . 'product_shipping',
+    'type'    => 'textarea',
+  ) );
+
   // ISSUE
 
   $issue_metabox = new_cmb2_box( array(
