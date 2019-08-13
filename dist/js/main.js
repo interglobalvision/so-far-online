@@ -113,6 +113,7 @@ var Site = function () {
     this.handleOpenOverlay = this.handleOpenOverlay.bind(this);
     this.handleFootnoteRefClick = this.handleFootnoteRefClick.bind(this);
     this.handleArticleRefClick = this.handleArticleRefClick.bind(this);
+    this.handleShopMenu = this.handleShopMenu.bind(this);
   }
 
   _createClass(Site, [{
@@ -136,6 +137,7 @@ var Site = function () {
       this.bindOverlayTriggers();
       this.bindSearchToggle();
       this.bindRefClick();
+      this.bindShopMenuToggle();
     }
   }, {
     key: 'initSwiper',
@@ -278,6 +280,29 @@ var Site = function () {
       var refIndex = $(e.target).attr('data-ref');
       var $targetRef = $('.js-footnote-ref[data-ref="' + refIndex + '"]');
       this.scrollToRef($targetRef, 1);
+    }
+  }, {
+    key: 'bindShopMenuToggle',
+    value: function bindShopMenuToggle() {
+      $('.js-shop-menu-toggle').on('click', this.handleShopMenu);
+    }
+  }, {
+    key: 'handleShopMenu',
+    value: function handleShopMenu() {
+      var isOpen = $('body').hasClass('shop-menu-open');
+
+      if (isOpen) {
+        var autoHeight = $('#shop-menu').height();
+        $('#shop-menu').animate({ height: 0 }, autoHeight * 1.5, 'swing', function () {
+          $('body').removeClass('shop-menu-open');
+        });
+      } else {
+        $('#shop-menu').css('height', 'auto');
+        var autoHeight = $('#shop-menu').height();
+        $('#shop-menu').height(0).animate({ height: autoHeight }, autoHeight * 1.5, 'swing', function () {
+          $('body').addClass('shop-menu-open');
+        });
+      }
     }
   }, {
     key: 'scrollToRef',
