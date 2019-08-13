@@ -73,6 +73,9 @@ body
   &.search-open
     #fixed-search-holder
       transform: translateY(0)
+    #fixed-search-underlay
+      opacity: .65
+      pointer-events: auto
 
 #header
   background-color: $color-pink
@@ -85,10 +88,6 @@ body
   &.nav-up
     top: -($header-height)
 
-#searchform-holder
-  border-bottom: 1px solid $color-black
-  background-color: $color-pink
-
 #fixed-search-holder
   width: 100%
   height: auto
@@ -98,15 +97,20 @@ body
   z-index: 100
   transition: transform 0.2s ease-in-out
   transform: translateY(-100% - 1px - $header-height)
+  border-bottom: 1px solid $color-black
+  background-color: $color-pink
 
 #fixed-search-underlay
   width: 100%
   height: 100%
   top: 0
   left: 0
+  position: fixed
   z-index: 100
   opacity: 0
   transition: opacity 0.2s ease-in-out
+  background: $color-black
+  pointer-events: none
 
 #logo
   height: 28px

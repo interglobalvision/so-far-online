@@ -41,6 +41,7 @@
     "webpack": "^3.0.0"
   },
   "dependencies": {
-    "babel-plugin-transform-object-rest-spread": "^6.26.0"
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "jquery.scrollto": "^2.1.2"
   }
 }

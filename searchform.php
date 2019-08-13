@@ -1,4 +1,4 @@
-<section id="searchform-holder" class="background-pale">
+<section id="searchform-holder">
   <div class="container">
     <div class="grid-row justify-center padding-top-basic padding-bottom-small">
       <div class="grid-item item-s-12 item-m-8 item-l-6">

@@ -21,6 +21,8 @@ class Site {
     this.onScrollInterval = this.onScrollInterval.bind(this);
     this.setupSwiperInstance = this.setupSwiperInstance.bind(this);
     this.handleOpenOverlay = this.handleOpenOverlay.bind(this);
+    this.handleFootnoteRefClick = this.handleFootnoteRefClick.bind(this);
+    this.handleArticleRefClick = this.handleArticleRefClick.bind(this);
   }
 
   onResize() {
@@ -40,6 +42,7 @@ class Site {
     this.bindMenuToggle();
     this.bindOverlayTriggers();
     this.bindSearchToggle();
+    this.bindRefClick();
   }
 
   initSwiper() {
@@ -153,6 +156,31 @@ class Site {
     $('.js-toggle-search').on('click', function() {
       $('body').toggleClass('search-open');
     });
+  }
+
+  bindRefClick() {
+    $('.js-footnote-ref').on('click', this.handleFootnoteRefClick)
+    $('.js-article-ref').on('click', this.handleArticleRefClick)
+  }
+
+  handleFootnoteRefClick(e) {
+    e.preventDefault();
+    var refIndex = $(e.target).attr('data-ref');
+    var $targetRef = $('.js-article-ref[data-ref="' + refIndex + '"]')
+    this.scrollToRef($targetRef, 2)
+  }
+
+  handleArticleRefClick(e) {
+    e.preventDefault();
+    var refIndex = $(e.target).attr('data-ref');
+    var $targetRef = $('.js-footnote-ref[data-ref="' + refIndex + '"]')
+    this.scrollToRef($targetRef, 1)
+  }
+
+  scrollToRef($targetRef, offsetMultiplier) {
+    $('html, body').animate({
+      scrollTop: $targetRef.offset().top - (this.navbarHeight * offsetMultiplier)
+    }, 800);
   }
 
   onScroll() {

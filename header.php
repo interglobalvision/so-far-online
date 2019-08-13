@@ -93,13 +93,11 @@ get_template_part('partials/seo');
     <div>
       <div class="grid-row justify-center">
         <div class="grid-item padding-bottom-basic font-size-zero">
-          <a href="<?php echo home_url('bag'); ?>" class="padding-top-tiny padding-bottom-tiny">Bag</a>
-        </div>
-        <div class="grid-item padding-bottom-basic font-size-zero">
-          <span class="padding-top-tiny padding-bottom-tiny"><img class="header-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-search.png" /></span>
+          <a href="<?php echo home_url('bag'); ?>"><img class="header-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-bag.png" /></a>
         </div>
       </div>
     </div>
+    <div class="padding-bottom-small"><?php get_search_form() ?></div>
   </div>
 
   <?php if (!is_search()) { ?>

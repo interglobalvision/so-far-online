@@ -111,6 +111,8 @@ var Site = function () {
     this.onScrollInterval = this.onScrollInterval.bind(this);
     this.setupSwiperInstance = this.setupSwiperInstance.bind(this);
     this.handleOpenOverlay = this.handleOpenOverlay.bind(this);
+    this.handleFootnoteRefClick = this.handleFootnoteRefClick.bind(this);
+    this.handleArticleRefClick = this.handleArticleRefClick.bind(this);
   }
 
   _createClass(Site, [{
@@ -133,6 +135,7 @@ var Site = function () {
       this.bindMenuToggle();
       this.bindOverlayTriggers();
       this.bindSearchToggle();
+      this.bindRefClick();
     }
   }, {
     key: 'initSwiper',
@@ -253,6 +256,35 @@ var Site = function () {
       $('.js-toggle-search').on('click', function () {
         $('body').toggleClass('search-open');
       });
+    }
+  }, {
+    key: 'bindRefClick',
+    value: function bindRefClick() {
+      $('.js-footnote-ref').on('click', this.handleFootnoteRefClick);
+      $('.js-article-ref').on('click', this.handleArticleRefClick);
+    }
+  }, {
+    key: 'handleFootnoteRefClick',
+    value: function handleFootnoteRefClick(e) {
+      e.preventDefault();
+      var refIndex = $(e.target).attr('data-ref');
+      var $targetRef = $('.js-article-ref[data-ref="' + refIndex + '"]');
+      this.scrollToRef($targetRef, 2);
+    }
+  }, {
+    key: 'handleArticleRefClick',
+    value: function handleArticleRefClick(e) {
+      e.preventDefault();
+      var refIndex = $(e.target).attr('data-ref');
+      var $targetRef = $('.js-footnote-ref[data-ref="' + refIndex + '"]');
+      this.scrollToRef($targetRef, 1);
+    }
+  }, {
+    key: 'scrollToRef',
+    value: function scrollToRef($targetRef, offsetMultiplier) {
+      $('html, body').animate({
+        scrollTop: $targetRef.offset().top - this.navbarHeight * offsetMultiplier
+      }, 800);
     }
   }, {
     key: 'onScroll',
