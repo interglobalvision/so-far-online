@@ -57,7 +57,7 @@ if (have_posts()) {
                     <h1 class="font-serif font-size-large"><?php the_title(); ?></h1>
                   </div>
                   <?php if (!empty($subtitle)) { ?>
-                  <div class="grid-item item-s-12 font-size-mid">
+                  <div class="grid-item item-s-12">
                     <span><?php echo $subtitle; ?></span>
                   </div>
                   <?php } if ($contributor_names || $artist_names) { ?>
