@@ -11,8 +11,10 @@ if (have_posts()) {
     the_post();
 ?>
     <div class="gws-cart margin-bottom-mid">
-      <header id="cart-header" class="grid-row font-uppercase padding-top-small padding-bottom-small justify-center">
-      	<div class="grid-item item-s-12 item-l-10"><h1 class="font-size-basic">Shopping Bag</h1></div>
+      <header id="cart-header">
+        <div class="grid-row font-uppercase padding-top-small padding-bottom-small justify-center">
+        	<div class="grid-item item-s-12 item-l-10"><h1 class="font-size-basic">Shopping Bag</h1></div>
+        </div>
       </header>
 
       <section id="cart-body">
@@ -27,7 +29,7 @@ if (have_posts()) {
             </div>
           </div>
         </div>
-        <div id="cart-items" class="gws-cart-items border-bottom">
+        <div id="cart-items" class="gws-cart-items">
           <div class="gws-cart-item margin-bottom-small">
             <div>
               <a class="gws-cart-remove u-pointer">&times;</a>
@@ -83,12 +85,14 @@ if (have_posts()) {
         </div>
       </section>
 
-      <section id="cart-empty" class="u-hidden">
-        <div>
-          <div>
-            <span>Your bag is empty</span>
+      <section id="cart-empty">
+        <div class="grid-row justify-center">
+          <div class="grid-item text-align-center">
+            <div class="padding-top-basic padding-bottom-basic">
+              <span>Your shopping bag is empty.</span>
+            </div>
+            <a class="button" href="<?php echo home_url('shop'); ?>">Visit the shop</a>
           </div>
-          <a href="<?php echo home_url('shop'); ?>">Return To Shop</a>
         </div>
       </section>
     </div>

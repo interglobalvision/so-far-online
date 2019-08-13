@@ -368,5 +368,20 @@ a, button
   background-size: cover
   background-position: center
 
+#cart-header, #cart-body, #cart-footer, #cart-empty
+  display: none
+
+[data-gws-cart-empty="false"]
+  #cart-header, #cart-body, #cart-footer
+    display: block
+  #cart-empty
+    display: none
+
+[data-gws-cart-empty="true"]
+  #cart-header, #cart-body, #cart-footer
+    display: none
+  #cart-empty
+    display: block
+
 .social-icon
   width: 22px
