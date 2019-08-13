@@ -6,6 +6,7 @@ $artists = get_terms_by_post_type( array('artist'), array('product') );
 <section class="padding-top-small padding-bottom-small background-pale border-bottom">
   <div class="container">
     <div class="grid-row">
+      <?php if (!empty($mediums)) { ?>
       <div class="grid-item item-s-12 item-m-6 item-l-3">
         <h3 class="font-size-mid margin-bottom-tiny">Medium</h3>
         <ul>
@@ -16,6 +17,7 @@ $artists = get_terms_by_post_type( array('artist'), array('product') );
           <li class="margin-bottom-tiny"><a href="<?php echo add_query_arg($params); ?>"><?php echo $term->name; ?></a></li>
         <?php } ?>
       </div>
+      <?php } if (!empty($artists)) { ?>
       <div class="grid-item item-s-12 item-m-6 item-l-3">
         <h3 class="font-size-mid margin-bottom-tiny">Artists</h3>
         <ul>
@@ -26,6 +28,7 @@ $artists = get_terms_by_post_type( array('artist'), array('product') );
           <li class="margin-bottom-tiny"><a href="<?php echo add_query_arg($params); ?>"><?php echo $term->name; ?></a></li>
         <?php } ?>
       </div>
+      <?php } if (!empty($collections)) { ?>
       <div class="grid-item item-s-12 item-m-6 item-l-3">
         <h3 class="font-size-mid margin-bottom-tiny">Collections</h3>
         <ul>
@@ -36,6 +39,7 @@ $artists = get_terms_by_post_type( array('artist'), array('product') );
           <li class="margin-bottom-tiny"><a href="<?php echo add_query_arg($params); ?>"><?php echo $term->name; ?></a></li>
         <?php } ?>
       </div>
+      <?php } ?>
     </div>
   </div>
 </section>
