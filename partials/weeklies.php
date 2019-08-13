@@ -10,7 +10,7 @@ if ( $weeklies_query->have_posts() ) {
 ?>
 <section id="weeklies-carousel" class="padding-top-small padding-bottom-small">
   <div class="container">
-    <h2 class="text-align-center font-uppercase padding-bottom-small">Weeklies</h2>
+    <h2 class="text-align-center font-uppercase padding-bottom-small font-size-mid">Weeklies</h2>
     <div class="swiper-container" data-swiper-type="scroll">
       <div class="swiper-wrapper padding-bottom-small">
     <?php
@@ -21,15 +21,15 @@ if ( $weeklies_query->have_posts() ) {
     ?>
         <div class="swiper-slide text-align-center">
           <a href="<?php the_permalink(); ?>">
-            <div class="font-color-grey">
+            <div class="font-color-grey font-size-small margin-bottom-micro font-uppercase">
               <span><?php echo $type ? $type : '&nbsp;'; ?></span>
             </div>
             <?php the_post_thumbnail(); ?>
-            <h3 class="font-serif"><?php the_title(); ?></h3>
+            <h3 class="font-serif font-size-mid margin-top-micro"><?php the_title(); ?></h3>
             <?php
               if ($contributors) {
             ?>
-            <div class="font-color-grey">
+            <div class="font-color-grey margin-top-tiny">
               <span><?php echo $contributors; ?></span>
             </div>
             <?php

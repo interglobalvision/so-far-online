@@ -45,22 +45,22 @@ $background_class = $reverse || $index === 0 ? 'background-pale' : '';
       </figure>
 
       <a href="<?php the_permalink() ?>" class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter grid-row align-content-end">
-        <div class="grid-item item-s-12 margin-bottom-basic">
-          <h1 class="font-serif"><?php the_title(); ?></h1>
+        <div class="grid-item item-s-12 margin-bottom-small">
+          <h1 class="font-serif font-size-large"><?php the_title(); ?></h1>
         </div>
         <?php if (!empty($subtitle)) { ?>
-        <div class="grid-item item-s-12">
+        <div class="grid-item item-s-12 font-size-mid font-heavy">
           <span><?php echo $subtitle; ?></span>
         </div>
         <?php } if ($contributor_names || $artist_names) { ?>
         <div class="grid-item item-s-12 offset-m-4 offset-l-2 offset-xl-4 margin-top-small font-color-grey">
         <?php if ($contributor_names) { ?>
           <div class="margin-top-tiny">
-            <span>Text by: <?php echo $contributor_names; ?></span>
+            <span>Text by <?php echo $contributor_names; ?></span>
           </div>
         <?php } if ($artist_names) { ?>
           <div class="margin-top-tiny">
-            <span>Artwork by: <?php echo $artist_names; ?></span>
+            <span>Artwork by <?php echo $artist_names; ?></span>
           </div>
         <?php } ?>
         </div>

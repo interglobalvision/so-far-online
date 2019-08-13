@@ -118,18 +118,30 @@ if (have_posts()) {
                   $artwork_title = get_post_meta($artwork_id, '_igv_artwork_title', true);
                   $artwork_year = get_post_meta($artwork_id, '_igv_artwork_year', true);
               ?>
-                <div class="grid-item item-s-12 item-l-3 no-gutter">
-                  <div><?php echo get_the_post_thumbnail($artwork_id); ?></div>
-                  <div><span><?php echo !empty($artwork_artists) ? $artwork_artists : ''; ?></span></div>
-                  <div><span>
-                    <?php
-                      echo !empty($artwork_title) ? $artwork_title : '';
-                      echo !empty($artwork_title) && !empty($artwork_year) ? ', ' : '';
-                      echo !empty($artwork_year) ? $artwork_year : '';
-                    ?>
-                  </span></div>
+                <div class="gws-product grid-item item-s-12 item-l-3 margin-bottom-small"
+                data-gws-product-handle="<?php echo $product_handle; ?>"
+                data-gws-available="true"
+                >
+                  <a class="font-size-small" href="<?php echo get_the_permalink($artwork_id); ?>">
+                    <div><?php echo get_the_post_thumbnail($artwork_id); ?></div>
+                    <?php echo !empty($artwork_artists) ? '<div><span>' . $artwork_artists . '</span></div>' : ''; ?>
+                    <div>
+                      <?php
+                        echo !empty($artwork_title) ? '<h3 class="u-inline-block">' . $artwork_title . '</h3>' : '';
+                        echo !empty($artwork_title) && !empty($artwork_year) ? ', ' : '';
+                        echo !empty($artwork_year) ? '<span>' . $artwork_year . '</span>' : '';
+                      ?>
+                    </div>
+                    <div class="product-price"><span class="gws-product-price"></span></div>
+                    <div class="product-sold"><span>Sold</span></div>
+                  </a>
                 </div>
               <?php } ?>
+              </div>
+              <div class="grid-row justify-center padding-top-small">
+                <div>
+                  <a class="button" href="<?php echo home_url('shop'); ?>">Visit the shop</a>
+                </div>
               </div>
             </div>
           </section>
