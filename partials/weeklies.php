@@ -21,15 +21,15 @@ if ( $weeklies_query->have_posts() ) {
     ?>
         <div class="swiper-slide text-align-center">
           <a href="<?php the_permalink(); ?>">
-            <div class="font-color-grey font-size-small margin-bottom-micro font-uppercase">
+            <div class="font-color-grey font-size-tiny margin-bottom-micro font-uppercase">
               <span><?php echo $type ? $type : '&nbsp;'; ?></span>
             </div>
             <?php the_post_thumbnail(); ?>
-            <h3 class="font-serif font-size-mid margin-top-micro"><?php the_title(); ?></h3>
+            <h3 class="font-serif margin-top-micro"><?php the_title(); ?></h3>
             <?php
               if ($contributors) {
             ?>
-            <div class="font-color-grey margin-top-tiny">
+            <div class="font-color-grey margin-top-tiny font-size-small">
               <span><?php echo $contributors; ?></span>
             </div>
             <?php
