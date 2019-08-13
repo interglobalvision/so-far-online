@@ -26,7 +26,8 @@ if (have_posts()) {
       <div class="grid-item item-s-12 item-l-8 offset-l-2">
         <?php if (!empty($headline)) { ?>
         <div class="padding-bottom-small font-size-mid"><span><?php echo $headline; ?></span></div>
-        <?php } the_content(); ?>
+        <?php } ?>
+        <div class="font-serif"><?php the_content(); ?></div>
       </div>
     </div>
   </section>
@@ -38,7 +39,7 @@ if (have_posts()) {
     <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-mid">Our Mission</h2>
     <div class="grid-row">
       <div class="grid-item item-s-12 item-l-8 offset-l-2">
-        <div><?php echo apply_filters('the_content', $mission); ?></div>
+        <div class="font-serif"><?php echo apply_filters('the_content', $mission); ?></div>
       </div>
     </div>
   </section>
@@ -63,7 +64,7 @@ if (have_posts()) {
         <?php echo !empty($contributors_image_id) ? wp_get_attachment_image($contributors_image_id, 'full') : ''; ?>
       </div>
       <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter">
-        <?php echo !empty($contributors_text) ? apply_filters('the_content', $contributors_text) : ''; ?>
+        <div class="font-serif"><?php echo !empty($contributors_text) ? apply_filters('the_content', $contributors_text) : ''; ?></div>
         <div class="padding-top-small text-align-center font-uppercase">
           <a class="button" href="<?php echo home_url('contributors'); ?>">Meet our contributors</a>
         </div>
@@ -78,7 +79,7 @@ if (have_posts()) {
         <?php echo !empty($artists_image_id) ? wp_get_attachment_image($artists_image_id, 'full') : ''; ?>
       </div>
       <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter">
-        <?php echo !empty($artists_text) ? apply_filters('the_content', $artists_text) : ''; ?>
+        <div class="font-serif"><?php echo !empty($artists_text) ? apply_filters('the_content', $artists_text) : ''; ?></div>
         <div class="padding-top-small text-align-center font-uppercase">
           <a class="button" href="<?php echo home_url('artists'); ?>">Meet our artists</a>
         </div>
