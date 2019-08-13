@@ -132,6 +132,7 @@ var Site = function () {
       this.bindStickyHeader();
       this.bindMenuToggle();
       this.bindOverlayTriggers();
+      this.bindSearchToggle();
     }
   }, {
     key: 'initSwiper',
@@ -247,6 +248,13 @@ var Site = function () {
       setInterval(this.onScrollInterval, 250);
     }
   }, {
+    key: 'bindSearchToggle',
+    value: function bindSearchToggle() {
+      $('.js-toggle-search').on('click', function () {
+        $('body').toggleClass('search-open');
+      });
+    }
+  }, {
     key: 'onScroll',
     value: function onScroll() {
       this.didScroll = true;
@@ -273,6 +281,7 @@ var Site = function () {
       // This is necessary so you never see what is "behind" the navbar.
       if (st > this.lastScrollTop && st > this.navbarHeight) {
         // Scroll Down
+        $('body').removeClass('search-open');
         $('#header').removeClass('nav-down').addClass('nav-up');
       } else {
         // Scroll Up

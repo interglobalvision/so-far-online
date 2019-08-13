@@ -39,6 +39,7 @@ class Site {
     this.bindStickyHeader();
     this.bindMenuToggle();
     this.bindOverlayTriggers();
+    this.bindSearchToggle();
   }
 
   initSwiper() {
@@ -148,6 +149,12 @@ class Site {
     setInterval(this.onScrollInterval, 250);
   }
 
+  bindSearchToggle() {
+    $('.js-toggle-search').on('click', function() {
+      $('body').toggleClass('search-open');
+    });
+  }
+
   onScroll() {
     this.didScroll = true;
   }
@@ -171,6 +178,7 @@ class Site {
     // This is necessary so you never see what is "behind" the navbar.
     if (st > this.lastScrollTop && st > this.navbarHeight){
       // Scroll Down
+      $('body').removeClass('search-open');
       $('#header').removeClass('nav-down').addClass('nav-up');
     } else {
       // Scroll Up

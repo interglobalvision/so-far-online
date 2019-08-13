@@ -47,25 +47,25 @@ if (have_posts()) {
             </div>
             <div class="grid-item item-s-12 item-l-3">
               <h1 class="u-visuallyhidden"><?php the_title(); ?></h1>
-              <?php echo !empty($artist_names) ? '<div class="margin-bottom-tiny margin-top-tiny"><span>' . $artist_names . '</span></div>' : ''; ?>
-              <?php echo !empty($title) ? '<div class="margin-bottom-micro"><span>' . $title . '</span></div>' : ''; ?>
+              <?php echo !empty($artist_names) ? '<div class="margin-bottom-tiny margin-top-tiny font-size-mid"><span>' . $artist_names . '</span></div>' : ''; ?>
+              <?php echo !empty($title) ? '<div class="margin-bottom-micro font-size-mid"><span>' . $title . '</span></div>' : ''; ?>
               <?php if (!empty($specs)) { ?>
-              <ul>
+              <ul class="font-color-grey">
                 <?php foreach ($specs as $spec) { ?>
                 <li class="margin-bottom-micro"><?php echo $spec; ?></li>
                 <?php } ?>
               </ul>
               <?php } if (!empty($images)) { ?>
-              <div class="padding-top-tiny padding-bottom-small desktop-only">
+              <div class="padding-top-tiny padding-bottom-small desktop-only font-color-grey">
                 <span class="<?php echo count($images) === 1 ? 'u-hidden' : ''; ?>">More views of this artwork </span>
               </div>
-              <div class="margin-bottom-small desktop-only <?php echo count($images) === 1 ? 'u-hidden' : ''; ?>">
+              <div class="margin-bottom-small desktop-only font-color-grey <?php echo count($images) === 1 ? 'u-hidden' : ''; ?>">
                 <span class="slide-prev u-pointer"><</span>
                 <span><span class="slide-current">1</span>/<span><?php echo count($images); ?></span></span>
                 <span class="slide-next u-pointer">></span>
               </div>
               <?php } ?>
-              <div class="margin-bottom-tiny">
+              <div class="margin-bottom-tiny font-color-grey">
                 <div class="product-price"><span class="gws-product-price"></span></div>
                 <div class="product-sold"><span>Sold</span></div>
               </div>
@@ -79,32 +79,32 @@ if (have_posts()) {
         </div>
       </section>
 
-      <section class="padding-top-small padding-bottom-small background-pale">
+      <section class="padding-top-basic padding-bottom-basic background-pale">
         <div class="container">
           <div class="grid-row">
             <div class="grid-item item-s-12 item-l-7 offset-l-1">
-              <h3>Description</h3>
-              <?php the_content(); ?>
+              <h3 class="margin-bottom-tiny">Description</h3>
+              <div class="font-size-mid"><?php the_content(); ?></div>
             </div>
             <div class="grid-item item-s-12 item-l-3 grid-row">
             <?php if (!empty($options['product_authenticity'])) { ?>
               <div>
-                <h3>Authenticity</h3>
-                <div>
+                <h3 class="margin-bottom-tiny">Authenticity</h3>
+                <div class="font-size-small">
                   <?php echo apply_filters('the_content', $options['product_authenticity']); ?>
                 </div>
               </div>
             <?php } if (!empty($options['product_framing'])) { ?>
-              <div>
-                <h3>Framing & Installation</h3>
-                <div>
+              <div class="margin-top-tiny">
+                <h3 class="margin-bottom-tiny">Framing & Installation</h3>
+                <div class="font-size-small">
                   <?php echo apply_filters('the_content', $options['product_framing']); ?>
                 </div>
               </div>
             <?php } if (!empty($options['product_shipping'])) { ?>
-              <div>
-                <h3>Shipping & Taxes</h3>
-                <div>
+              <div class="margin-top-tiny">
+                <h3 class="margin-bottom-tiny">Shipping & Taxes</h3>
+                <div class="font-size-small">
                   <?php echo apply_filters('the_content', $options['product_shipping']); ?>
                 </div>
               </div>
@@ -123,7 +123,7 @@ if (have_posts()) {
 ?>
     <section class="padding-top-small padding-bottom-small">
       <div class="container">
-        <h2 class="text-align-center font-uppercase padding-bottom-small">Meet the Artist</h2>
+        <h2 class="text-align-center font-uppercase padding-bottom-small font-size-mid">Meet the Artist</h2>
         <?php
           foreach($artists as $bio) {
             global $bio;
@@ -152,7 +152,7 @@ if (have_posts()) {
   if ($articles_query->have_posts()) {
 ?>
     <section>
-      <h2 class="text-align-center font-uppercase background-pale padding-top-small">This artwork appears in...</h2>
+      <h2 class="text-align-center font-uppercase background-pale padding-top-small font-size-mid">This artwork appears in...</h2>
 <?php
     while ($articles_query->have_posts()) {
       $articles_query->the_post();

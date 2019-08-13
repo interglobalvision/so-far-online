@@ -64,7 +64,7 @@ get_template_part('partials/seo');
               <!--div class="header-bag-count font-size-tiny"><span class="gws-cart-counter"></span></div-->
             </div>
             <div class="grid-item">
-              <a><img class="header-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-search.png" /></a>
+              <img class="u-pointer header-icon js-toggle-search" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-search.png" />
             </div>
           </div>
         </div>
@@ -96,8 +96,15 @@ get_template_part('partials/seo');
           <a href="<?php echo home_url('bag'); ?>" class="padding-top-tiny padding-bottom-tiny">Bag</a>
         </div>
         <div class="grid-item padding-bottom-basic font-size-zero">
-          <span class="padding-top-tiny padding-bottom-tiny"><a><img class="header-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-search.png" /></a></span>
+          <span class="padding-top-tiny padding-bottom-tiny"><img class="header-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-search.png" /></span>
         </div>
       </div>
     </div>
   </div>
+
+  <?php if (!is_search()) { ?>
+    <div id="fixed-search-underlay" class="js-toggle-search"></div>
+    <div id="fixed-search-holder">
+      <?php get_search_form() ?>
+    </div>
+  <?php } ?>

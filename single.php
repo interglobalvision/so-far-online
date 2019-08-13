@@ -108,10 +108,10 @@ if (have_posts()) {
           </section>
 
         <?php if (!empty($artworks)) { ?>
-          <section class="padding-top-small padding-bottom-small">
+          <section class="padding-top-small padding-bottom-basic">
             <div class="container">
-              <h2 class="text-align-center font-uppercase padding-bottom-small">Recent Artworks</h2>
-              <div class="grid-row justify-end">
+              <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-mid">Featured Artworks</h2>
+              <div class="grid-row justify-center">
               <?php
                 foreach ($artworks as $artwork_id) {
                   $artwork_artists = get_name_list($artwork_id, 'artist');
@@ -136,14 +136,14 @@ if (have_posts()) {
 
         <?php } if (!empty($footnotes)) { ?>
 
-          <section class="padding-top-small padding-bottom-small">
+          <section class="padding-top-small padding-bottom-small background-pale">
             <div class="container">
-              <h2 class="font-uppercase padding-bottom-small">Footnotes</h2>
               <div class="grid-row justify-center">
                 <div class="grid-item item-s-12 item-l-8">
-                  <ol>
+                  <h2 class="font-uppercase padding-bottom-small">Footnotes</h2>
+                  <ol class="font-serif">
                   <?php foreach($footnotes as $index => $footnote) { ?>
-                    <li id="footnote-ref-<?php echo $index + 1; ?>"><a href="#article-ref-<?php echo $index + 1; ?>"><?php echo $footnote; ?></a></li>
+                    <li class="margin-bottom-tiny" id="footnote-ref-<?php echo $index + 1; ?>"><a href="#article-ref-<?php echo $index + 1; ?>"><?php echo $footnote; ?></a></li>
                   <?php } ?>
                   </ol>
                 </div>
@@ -157,9 +157,9 @@ if (have_posts()) {
             $contributors = !$contributors ? array() : $contributors;
             $bios = array_merge($artists, $contributors);
           ?>
-          <section class="padding-top-small padding-bottom-small">
+          <section class="padding-top-small padding-bottom-basic">
             <div class="container">
-              <h2 class="text-align-center font-uppercase padding-bottom-small">Artists & Contributors</h2>
+              <h2 class="text-align-center font-uppercase padding-bottom-small font-size-mid">Artists & Contributors</h2>
               <?php
                 foreach($artists as $bio) {
                   global $bio;
