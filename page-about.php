@@ -49,8 +49,8 @@ if (have_posts()) {
     <?php foreach($team as $member) { ?>
       <div class="grid-item item-s-12 item-m-6 item-l-4 item-xxl-3">
         <div><?php echo !empty($member['photo_id']) ? wp_get_attachment_image($member['photo_id'], 'full') : ''; ?></div>
-        <div class="margin-top-micro"><span><?php echo !empty($member['name']) ? $member['name'] : ''; ?></span></div>
-        <div class="margin-top-micro"><?php echo !empty($member['bio']) ? apply_filters('the_content', $member['bio']) : ''; ?></div>
+        <div class="margin-top-micro font-size-small"><span><?php echo !empty($member['name']) ? $member['name'] : ''; ?></span></div>
+        <div class="margin-top-micro font-serif"><?php echo !empty($member['bio']) ? apply_filters('the_content', $member['bio']) : ''; ?></div>
       </div>
     <?php } ?>
     </div>
