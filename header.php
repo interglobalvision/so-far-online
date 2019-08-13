@@ -54,8 +54,15 @@ get_template_part('partials/seo');
             </li>
           </ul>
         </div>
-        <div class="grid-item not-desktop">
-          <div><span class="js-toggle-menu u-pointer">Toggle</span></div>
+        <div class="grid-item not-desktop no-gutter">
+          <div class="grid-row">
+            <div class="grid-item font-size-zero">
+              <a href="<?php echo home_url('bag'); ?>"><img class="header-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-bag.png" /></a>
+            </div>
+            <div class="grid-item font-size-zero">
+              <span class="js-toggle-menu u-pointer font-size-zero"><img class="header-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-menu.png" /></span>
+            </div>
+          </div>
         </div>
         <div class="desktop-only">
           <div class="grid-row">
@@ -73,6 +80,7 @@ get_template_part('partials/seo');
   </header>
 
   <div id="mobile-nav" class="not-desktop">
+    <div class="border-bottom"><?php get_search_form() ?></div>
     <ul class="grid-row text-align-center padding-top-basic">
       <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
         <a href="<?php echo home_url('issues'); ?>" class="padding-top-tiny padding-bottom-tiny">Issues</a>
@@ -90,14 +98,6 @@ get_template_part('partials/seo');
         <a href="<?php echo home_url('about'); ?>" class="padding-top-tiny padding-bottom-tiny">About</a>
       </li>
     </ul>
-    <div>
-      <div class="grid-row justify-center">
-        <div class="grid-item padding-bottom-basic font-size-zero">
-          <a href="<?php echo home_url('bag'); ?>"><img class="header-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-bag.png" /></a>
-        </div>
-      </div>
-    </div>
-    <div class="padding-bottom-small"><?php get_search_form() ?></div>
   </div>
 
   <?php if (!is_search()) { ?>
