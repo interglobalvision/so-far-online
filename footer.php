@@ -2,7 +2,7 @@
 $options = get_site_option('_igv_site_options');
 ?>
 
-  <footer id="footer" class="background-pale padding-top-small">
+  <footer id="footer" class="background-pale padding-top-small font-size-small">
     <div class="container">
       <div class="grid-row">
       <?php if (!empty($options['mailchimp_action'])) { ?>

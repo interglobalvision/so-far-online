@@ -16,7 +16,7 @@ $background_class = $reverse || $index === 0 ? 'background-pale' : '';
 <article <?php post_class($background_class . ' padding-top-small padding-bottom-basic'); ?> id="post-<?php the_ID(); ?>">
   <div class="container">
     <div class="desktop-only">
-      <div class="grid-row padding-bottom-small">
+      <div class="grid-row padding-bottom-small font-size-small">
         <div class="grid-item item-l-7 offset-l-1">
           <span><?php
             echo 'Issue';
@@ -49,11 +49,11 @@ $background_class = $reverse || $index === 0 ? 'background-pale' : '';
           <h1 class="font-serif font-size-large"><?php the_title(); ?></h1>
         </div>
         <?php if (!empty($subtitle)) { ?>
-        <div class="grid-item item-s-12 font-size-mid font-heavy">
+        <div class="grid-item item-s-12 font-heavy font-size-mid">
           <span><?php echo $subtitle; ?></span>
         </div>
         <?php } if ($contributor_names || $artist_names) { ?>
-        <div class="grid-item item-s-12 offset-m-4 offset-l-2 offset-xl-4 margin-top-small font-color-grey">
+        <div class="grid-item item-s-12 offset-m-4 offset-l-2 offset-xl-4 margin-top-small font-color-grey font-size-small">
         <?php if ($contributor_names) { ?>
           <div class="margin-top-tiny">
             <span>Text by <?php echo $contributor_names; ?></span>

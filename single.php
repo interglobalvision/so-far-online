@@ -33,7 +33,7 @@ if (have_posts()) {
           <header class="padding-bottom-basic">
             <div class="container">
               <?php if ($chapter) { ?>
-                <div class="grid-row padding-top-small padding-bottom-small">
+                <div class="grid-row padding-top-small padding-bottom-small font-size-small">
                   <div class="grid-item item-s-12 item-l-7 offset-l-1">
                     <span><?php
                       echo 'Issue';
@@ -54,14 +54,14 @@ if (have_posts()) {
               <div class="grid-row justify-end row-l-reverse">
                 <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter grid-row align-content-end">
                   <div class="grid-item item-s-12 margin-bottom-basic">
-                    <h1 class="font-serif"><?php the_title(); ?></h1>
+                    <h1 class="font-serif font-size-large"><?php the_title(); ?></h1>
                   </div>
                   <?php if (!empty($subtitle)) { ?>
-                  <div class="grid-item item-s-12">
+                  <div class="grid-item item-s-12 font-size-mid">
                     <span><?php echo $subtitle; ?></span>
                   </div>
                   <?php } if ($contributor_names || $artist_names) { ?>
-                  <div class="grid-item item-s-12 offset-m-4 offset-l-2 offset-xl-4 margin-top-small font-color-grey">
+                  <div class="grid-item item-s-12 offset-m-4 offset-l-2 offset-xl-4 margin-top-small font-color-grey font-size-small">
                   <?php if ($contributor_names) { ?>
                     <div class="margin-top-tiny">
                       <span>Text by: <?php echo $contributor_names; ?></span>
@@ -152,8 +152,8 @@ if (have_posts()) {
             <div class="container">
               <div class="grid-row justify-center">
                 <div class="grid-item item-s-12 item-l-8">
-                  <h2 class="font-uppercase padding-bottom-small">Footnotes</h2>
-                  <ol class="font-serif">
+                  <h2 class="font-uppercase padding-bottom-small font-size-small">Footnotes</h2>
+                  <ol class="font-serif font-size-small">
                   <?php foreach($footnotes as $index => $footnote) { ?>
                     <li class="margin-bottom-tiny" id="footnote-ref-<?php echo $index + 1; ?>"><a class="js-footnote-ref" href="#" data-ref="<?php echo $index + 1; ?>"><?php echo $footnote; ?></a></li>
                   <?php } ?>

@@ -21,21 +21,21 @@ if (have_posts()) {
     $partners = get_post_meta($post->ID, '_igv_about_partners', true);
 ?>
 
-  <section class="padding-top-small padding-bottom-small">
+  <section class="padding-top-small padding-bottom-basic">
     <div class="grid-row">
       <div class="grid-item item-s-12 item-l-8 offset-l-2">
         <?php if (!empty($headline)) { ?>
-        <div class="padding-bottom-small"><span><?php echo $headline; ?></span></div>
+        <div class="padding-bottom-small font-size-mid"><span><?php echo $headline; ?></span></div>
         <?php } the_content(); ?>
       </div>
     </div>
   </section>
-  <section class="text-align-center padding-bottom-small">
+  <section class="text-align-center padding-bottom-basic">
     <?php the_post_thumbnail('full'); ?>
   </section>
 <?php if (!empty($mission)) { ?>
-  <section class="padding-top-small padding-bottom-small">
-    <h2 class="text-align-center font-uppercase padding-bottom-small">Our Mission</h2>
+  <section class="padding-bottom-basic">
+    <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-mid">Our Mission</h2>
     <div class="grid-row">
       <div class="grid-item item-s-12 item-l-8 offset-l-2">
         <div><?php echo apply_filters('the_content', $mission); ?></div>
@@ -43,8 +43,8 @@ if (have_posts()) {
     </div>
   </section>
 <?php } if (!empty($team)) { ?>
-  <section class="padding-top-small padding-bottom-small">
-    <h2 class="text-align-center font-uppercase padding-bottom-small">Our Team</h2>
+  <section class="padding-bottom-basic">
+    <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-mid">Our Team</h2>
     <div class="grid-row justify-center">
     <?php foreach($team as $member) { ?>
       <div class="grid-item item-s-12 item-m-4 item-l-3">
@@ -56,8 +56,8 @@ if (have_posts()) {
     </div>
   </section>
 <?php } if (!empty($contributors_text) || !empty($contributors_image_id)) { ?>
-  <section class="padding-top-small padding-bottom-small">
-    <h2 class="text-align-center font-uppercase padding-bottom-small">Contributors</h2>
+  <section class="padding-bottom-basic">
+    <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-mid">Contributors</h2>
     <div class="grid-row">
       <div class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter-left">
         <?php echo !empty($contributors_image_id) ? wp_get_attachment_image($contributors_image_id, 'full') : ''; ?>
@@ -71,8 +71,8 @@ if (have_posts()) {
     </div>
   </section>
 <?php } if (!empty($artists_text) || !empty($artists_image_id)) { ?>
-  <section class="padding-top-small padding-bottom-small">
-    <h2 class="text-align-center font-uppercase padding-bottom-small">Artists</h2>
+  <section class="padding-bottom-basic">
+    <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-mid">Artists</h2>
     <div class="grid-row row-l-reverse">
       <div class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter-right">
         <?php echo !empty($artists_image_id) ? wp_get_attachment_image($artists_image_id, 'full') : ''; ?>
@@ -86,8 +86,8 @@ if (have_posts()) {
     </div>
   </section>
 <?php } if (!empty($partners)) { ?>
-  <section class="padding-top-small padding-bottom-tiny">
-    <h2 class="text-align-center font-uppercase padding-bottom-small">Partners</h2>
+  <section class="padding-bottom-basic">
+    <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-mid">Partners</h2>
     <div class="grid-row justify-center">
     <?php
       foreach ($partners as $partner) {
@@ -95,7 +95,7 @@ if (have_posts()) {
     ?>
       <div class="grid-item padding-bottom-tiny">
         <?php
-          echo !empty($partner['link']) ? '<a href="' . $partner['link'] . '">' : '';
+          echo !empty($partner['link']) ? '<a href="' . $partner['link'] . '" class="hover-saturate">' : '';
           echo wp_get_attachment_image($partner['logo_id']);
           echo !empty($partner['link']) ? '</a>' : '';
         ?>

@@ -13,6 +13,7 @@ if (have_posts()) {
     $images = get_post_meta($post->ID, '_igv_artwork_images', true);
     $artist_names = get_name_list($post->ID, 'artist');
     $title = get_post_meta($post->ID, '_igv_artwork_title', true);
+    $year = get_post_meta($post->ID, '_igv_artwork_year', true);
     $specs = get_post_meta($post->ID, '_igv_artwork_specs', true);
     $artists = get_the_terms($post, 'artist');
 ?>
@@ -47,25 +48,39 @@ if (have_posts()) {
             </div>
             <div class="grid-item item-s-12 item-l-3">
               <h1 class="u-visuallyhidden"><?php the_title(); ?></h1>
-              <?php echo !empty($artist_names) ? '<div class="margin-bottom-tiny margin-top-tiny font-size-mid"><span>' . $artist_names . '</span></div>' : ''; ?>
-              <?php echo !empty($title) ? '<div class="margin-bottom-micro font-size-mid"><span>' . $title . '</span></div>' : ''; ?>
+              <?php echo !empty($artist_names) ? '<div class="margin-bottom-tiny margin-top-tiny"><span>' . $artist_names . '</span></div>' : ''; ?>
+              <?php
+                echo !empty($title) || !empty($year) ? '<div class="margin-bottom-micro font-size-small">' : '';
+                echo !empty($title) ? '<span>' . $title . '</span>' : '';
+                echo !empty($title) && !empty($year) ? ', ' : '';
+                echo !empty($year) ? '<span>' . $year . '</span>' : '';
+                echo !empty($title) || !empty($year) ? '</div>' : '';
+              ?>
               <?php if (!empty($specs)) { ?>
-              <ul class="font-color-grey">
+              <ul class="font-color-grey font-size-tiny">
                 <?php foreach ($specs as $spec) { ?>
                 <li class="margin-bottom-micro"><?php echo $spec; ?></li>
                 <?php } ?>
               </ul>
               <?php } if (!empty($images)) { ?>
-              <div class="padding-top-tiny padding-bottom-small desktop-only font-color-grey">
+              <div class="padding-top-tiny padding-bottom-small desktop-only font-color-grey font-size-tiny">
                 <span class="<?php echo count($images) === 1 ? 'u-hidden' : ''; ?>">More views of this artwork </span>
               </div>
-              <div class="margin-bottom-small desktop-only font-color-grey <?php echo count($images) === 1 ? 'u-hidden' : ''; ?>">
-                <span class="slide-prev u-pointer"><</span>
-                <span><span class="slide-current">1</span>/<span><?php echo count($images); ?></span></span>
-                <span class="slide-next u-pointer">></span>
+              <div class="margin-bottom-small desktop-only font-color-grey font-size-tiny <?php echo count($images) === 1 ? 'u-hidden' : ''; ?>">
+                <div class="grid-row align-items-center">
+                  <div>
+                    <span class="slide-prev u-pointer"><img class="slide-pagination-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-prev.png" /></span>
+                  </div>
+                  <div>
+                    <span><span class="slide-current">1</span>/<span><?php echo count($images); ?></span></span>
+                  </div>
+                  <div>
+                    <span class="slide-next u-pointer"><img class="slide-pagination-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-next.png" /></span>
+                  </div>
+                </div>
               </div>
               <?php } ?>
-              <div class="margin-bottom-tiny font-color-grey">
+              <div class="margin-bottom-tiny font-color-grey font-size-tiny">
                 <div class="product-price"><span class="gws-product-price"></span></div>
                 <div class="product-sold"><span>Sold</span></div>
               </div>
@@ -83,28 +98,28 @@ if (have_posts()) {
         <div class="container">
           <div class="grid-row">
             <div class="grid-item item-s-12 item-l-7 offset-l-1">
-              <h3 class="margin-bottom-tiny">Description</h3>
-              <div class="font-size-mid"><?php the_content(); ?></div>
+              <h3 class="margin-bottom-tiny font-size-small">Description</h3>
+              <div><?php the_content(); ?></div>
             </div>
             <div class="grid-item item-s-12 item-l-3 grid-row">
             <?php if (!empty($options['product_authenticity'])) { ?>
               <div>
-                <h3 class="margin-bottom-tiny">Authenticity</h3>
-                <div class="font-size-small">
+                <h3 class="margin-bottom-tiny font-size-small">Authenticity</h3>
+                <div class="font-size-tiny">
                   <?php echo apply_filters('the_content', $options['product_authenticity']); ?>
                 </div>
               </div>
             <?php } if (!empty($options['product_framing'])) { ?>
               <div class="margin-top-tiny">
-                <h3 class="margin-bottom-tiny">Framing & Installation</h3>
-                <div class="font-size-small">
+                <h3 class="margin-bottom-tiny font-size-small">Framing & Installation</h3>
+                <div class="font-size-tiny">
                   <?php echo apply_filters('the_content', $options['product_framing']); ?>
                 </div>
               </div>
             <?php } if (!empty($options['product_shipping'])) { ?>
               <div class="margin-top-tiny">
-                <h3 class="margin-bottom-tiny">Shipping & Taxes</h3>
-                <div class="font-size-small">
+                <h3 class="margin-bottom-tiny font-size-small">Shipping & Taxes</h3>
+                <div class="font-size-tiny">
                   <?php echo apply_filters('the_content', $options['product_shipping']); ?>
                 </div>
               </div>

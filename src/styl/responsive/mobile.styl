@@ -1,4 +1,4 @@
-$gutter = 15px
+$gutter = 20px
 
 $margin-micro = ($gutter / 3)
 $margin-tiny = ($gutter / 2)
@@ -335,12 +335,12 @@ button
 
 a, button
   &.button
-    background: $color-black
+    background-color: $color-black
     padding: .4rem 3rem
     color: $color-white
     border: 1px solid transparent
-    &:disabled
-      background: $color-grey-medium
+    &:disabled, &:disabled:hover
+      background-color: $color-grey-medium
       color: $color-grey-light
     &:focus
       text-decoration: none
