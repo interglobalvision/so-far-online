@@ -183,23 +183,21 @@ if (have_posts()) {
           <?php
             $artists = !$artists ? array() : $artists;
             $contributors = !$contributors ? array() : $contributors;
-
-            $bios = array_merge($artists, $contributors);
             $dups = [];
 
-            foreach($bios as $key => $value) {
-              foreach ($bios as $check_key => $check_value) {
-                if ($check_value->name === $value->name) {
-                  if ($check_key !== $key && !in_array($key, $dups) && !in_array($check_key, $dups)) {
-                    array_push($dups, $key);
-                  }
+            foreach($artists as $artist_key => $artist_value) {
+              foreach ($contributors as $contributor_key => $contributor_value) {
+                if ($artist_value->name === $contributor_value->name) {
+                  array_push($dups, $contributor_key);
                 }
               }
             }
 
             foreach($dups as $key => $value) {
-              unset($bios[$key]);
+              unset($contributors[$key]);
             };
+
+            $bios = array_merge($artists, $contributors);
           ?>
           <section class="padding-top-small padding-bottom-small">
             <div class="container">
