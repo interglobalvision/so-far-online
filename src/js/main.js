@@ -24,6 +24,7 @@ class Site {
     this.handleFootnoteRefClick = this.handleFootnoteRefClick.bind(this);
     this.handleArticleRefClick = this.handleArticleRefClick.bind(this);
     this.handleShopMenu = this.handleShopMenu.bind(this);
+    this.handleLoadAnimation = this.handleLoadAnimation.bind(this);
   }
 
   onResize() {
@@ -45,6 +46,9 @@ class Site {
     this.bindSearchToggle();
     this.bindRefClick();
     this.bindShopMenuToggle();
+    this.bindAnimatedLoad();
+
+    $('#dissolve').fadeTo(500, 0);
   }
 
   initSwiper() {
@@ -111,7 +115,7 @@ class Site {
 
     var slidesLength = $(selector).find('.swiper-slide').length;
     var swiperArgs = this.swiperArgs[type];
-    swiperArgs['simulateTouch'] = slidesLength > 1 ? true : false;
+    swiperArgs.simulateTouch = slidesLength > 1 ? true : false;
 
     var swiperInstance = new Swiper (selector, swiperArgs);
 
@@ -132,12 +136,12 @@ class Site {
       }
 
       $('body').removeClass('overlay-open');
-    })
+    });
   }
 
-  handleOpenOverlay(e) {
-    var slideIndex = this.swiperInstance['slide'].activeIndex;
-    this.swiperInstance['overlay'].slideTo(slideIndex, 0);
+  handleOpenOverlay() {
+    var slideIndex = this.swiperInstance.slide.activeIndex;
+    this.swiperInstance.overlay.slideTo(slideIndex, 0);
     $('body').addClass('overlay-open');
   }
 
@@ -161,22 +165,22 @@ class Site {
   }
 
   bindRefClick() {
-    $('.js-footnote-ref').on('click', this.handleFootnoteRefClick)
-    $('.js-article-ref').on('click', this.handleArticleRefClick)
+    $('.js-footnote-ref').on('click', this.handleFootnoteRefClick);
+    $('.js-article-ref').on('click', this.handleArticleRefClick);
   }
 
   handleFootnoteRefClick(e) {
     e.preventDefault();
     var refIndex = $(e.target).attr('data-ref');
-    var $targetRef = $('.js-article-ref[data-ref="' + refIndex + '"]')
-    this.scrollToRef($targetRef, 2)
+    var $targetRef = $('.js-article-ref[data-ref="' + refIndex + '"]');
+    this.scrollToRef($targetRef, 2);
   }
 
   handleArticleRefClick(e) {
     e.preventDefault();
     var refIndex = $(e.target).attr('data-ref');
-    var $targetRef = $('.js-footnote-ref[data-ref="' + refIndex + '"]')
-    this.scrollToRef($targetRef, 1)
+    var $targetRef = $('.js-footnote-ref[data-ref="' + refIndex + '"]');
+    this.scrollToRef($targetRef, 1);
   }
 
   bindShopMenuToggle() {
@@ -185,15 +189,15 @@ class Site {
 
   handleShopMenu() {
     var isOpen = $('body').hasClass('shop-menu-open');
+    var autoHeight = $('#shop-menu').height();
 
     if (isOpen) {
-      var autoHeight = $('#shop-menu').height();
       $('#shop-menu').animate({ height: 0 }, autoHeight * 1.5, 'swing', function() {
         $('body').removeClass('shop-menu-open');
       });
     } else {
       $('#shop-menu').css('height', 'auto');
-      var autoHeight = $('#shop-menu').height();
+      autoHeight = $('#shop-menu').height();
       $('#shop-menu').height(0).animate({ height: autoHeight }, autoHeight * 1.5, 'swing', function() {
         $('body').addClass('shop-menu-open');
       });
@@ -239,6 +243,24 @@ class Site {
     }
 
     this.lastScrollTop = st;
+  }
+
+  bindAnimatedLoad() {
+    $('a').on('click', this.handleLoadAnimation);
+  }
+
+  handleLoadAnimation(e) {
+    e.preventDefault();
+    var $target = $(e.target).is('a') ? $(e.target) : $(e.target).closest('a');
+    var url = $target.attr('href');
+
+    if (url.startsWith(WP.siteUrl)) {
+      $('#dissolve').fadeTo(500, 1, function() {
+        window.location.href = url;
+      });
+    } else {
+      window.location.href = url;
+    }
   }
 
   fixWidows() {

@@ -60,315 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* jshint esversion: 6, browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
-/* global $, document */
-
-// Import dependencies
-
-
-// Import style
-
-
-var _lazysizes = __webpack_require__(2);
-
-var _lazysizes2 = _interopRequireDefault(_lazysizes);
-
-var _swiper = __webpack_require__(4);
-
-var _swiper2 = _interopRequireDefault(_swiper);
-
-var _mailchimp = __webpack_require__(6);
-
-var _mailchimp2 = _interopRequireDefault(_mailchimp);
-
-__webpack_require__(7);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Site = function () {
-  function Site() {
-    _classCallCheck(this, Site);
-
-    this.mobileThreshold = 601;
-
-    $(window).resize(this.onResize.bind(this));
-
-    $(document).ready(this.onReady.bind(this));
-
-    this.onScroll = this.onScroll.bind(this);
-    this.onScrollInterval = this.onScrollInterval.bind(this);
-    this.setupSwiperInstance = this.setupSwiperInstance.bind(this);
-    this.handleOpenOverlay = this.handleOpenOverlay.bind(this);
-    this.handleFootnoteRefClick = this.handleFootnoteRefClick.bind(this);
-    this.handleArticleRefClick = this.handleArticleRefClick.bind(this);
-    this.handleShopMenu = this.handleShopMenu.bind(this);
-  }
-
-  _createClass(Site, [{
-    key: 'onResize',
-    value: function onResize() {
-      this.navbarHeight = $('#header').outerHeight();
-    }
-  }, {
-    key: 'onReady',
-    value: function onReady() {
-      this.didScroll = false;
-      this.lastScrollTop = 0;
-      this.delta = 5;
-      this.navbarHeight = $('#header').outerHeight();
-      this.swiperInstance = {};
-
-      _lazysizes2.default.init();
-      this.initSwiper();
-      this.bindStickyHeader();
-      this.bindMenuToggle();
-      this.bindOverlayTriggers();
-      this.bindSearchToggle();
-      this.bindRefClick();
-      this.bindShopMenuToggle();
-    }
-  }, {
-    key: 'initSwiper',
-    value: function initSwiper() {
-      this.swiperArgs = {
-        scroll: {
-          simulateTouch: true,
-          slidesPerView: 'auto',
-          freeMode: true,
-          mousewheel: {
-            sensitivity: 1,
-            forceToAxis: true,
-            invert: true
-          },
-          scrollbar: {
-            el: '.swiper-scrollbar',
-            draggable: true,
-            hide: false,
-            snapOnRelease: false,
-            dragSize: 200
-          }
-        },
-        slide: {
-          simulateTouch: true,
-          slidesPerView: 1,
-          initialSlide: 0,
-          loop: true,
-          effect: 'slide',
-          navigation: {
-            nextEl: '.slide-next',
-            prevEl: '.slide-prev'
-          },
-          pagination: {
-            el: '.slide-pagination',
-            bulletClass: 'slide-pagination-bullet',
-            bulletActiveClass: 'slide-pagination-bullet-active',
-            type: 'bullets',
-            clickable: true
-          }
-        },
-        overlay: {
-          simulateTouch: true,
-          slidesPerView: 1,
-          initialSlide: 0,
-          loop: true,
-          effect: 'slide',
-          navigation: {
-            nextEl: '.overlay-next',
-            prevEl: '.overlay-prev'
-          }
-        }
-      };
-
-      $('.swiper-container').each(this.setupSwiperInstance);
-    }
-  }, {
-    key: 'setupSwiperInstance',
-    value: function setupSwiperInstance(index, element) {
-      var type = $(element).attr('data-swiper-type');
-      var selector = '.swiper-container[data-swiper-type="' + type + '"]';
-
-      if (type === 'scroll') {
-        $(element).addClass('swiper-instance-' + index);
-        selector = '.swiper-instance-' + index;
-      }
-
-      var slidesLength = $(selector).find('.swiper-slide').length;
-      var swiperArgs = this.swiperArgs[type];
-      swiperArgs['simulateTouch'] = slidesLength > 1 ? true : false;
-
-      var swiperInstance = new _swiper2.default(selector, swiperArgs);
-
-      if (type === 'slide' || type === 'overlay') {
-        swiperInstance.on('slideChange', function () {
-          $('.' + type + '-current').html(swiperInstance.realIndex + 1);
-        });
-        this.swiperInstance[type] = swiperInstance;
-      }
-    }
-  }, {
-    key: 'bindOverlayTriggers',
-    value: function bindOverlayTriggers() {
-      $('.trigger-overlay').on('click', this.handleOpenOverlay);
-
-      $('#overlay-gallery').on('click', function (e) {
-        if (e.target.tagName === 'IMG' || $(e.target).hasClass('overlay-nav')) {
-          return;
-        }
-
-        $('body').removeClass('overlay-open');
-      });
-    }
-  }, {
-    key: 'handleOpenOverlay',
-    value: function handleOpenOverlay(e) {
-      var slideIndex = this.swiperInstance['slide'].activeIndex;
-      this.swiperInstance['overlay'].slideTo(slideIndex, 0);
-      $('body').addClass('overlay-open');
-    }
-  }, {
-    key: 'bindMenuToggle',
-    value: function bindMenuToggle() {
-      $('.js-toggle-menu').on('click', function () {
-        $('body').toggleClass('nav-open');
-        $('#header').removeClass('nav-up');
-      });
-    }
-  }, {
-    key: 'bindStickyHeader',
-    value: function bindStickyHeader() {
-      $(window).scroll(this.onScroll);
-
-      setInterval(this.onScrollInterval, 250);
-    }
-  }, {
-    key: 'bindSearchToggle',
-    value: function bindSearchToggle() {
-      $('.js-toggle-search').on('click', function () {
-        $('body').toggleClass('search-open');
-      });
-    }
-  }, {
-    key: 'bindRefClick',
-    value: function bindRefClick() {
-      $('.js-footnote-ref').on('click', this.handleFootnoteRefClick);
-      $('.js-article-ref').on('click', this.handleArticleRefClick);
-    }
-  }, {
-    key: 'handleFootnoteRefClick',
-    value: function handleFootnoteRefClick(e) {
-      e.preventDefault();
-      var refIndex = $(e.target).attr('data-ref');
-      var $targetRef = $('.js-article-ref[data-ref="' + refIndex + '"]');
-      this.scrollToRef($targetRef, 2);
-    }
-  }, {
-    key: 'handleArticleRefClick',
-    value: function handleArticleRefClick(e) {
-      e.preventDefault();
-      var refIndex = $(e.target).attr('data-ref');
-      var $targetRef = $('.js-footnote-ref[data-ref="' + refIndex + '"]');
-      this.scrollToRef($targetRef, 1);
-    }
-  }, {
-    key: 'bindShopMenuToggle',
-    value: function bindShopMenuToggle() {
-      $('.js-shop-menu-toggle').on('click', this.handleShopMenu);
-    }
-  }, {
-    key: 'handleShopMenu',
-    value: function handleShopMenu() {
-      var isOpen = $('body').hasClass('shop-menu-open');
-
-      if (isOpen) {
-        var autoHeight = $('#shop-menu').height();
-        $('#shop-menu').animate({ height: 0 }, autoHeight * 1.5, 'swing', function () {
-          $('body').removeClass('shop-menu-open');
-        });
-      } else {
-        $('#shop-menu').css('height', 'auto');
-        var autoHeight = $('#shop-menu').height();
-        $('#shop-menu').height(0).animate({ height: autoHeight }, autoHeight * 1.5, 'swing', function () {
-          $('body').addClass('shop-menu-open');
-        });
-      }
-    }
-  }, {
-    key: 'scrollToRef',
-    value: function scrollToRef($targetRef, offsetMultiplier) {
-      $('html, body').animate({
-        scrollTop: $targetRef.offset().top - this.navbarHeight * offsetMultiplier
-      }, 800);
-    }
-  }, {
-    key: 'onScroll',
-    value: function onScroll() {
-      this.didScroll = true;
-    }
-  }, {
-    key: 'onScrollInterval',
-    value: function onScrollInterval() {
-      if (this.didScroll) {
-        this.hasScrolled();
-        this.didScroll = false;
-      }
-    }
-  }, {
-    key: 'hasScrolled',
-    value: function hasScrolled() {
-      var st = $(window).scrollTop();
-
-      // Make sure they scroll more than delta
-      if (Math.abs(this.lastScrollTop - st) <= this.delta) {
-        return;
-      }
-
-      // If they scrolled down and are past the navbar, add class .nav-up.
-      // This is necessary so you never see what is "behind" the navbar.
-      if (st > this.lastScrollTop && st > this.navbarHeight) {
-        // Scroll Down
-        $('body').removeClass('search-open');
-        $('#header').removeClass('nav-down').addClass('nav-up');
-      } else {
-        // Scroll Up
-        if (st + $(window).height() < $(document).height()) {
-          $('#header').removeClass('nav-up').addClass('nav-down');
-        }
-      }
-
-      this.lastScrollTop = st;
-    }
-  }, {
-    key: 'fixWidows',
-    value: function fixWidows() {
-      // utility class mainly for use on headines to avoid widows [single words on a new line]
-      $('.js-fix-widows').each(function () {
-        var string = $(this).html();
-        string = string.replace(/ ([^ ]*)$/, '&nbsp;$1');
-        $(this).html(string);
-      });
-    }
-  }]);
-
-  return Site;
-}();
-
-new Site();
-new _mailchimp2.default();
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -452,6 +148,334 @@ var win = typeof window === 'undefined' ? {
 
 exports.window = win;
 exports.document = doc;
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* jshint esversion: 6, browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
+/* global $, document */
+
+// Import dependencies
+
+
+// Import style
+
+
+var _lazysizes = __webpack_require__(2);
+
+var _lazysizes2 = _interopRequireDefault(_lazysizes);
+
+var _swiper = __webpack_require__(4);
+
+var _swiper2 = _interopRequireDefault(_swiper);
+
+var _mailchimp = __webpack_require__(6);
+
+var _mailchimp2 = _interopRequireDefault(_mailchimp);
+
+__webpack_require__(7);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Site = function () {
+  function Site() {
+    _classCallCheck(this, Site);
+
+    this.mobileThreshold = 601;
+
+    $(window).resize(this.onResize.bind(this));
+
+    $(document).ready(this.onReady.bind(this));
+
+    this.onScroll = this.onScroll.bind(this);
+    this.onScrollInterval = this.onScrollInterval.bind(this);
+    this.setupSwiperInstance = this.setupSwiperInstance.bind(this);
+    this.handleOpenOverlay = this.handleOpenOverlay.bind(this);
+    this.handleFootnoteRefClick = this.handleFootnoteRefClick.bind(this);
+    this.handleArticleRefClick = this.handleArticleRefClick.bind(this);
+    this.handleShopMenu = this.handleShopMenu.bind(this);
+    this.handleLoadAnimation = this.handleLoadAnimation.bind(this);
+  }
+
+  _createClass(Site, [{
+    key: 'onResize',
+    value: function onResize() {
+      this.navbarHeight = $('#header').outerHeight();
+    }
+  }, {
+    key: 'onReady',
+    value: function onReady() {
+      this.didScroll = false;
+      this.lastScrollTop = 0;
+      this.delta = 5;
+      this.navbarHeight = $('#header').outerHeight();
+      this.swiperInstance = {};
+
+      _lazysizes2.default.init();
+      this.initSwiper();
+      this.bindStickyHeader();
+      this.bindMenuToggle();
+      this.bindOverlayTriggers();
+      this.bindSearchToggle();
+      this.bindRefClick();
+      this.bindShopMenuToggle();
+      this.bindAnimatedLoad();
+
+      $('#dissolve').fadeTo(500, 0);
+    }
+  }, {
+    key: 'initSwiper',
+    value: function initSwiper() {
+      this.swiperArgs = {
+        scroll: {
+          simulateTouch: true,
+          slidesPerView: 'auto',
+          freeMode: true,
+          mousewheel: {
+            sensitivity: 1,
+            forceToAxis: true,
+            invert: true
+          },
+          scrollbar: {
+            el: '.swiper-scrollbar',
+            draggable: true,
+            hide: false,
+            snapOnRelease: false,
+            dragSize: 200
+          }
+        },
+        slide: {
+          simulateTouch: true,
+          slidesPerView: 1,
+          initialSlide: 0,
+          loop: true,
+          effect: 'slide',
+          navigation: {
+            nextEl: '.slide-next',
+            prevEl: '.slide-prev'
+          },
+          pagination: {
+            el: '.slide-pagination',
+            bulletClass: 'slide-pagination-bullet',
+            bulletActiveClass: 'slide-pagination-bullet-active',
+            type: 'bullets',
+            clickable: true
+          }
+        },
+        overlay: {
+          simulateTouch: true,
+          slidesPerView: 1,
+          initialSlide: 0,
+          loop: true,
+          effect: 'slide',
+          navigation: {
+            nextEl: '.overlay-next',
+            prevEl: '.overlay-prev'
+          }
+        }
+      };
+
+      $('.swiper-container').each(this.setupSwiperInstance);
+    }
+  }, {
+    key: 'setupSwiperInstance',
+    value: function setupSwiperInstance(index, element) {
+      var type = $(element).attr('data-swiper-type');
+      var selector = '.swiper-container[data-swiper-type="' + type + '"]';
+
+      if (type === 'scroll') {
+        $(element).addClass('swiper-instance-' + index);
+        selector = '.swiper-instance-' + index;
+      }
+
+      var slidesLength = $(selector).find('.swiper-slide').length;
+      var swiperArgs = this.swiperArgs[type];
+      swiperArgs.simulateTouch = slidesLength > 1 ? true : false;
+
+      var swiperInstance = new _swiper2.default(selector, swiperArgs);
+
+      if (type === 'slide' || type === 'overlay') {
+        swiperInstance.on('slideChange', function () {
+          $('.' + type + '-current').html(swiperInstance.realIndex + 1);
+        });
+        this.swiperInstance[type] = swiperInstance;
+      }
+    }
+  }, {
+    key: 'bindOverlayTriggers',
+    value: function bindOverlayTriggers() {
+      $('.trigger-overlay').on('click', this.handleOpenOverlay);
+
+      $('#overlay-gallery').on('click', function (e) {
+        if (e.target.tagName === 'IMG' || $(e.target).hasClass('overlay-nav')) {
+          return;
+        }
+
+        $('body').removeClass('overlay-open');
+      });
+    }
+  }, {
+    key: 'handleOpenOverlay',
+    value: function handleOpenOverlay() {
+      var slideIndex = this.swiperInstance.slide.activeIndex;
+      this.swiperInstance.overlay.slideTo(slideIndex, 0);
+      $('body').addClass('overlay-open');
+    }
+  }, {
+    key: 'bindMenuToggle',
+    value: function bindMenuToggle() {
+      $('.js-toggle-menu').on('click', function () {
+        $('body').toggleClass('nav-open');
+        $('#header').removeClass('nav-up');
+      });
+    }
+  }, {
+    key: 'bindStickyHeader',
+    value: function bindStickyHeader() {
+      $(window).scroll(this.onScroll);
+
+      setInterval(this.onScrollInterval, 250);
+    }
+  }, {
+    key: 'bindSearchToggle',
+    value: function bindSearchToggle() {
+      $('.js-toggle-search').on('click', function () {
+        $('body').toggleClass('search-open');
+      });
+    }
+  }, {
+    key: 'bindRefClick',
+    value: function bindRefClick() {
+      $('.js-footnote-ref').on('click', this.handleFootnoteRefClick);
+      $('.js-article-ref').on('click', this.handleArticleRefClick);
+    }
+  }, {
+    key: 'handleFootnoteRefClick',
+    value: function handleFootnoteRefClick(e) {
+      e.preventDefault();
+      var refIndex = $(e.target).attr('data-ref');
+      var $targetRef = $('.js-article-ref[data-ref="' + refIndex + '"]');
+      this.scrollToRef($targetRef, 2);
+    }
+  }, {
+    key: 'handleArticleRefClick',
+    value: function handleArticleRefClick(e) {
+      e.preventDefault();
+      var refIndex = $(e.target).attr('data-ref');
+      var $targetRef = $('.js-footnote-ref[data-ref="' + refIndex + '"]');
+      this.scrollToRef($targetRef, 1);
+    }
+  }, {
+    key: 'bindShopMenuToggle',
+    value: function bindShopMenuToggle() {
+      $('.js-shop-menu-toggle').on('click', this.handleShopMenu);
+    }
+  }, {
+    key: 'handleShopMenu',
+    value: function handleShopMenu() {
+      var isOpen = $('body').hasClass('shop-menu-open');
+      var autoHeight = $('#shop-menu').height();
+
+      if (isOpen) {
+        $('#shop-menu').animate({ height: 0 }, autoHeight * 1.5, 'swing', function () {
+          $('body').removeClass('shop-menu-open');
+        });
+      } else {
+        $('#shop-menu').css('height', 'auto');
+        autoHeight = $('#shop-menu').height();
+        $('#shop-menu').height(0).animate({ height: autoHeight }, autoHeight * 1.5, 'swing', function () {
+          $('body').addClass('shop-menu-open');
+        });
+      }
+    }
+  }, {
+    key: 'scrollToRef',
+    value: function scrollToRef($targetRef, offsetMultiplier) {
+      $('html, body').animate({
+        scrollTop: $targetRef.offset().top - this.navbarHeight * offsetMultiplier
+      }, 800);
+    }
+  }, {
+    key: 'onScroll',
+    value: function onScroll() {
+      this.didScroll = true;
+    }
+  }, {
+    key: 'onScrollInterval',
+    value: function onScrollInterval() {
+      if (this.didScroll) {
+        this.hasScrolled();
+        this.didScroll = false;
+      }
+    }
+  }, {
+    key: 'hasScrolled',
+    value: function hasScrolled() {
+      var st = $(window).scrollTop();
+
+      // Make sure they scroll more than delta
+      if (Math.abs(this.lastScrollTop - st) <= this.delta) {
+        return;
+      }
+
+      // If they scrolled down and are past the navbar, add class .nav-up.
+      // This is necessary so you never see what is "behind" the navbar.
+      if (st > this.lastScrollTop && st > this.navbarHeight) {
+        // Scroll Down
+        $('body').removeClass('search-open');
+        $('#header').removeClass('nav-down').addClass('nav-up');
+      } else {
+        // Scroll Up
+        if (st + $(window).height() < $(document).height()) {
+          $('#header').removeClass('nav-up').addClass('nav-down');
+        }
+      }
+
+      this.lastScrollTop = st;
+    }
+  }, {
+    key: 'bindAnimatedLoad',
+    value: function bindAnimatedLoad() {
+      $('a').on('click', this.handleLoadAnimation);
+    }
+  }, {
+    key: 'handleLoadAnimation',
+    value: function handleLoadAnimation(e) {
+      e.preventDefault();
+      var $target = $(e.target).is('a') ? $(e.target) : $(e.target).closest('a');
+      var url = $target.attr('href');
+
+      if (url.startsWith(WP.siteUrl)) {
+        $('#dissolve').fadeTo(500, 1, function () {
+          window.location.href = url;
+        });
+      } else {
+        window.location.href = url;
+      }
+    }
+  }, {
+    key: 'fixWidows',
+    value: function fixWidows() {
+      // utility class mainly for use on headines to avoid widows [single words on a new line]
+      $('.js-fix-widows').each(function () {
+        var string = $(this).html();
+        string = string.replace(/ ([^ ]*)$/, '&nbsp;$1');
+        $(this).html(string);
+      });
+    }
+  }]);
+
+  return Site;
+}();
+
+new Site();
+new _mailchimp2.default();
 
 /***/ }),
 /* 2 */
@@ -1210,7 +1234,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _dom = __webpack_require__(5);
 
-var _ssrWindow = __webpack_require__(1);
+var _ssrWindow = __webpack_require__(0);
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
@@ -8472,7 +8496,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.scroll = exports.resize = exports.touchmove = exports.touchend = exports.touchstart = exports.mouseover = exports.mouseout = exports.mouseleave = exports.mouseenter = exports.mouseup = exports.mousemove = exports.mousedown = exports.change = exports.submit = exports.keypress = exports.keydown = exports.keyup = exports.focusout = exports.focusin = exports.focus = exports.blur = exports.click = exports.stop = exports.animate = exports.scrollLeft = exports.scrollTop = exports.scrollTo = exports.empty = exports.add = exports.detach = exports.remove = exports.children = exports.find = exports.closest = exports.parents = exports.parent = exports.siblings = exports.prevAll = exports.prev = exports.nextAll = exports.next = exports.insertAfter = exports.insertBefore = exports.prependTo = exports.prepend = exports.appendTo = exports.append = exports.eq = exports.index = exports.indexOf = exports.is = exports.text = exports.html = exports.map = exports.filter = exports.forEach = exports.each = exports.toArray = exports.css = exports.styles = exports.show = exports.hide = exports.offset = exports.outerHeight = exports.height = exports.outerWidth = exports.width = exports.animationEnd = exports.transitionEnd = exports.trigger = exports.once = exports.off = exports.on = exports.transition = exports.transform = exports.val = exports.dataset = exports.removeData = exports.data = exports.prop = exports.removeAttr = exports.attr = exports.toggleClass = exports.hasClass = exports.removeClass = exports.addClass = exports.$ = undefined;
 
-var _ssrWindow = __webpack_require__(1);
+var _ssrWindow = __webpack_require__(0);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } /**
                                                                                                                                                            * Dom7 2.1.3
