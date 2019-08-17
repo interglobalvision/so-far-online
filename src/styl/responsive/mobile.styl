@@ -7,18 +7,18 @@ $margin-basic = ($gutter * 2)
 $margin-mid = ($gutter * 3.5)
 $margin-large = ($gutter * 5)
 
-$font-size-basic = 16px
-$font-size-extra = 48px
 $font-size-large = 32px
 $font-size-mid = 24px
+$font-size-basic = 16px
 $font-size-small = 12px
 $font-size-tiny = 10px
+$font-size-micro = 10px
 
 grid-maker(100%, $gutter, s)
 
 space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-mid, $margin-large)
 
-font-sizes($font-size-basic, $font-size-extra, $font-size-large, $font-size-mid, $font-size-small, $font-size-tiny)
+font-sizes($font-size-basic, false, $font-size-large, $font-size-mid, $font-size-small, $font-size-tiny)
 
 $header-height = 44px
 $footer-height = 334px
