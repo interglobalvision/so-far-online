@@ -96,7 +96,7 @@ if (have_posts()) {
     ?>
       <div class="grid-item padding-bottom-tiny item-s-12 item-m-auto">
         <?php
-          echo !empty($partner['link']) ? '<a href="' . $partner['link'] . '" class="hover-saturate">' : '';
+          echo !empty($partner['link']) ? '<a href="' . $partner['link'] . '">' : '';
           echo wp_get_attachment_image($partner['logo_id'], 'full', false, array( 'class' => 'partner-logo'));
           echo !empty($partner['link']) ? '</a>' : '';
         ?>

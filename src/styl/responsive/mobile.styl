@@ -362,12 +362,36 @@ a, button
     padding: .4rem 3rem
     color: $color-white
     border: 1px solid transparent
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out
     &:disabled, &:disabled:hover
       background-color: $color-grey-medium
       color: $color-grey-light
     &:focus
       text-decoration: none
       border-color: $color-white
+
+.thumb-holder
+  overflow: hidden
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 100%
+  img
+    min-width: 100%
+    min-height: 100%
+    width: auto
+    height: auto
+
+a:not(.button)
+  .thumb-holder img
+    transition: transform 0.2s ease-in-out
+  *:not(img)
+    transition: color 0.2s ease-in-out
+  &:hover
+    .thumb-holder img
+      transform: scale(1.1)
+    *:not(img)
+      color: $color-grey-dark
 
 .gws-product
   .product-sold

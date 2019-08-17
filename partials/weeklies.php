@@ -18,11 +18,13 @@ if ( $weeklies_query->have_posts() ) {
         $contributors = get_name_list($post->ID, 'contributor');
     ?>
         <div class="swiper-slide text-align-center">
-          <a href="<?php the_permalink(); ?>" class="hover-underline hover-desaturate">
+          <a href="<?php the_permalink(); ?>">
             <div class="font-color-grey font-size-tiny margin-bottom-micro font-uppercase">
               <span><?php echo $type ? $type : '&nbsp;'; ?></span>
             </div>
-            <?php the_post_thumbnail(); ?>
+            <div class="thumb-holder font-size-zero" style="height: 250px">
+              <?php the_post_thumbnail(); ?>
+            </div>
             <h3 class="font-serif margin-top-micro underline-on-hover"><?php the_title(); ?></h3>
             <?php
               if ($contributors) {

@@ -10,8 +10,10 @@ $year = get_post_meta($post->ID, '_igv_artwork_year', true);
   data-gws-product-handle="<?php echo $product_handle; ?>"
   data-gws-available="true"
 >
-  <a class="font-size-small hover-desaturate" href="<?php the_permalink(); ?>">
-    <div class="margin-bottom-micro font-size-zero"><?php the_post_thumbnail(); ?></div>
+  <a class="font-size-small" href="<?php the_permalink(); ?>">
+    <div class="thumb-holder margin-bottom-micro font-size-zero" style="height: 300px">
+      <?php the_post_thumbnail(); ?>
+    </div>
     <?php echo !empty($artists) ? '<div><span>' . $artists . '</span></div>' : ''; ?>
     <div>
       <?php

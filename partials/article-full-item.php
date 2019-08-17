@@ -62,9 +62,9 @@ $weekly_type = get_the_terms($post, 'weeklytype');
         <?php } ?>
       </figure>
 
-      <a href="<?php the_permalink() ?>" class="hover-underline grid-item item-s-12 item-l-6 item-xl-4 no-gutter grid-row align-content-end">
+      <a href="<?php the_permalink() ?>" class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter grid-row align-content-end">
         <div class="grid-item item-s-12 margin-bottom-small">
-          <h1 class="font-serif font-size-large underline-on-hover"><?php the_title(); ?></h1>
+          <h1 class="font-serif font-size-large"><?php the_title(); ?></h1>
         </div>
         <?php if (!empty($subtitle)) { ?>
         <div class="grid-item item-s-12 font-heavy">

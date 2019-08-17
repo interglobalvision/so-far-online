@@ -138,7 +138,7 @@ if (have_posts()) {
                 data-gws-product-handle="<?php echo $product_handle; ?>"
                 data-gws-available="true"
                 >
-                  <a class="font-size-small hover-desaturate" href="<?php echo get_the_permalink($artwork_id); ?>">
+                  <a class="font-size-small" href="<?php echo get_the_permalink($artwork_id); ?>">
                     <div><?php echo get_the_post_thumbnail($artwork_id); ?></div>
                     <?php echo !empty($artwork_artists) ? '<div><span>' . $artwork_artists . '</span></div>' : ''; ?>
                     <div>
