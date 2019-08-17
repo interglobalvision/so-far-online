@@ -383,11 +383,13 @@ a, button
     height: auto
 
 a:not(.button)
+  transition: color 0.2s ease-in-out
   .thumb-holder img
     transition: transform 0.2s ease-in-out
   *:not(img)
     transition: color 0.2s ease-in-out
   &:hover
+    color: $color-grey-dark
     .thumb-holder img
       transform: scale(1.1)
     *:not(img)

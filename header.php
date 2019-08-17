@@ -39,19 +39,19 @@ get_template_part('partials/seo');
         <div id="main-nav" class="desktop-only">
           <ul class="grid-row text-align-center">
             <li class="grid-item item-s-12 item-l-auto">
-              <a href="<?php echo home_url('issues'); ?>">Issues</a>
+              <a href="<?php echo home_url('issues'); ?>" class="<?php echo $post->post_name === 'issues' ? 'link-underline' : '';?>">Issues</a>
             </li>
             <li class="grid-item item-s-12 item-l-auto">
-              <a href="<?php echo get_post_type_archive_link('weekly'); ?>">Weeklies</a>
+              <a href="<?php echo get_post_type_archive_link('weekly'); ?>" class="<?php echo is_post_type_archive('weekly') ? 'link-underline' : '';?>">Weeklies</a>
             </li>
             <li class="grid-item item-s-12 item-l-auto">
-              <a href="<?php echo home_url('artists'); ?>">Artists</a>
+              <a href="<?php echo home_url('artists'); ?>" class="<?php echo $post->post_name === 'artists' ? 'link-underline' : '';?>">Artists</a>
             </li>
             <li class="grid-item item-s-12 item-l-auto">
-              <a href="<?php echo home_url('shop'); ?>">Shop</a>
+              <a href="<?php echo get_post_type_archive_link('product'); ?>" class="<?php echo is_post_type_archive('product') ? 'link-underline' : '';?>">Shop</a>
             </li>
             <li class="grid-item item-s-12 item-l-auto">
-              <a href="<?php echo home_url('about'); ?>">About</a>
+              <a href="<?php echo home_url('about'); ?>" class="<?php echo $post->post_name === 'about' ? 'link-underline' : '';?>">About</a>
             </li>
           </ul>
         </div>
@@ -84,19 +84,19 @@ get_template_part('partials/seo');
     <div class="border-bottom"><?php get_search_form() ?></div>
     <ul class="grid-row text-align-center padding-top-basic">
       <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
-        <a href="<?php echo home_url('issues'); ?>" class="padding-top-tiny padding-bottom-tiny">Issues</a>
+        <a href="<?php echo home_url('issues'); ?>" class="padding-top-tiny padding-bottom-tiny <?php echo $post->post_name === 'issues' ? 'link-underline' : '';?>">Issues</a>
       </li>
       <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
-        <a href="<?php echo home_url('weeklies'); ?>" class="padding-top-tiny padding-bottom-tiny">Weeklies</a>
+        <a href="<?php echo get_post_type_archive_link('weekly'); ?>" class="padding-top-tiny padding-bottom-tiny <?php echo is_post_type_archive('weekly') ? 'link-underline' : '';?>">Weeklies</a>
       </li>
       <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
-        <a href="<?php echo home_url('artists'); ?>" class="padding-top-tiny padding-bottom-tiny">Artists</a>
+        <a href="<?php echo home_url('artists'); ?>" class="padding-top-tiny padding-bottom-tiny <?php echo $post->post_name === 'artists' ? 'link-underline' : '';?>">Artists</a>
       </li>
       <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
-        <a href="<?php echo home_url('shop'); ?>" class="padding-top-tiny padding-bottom-tiny">Shop</a>
+        <a href="<?php echo get_post_type_archive_link('product'); ?>" class="padding-top-tiny padding-bottom-tiny <?php echo is_post_type_archive('product') ? 'link-underline' : '';?>">Shop</a>
       </li>
       <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
-        <a href="<?php echo home_url('about'); ?>" class="padding-top-tiny padding-bottom-tiny">About</a>
+        <a href="<?php echo home_url('about'); ?>" class="padding-top-tiny padding-bottom-tiny <?php echo $post->post_name === 'about' ? 'link-underline' : '';?>">About</a>
       </li>
     </ul>
   </div>
