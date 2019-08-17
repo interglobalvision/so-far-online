@@ -185,6 +185,21 @@ if (have_posts()) {
             $contributors = !$contributors ? array() : $contributors;
 
             $bios = array_merge($artists, $contributors);
+            $dups = [];
+
+            foreach($bios as $key => $value) {
+              foreach ($bios as $check_key => $check_value) {
+                if ($check_value->name === $value->name) {
+                  if ($check_key !== $key && !in_array($key, $dups) && !in_array($check_key, $dups)) {
+                    array_push($dups, $key);
+                  }
+                }
+              }
+            }
+
+            foreach($dups as $key => $value) {
+              unset($bios[$key]);
+            };
           ?>
           <section class="padding-top-small padding-bottom-small">
             <div class="container">
