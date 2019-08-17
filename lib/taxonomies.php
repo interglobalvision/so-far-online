@@ -86,17 +86,17 @@ function create_custom_taxonomies() {
 	register_taxonomy( 'artist', array( 'post','product','weekly' ), $args );
 
 	$labels = array(
-		'name'              => _x( 'Types', 'taxonomy general name', 'igv' ),
-		'singular_name'     => _x( 'Type', 'taxonomy singular name', 'igv' ),
-		'search_items'      => __( 'Search Types', 'igv' ),
-		'all_items'         => __( 'All Types', 'igv' ),
-		'parent_item'       => __( 'Parent Type', 'igv' ),
-		'parent_item_colon' => __( 'Parent Type:', 'igv' ),
-		'edit_item'         => __( 'Edit Type', 'igv' ),
-		'update_item'       => __( 'Update Type', 'igv' ),
-		'add_new_item'      => __( 'Add New Type', 'igv' ),
-		'new_item_name'     => __( 'New Type Name', 'igv' ),
-		'menu_name'         => __( 'Type', 'igv' ),
+		'name'              => _x( 'Columns', 'taxonomy general name', 'igv' ),
+		'singular_name'     => _x( 'Column', 'taxonomy singular name', 'igv' ),
+		'search_items'      => __( 'Search Columns', 'igv' ),
+		'all_items'         => __( 'All Columns', 'igv' ),
+		'parent_item'       => __( 'Parent Column', 'igv' ),
+		'parent_item_colon' => __( 'Parent Column:', 'igv' ),
+		'edit_item'         => __( 'Edit Column', 'igv' ),
+		'update_item'       => __( 'Update Column', 'igv' ),
+		'add_new_item'      => __( 'Add New Column', 'igv' ),
+		'new_item_name'     => __( 'New Column Name', 'igv' ),
+		'menu_name'         => __( 'Column', 'igv' ),
 	);
 
 	$args = array(
@@ -105,7 +105,7 @@ function create_custom_taxonomies() {
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'type' ),
+		'rewrite'           => array( 'slug' => 'column' ),
     'public'            => true,
     'show_in_rest'      => true,
 	);
