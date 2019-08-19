@@ -169,7 +169,7 @@ if (have_posts()) {
               <div class="grid-row justify-center">
                 <div class="grid-item item-s-12 item-l-8">
                   <h2 class="font-uppercase padding-bottom-small font-size-small">Footnotes</h2>
-                  <ol class="font-serif font-size-small">
+                  <ol class="font-size-small">
                   <?php foreach($footnotes as $index => $footnote) { ?>
                     <li class="margin-bottom-tiny" id="footnote-ref-<?php echo $index + 1; ?>"><a class="js-footnote-ref" href="#" data-ref="<?php echo $index + 1; ?>"><?php echo $footnote; ?></a></li>
                   <?php } ?>
