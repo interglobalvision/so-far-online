@@ -35,7 +35,7 @@ foreach ($issues as $index => $issue) {
     <div class="container">
       <a href="<?php echo get_term_link($issue); ?>">
         <div class="desktop-only">
-          <div class="grid-row padding-top-small padding-bottom-small">
+          <div class="grid-row padding-top-small padding-bottom-small font-size-small font-uppercase">
             <div class="grid-item item-l-7 offset-l-1">
               <span><?php echo !empty($issue_number) ? 'Issue ' . $issue_number : ''; ?></span>
             </div>
@@ -50,16 +50,16 @@ foreach ($issues as $index => $issue) {
             <?php echo !empty($image_id) ? wp_get_attachment_image($image_id, 'full') : ''; ?>
           </div>
 
-          <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter grid-row align-content-end">
-            <div class="grid-item item-s-12 margin-bottom-basic">
-              <h1><?php echo $issue->name; ?></h1>
+          <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter grid-row align-content-center">
+            <div class="grid-item item-s-12 margin-bottom-tiny">
+              <h1 class="font-size-large font-serif"><?php echo $issue->name; ?></h1>
             </div>
             <?php if (!empty($subtitle)) { ?>
-            <div class="grid-item item-s-12">
+            <div class="grid-item item-s-12 font-size-mid margin-top-tiny">
               <span><?php echo $subtitle; ?></span>
             </div>
             <?php } if ($contributors) { ?>
-            <div class="grid-item item-s-12 margin-top-small">
+            <div class="grid-item item-s-12 margin-top-small font-size-small">
               <span><?php echo $contributors; ?></span>
             </div>
             <?php } ?>

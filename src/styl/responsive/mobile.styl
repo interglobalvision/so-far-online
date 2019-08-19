@@ -99,6 +99,7 @@ body
   top: 0
   width: 100%
   transition: top 0.2s ease-in-out
+  will-change: top
   z-index: 200
   &.nav-up
     top: -($header-height)
@@ -111,6 +112,7 @@ body
   position: fixed
   z-index: 100
   transition: transform 0.2s ease-in-out
+  will-change: transform
   transform: translateY(-100% - 1px - $header-height)
   border-bottom: 1px solid $color-grey-dark
   background-color: $color-pink
@@ -124,6 +126,7 @@ body
   z-index: 100
   opacity: 0
   transition: opacity 0.2s ease-in-out
+  will-change: opacity
   background: $color-black
   pointer-events: none
 
@@ -161,6 +164,7 @@ body
   border-bottom: 1px solid $color-grey-dark
   transform: translateY(-100%)
   transition: transform .5s ease-in-out
+  will-change: transform
   max-height: 100vh
   overflow-y: scroll
 
@@ -185,7 +189,7 @@ body
     margin: 0 auto
     overflow: visible
     .swiper-slide
-      width: 200px
+      width: 150px
       &:not(:first-child)
         padding-left: $margin-tiny
       &:not(:last-child)
@@ -197,7 +201,7 @@ body
 
 .swiper-scrollbar
   height: 2px !important
-  background-color: $color-grey-medium
+  background-color: $color-grey
 
 .swiper-scrollbar-drag
   height: 4px
@@ -215,7 +219,7 @@ body
   margin: 0 5px
   cursor: pointer
   &.slide-pagination-bullet-active
-    background: $color-grey-medium
+    background: $color-grey
   &:focus
     outline: none
     border-color: $color-black
@@ -232,6 +236,7 @@ body
   opacity: 0
   pointer-events: none
   transition: opacity .7s ease-in-out
+  will-change: opacity
   .swiper-container
     width: 80%
     height: 80%
@@ -313,8 +318,8 @@ input
   width: 100%
   border: 1px solid $color-grey-dark
   padding: .8rem .4rem
-  background: $color-grey-light
-  background-image: radial-gradient(circle, $color-grey-light 0%, $color-grey-medium 100%)
+  background: $color-grey
+  background-image: radial-gradient(circle, $color-grey 0%, $color-grey 100%)
   text-align: center
   font-family: $font-sans
   font-weight: normal
@@ -363,9 +368,10 @@ a, button
     color: $color-white
     border: 1px solid transparent
     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out
+    will-change: color, background-color
     &:disabled, &:disabled:hover
-      background-color: $color-grey-medium
-      color: $color-grey-light
+      background-color: $color-grey
+      color: $color-grey
     &:focus
       text-decoration: none
       border-color: $color-white
@@ -376,24 +382,36 @@ a, button
   justify-content: center
   align-items: center
   width: 100%
+  font-size: 0
   img
     min-width: 100%
     min-height: 100%
     width: auto
     height: auto
+  &.product-item-thumb-holder
+    height: 170px
+  &.scroll-slider-thumb-holder
+    height: 88px
 
 a:not(.button)
   transition: color 0.2s ease-in-out
+  will-change: color
   .thumb-holder img
     transition: transform 0.2s ease-in-out
+    will-change: transform
   *:not(img)
     transition: color 0.2s ease-in-out
+    will-change: color
   &:hover
-    color: $color-grey-dark
+    color: $color-grey
     .thumb-holder img
       transform: scale(1.1)
     *:not(img)
-      color: $color-grey-dark
+      color: $color-grey
+
+.grid-item.grid-item-product
+  padding-left: 2px !important
+  padding-right: 2px !important
 
 .gws-product
   .product-sold

@@ -50,20 +50,20 @@ if (count($chapters) > 0) {
 
   <section <?php post_class($background_class . ' padding-top-small padding-bottom-small'); ?> id="term-<?php echo $chapter->term_id; ?>">
     <div class="container">
-      <div class="grid-row padding-bottom-small">
+      <div class="grid-row padding-bottom-small font-size-small font-uppercase">
         <div class="grid-item item-s-12 item-l-11 offset-l-1">
-          <h1><?php
+          <span><?php
             echo 'Issue';
             echo !empty($issue_number) ? $issue_number . ': ' : ': ';
             echo $issue->name;
-          ?></h1>
+          ?></span>
         </div>
       </div>
       <div class="grid-row">
         <div class="grid-item item-s-12 item-m-8 offset-m-2 item-l-6 offset-l-3 padding-bottom-basic">
           <div class="text-align-center">
-            <span>Chapter<?php echo !empty($chapter_number) ? ' ' . $chapter_number : ''; ?></span>
-            <h2 class="padding-bottom-small"><?php echo $chapter->name; ?></h2>
+            <span class="font-uppercase font-size-small">Chapter<?php echo !empty($chapter_number) ? ' ' . $chapter_number : ''; ?></span>
+            <h1 class="padding-bottom-small font-size-mid font-uppercase"><?php echo $chapter->name; ?></h1>
           </div>
           <?php if (!empty($chapter->description)) { ?>
           <div>
@@ -83,14 +83,18 @@ if (count($chapters) > 0) {
             $authors = get_name_list($post->ID, 'contributor');
         ?>
           <article class="swiper-slide text-align-center">
-            <div><span>Published on <?php echo get_the_date(); ?></span></div>
-            <div>
-              <a href="<?php the_permalink(); ?>">
+            <a href="<?php the_permalink(); ?>">
+              <div class="font-color-grey font-size-tiny margin-bottom-micro font-uppercase">
+                <span>Published on <?php echo get_the_date(); ?></span>
+              </div>
+              <div class="thumb-holder scroll-slider-thumb-holder">
                 <?php the_post_thumbnail(); ?>
-                <h3 class="margin-bottom-micro"><?php the_title(); ?></h3>
-              </a>
-            </div>
-            <div class="padding-bottom-tiny"><span><?php echo $authors ? 'by ' . $authors : ''; ?></span></div>
+              </div>
+              <h3 class="font-serif margin-top-micro"><?php the_title(); ?></h3>
+              <div class="font-color-grey margin-top-micro font-size-small">
+                <span><?php echo $authors ? 'by ' . $authors : ''; ?></span>
+              </div>
+            </a>
           </article>
         <?php
           }

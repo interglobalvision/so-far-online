@@ -5,14 +5,14 @@ $title = get_post_meta($post->ID, '_igv_artwork_title', true);
 $year = get_post_meta($post->ID, '_igv_artwork_year', true);
 ?>
 <article
-  <?php post_class('gws-product grid-item item-s-6 item-l-3 margin-bottom-small'); ?>
+  <?php post_class('gws-product grid-item grid-item-product item-s-4 item-l-3 margin-bottom-small'); ?>
   id="post-<?php the_ID(); ?>"
   data-gws-product-handle="<?php echo $product_handle; ?>"
   data-gws-available="true"
 >
   <a class="font-size-small" href="<?php the_permalink(); ?>">
-    <div class="thumb-holder margin-bottom-micro font-size-zero" style="height: 300px">
-      <?php the_post_thumbnail(); ?>
+    <div class="thumb-holder product-item-thumb-holder margin-bottom-micro">
+      <?php the_post_thumbnail('product-item'); ?>
     </div>
     <?php echo !empty($artists) ? '<div><span>' . $artists . '</span></div>' : ''; ?>
     <div>

@@ -91,10 +91,10 @@ if (have_posts()) {
                   <?php } ?>
                 </div>
 
-                <figure class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter-left">
-                  <?php the_post_thumbnail(); ?>
+                <figure class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter-left font-size-zero">
+                  <?php the_post_thumbnail('article-item'); ?>
                   <?php if (!empty($featured_caption)) { ?>
-                    <figcaption><?php echo $featured_caption; ?></figcaption>
+                    <figcaption class="font-size-tiny"><?php echo $featured_caption; ?></figcaption>
                   <?php } ?>
                 </figure>
               </div>
@@ -103,7 +103,7 @@ if (have_posts()) {
 
           <section class="padding-bottom-small">
             <div class="container">
-              <div id="article-content">
+              <div id="article-content" class="font-serif font-light">
                 <?php the_content(); ?>
               </div>
             </div>
@@ -134,7 +134,7 @@ if (have_posts()) {
                   $artwork_title = get_post_meta($artwork_id, '_igv_artwork_title', true);
                   $artwork_year = get_post_meta($artwork_id, '_igv_artwork_year', true);
               ?>
-                <div class="gws-product grid-item item-s-12 item-l-3 margin-bottom-small"
+                <div class="gws-product grid-item grid-item-product item-s-12 item-l-3 margin-bottom-small"
                 data-gws-product-handle="<?php echo $product_handle; ?>"
                 data-gws-available="true"
                 >
