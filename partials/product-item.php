@@ -14,15 +14,17 @@ $year = get_post_meta($post->ID, '_igv_artwork_year', true);
     <div class="thumb-holder product-item-thumb-holder margin-bottom-micro">
       <?php the_post_thumbnail('product-item'); ?>
     </div>
-    <?php echo !empty($artists) ? '<div><span>' . $artists . '</span></div>' : ''; ?>
-    <div>
-      <?php
-        echo !empty($title) ? '<h3 class="u-inline-block">' . $title . '</h3>' : '';
-        echo !empty($title) && !empty($year) ? ', ' : '';
-        echo !empty($year) ? '<span>' . $year . '</span>' : '';
-      ?>
+    <div class="product-item-details">
+      <?php echo !empty($artists) ? '<div class="font-heavy"><span>' . $artists . '</span></div>' : ''; ?>
+      <div>
+        <?php
+          echo !empty($title) ? '<h3 class="u-inline">' . $title . '</h3>' : '';
+          echo !empty($title) && !empty($year) ? '<span>, </span>' : '';
+          echo !empty($year) ? '<span>' . $year . '</span>' : '';
+        ?>
+      </div>
+      <div class="product-price"><span>$</span><span class="gws-product-price"></span></div>
+      <div class="product-sold"><span>Sold</span></div>
     </div>
-    <div class="product-price"><span class="gws-product-price"></span></div>
-    <div class="product-sold"><span>Sold</span></div>
   </a>
 </article>

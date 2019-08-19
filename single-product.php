@@ -83,12 +83,12 @@ if (have_posts()) {
               </div>
               <?php } ?>
               <div class="margin-bottom-tiny font-color-grey font-size-tiny">
-                <div class="product-price"><span class="gws-product-price"></span></div>
+                <div class="product-price"><span>$</span><span class="gws-product-price"></span></div>
                 <div class="product-sold"><span>Sold</span></div>
               </div>
               <form class="gws-product-form cart grid-row" method="post" enctype='multipart/form-data'>
                 <input type="hidden" name="variant-id" class="gws-variant-id" value="" />
-                <button type="submit" class="button gws-product-add add-to-cart js-product-button item-s-6 item-m-4 item-l-12">Aquire this work</button>
+                <button type="submit" class="button gws-product-add add-to-cart js-product-button item-s-6 item-m-4 item-l-12">Purchase this work</button>
                 <button class="button item-in-cart item-s-6 item-m-4 item-l-12" disabled>Added to Bag</button>
               </form>
             </div>
