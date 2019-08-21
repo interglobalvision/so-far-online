@@ -18,7 +18,7 @@ $year = get_post_meta($post->ID, '_igv_artwork_year', true);
       <?php echo !empty($artists) ? '<div class="font-heavy"><span>' . $artists . '</span></div>' : ''; ?>
       <div>
         <?php
-          echo !empty($title) ? '<h3 class="u-inline">' . $title . '</h3>' : '';
+          echo !empty($title) ? '<h3 class="u-inline font-italic">' . $title . '</h3>' : '';
           echo !empty($title) && !empty($year) ? '<span>, </span>' : '';
           echo !empty($year) ? '<span>' . $year . '</span>' : '';
         ?>

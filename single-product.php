@@ -53,7 +53,7 @@ if (have_posts()) {
               <?php echo !empty($artist_names) ? '<div class="margin-bottom-tiny margin-top-tiny"><span>' . $artist_names . '</span></div>' : ''; ?>
               <?php
                 echo !empty($title) || !empty($year) ? '<div class="margin-bottom-micro font-size-small">' : '';
-                echo !empty($title) ? '<span>' . $title . '</span>' : '';
+                echo !empty($title) ? '<span class="font-italic">' . $title . '</span>' : '';
                 echo !empty($title) && !empty($year) ? ', ' : '';
                 echo !empty($year) ? '<span>' . $year . '</span>' : '';
                 echo !empty($title) || !empty($year) ? '</div>' : '';
