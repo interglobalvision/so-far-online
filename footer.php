@@ -80,6 +80,11 @@ $options = get_site_option('_igv_site_options');
           </div>
         </div>
       </div>
+      <div class="grid-row padding-bottom-tiny">
+        <div class="grid-item item-s-12 font-size-tiny font-color-grey">
+          <span>© <?php echo date("Y"); ?> so-far.online</span>
+        </div>
+      </div>
     </div>
   </footer>
 
