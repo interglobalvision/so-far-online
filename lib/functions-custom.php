@@ -31,7 +31,7 @@ function footnote_shortcode( $atts ) {
     'index' => false,
   ), $atts );
   if ($a['index']) {
-  	return '<a id="article-ref-' . $a['index'] . '" class="js-article-ref" href="#" data-ref="' . $a['index'] . '">[' . $a['index'] . ']</a>';
+  	return '<a id="article-ref-' . $a['index'] . '" class="js-article-ref font-size-small" href="#" data-ref="' . $a['index'] . '">[' . $a['index'] . ']</a>';
   }
   return;
 }
