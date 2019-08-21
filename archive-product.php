@@ -32,7 +32,7 @@ if (!empty($filter_tax)) {
   <section class="padding-top-small padding-bottom-small">
     <div class="container">
       <h2 class="text-align-center font-uppercase padding-bottom-small font-size-mid"><?php echo $term->name; ?></h2>
-      <div class="grid-row">
+      <div class="grid-row products-holder">
       <?php
         while ($filter_query->have_posts()) {
           $filter_query->the_post();
@@ -72,7 +72,7 @@ if (!empty($filter_tax)) {
     <section class="padding-top-small padding-bottom-small">
       <div class="container">
         <h2 class="text-align-center font-uppercase padding-bottom-small font-size-mid"><?php echo $collection->name; ?></h2>
-        <div class="grid-row">
+        <div class="grid-row products-holder">
         <?php
           while ($collection_query->have_posts()) {
             $collection_query->the_post();

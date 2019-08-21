@@ -226,6 +226,7 @@ var Site = function () {
       this.bindRefClick();
       this.bindShopMenuToggle();
       this.bindAnimatedLoad();
+      this.handleSortRadioChange();
       this.fixWidows();
 
       $('#dissolve').fadeTo(500, 0);
@@ -460,6 +461,90 @@ var Site = function () {
       } else {
         window.location.href = url;
       }
+    }
+  }, {
+    key: 'handleSortRadioChange',
+    value: function handleSortRadioChange() {
+      //$('input[type=radio][name=sort]').on('click', this.handleShopMenu);
+      $('input[type=radio][name=sort]').change(function () {
+
+        switch (this.value) {
+          case 'newest':
+            $('.products-holder').each(function () {
+              $(this).find('.gws-product').sort(function (a, b) {
+                return b.dataset.time - a.dataset.time;
+              }).appendTo(this);
+            });
+            break;
+          case 'low-high':
+            $('.products-holder').each(function () {
+              $(this).find('.gws-product').sort(function (a, b) {
+                if (a.dataset.gwsPrice === 'false') {
+                  return 1;
+                } else if (b.dataset.gwsPrice === 'false') {
+                  return -1;
+                } else {
+                  return a.dataset.gwsPrice - b.dataset.gwsPrice;
+                }
+              }).appendTo(this);
+            });
+            break;
+          case 'high-low':
+            $('.products-holder').each(function () {
+              $(this).find('.gws-product').sort(function (a, b) {
+                if (a.dataset.gwsPrice === 'false') {
+                  return 1;
+                } else if (b.dataset.gwsPrice === 'false') {
+                  return -1;
+                } else {
+                  return b.dataset.gwsPrice - a.dataset.gwsPrice;
+                }
+              }).appendTo(this);
+            });
+            break;
+          case 'under-500':
+            $('.products-holder').each(function () {
+              $(this).find('.gws-product').sort(function (a, b) {
+                if (a.dataset.gwsPrice === 'false' || parseInt(a.dataset.gwsPrice) >= 500) {
+                  return 1;
+                } else if (b.dataset.gwsPrice === 'false' || parseInt(b.dataset.gwsPrice) >= 500) {
+                  return -1;
+                } else {
+                  return a.dataset.gwsPrice - b.dataset.gwsPrice;
+                }
+              }).appendTo(this);
+            });
+            break;
+          case 'under-1000':
+            $('.products-holder').each(function () {
+              $(this).find('.gws-product').sort(function (a, b) {
+                if (a.dataset.gwsPrice === 'false' || parseInt(a.dataset.gwsPrice) >= 1000) {
+                  return 1;
+                } else if (b.dataset.gwsPrice === 'false' || parseInt(b.dataset.gwsPrice) >= 1000) {
+                  return -1;
+                } else {
+                  return a.dataset.gwsPrice - b.dataset.gwsPrice;
+                }
+              }).appendTo(this);
+            });
+            break;
+          case 'editors-picks':
+            $('.products-holder').each(function () {
+              $(this).find('.gws-product').sort(function (a, b) {
+                if (a.dataset.pick === 'on') {
+                  return -1;
+                }
+                if (b.dataset.pick === 'on') {
+                  return 1;
+                }
+                return -1;
+              }).appendTo(this);
+            });
+            break;
+          default:
+            return false;
+        }
+      });
     }
   }, {
     key: 'fixWidows',
