@@ -3,12 +3,17 @@ $product_handle = get_post_meta($post->ID, '_gws_product_handle', true);
 $artists = get_name_list($post->ID, 'artist');
 $title = get_post_meta($post->ID, '_igv_artwork_title', true);
 $year = get_post_meta($post->ID, '_igv_artwork_year', true);
+$time = get_post_time();
+$pick = get_post_meta($post->ID, '_igv_product_pick', true);
 ?>
 <article
   <?php post_class('gws-product grid-item grid-item-product item-s-4 item-l-3 margin-bottom-small'); ?>
   id="post-<?php the_ID(); ?>"
   data-gws-product-handle="<?php echo $product_handle; ?>"
   data-gws-available="true"
+  data-time="<?php echo $time; ?>"
+  data-gws-price="false"
+  data-pick="<?php echo $pick; ?>"
 >
   <a class="font-size-small" href="<?php the_permalink(); ?>">
     <div class="thumb-holder product-item-thumb-holder margin-bottom-micro">

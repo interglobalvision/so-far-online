@@ -119,6 +119,12 @@ function igv_cmb_metaboxes() {
 	) );
 
   $artwork_metabox->add_field( array(
+    'name'    => esc_html__( 'Editor\'s Pick', 'cmb2' ),
+    'id'      => $prefix . 'product_pick',
+    'type'    => 'checkbox',
+  ) );
+
+  $artwork_metabox->add_field( array(
     'name'    => esc_html__( 'Authenticity', 'cmb2' ),
     'id'      => $prefix . 'product_authenticity',
     'type'    => 'textarea',
