@@ -48,6 +48,10 @@ function button_shortcode( $atts, $content = null ) {
 }
 add_shortcode( 'button', 'button_shortcode' );
 
+function compare_names($a, $b){
+  return strcmp($a->name, $b->name);
+}
+
 function get_terms_by_post_type( $taxonomies, $post_types ) {
   global $wpdb;
 
@@ -63,6 +67,8 @@ function get_terms_by_post_type( $taxonomies, $post_types ) {
   );
 
   $results = $wpdb->get_results( $query );
+
+  usort($results, 'compare_names');
 
   return $results;
 }
