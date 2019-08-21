@@ -247,6 +247,7 @@ class Site {
 
   bindAnimatedLoad() {
     $('a').on('click', this.handleLoadAnimation);
+    $('#searchform').on('submit', this.handleSearchLoadAnimation);
   }
 
   handleLoadAnimation(e) {

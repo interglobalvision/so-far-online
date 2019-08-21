@@ -443,6 +443,7 @@ var Site = function () {
     key: 'bindAnimatedLoad',
     value: function bindAnimatedLoad() {
       $('a').on('click', this.handleLoadAnimation);
+      $('#searchform').on('submit', this.handleSearchLoadAnimation);
     }
   }, {
     key: 'handleLoadAnimation',

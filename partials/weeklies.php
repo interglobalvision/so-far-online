@@ -23,7 +23,7 @@ if ( $weeklies_query->have_posts() ) {
               <span><?php echo $type ? $type : '&nbsp;'; ?></span>
             </div>
             <div class="thumb-holder scroll-slider-thumb-holder">
-              <?php the_post_thumbnail(); ?>
+              <div class="thumb" style="background-image: url('<?php echo get_the_post_thumbnail_url('full'); ?>')"></div>
             </div>
             <h3 class="font-serif margin-top-micro"><?php the_title(); ?></h3>
             <?php

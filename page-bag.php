@@ -19,43 +19,42 @@ if (have_posts()) {
 
       <section id="cart-body">
         <div class="desktop-only">
-          <div class="grid-row font-uppercase margin-bottom-small justify-center">
-            <div class="grid-item item-l-3">Item</div>
+          <div class="grid-row font-uppercase margin-bottom-small">
+            <div class="grid-item item-l-3 offset-l-1">Item</div>
             <div class="grid-item item-l-3">Description</div>
             <div class="grid-item item-l-2">Price</div>
             <div class="grid-item item-l-2">Quantity</div>
-            <div class="grid-item item-s-10 margin-top-small">
+            <div class="grid-item item-l-10 offset-l-1 margin-top-small">
               <div class="border"></div>
             </div>
           </div>
         </div>
         <div id="cart-items" class="gws-cart-items">
-          <div class="gws-cart-item margin-bottom-small">
-            <div>
-              <a class="gws-cart-remove u-pointer">&times;</a>
-            </div>
-            <div class="grid-row justify-center">
-              <div class="grid-row item-s-12 item-l-6">
-                <div class="grid-item item-s-6">
+          <div class="gws-cart-item">
+            <div class="grid-row">
+              <div class="grid-row item-s-12 item-l-6 offset-l-1">
+                <div class="grid-item item-s-6 margin-bottom-small">
                   <div class="gws-cart-thumb"></div>
                 </div>
 
-                <div class="grid-item item-s-6">
+                <div class="grid-item item-s-6 margin-bottom-small">
                   <div class="gws-cart-title"></div>
-                  <div class="gws-cart-description"></div>
                 </div>
               </div>
 
               <div class="grid-row item-s-12 item-l-4">
-                <div class="grid-item item-s-6">
-                  <span>$ <span class="gws-cart-item-subtotal"></span></span>
+                <div class="grid-item item-s-6 margin-bottom-small">
+                  <span>$<span class="gws-cart-item-subtotal"></span></span>
                 </div>
-                <div class="grid-item item-s-6">
+                <div class="grid-item item-s-4 margin-bottom-small">
                   <input type="number" min="1" max="100" class="gws-cart-quantity" />
+                </div>
+                <div class="grid-item item-s-2 margin-bottom-small">
+                  <a class="gws-cart-remove u-pointer">&times;</a>
                 </div>
               </div>
 
-              <div class="grid-item item-s-12 item-l-10 margin-top-small">
+              <div class="grid-item item-s-12 item-l-10 offset-l-1 margin-bottom-small">
                 <div class="border"></div>
               </div>
             </div>
@@ -73,14 +72,14 @@ if (have_posts()) {
           </div>
         </div>
         <div class="grid-row item-s-12 item-l-10">
-          <div class="grid-item item-s-6 item-l-3 offset-l-4 font-uppercase font-bold">
+          <div class="grid-item item-s-6 item-l-3 offset-l-4 font-uppercase">
             <span>Subtotal</span>
           </div>
-          <div class="grid-item item-s-6 item-l-2 font-bold">
-            $ <span id="gws-cart-subtotal"></span>
-          </div>
           <div class="grid-item item-s-6 item-l-2">
-            <a href="" class="gws-checkout-link">Proceed to Checkout</a>
+            $<span id="gws-cart-subtotal"></span>
+          </div>
+          <div class="grid-item item-s-12 item-l-11 margin-top-small text-align-right">
+            <a href="" class="gws-checkout-link button">Proceed to Checkout</a>
           </div>
         </div>
       </section>

@@ -44,8 +44,8 @@ if (have_posts()) {
                 <?php } ?>
                 </div>
               </div>
-              <div class="slide-pagination text-align-center margin-top-micro <?php echo count($images) === 1 ? 'u-hidden' : ''; ?>">
-              </div>
+              <!--div class="slide-pagination text-align-center margin-top-micro <?php echo count($images) === 1 ? 'u-hidden' : ''; ?>">
+              </div-->
             <?php } ?>
             </div>
             <div class="grid-item item-s-12 item-l-3">
@@ -82,7 +82,7 @@ if (have_posts()) {
                 </div>
               </div>
               <?php } ?>
-              <div class="margin-bottom-tiny font-color-grey font-size-tiny">
+              <div class="margin-bottom-tiny font-color-grey">
                 <div class="product-price"><span>$</span><span class="gws-product-price"></span></div>
                 <div class="product-sold"><span>Sold</span></div>
               </div>
