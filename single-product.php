@@ -91,6 +91,9 @@ if (have_posts()) {
                 <button type="submit" class="button gws-product-add add-to-cart js-product-button item-s-6 item-m-4 item-l-12">Purchase this work</button>
                 <button class="button item-in-cart item-s-6 item-m-4 item-l-12" disabled>Added to Bag</button>
               </form>
+              <div class="padding-top-tiny font-size-tiny font-color-grey font-light">
+                <span>Contact <a href="hello@so-far.online" class="link-underline">hello@so-far.online</a> if you would like to purchase in installments. We can create a payment plan tailored to your needs. For collectors in the US, Australia or New Zealand, we partner with Art Money: 10 payments, 10 months, no interest.</span>
+              </div>
             </div>
           </div>
         </div>
