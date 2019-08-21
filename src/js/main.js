@@ -47,6 +47,7 @@ class Site {
     this.bindRefClick();
     this.bindShopMenuToggle();
     this.bindAnimatedLoad();
+    this.fixWidows();
 
     $('#dissolve').fadeTo(500, 0);
   }
