@@ -10,7 +10,7 @@ $now = time();
 $issues = get_terms( array(
   'taxonomy' => 'issue',
   'parent' => 0,
-  'number' => 1,
+  //'number' => 1,
   'orderby' => 'meta_value_num',
   'order' => 'DESC',
   'meta_key' => '_igv_publish_date',
@@ -33,13 +33,13 @@ global $weeklies_args;
 global $weeklies_section_title;
 
 if ($issues) {
-  $issue = $issues[0];
+  $issue = array_shift(array_values($issues));
   $issue_number = get_term_meta($issue->term_id, '_igv_issue_number', true);
 
   $chapters = get_terms( array(
     'taxonomy' => 'issue',
     'parent' => $issue->term_id,
-    'number' => 1,
+    //'number' => 1,
     'orderby' => 'meta_value_num',
     'order' => 'DESC',
     'meta_key' => '_igv_publish_date',
@@ -54,7 +54,7 @@ if ($issues) {
   ) );
 
   if (count($chapters) > 0) {
-    $chapter = $chapters[0];
+    $chapter = array_shift(array_values($chapters));
     $chapter_number = get_term_meta($chapter->term_id, '_igv_issue_number', true);
 
     $articles_args = array(
