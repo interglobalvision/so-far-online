@@ -65,7 +65,7 @@ if (have_posts()) {
       </div>
       <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter">
         <div class="font-serif"><?php echo !empty($contributors_text) ? apply_filters('the_content', $contributors_text) : ''; ?></div>
-        <div class="padding-top-small text-align-center font-uppercase">
+        <div class="padding-top-small text-align-center">
           <a class="button" href="<?php echo home_url('contributors'); ?>">Meet our contributors</a>
         </div>
       </div>
@@ -80,7 +80,7 @@ if (have_posts()) {
       </div>
       <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter">
         <div class="font-serif"><?php echo !empty($artists_text) ? apply_filters('the_content', $artists_text) : ''; ?></div>
-        <div class="padding-top-small text-align-center font-uppercase">
+        <div class="padding-top-small text-align-center">
           <a class="button" href="<?php echo home_url('artists'); ?>">Meet our artists</a>
         </div>
       </div>
