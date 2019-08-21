@@ -12,6 +12,7 @@ $issues = get_terms( array(
   'parent' => 0,
   'number' => 1,
   'orderby' => 'meta_value_num',
+  'order' => 'DESC',
   'meta_key' => '_igv_publish_date',
   'meta_query' => array(
     array(
@@ -40,6 +41,7 @@ if ($issues) {
     'parent' => $issue->term_id,
     'number' => 1,
     'orderby' => 'meta_value_num',
+    'order' => 'DESC',
     'meta_key' => '_igv_publish_date',
     'meta_query' => array(
       array(
