@@ -6,12 +6,12 @@ $options = get_site_option('_igv_site_options');
     <div class="container">
       <div class="grid-row">
       <?php if (!empty($options['mailchimp_action'])) { ?>
-        <div class="item-s-12 item-l-6 text-align-center padding-bottom-small">
+        <div id="footer-form-holder" class="item-s-12 item-m-6 item-xl-5 offset-xl-1 text-align-center padding-bottom-small">
           <form novalidate="true" id="mailchimp-form" class="grid-row align-items-center">
-            <div class="grid-item item-s-12 item-m-6 margin-bottom-micro">
+            <div class="grid-item item-s-6 margin-bottom-micro">
               <input type="name" name="FNAME" placeholder="First Name" id="mailchimp-first">
             </div>
-            <div class="grid-item item-s-12 item-m-6 margin-bottom-micro">
+            <div class="grid-item item-s-6 margin-bottom-micro">
               <input type="name" name="LNAME" placeholder="Last Name" id="mailchimp-last">
             </div>
             <div class="grid-item item-s-12 margin-bottom-micro">
@@ -25,22 +25,22 @@ $options = get_site_option('_igv_site_options');
         </div>
       <?php } ?>
 
-        <div class="item-s-12 item-l-6">
+        <div id="footer-nav-holder" class="item-s-12 item-m-6">
           <div id="footer-nav" class="padding-bottom-small">
             <ul class="grid-row">
-              <li class="grid-item item-s-12 item-l-4 padding-bottom-tiny">
+              <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
                 <a href="<?php echo home_url('contribute'); ?>">Contribute</a>
               </li>
-              <li class="grid-item item-s-12 item-l-4 padding-bottom-tiny">
+              <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
                 <a href="<?php echo home_url('contact'); ?>">Contact</a>
               </li>
-              <li class="grid-item item-s-12 item-l-4 padding-bottom-tiny">
+              <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
                 <a href="<?php echo home_url('faq'); ?>">FAQ</a>
               </li>
-              <li class="grid-item item-s-12 item-l-4 padding-bottom-tiny">
+              <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
                 <a href="<?php echo home_url('terms-and-conditions'); ?>">Terms & Conditions</a>
               </li>
-              <li class="grid-item item-s-12 item-l-4 padding-bottom-tiny">
+              <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
                 <a href="<?php echo home_url('privacy-policy'); ?>">Privacy Policy</a>
               </li>
             </ul>

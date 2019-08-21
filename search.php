@@ -31,13 +31,14 @@ if (have_posts()) {
                     echo 'artwork';
                     break;
                   case 'weekly':
-                    echo get_weekly_type($post->ID);
+                    $type = get_weekly_type($post->ID);
+                    echo $type ? $type : '&nbsp;';
                     break;
                   case 'post':
                     echo 'article';
                     break;
                   default:
-                    echo '';
+                    echo '&emsp;';
                 };
               ?></span>
             </div>
