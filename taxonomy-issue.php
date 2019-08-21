@@ -88,7 +88,7 @@ if (count($chapters) > 0) {
                 <span>Published on <?php echo get_the_date(); ?></span>
               </div>
               <div class="thumb-holder scroll-slider-thumb-holder">
-                <div class="thumb" style="background-image: url('<?php echo get_the_post_thumbnail_url('full'); ?>')"></div>
+                <div class="thumb" style="background-image: url('<?php echo get_the_post_thumbnail_url($post, 'full'); ?>')"></div>
               </div>
               <h3 class="font-serif margin-top-micro"><?php the_title(); ?></h3>
               <div class="font-color-grey margin-top-micro font-size-small">

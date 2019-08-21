@@ -12,7 +12,7 @@ $year = get_post_meta($post->ID, '_igv_artwork_year', true);
 >
   <a class="font-size-small" href="<?php the_permalink(); ?>">
     <div class="thumb-holder product-item-thumb-holder margin-bottom-micro">
-      <div class="thumb" style="background-image: url('<?php echo get_the_post_thumbnail_url('product-item'); ?>')"></div>
+      <div class="thumb" style="background-image: url('<?php echo get_the_post_thumbnail_url($post, 'product-item'); ?>')"></div>
     </div>
     <div class="product-item-details">
       <?php echo !empty($artists) ? '<div class="font-heavy"><span>' . $artists . '</span></div>' : ''; ?>
