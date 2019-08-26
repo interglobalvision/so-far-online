@@ -133,6 +133,7 @@ if (have_posts()) {
                   $artwork_artists = get_name_list($artwork_id, 'artist');
                   $artwork_title = get_post_meta($artwork_id, '_igv_artwork_title', true);
                   $artwork_year = get_post_meta($artwork_id, '_igv_artwork_year', true);
+                  $product_handle = get_post_meta($artwork_id, '_gws_product_handle', true);
               ?>
                 <div class="gws-product grid-item grid-item-product item-s-12 item-l-3 margin-bottom-small"
                 data-gws-product-handle="<?php echo $product_handle; ?>"
