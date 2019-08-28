@@ -194,15 +194,9 @@ if (have_posts()) {
               }
             }
 
-            pr($artists);
-            pr($contributors);
-            pr($dups);
-
             foreach($dups as $key => $value) {
-              unset($contributors[$key]);
+              unset($contributors[$value]);
             };
-
-            pr($contributors);
 
             $bios = array_merge($artists, $contributors);
           ?>
