@@ -6,13 +6,15 @@ $options = get_site_option('_igv_site_options');
     <div class="container">
       <div class="grid-row">
       <?php if (!empty($options['mailchimp_action'])) { ?>
-        <div id="footer-form-holder" class="item-s-12 item-m-6 item-xl-5 offset-xl-1 text-align-center padding-bottom-small">
+        <div id="footer-form-holder" class="item-s-12 item-m-6 item-l-5 offset-l-1 item-xl-4 text-align-center padding-bottom-small">
           <form novalidate="true" id="mailchimp-form" class="grid-row align-items-center">
-            <div class="grid-item item-s-6 margin-bottom-micro">
-              <input type="name" name="FNAME" placeholder="First Name" id="mailchimp-first">
-            </div>
-            <div class="grid-item item-s-6 margin-bottom-micro">
-              <input type="name" name="LNAME" placeholder="Last Name" id="mailchimp-last">
+            <div class="grid-item item-s-12 margin-bottom-micro grid-row">
+              <div class="grid-item item-s-6 no-gutter form-grid-item">
+                <input type="name" name="FNAME" placeholder="First Name" id="mailchimp-first">
+              </div>
+              <div class="grid-item item-s-6 no-gutter form-grid-item">
+                <input type="name" name="LNAME" placeholder="Last Name" id="mailchimp-last">
+              </div>
             </div>
             <div class="grid-item item-s-12 margin-bottom-micro">
               <input type="email" name="EMAIL" placeholder="Email Address" id="mailchimp-email">
@@ -25,7 +27,7 @@ $options = get_site_option('_igv_site_options');
         </div>
       <?php } ?>
 
-        <div id="footer-nav-holder" class="item-s-12 item-m-6">
+        <div id="footer-nav-holder" class="item-s-12 item-m-6 offset-xl-1">
           <div id="footer-nav" class="padding-bottom-small">
             <ul class="grid-row">
               <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
