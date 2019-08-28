@@ -109,7 +109,7 @@ if (have_posts()) {
             </div>
           </section>
 
-          <section class="padding-bottom-basic">
+          <!--section class="padding-bottom-basic">
             <div class="container">
               <div class="grid-row">
                 <div class="grid-item no-gutter grid-row item-s-12 item-l-8 offset-l-2 justify-end">
@@ -121,7 +121,7 @@ if (have_posts()) {
                 </div>
               </div>
             </div>
-          </section>
+          </section-->
 
         <?php if (!empty($artworks)) { ?>
           <section class="padding-top-small padding-bottom-basic">
