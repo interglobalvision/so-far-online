@@ -13,7 +13,7 @@ $artists = get_terms_by_post_type( array('artist'), array('product') );
       </div>
     </div>
     <div id="shop-menu">
-      <div class="grid-row padding-bottom-small">
+      <div class="grid-row padding-bottom-micro">
         <?php if (!empty($mediums)) { ?>
         <div class="grid-item item-s-12 item-m-6 item-l-3">
           <h3 class="font-size-mid margin-bottom-tiny">Medium</h3>
@@ -79,6 +79,11 @@ $artists = get_terms_by_post_type( array('artist'), array('product') );
               <span>Editor's Picks</span>
             </div>
           </form>
+        </div>
+      </div>
+      <div class="grid-row padding-bottom-small">
+        <div class="grid-item item-s-12">
+          <span class="font-size-micro">All prices indicated in Singapore Dollars.</span>
         </div>
       </div>
     </div>
