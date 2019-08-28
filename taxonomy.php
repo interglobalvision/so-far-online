@@ -20,15 +20,8 @@ $articles_args = array(
   'post_type' => array('post','weekly'),
   'posts_per_page' => -1,
   'order' => 'DESC',
-  'orderby' => 'meta_value_num',
-  'meta_key' => '_igv_publish_date',
-  'meta_query' => array(
-    array(
-  		'key'     => '_igv_publish_date',
-  		'value'   => $now,
-  		'compare' => '<='
-  	),
-  ),
+  'orderby' => 'publish_date',
+  'post_status' => 'publish',
   'tax_query' => array(
     array(
       'taxonomy' => $bio->taxonomy,
