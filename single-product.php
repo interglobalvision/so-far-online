@@ -106,7 +106,7 @@ if (have_posts()) {
               <h3 class="margin-bottom-tiny font-size-small">Description</h3>
               <div><?php the_content(); ?></div>
             </div>
-            <div class="grid-item item-s-12 item-l-3 grid-row">
+            <div class="grid-item item-s-12 item-l-3 grid-row align-content-start">
             <?php if (!empty($authenticity)) { ?>
               <div class="margin-bottom-tiny item-s-12 item-m-4 item-l-12">
                 <h3 class="margin-bottom-tiny font-size-small">Authenticity</h3>
