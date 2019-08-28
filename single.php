@@ -198,8 +198,6 @@ if (have_posts()) {
               unset($contributors[$key]);
             };
 
-            pr($contributors);
-
             $bios = array_merge($artists, $contributors);
           ?>
           <section class="padding-top-small padding-bottom-small">
