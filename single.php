@@ -157,7 +157,7 @@ if (have_posts()) {
               </div>
               <div class="grid-row justify-center padding-top-small">
                 <div>
-                  <a class="button" href="<?php echo home_url('shop'); ?>">Visit the shop</a>
+                  <a class="button" href="<?php echo home_url('shop'); ?>">Visit the Shop</a>
                 </div>
               </div>
             </div>

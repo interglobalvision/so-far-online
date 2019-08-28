@@ -90,7 +90,7 @@ if (have_posts()) {
             <div class="padding-top-basic padding-bottom-basic">
               <span>Your shopping bag is empty.</span>
             </div>
-            <a class="button" href="<?php echo home_url('shop'); ?>">Visit the shop</a>
+            <a class="button" href="<?php echo home_url('shop'); ?>">Visit the Shop</a>
           </div>
         </div>
       </section>
