@@ -188,7 +188,7 @@ if (have_posts()) {
 
             foreach($artists as $artist_key => $artist_value) {
               foreach ($contributors as $contributor_key => $contributor_value) {
-                if ($artist_value->name === $contributor_value->name) {
+                if ($artist_value->slug === $contributor_value->slug) {
                   array_push($dups, $contributor_key);
                 }
               }
@@ -197,6 +197,8 @@ if (have_posts()) {
             foreach($dups as $key => $value) {
               unset($contributors[$key]);
             };
+
+            pr($contributors);
 
             $bios = array_merge($artists, $contributors);
           ?>
