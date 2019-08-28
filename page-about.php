@@ -89,7 +89,7 @@ if (have_posts()) {
 <?php } if (!empty($partners)) { ?>
   <section class="padding-bottom-basic">
     <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-mid">Partners</h2>
-    <div class="grid-row justify-center">
+    <div class="grid-row justify-center align-items-center">
     <?php
       foreach ($partners as $partner) {
         if (!empty($partner['logo_id'])) {
