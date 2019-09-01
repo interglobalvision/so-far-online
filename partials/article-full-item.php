@@ -28,7 +28,7 @@ $post_type = get_post_type($post);
                 echo !empty($weekly_type) ? $weekly_type[0]->name : '';
               }
               if ($post_type === 'post') {
-                echo 'Issue';
+                echo 'Issue ';
                 echo !empty($issue_number) ? $issue_number . ': ' : ': ';
                 echo $issue->name;
               }
