@@ -36,7 +36,7 @@ if (have_posts()) {
   </section>
 <?php if (!empty($mission)) { ?>
   <section class="padding-bottom-basic">
-    <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-mid">Our Mission</h2>
+    <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-large">Our Mission</h2>
     <div class="grid-row">
       <div class="grid-item item-s-12 item-l-8 offset-l-2">
         <div class="font-serif"><?php echo apply_filters('the_content', $mission); ?></div>
@@ -45,12 +45,12 @@ if (have_posts()) {
   </section>
 <?php } if (!empty($team)) { ?>
   <section class="padding-bottom-basic">
-    <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-mid">Our Team</h2>
+    <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-large">Our Team</h2>
     <div class="grid-row justify-center">
     <?php foreach($team as $member) { ?>
       <div class="grid-item item-s-12 item-m-6 item-l-4 item-xxl-3">
         <div><?php echo !empty($member['photo_id']) ? wp_get_attachment_image($member['photo_id'], 'full') : ''; ?></div>
-        <div class="margin-top-micro font-size-small"><span><?php echo !empty($member['name']) ? $member['name'] : ''; ?></span></div>
+        <div class="margin-top-micro"><span><?php echo !empty($member['name']) ? $member['name'] : ''; ?></span></div>
         <div class="margin-top-micro font-serif"><?php echo !empty($member['bio']) ? apply_filters('the_content', $member['bio']) : ''; ?></div>
       </div>
     <?php } ?>
@@ -58,7 +58,7 @@ if (have_posts()) {
   </section>
 <?php } if (!empty($contributors_text) || !empty($contributors_image_id)) { ?>
   <section class="padding-bottom-basic">
-    <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-mid">Contributors</h2>
+    <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-large">Contributors</h2>
     <div class="grid-row">
       <div class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter-left">
         <?php echo !empty($contributors_image_id) ? wp_get_attachment_image($contributors_image_id, 'full') : ''; ?>
@@ -73,7 +73,7 @@ if (have_posts()) {
   </section>
 <?php } if (!empty($artists_text) || !empty($artists_image_id)) { ?>
   <section class="padding-bottom-basic">
-    <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-mid">Artists</h2>
+    <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-large">Artists</h2>
     <div class="grid-row row-l-reverse">
       <div class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter-right">
         <?php echo !empty($artists_image_id) ? wp_get_attachment_image($artists_image_id, 'full') : ''; ?>
@@ -88,7 +88,7 @@ if (have_posts()) {
   </section>
 <?php } if (!empty($partners)) { ?>
   <section class="padding-bottom-basic">
-    <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-mid">Partners</h2>
+    <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-large">Partners</h2>
     <div class="grid-row justify-center align-items-center">
     <?php
       foreach ($partners as $partner) {

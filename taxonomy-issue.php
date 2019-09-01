@@ -50,10 +50,10 @@ if (count($chapters) > 0) {
 
   <section <?php post_class($background_class . ' padding-top-small padding-bottom-small'); ?> id="term-<?php echo $chapter->term_id; ?>">
     <div class="container">
-      <div class="grid-row padding-bottom-small font-size-small font-uppercase">
+      <div class="grid-row padding-bottom-small font-uppercase">
         <div class="grid-item item-s-12 item-l-11 offset-l-1">
           <span><?php
-            echo 'Issue';
+            echo 'Issue ';
             echo !empty($issue_number) ? $issue_number . ': ' : ': ';
             echo $issue->name;
           ?></span>
@@ -62,8 +62,8 @@ if (count($chapters) > 0) {
       <div class="grid-row">
         <div class="grid-item item-s-12 item-m-8 offset-m-2 item-l-6 offset-l-3 padding-bottom-basic">
           <div class="text-align-center">
-            <span class="font-uppercase font-size-small">Chapter<?php echo !empty($chapter_number) ? ' ' . $chapter_number : ''; ?></span>
-            <h1 class="padding-bottom-small font-size-mid font-uppercase"><?php echo $chapter->name; ?></h1>
+            <span class="font-uppercase">Chapter<?php echo !empty($chapter_number) ? ' ' . $chapter_number : ''; ?></span>
+            <h1 class="padding-bottom-small font-size-large font-uppercase margin-top-micro"><?php echo $chapter->name; ?></h1>
           </div>
           <?php if (!empty($chapter->description)) { ?>
           <div>
@@ -90,8 +90,8 @@ if (count($chapters) > 0) {
               <div class="thumb-holder scroll-slider-thumb-holder">
                 <div class="thumb" style="background-image: url('<?php echo get_the_post_thumbnail_url($post, 'full'); ?>')"></div>
               </div>
-              <h3 class="font-serif margin-top-micro js-fix-widows"><?php the_title(); ?></h3>
-              <div class="font-color-grey margin-top-micro font-size-small">
+              <h3 class="font-serif margin-top-micro font-size-mid js-fix-widows"><?php the_title(); ?></h3>
+              <div>
                 <span><?php echo $authors ? 'by ' . $authors : ''; ?></span>
               </div>
             </a>

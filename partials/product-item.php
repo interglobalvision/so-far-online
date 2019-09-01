@@ -7,7 +7,7 @@ $time = get_post_time();
 $pick = get_post_meta($post->ID, '_igv_product_pick', true);
 ?>
 <article
-  <?php post_class('gws-product grid-item grid-item-product item-s-4 item-l-3 margin-bottom-small'); ?>
+  <?php post_class('gws-product grid-item grid-item-product item-s-6 item-m-4 item-l-3 margin-bottom-small'); ?>
   id="post-<?php the_ID(); ?>"
   data-gws-product-handle="<?php echo $product_handle; ?>"
   data-gws-available="true"

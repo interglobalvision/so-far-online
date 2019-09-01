@@ -17,25 +17,38 @@ if (have_posts()) {
     $artists = get_the_terms($post, 'artist');
     $contributors = get_the_terms($post, 'contributor');
     $weekly_type = get_the_terms($post, 'weeklytype');
-    $issue_terms = get_the_terms($post, 'issue');
     $the_date = get_the_date('j F, Y');
-    $chapter = false;
     $post_type = get_post_type($post);
+
+    $issue = false;
+    $chapter = false;
+
+    $issue_terms = get_terms(array(
+      'taxonomy' => 'issue',
+      'parent' => 0
+    ));
+
     if (!empty($issue_terms)) {
-      $chapter = $issue_terms[0]->parent !== 0 ? $issue_terms[0] : false;
-    }
-    if ($chapter) {
-      $issue = get_term($chapter->parent);
-      $chapter_number = get_term_meta($chapter->term_id, '_igv_issue_number', true);
-      $issue_number = get_term_meta($issue->term_id, '_igv_issue_number', true);
+      $issue = $issue_terms[0];
+      if ($issue) {
+        $chapter_terms = get_terms(array(
+          'taxonomy' => 'issue',
+          'parent' => $issue->term_id
+        ));
+        if (!empty($chapter_terms)) {
+          $chapter = $chapter_terms[0];
+          $chapter_number = get_term_meta($chapter->term_id, '_igv_issue_number', true);
+          $issue_number = get_term_meta($issue->term_id, '_igv_issue_number', true);
+        }
+      }
     }
 ?>
 
         <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
           <header class="padding-bottom-basic">
             <div class="container">
-              <?php if ($chapter || $post_type === 'weekly') { ?>
-                <div class="grid-row padding-top-small padding-bottom-small font-size-small font-uppercase">
+              <?php if ($issue || $post_type === 'weekly') { ?>
+                <div class="grid-row padding-top-small padding-bottom-small font-uppercase">
                   <div class="grid-item item-s-12 item-l-7 offset-l-1">
                     <span>
                       <?php
@@ -56,7 +69,7 @@ if (have_posts()) {
                         if ($post_type === 'weekly') {
                           echo $the_date;
                         }
-                        if ($post_type === 'post') {
+                        if ($post_type === 'post' && $chapter) {
                           echo 'Chapter ';
                           echo !empty($chapter_number) ? $chapter_number . ': ' : ': ';
                           echo $chapter->name;
@@ -70,14 +83,14 @@ if (have_posts()) {
               <div class="grid-row justify-end row-l-reverse">
                 <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter grid-row align-content-end">
                   <div class="grid-item item-s-12 margin-bottom-basic">
-                    <h1 class="font-serif font-size-large"><?php the_title(); ?></h1>
+                    <h1 class="font-serif font-size-extra"><?php the_title(); ?></h1>
                   </div>
                   <?php if (!empty($subtitle)) { ?>
-                  <div class="grid-item item-s-12">
+                  <div class="grid-item item-s-12 font-size-mid">
                     <span><?php echo $subtitle; ?></span>
                   </div>
                   <?php } if ($contributor_names || $artist_names) { ?>
-                  <div class="grid-item item-s-12 offset-m-4 offset-l-2 offset-xl-4 margin-top-small font-color-grey font-size-small">
+                  <div class="grid-item item-s-12 offset-m-4 offset-l-2 offset-xl-4 margin-top-small font-color-grey">
                   <?php if ($contributor_names) { ?>
                     <div class="margin-top-tiny">
                       <span>Text by <?php echo $contributor_names; ?></span>
@@ -94,7 +107,7 @@ if (have_posts()) {
                 <figure class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter-left font-size-zero">
                   <?php the_post_thumbnail('article-item'); ?>
                   <?php if (!empty($featured_caption)) { ?>
-                    <figcaption class="font-size-tiny"><?php echo $featured_caption; ?></figcaption>
+                    <figcaption class="font-size-small"><?php echo $featured_caption; ?></figcaption>
                   <?php } ?>
                 </figure>
               </div>
@@ -126,7 +139,7 @@ if (have_posts()) {
         <?php if (!empty($artworks)) { ?>
           <section class="padding-top-small padding-bottom-basic">
             <div class="container">
-              <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-mid">Featured Artworks</h2>
+              <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-large">Featured Artworks</h2>
               <div class="grid-row justify-center">
               <?php
                 foreach ($artworks as $artwork_id) {
@@ -135,22 +148,26 @@ if (have_posts()) {
                   $artwork_year = get_post_meta($artwork_id, '_igv_artwork_year', true);
                   $product_handle = get_post_meta($artwork_id, '_gws_product_handle', true);
               ?>
-                <div class="gws-product grid-item grid-item-product item-s-12 item-l-3 margin-bottom-small"
+                <div class="gws-product grid-item grid-item-product item-s-6 item-m-4 item-l-3 margin-bottom-small"
                 data-gws-product-handle="<?php echo $product_handle; ?>"
                 data-gws-available="true"
                 >
                   <a class="font-size-small" href="<?php echo get_the_permalink($artwork_id); ?>">
-                    <div><?php echo get_the_post_thumbnail($artwork_id); ?></div>
-                    <?php echo !empty($artwork_artists) ? '<div><span>' . $artwork_artists . '</span></div>' : ''; ?>
-                    <div>
-                      <?php
-                        echo !empty($artwork_title) ? '<h3 class="u-inline-block">' . $artwork_title . '</h3>' : '';
-                        echo !empty($artwork_title) && !empty($artwork_year) ? ', ' : '';
-                        echo !empty($artwork_year) ? '<span>' . $artwork_year . '</span>' : '';
-                      ?>
+                    <div class="thumb-holder product-item-thumb-holder margin-bottom-micro">
+                      <div class="thumb" style="background-image: url('<?php echo get_the_post_thumbnail_url($artwork_id, 'product-item'); ?>')"></div>
                     </div>
-                    <div class="product-price"><span class="gws-product-price"></span></div>
-                    <div class="product-sold"><span>Sold</span></div>
+                    <div class="product-item-details">
+                      <?php echo !empty($artwork_artists) ? '<div class="font-heavy"><span>' . $artwork_artists . '</span></div>' : ''; ?>
+                      <div>
+                        <?php
+                          echo !empty($artwork_title) ? '<h3 class="u-inline font-italic">' . $artwork_title . '</h3>' : '';
+                          echo !empty($artwork_title) && !empty($artwork_year) ? ', ' : '';
+                          echo !empty($artwork_year) ? '<span>' . $artwork_year . '</span>' : '';
+                        ?>
+                      </div>
+                      <div class="product-price"><span class="gws-product-price"></span></div>
+                      <div class="product-sold"><span>Sold</span></div>
+                    </div>
                   </a>
                 </div>
               <?php } ?>
@@ -169,8 +186,8 @@ if (have_posts()) {
             <div class="container">
               <div class="grid-row justify-center">
                 <div class="grid-item item-s-12 item-l-8">
-                  <h2 class="font-uppercase padding-bottom-small font-size-small">Footnotes</h2>
-                  <ol class="font-size-tiny">
+                  <h2 class="font-uppercase padding-bottom-small font-size-basic">Footnotes</h2>
+                  <ol class="font-size-small">
                   <?php foreach($footnotes as $index => $footnote) { ?>
                     <li class="margin-bottom-tiny" id="footnote-ref-<?php echo $index + 1; ?>"><a class="js-footnote-ref" href="#" data-ref="<?php echo $index + 1; ?>"><?php echo $footnote; ?></a></li>
                   <?php } ?>
@@ -202,7 +219,7 @@ if (have_posts()) {
           ?>
           <section class="padding-top-small padding-bottom-small">
             <div class="container">
-              <h2 class="text-align-center font-uppercase padding-bottom-small font-size-mid">Artists & Contributors</h2>
+              <h2 class="text-align-center font-uppercase padding-bottom-small font-size-large">Artists & Contributors</h2>
               <?php
                 foreach($bios as $bio) {
                   global $bio;

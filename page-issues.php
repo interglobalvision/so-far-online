@@ -52,14 +52,14 @@ foreach ($issues as $index => $issue) {
 
           <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter grid-row align-content-center">
             <div class="grid-item item-s-12 margin-bottom-tiny">
-              <h1 class="font-size-large font-serif"><?php echo $issue->name; ?></h1>
+              <h1 class="font-size-extra"><?php echo $issue->name; ?></h1>
             </div>
             <?php if (!empty($subtitle)) { ?>
             <div class="grid-item item-s-12 font-size-mid margin-top-tiny">
               <span><?php echo $subtitle; ?></span>
             </div>
             <?php } if ($contributors) { ?>
-            <div class="grid-item item-s-12 margin-top-small font-size-small">
+            <div class="grid-item item-s-12 margin-top-small">
               <span><?php echo $contributors; ?></span>
             </div>
             <?php } ?>

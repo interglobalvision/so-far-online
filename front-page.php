@@ -104,7 +104,7 @@ if ($issues) {
 ?>
   <section class="padding-top-basic padding-bottom-basic background-pale">
     <div class="container">
-      <h2 class="text-align-center font-uppercase padding-bottom-small font-size-mid">Recent Artworks</h2>
+      <h2 class="text-align-center font-uppercase padding-bottom-small font-size-large">Recent Artworks</h2>
       <div class="grid-row justify-center">
 <?php
       while ($products_query->have_posts()) {

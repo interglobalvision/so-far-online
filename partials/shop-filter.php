@@ -83,7 +83,7 @@ $artists = get_terms_by_post_type( array('artist'), array('product') );
       </div>
       <div class="grid-row padding-bottom-small">
         <div class="grid-item item-s-12">
-          <span class="font-size-micro">All prices indicated in Singapore Dollars.</span>
+          <span class="font-size-tiny">All prices indicated in Singapore Dollars.</span>
         </div>
       </div>
     </div>
