@@ -14,9 +14,15 @@ global $images;
     <?php } ?>
     </div>
   </div>
-  <div class="grid-row <?php echo count($images) === 1 ? 'u-hidden' : ''; ?>">
-    <div><span class="overlay-nav overlay-prev u-pointer"><</div>
-    <div><span class="overlay-current">1</span>/<span><?php echo count($images); ?></span></div>
-    <div><span class="overlay-nav overlay-next u-pointer">></div>
+  <div class="grid-row align-items-center margin-top-micro font-color-grey <?php echo count($images) === 1 ? 'u-hidden' : ''; ?>">
+    <div class="slide-prev-holder u-pointer">
+      <span class="overlay-nav overlay-prev u-pointer"><img class="slide-pagination-icon u-pointer" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-prev.png" />
+    </div>
+    <div>
+      <span class="overlay-current">1</span>/<span><?php echo count($images); ?></span>
+    </div>
+    <div class="slide-next-holder u-pointer">
+      <span class="overlay-nav overlay-next u-pointer"><img class="slide-pagination-icon u-pointer" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-next.png" />
+    </div>
   </div>
 </div>

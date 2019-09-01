@@ -70,13 +70,13 @@ if (have_posts()) {
               </div>
               <div class="margin-bottom-small desktop-only font-color-grey <?php echo count($images) === 1 ? 'u-hidden' : ''; ?>">
                 <div class="grid-row align-items-center">
-                  <div>
+                  <div class="slide-prev-holder">
                     <span class="slide-prev u-pointer"><img class="slide-pagination-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-prev.png" /></span>
                   </div>
                   <div>
                     <span><span class="slide-current">1</span>/<span><?php echo count($images); ?></span></span>
                   </div>
-                  <div>
+                  <div class="slide-next-holder">
                     <span class="slide-next u-pointer"><img class="slide-pagination-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-next.png" /></span>
                   </div>
                 </div>
