@@ -50,6 +50,7 @@ if (count($chapters) > 0) {
 
   <section <?php post_class($background_class . ' padding-top-small padding-bottom-small'); ?> id="term-<?php echo $chapter->term_id; ?>">
     <div class="container">
+      <?php if ($index === 0) { ?>
       <div class="grid-row padding-bottom-small font-uppercase">
         <div class="grid-item item-s-12 item-l-11 offset-l-1">
           <span><?php
@@ -59,6 +60,7 @@ if (count($chapters) > 0) {
           ?></span>
         </div>
       </div>
+      <?php } ?>
       <div class="grid-row">
         <div class="grid-item item-s-12 item-m-8 offset-m-2 item-l-6 offset-l-3 padding-bottom-basic">
           <div class="text-align-center">
