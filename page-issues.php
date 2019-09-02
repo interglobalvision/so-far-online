@@ -29,6 +29,7 @@ foreach ($issues as $index => $issue) {
   $subtitle = get_term_meta($issue->term_id, '_igv_subtitle', true);
   $contributors = get_term_meta($issue->term_id, '_igv_issue_contributors', true);
   $image_id = get_term_meta($issue->term_id, '_igv_issue_image_id', true);
+  $image_caption = get_term_meta($issue->term_id, '_igv_issue_image_caption', true);
   $background_class = $index % 2 ? '' : 'background-pale' ;
 ?>
   <section id="term-<?php echo $issue->term_id; ?>" class="padding-bottom-basic <?php echo $background_class; ?>">
@@ -46,10 +47,15 @@ foreach ($issues as $index => $issue) {
         </div>
 
         <div class="grid-row justify-start">
-          <div class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter-left">
-            <?php echo !empty($image_id) ? wp_get_attachment_image($image_id, 'full') : ''; ?>
-          </div>
-
+          <?php if (!empty($image_id)) { ?>
+          <figure class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter-left font-size-zero">
+            <?php echo wp_get_attachment_image($image_id, 'full'); ?>
+            <?php if (!empty($image_caption)) { ?>
+              <figcaption class="font-size-small"><?php echo $image_caption; ?></figcaption>
+            <?php } ?>
+          </figure>
+          <?php } ?>
+          
           <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter grid-row align-content-center">
             <div class="grid-item item-s-12 margin-bottom-tiny">
               <h1 class="font-size-extra"><?php echo $issue->name; ?></h1>

@@ -210,6 +210,16 @@ function igv_cmb_metaboxes() {
 		'type' => 'file',
 	) );
 
+  $issue_metabox->add_field( array(
+		'name' => esc_html__( 'Issue Featured Image Caption', 'cmb2' ),
+		'id'   => $prefix . 'issue_image_caption',
+  	'type' => 'wysiwyg',
+    'options' => array(
+      'textarea_rows' => 2,
+      'media_buttons' => false, // show insert/upload button(s)
+    ),
+  ) );
+
   // BIO
 
   $bio_metabox = new_cmb2_box( array(
