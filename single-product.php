@@ -59,13 +59,13 @@ if (have_posts()) {
                 echo !empty($title) || !empty($year) ? '</div>' : '';
               ?>
               <?php if (!empty($specs)) { ?>
-              <ul class="font-color-grey">
+              <ul class="font-color-grey font-size-small">
                 <?php foreach ($specs as $spec) { ?>
                 <li class="margin-bottom-micro"><?php echo $spec; ?></li>
                 <?php } ?>
               </ul>
               <?php } if (!empty($images)) { ?>
-              <div class="padding-top-tiny padding-bottom-small desktop-only font-color-grey">
+              <div class="padding-top-tiny padding-bottom-small desktop-only font-color-grey font-size-small">
                 <span class="<?php echo count($images) === 1 ? 'u-hidden' : ''; ?>">More views of this artwork </span>
               </div>
               <div class="margin-bottom-small desktop-only font-color-grey <?php echo count($images) === 1 ? 'u-hidden' : ''; ?>">
@@ -83,7 +83,7 @@ if (have_posts()) {
               </div>
               <?php } ?>
               <div class="margin-bottom-tiny font-color-grey">
-                <div class="product-price"><span>$</span><span class="gws-product-price"></span></div>
+                <div class="product-price font-size-mid"><span>$</span><span class="gws-product-price"></span></div>
                 <div class="product-sold"><span>Sold</span></div>
               </div>
               <form class="gws-product-form cart grid-row" method="post" enctype='multipart/form-data'>
