@@ -78,6 +78,9 @@
     p
       &:first-of-type
         font-size: $font-size-mid
+    p, ul, ol
+      margin-left: $margin-basic
+      max-width: calc('100% - ' + ($margin-basic * 2))
     .wp-block-quote
       p
         font-size: $font-size-basic
