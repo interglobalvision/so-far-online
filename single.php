@@ -19,6 +19,7 @@ if (have_posts()) {
     $weekly_type = get_the_terms($post, 'weeklytype');
     $the_date = get_the_date('j F, Y');
     $post_type = get_post_type($post);
+    $further_reading = get_post_meta($post->ID, '_igv_article_related', true);
 
     $issue = false;
     $chapter = false;
@@ -226,6 +227,25 @@ if (have_posts()) {
                   get_template_part('partials/bio');
                 }
               ?>
+            </div>
+          </section>
+        <?php } if (!empty($further_reading)) { ?>
+          <section class="padding-top-small padding-bottom-small">
+            <div class="container">
+              <h2 class="text-align-center font-uppercase padding-bottom-small font-size-large">Further Reading</h2>
+              <div class="grid-row justify-center">
+              <?php
+                foreach($further_reading as $id) {
+                  $result_id = $id;
+                  global $result_id;
+              ?>
+                <article <?php post_class('grid-item item-s-6 item-m-4 item-l-3 margin-bottom-basic text-align-center'); ?> id="post-<?php echo $result_id; ?>">
+                  <?php get_template_part('partials/search-result'); ?>
+                </article>
+              <?php
+                }
+              ?>
+              </div>
             </div>
           </section>
         <?php } ?>

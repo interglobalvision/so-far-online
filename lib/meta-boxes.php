@@ -84,6 +84,21 @@ function igv_cmb_metaboxes() {
 		)
 	) );
 
+  $article_metabox->add_field( array(
+		'name'      	=> __( 'Further Reading', 'cmb2' ),
+		'id'        	=> $prefix . 'article_related',
+		'type'      	=> 'post_search_ajax',
+		'desc'			=> __( '(Start typing post title)', 'cmb2' ),
+		// Optional :
+		'limit'      	=> 3, 		// Limit selection to X items only (default 1)
+		'sortable' 	 	=> true, 	// Allow selected items to be sortable (default false)
+		'query_args'	=> array(
+			'post_type'			=> array( 'post', 'weekly' ),
+			'post_status'		=> array( 'publish' ),
+			'posts_per_page'	=> -1
+		)
+	) );
+
   // ARTWORK
 
   $artwork_metabox = new_cmb2_box( array(
