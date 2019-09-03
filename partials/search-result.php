@@ -1,9 +1,8 @@
 <?php
 global $result_id;
 $post_type = get_post_type($result_id);
-$title = $post_type === 'product' ? get_post_meta($result_id, '_igv_artwork_title', true) : get_the_title();
+$title = $post_type === 'product' ? get_post_meta($result_id, '_igv_artwork_title', true) : get_the_title($result_id);
 $contributors = $post_type === 'product' ? get_name_list($result_id, 'artist') : get_name_list($result_id, 'contributor');
-var_dump(is_search());
 ?>
 <a href="<?php the_permalink() ?>">
   <div class="font-color-grey font-size-tiny margin-bottom-micro font-uppercase">
