@@ -6,7 +6,7 @@ $options = get_site_option('_igv_site_options');
     <div class="container">
       <div class="grid-row">
       <?php if (!empty($options['mailchimp_action'])) { ?>
-        <div id="footer-form-holder" class="item-s-12 item-m-6 item-l-5 offset-l-1 item-xl-4 text-align-center padding-bottom-small">
+        <div id="footer-form-holder" class="item-s-12 item-m-6 item-l-5 offset-l-1 item-xl-4 text-align-center">
           <form novalidate="true" id="mailchimp-form" class="grid-row align-items-center">
             <div class="grid-item item-s-12 margin-bottom-micro grid-row">
               <div class="grid-item item-s-6 no-gutter form-grid-item">
@@ -27,8 +27,8 @@ $options = get_site_option('_igv_site_options');
         </div>
       <?php } ?>
 
-        <div id="footer-nav-holder" class="item-s-12 item-m-6 offset-xl-1">
-          <div id="footer-nav" class="padding-bottom-small">
+        <div id="footer-nav-holder" class="item-s-12 item-m-6 offset-xl-1 grid-column justify-between">
+          <div id="footer-nav">
             <ul class="grid-row">
               <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
                 <a href="<?php echo home_url('contribute'); ?>">Contribute</a>
@@ -48,11 +48,11 @@ $options = get_site_option('_igv_site_options');
             </ul>
           </div>
 
-          <div class="grid-row padding-bottom-small">
-            <div class="grid-item item-s-12 item-l-auto margin-bottom-micro">
+          <div class="grid-row align-items-end">
+            <div class="grid-item item-s-12 item-l-auto">
               Connect with us on
             </div>
-            <ul class="grid-row item-s-12 item-l-auto">
+            <ul class="grid-row item-s-12 item-l-auto padding-top-micro font-size-zero">
             <?php if (!empty($options['socialmedia_instagram'])) { ?>
               <li class="grid-item">
                 <a href="https://instagram.com/<?php echo $options['socialmedia_instagram']; ?>">
@@ -79,6 +79,7 @@ $options = get_site_option('_igv_site_options');
               </li>
             <?php } ?>
             </ul>
+            <div class="grid-item item-s-12 margin-top-micro">&nbsp;</div>
           </div>
         </div>
       </div>
