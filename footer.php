@@ -2,7 +2,7 @@
 $options = get_site_option('_igv_site_options');
 ?>
 
-  <footer id="footer" class="background-pale padding-top-small font-size-small">
+  <footer id="footer" class="background-pale padding-top-small padding-bottom-small font-size-small">
     <div class="container">
       <div class="grid-row">
       <?php if (!empty($options['mailchimp_action'])) { ?>
@@ -45,6 +45,9 @@ $options = get_site_option('_igv_site_options');
               <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
                 <a href="<?php echo home_url('privacy-policy'); ?>">Privacy Policy</a>
               </li>
+              <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny font-size-tiny font-color-grey">
+                <span>© <?php echo date("Y"); ?> so-far.online</span>
+              </li>
             </ul>
           </div>
 
@@ -81,11 +84,6 @@ $options = get_site_option('_igv_site_options');
             </ul>
             <div class="grid-item item-s-12 margin-top-micro">&nbsp;</div>
           </div>
-        </div>
-      </div>
-      <div class="grid-row padding-bottom-tiny">
-        <div class="grid-item item-s-12 font-size-tiny font-color-grey">
-          <span>© <?php echo date("Y"); ?> so-far.online</span>
         </div>
       </div>
     </div>
