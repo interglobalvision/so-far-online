@@ -50,7 +50,7 @@ $options = get_site_option('_igv_site_options');
 
           <div class="grid-row align-items-end">
             <div class="grid-item item-s-12 item-l-auto">
-              Connect with us on
+              Connect with Us
             </div>
             <ul class="grid-row item-s-12 item-l-auto padding-top-micro font-size-zero">
             <?php if (!empty($options['socialmedia_instagram'])) { ?>
