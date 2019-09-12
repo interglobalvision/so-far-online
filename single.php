@@ -58,7 +58,7 @@ if (have_posts()) {
                         }
                         if ($post_type === 'post') {
                           echo 'Issue';
-                          echo !empty($issue_number) ? $issue_number . ': ' : ': ';
+                          echo !empty($issue_number) ? ' ' . $issue_number . ': ' : ': ';
                           echo $issue->name;
                         }
                       ?>
@@ -71,8 +71,8 @@ if (have_posts()) {
                           echo $the_date;
                         }
                         if ($post_type === 'post' && $chapter) {
-                          echo 'Chapter ';
-                          echo !empty($chapter_number) ? $chapter_number . ': ' : ': ';
+                          echo 'Chapter';
+                          echo !empty($chapter_number) ? ' ' . $chapter_number . ': ' : ': ';
                           echo $chapter->name;
                         }
                       ?>

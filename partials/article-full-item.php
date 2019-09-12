@@ -28,8 +28,8 @@ $post_type = get_post_type($post);
                 echo !empty($weekly_type) ? $weekly_type[0]->name : '';
               }
               if ($post_type === 'post') {
-                echo 'Issue ';
-                echo !empty($issue_number) ? $issue_number . ': ' : ': ';
+                echo 'Issue';
+                echo !empty($issue_number) ? ' ' . $issue_number . ': ' : ': ';
                 echo $issue->name;
               }
             ?>
@@ -42,8 +42,8 @@ $post_type = get_post_type($post);
                 echo $the_date;
               }
               if ($post_type === 'post') {
-                echo 'Chapter ';
-                echo !empty($chapter_number) ? $chapter_number . ': ' : ': ';
+                echo 'Chapter';
+                echo !empty($chapter_number) ? ' ' . $chapter_number . ': ' : ': ';
                 echo $chapter->name;
               }
             ?>

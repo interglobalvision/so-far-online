@@ -55,10 +55,10 @@ foreach ($issues as $index => $issue) {
             <?php } ?>
           </figure>
           <?php } ?>
-          
+
           <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter grid-row align-content-center">
             <div class="grid-item item-s-12 margin-bottom-tiny">
-              <h1 class="font-size-extra"><?php echo $issue->name; ?></h1>
+              <h1 class="font-size-extra font-serif"><?php echo $issue->name; ?></h1>
             </div>
             <?php if (!empty($subtitle)) { ?>
             <div class="grid-item item-s-12 font-size-mid margin-top-tiny">

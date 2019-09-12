@@ -54,8 +54,8 @@ if (count($chapters) > 0) {
       <div class="grid-row padding-bottom-small font-uppercase">
         <div class="grid-item item-s-12 item-l-11 offset-l-1">
           <span><?php
-            echo 'Issue ';
-            echo !empty($issue_number) ? $issue_number . ': ' : ': ';
+            echo 'Issue';
+            echo !empty($issue_number) ? ' ' . $issue_number . ': ' : ': ';
             echo $issue->name;
           ?></span>
         </div>
@@ -65,7 +65,7 @@ if (count($chapters) > 0) {
         <div class="grid-item item-s-12 item-m-8 offset-m-2 item-l-6 offset-l-3 padding-bottom-basic">
           <div class="text-align-center">
             <span class="font-uppercase">Chapter<?php echo !empty($chapter_number) ? ' ' . $chapter_number : ''; ?></span>
-            <h1 class="padding-bottom-small font-size-large font-uppercase margin-top-micro"><?php echo $chapter->name; ?></h1>
+            <h1 class="padding-bottom-small font-size-large margin-top-micro font-serif"><?php echo $chapter->name; ?></h1>
           </div>
           <?php if (!empty($chapter->description)) { ?>
           <div>
