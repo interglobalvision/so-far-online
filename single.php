@@ -20,6 +20,7 @@ if (have_posts()) {
     $the_date = get_the_date('j F, Y');
     $post_type = get_post_type($post);
     $further_reading = get_post_meta($post->ID, '_igv_article_related', true);
+    $publish_date = get_post_meta($post->ID, '_igv_publish_date', true);
 
     $issue = false;
     $chapter = false;
@@ -91,7 +92,7 @@ if (have_posts()) {
                     <span><?php echo $subtitle; ?></span>
                   </div>
                   <?php } if ($contributor_names || $artist_names) { ?>
-                  <div class="grid-item item-s-12 offset-m-4 offset-l-2 offset-xl-4 margin-top-small font-color-grey">
+                  <div class="grid-item item-s-12 offset-l-4 offset-xl-3 margin-top-small margin-bottom-small font-color-grey">
                   <?php if ($contributor_names) { ?>
                     <div class="margin-top-tiny">
                       <span>Text by <?php echo $contributor_names; ?></span>
@@ -99,6 +100,10 @@ if (have_posts()) {
                   <?php } if ($artist_names) { ?>
                     <div class="margin-top-tiny">
                       <span>Artwork by <?php echo $artist_names; ?></span>
+                    </div>
+                  <?php } if (!empty($publish_date)) { ?>
+                    <div class="margin-top-tiny">
+                      <span>Published on <?php echo $publish_date; ?></span>
                     </div>
                   <?php } ?>
                   </div>
