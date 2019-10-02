@@ -4,7 +4,7 @@ $post_type = get_post_type($result_id);
 $title = $post_type === 'product' ? get_post_meta($result_id, '_igv_artwork_title', true) : get_the_title($result_id);
 $contributors = $post_type === 'product' ? get_name_list($result_id, 'artist') : get_name_list($result_id, 'contributor');
 ?>
-<a href="<?php the_permalink() ?>">
+<a href="<?php echo get_the_permalink($result_id); ?>">
   <div class="font-color-grey font-size-tiny margin-bottom-micro font-uppercase">
     <span><?php
       switch ($post_type) {
