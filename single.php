@@ -27,7 +27,8 @@ if (have_posts()) {
 
     $issue_terms = get_terms(array(
       'taxonomy' => 'issue',
-      'parent' => 0
+      'parent' => 0,
+      'object_ids' => $post->ID,
     ));
 
     if (!empty($issue_terms)) {
@@ -35,7 +36,8 @@ if (have_posts()) {
       if ($issue) {
         $chapter_terms = get_terms(array(
           'taxonomy' => 'issue',
-          'parent' => $issue->term_id
+          'parent' => $issue->term_id,
+          'object_ids' => $post->ID,
         ));
         if (!empty($chapter_terms)) {
           $chapter = $chapter_terms[0];
@@ -50,7 +52,7 @@ if (have_posts()) {
           <header class="padding-bottom-basic">
             <div class="container">
               <?php if ($issue || $post_type === 'weekly') { ?>
-                <div class="grid-row padding-top-small padding-bottom-small font-uppercase">
+                <div class="grid-row padding-top-small padding-bottom-small font-size-small font-uppercase">
                   <div class="grid-item item-s-12 item-l-7 offset-l-1">
                     <span>
                       <?php
