@@ -92,10 +92,16 @@ if (count($chapters) > 0) {
               <div class="thumb-holder scroll-slider-thumb-holder">
                 <div class="thumb" style="background-image: url('<?php echo get_the_post_thumbnail_url($post, 'full'); ?>')"></div>
               </div>
-              <h3 class="font-serif margin-top-micro font-size-mid js-fix-widows"><?php the_title(); ?></h3>
-              <div>
-                <span><?php echo $authors ? 'by ' . $authors : ''; ?></span>
+              <h3 class="font-serif margin-top-micro js-fix-widows"><?php the_title(); ?></h3>
+              <?php
+                if ($authors) {
+              ?>
+              <div class="font-color-grey font-size-small">
+                <span>by <?php echo $authors; ?></span>
               </div>
+              <?php
+                }
+              ?>
             </a>
           </article>
         <?php

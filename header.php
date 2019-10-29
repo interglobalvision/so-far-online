@@ -29,7 +29,7 @@ get_template_part('partials/seo');
 
 <section id="main-container">
 
-  <header id="header" class="padding-top-tiny padding-bottom-tiny font-size-small">
+  <header id="header" class="padding-top-tiny padding-bottom-tiny">
     <div class="container">
       <h1 class="u-visuallyhidden"><?php bloginfo('name'); ?></h1>
       <div class="grid-row justify-between align-items-center">
