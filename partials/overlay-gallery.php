@@ -9,7 +9,7 @@ global $images;
         $image_id = attachment_url_to_postid($image);
     ?>
       <div class="swiper-slide grid-row justify-center align-items-center" data-image-id="<?php echo $image_id; ?>">
-        <?php echo wp_get_attachment_image($image_id, 'full'); ?>
+        <?php echo wp_get_attachment_image($image_id, 'overlay-gallery'); ?>
       </div>
     <?php } ?>
     </div>

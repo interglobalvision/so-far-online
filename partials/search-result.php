@@ -24,7 +24,7 @@ $contributors = $post_type === 'product' ? get_name_list($result_id, 'artist') :
     ?></span>
   </div>
   <div class="thumb-holder <?php echo is_search() ? 'search-result-thumb-holder' : 'further-reading-thumb-holder'; ?>">
-    <div class="thumb" style="background-image: url('<?php echo get_the_post_thumbnail_url($result_id, 'full'); ?>')"></div>
+    <div class="thumb" style="background-image: url('<?php echo get_the_post_thumbnail_url($result_id, 'search-result'); ?>')"></div>
   </div>
   <h3 class="font-serif margin-top-micro"><?php echo $title; ?></h3>
   <?php

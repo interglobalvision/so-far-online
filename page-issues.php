@@ -49,7 +49,7 @@ foreach ($issues as $index => $issue) {
         <div class="grid-row justify-start">
           <?php if (!empty($image_id)) { ?>
           <figure class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter-left font-size-zero">
-            <?php echo wp_get_attachment_image($image_id, 'full'); ?>
+            <?php echo wp_get_attachment_image($image_id, 'article-item'); ?>
             <?php if (!empty($image_caption)) { ?>
               <figcaption class="font-size-small"><?php echo $image_caption; ?></figcaption>
             <?php } ?>

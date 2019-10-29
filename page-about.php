@@ -32,7 +32,7 @@ if (have_posts()) {
     </div>
   </section>
   <section class="text-align-center padding-bottom-basic">
-    <?php the_post_thumbnail('full'); ?>
+    <?php the_post_thumbnail('about-header'); ?>
   </section>
 <?php if (!empty($mission)) { ?>
   <section class="padding-bottom-basic">
