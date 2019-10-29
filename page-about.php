@@ -49,7 +49,7 @@ if (have_posts()) {
     <div class="grid-row justify-center">
     <?php foreach($team as $member) { ?>
       <div class="grid-item item-s-12 item-m-6 item-l-4 item-xxl-3">
-        <div><?php echo !empty($member['photo_id']) ? wp_get_attachment_image($member['photo_id'], 'full') : ''; ?></div>
+        <div><?php echo !empty($member['photo_id']) ? wp_get_attachment_image($member['photo_id'], 'about-team') : ''; ?></div>
         <div class="margin-top-micro"><span><?php echo !empty($member['name']) ? $member['name'] : ''; ?></span></div>
         <div class="margin-top-micro font-serif"><?php echo !empty($member['bio']) ? apply_filters('the_content', $member['bio']) : ''; ?></div>
       </div>
@@ -61,7 +61,7 @@ if (have_posts()) {
     <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-large">Contributors</h2>
     <div class="grid-row">
       <div class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter-left">
-        <?php echo !empty($contributors_image_id) ? wp_get_attachment_image($contributors_image_id, 'full') : ''; ?>
+        <?php echo !empty($contributors_image_id) ? wp_get_attachment_image($contributors_image_id, 'article-item') : ''; ?>
       </div>
       <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter">
         <div class="font-serif"><?php echo !empty($contributors_text) ? apply_filters('the_content', $contributors_text) : ''; ?></div>
@@ -76,7 +76,7 @@ if (have_posts()) {
     <h2 class="text-align-center font-uppercase padding-bottom-basic font-size-large">Artists</h2>
     <div class="grid-row row-l-reverse">
       <div class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter-right">
-        <?php echo !empty($artists_image_id) ? wp_get_attachment_image($artists_image_id, 'full') : ''; ?>
+        <?php echo !empty($artists_image_id) ? wp_get_attachment_image($artists_image_id, 'article-item') : ''; ?>
       </div>
       <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter">
         <div class="font-serif"><?php echo !empty($artists_text) ? apply_filters('the_content', $artists_text) : ''; ?></div>
@@ -97,7 +97,7 @@ if (have_posts()) {
       <div class="grid-item padding-bottom-tiny item-s-12 item-m-auto">
         <?php
           echo !empty($partner['link']) ? '<a href="' . $partner['link'] . '">' : '';
-          echo wp_get_attachment_image($partner['logo_id'], 'full', false, array( 'class' => 'partner-logo'));
+          echo wp_get_attachment_image($partner['logo_id'], 'about-partner', false, array( 'class' => 'partner-logo'));
           echo !empty($partner['link']) ? '</a>' : '';
         ?>
       </div>

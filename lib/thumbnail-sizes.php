@@ -14,7 +14,8 @@ if( function_exists( 'add_image_size' ) ) {
   add_image_size( 'overlay-gallery', 1100, 9999, false );
   add_image_size( 'search-result', 540, 375, true );
   add_image_size( 'about-header', 1440, 725, true );
-  add_image_size( 'about-contributors', 800, 460, true );
   add_image_size( 'about-artists', 680, 725, true );
+  add_image_size( 'about-team', 300, 300, true );
+  add_image_size( 'about-partner', 200, 200, false );
   add_image_size( 'gallery', 1200, 9999, false );
 }
