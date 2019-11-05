@@ -18,18 +18,18 @@ $list = get_terms( array(
 <div class="container">
   <h1 class="font-uppercase text-align-center padding-top-small padding-bottom-small font-size-large"><?php the_title(); ?></h1>
   <div class="grid-row justify-center padding-bottom-basic">
-    <div class="grid-item item-s-12 item-m-10 item-l-8 text-columns-m-2 text-columns-l-3">
-    <?php
-      foreach ($list as $index => $item) {
-    ?>
-      <div id="term-<?php echo $item->term_id; ?>" class="margin-bottom-small font-size-mid">
-        <a href="<?php echo get_term_link($item); ?>">
-          <?php echo $item->name; ?>
-        </a>
-      </div>
-    <?php
-      }
-    ?>
+    <div class="item-m-10 grid-row">
+      <?php
+        foreach ($list as $index => $item) {
+      ?>
+        <div id="term-<?php echo $item->term_id; ?>" class="grid-item item-s-12 item-m-4 margin-bottom-small font-size-mid text-align-center">
+          <a href="<?php echo get_term_link($item); ?>">
+            <?php echo $item->name; ?>
+          </a>
+        </div>
+      <?php
+        }
+      ?>
     </div>
   </div>
 </div>

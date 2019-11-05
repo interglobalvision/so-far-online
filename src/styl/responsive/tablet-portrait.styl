@@ -71,17 +71,14 @@
 
   #article-content
     font-size: $font-size-basic + 2px
-    h2, h3, h4, h5, h6, ol, ul, cite, figcaption
-      padding-left: $margin-tiny
-      padding-right: $margin-tiny
     h2, h3, h4, h5, h6
       font-size: $font-size-mid
     p
       &:first-of-type
         font-size: $font-size-mid
-    p, ul, ol
+    h2, h3, h4, h5, h6, ol, ul, cite, figcaption, p, ul, ol
       margin-left: $margin-basic
-      max-width: calc('100% - ' + ($margin-basic * 2))
+      width: calc('100% - ' + ($margin-basic * 2))
     .wp-block-quote
       p
         font-size: $font-size-basic
