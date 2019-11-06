@@ -40,7 +40,7 @@ if (have_posts()) {
                     <div>
                       <?php
                         $attachment_url = str_replace('//wp-content', '/wp-content', $image);
-                        echo wp_get_attachment_image(attachment_url_to_postid($attachment_url), 'single-product');
+                        echo wp_get_attachment_image(attachment_url_to_postid($attachment_url), 'product-slide');
                       ?>
                     </div>
                   </div>
