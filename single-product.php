@@ -39,9 +39,8 @@ if (have_posts()) {
                   <div class="swiper-slide trigger-overlay grid-row justify-center align-items-center">
                     <div>
                       <?php
-                        var_dump($image);
-                        var_dump(attachment_url_to_postid($image));
-                        echo wp_get_attachment_image(attachment_url_to_postid($image), 'single-product');
+                        $attachment_url = str_replace('\\\\', '\\', $image);
+                        echo wp_get_attachment_image(attachment_url_to_postid($attachment_url), 'single-product');
                       ?>
                     </div>
                   </div>
