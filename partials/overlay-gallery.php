@@ -6,7 +6,8 @@ global $images;
     <div class="swiper-wrapper">
     <?php
       foreach ($images as $image) {
-        $image_id = attachment_url_to_postid($image);
+        $attachment_url = str_replace('//wp-content', '/wp-content', $image);
+        $image_id = attachment_url_to_postid($attachment_url);
     ?>
       <div class="swiper-slide grid-row justify-center align-items-center" data-image-id="<?php echo $image_id; ?>">
         <?php echo wp_get_attachment_image($image_id, 'overlay-gallery'); ?>
