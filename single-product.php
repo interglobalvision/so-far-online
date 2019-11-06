@@ -38,7 +38,11 @@ if (have_posts()) {
                 <?php foreach ($images as $image) { ?>
                   <div class="swiper-slide trigger-overlay grid-row justify-center align-items-center">
                     <div>
-                      <?php echo wp_get_attachment_image(attachment_url_to_postid($image), 'single-product'); ?>
+                      <?php
+                        var_dump($image);
+                        var_dump(attachment_url_to_postid($image));
+                        echo wp_get_attachment_image(attachment_url_to_postid($image), 'single-product');
+                      ?>
                     </div>
                   </div>
                 <?php } ?>
