@@ -40,6 +40,7 @@ if (have_posts()) {
                     <div>
                       <?php
                         $attachment_url = str_replace('\\\\', '\\', $image);
+                        var_dump($attachment_url);
                         echo wp_get_attachment_image(attachment_url_to_postid($attachment_url), 'single-product');
                       ?>
                     </div>
