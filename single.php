@@ -124,8 +124,10 @@ if (have_posts()) {
 
           <section class="padding-bottom-small">
             <div class="container">
-              <div id="article-content" class="font-serif font-light">
-                <?php the_content(); ?>
+              <div class="grid-row">
+                <div id="article-content" class="grid-item item-s-12 font-serif font-light">
+                  <?php the_content(); ?>
+                </div>
               </div>
             </div>
           </section>
