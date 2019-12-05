@@ -25,6 +25,7 @@ class Site {
     this.handleArticleRefClick = this.handleArticleRefClick.bind(this);
     this.handleShopMenu = this.handleShopMenu.bind(this);
     this.handleLoadAnimation = this.handleLoadAnimation.bind(this);
+    this.handleClosePopup = this.handleClosePopup.bind(this);
   }
 
   onResize() {
@@ -39,6 +40,8 @@ class Site {
     this.swiperInstance = {};
 
     lazySizes.init();
+    this.handlePopup();
+    this.bindClosePopup();
     this.initSwiper();
     this.bindStickyHeader();
     this.bindMenuToggle();
@@ -51,6 +54,23 @@ class Site {
     this.fixWidows();
 
     $('#dissolve').fadeTo(500, 0);
+  }
+
+  bindClosePopup() {
+    $('.js-close-popup').on('click', this.handleClosePopup);
+  }
+
+  handleClosePopup(e) {
+    e.preventDefault();
+    $('#popup-notice-holder').addClass('hide');
+    localStorage.setItem('hidePopup', 'true');
+  }
+
+  handlePopup() {
+    var hidePopup = localStorage.getItem('hidePopup');
+    if (hidePopup !== 'true') {
+      $('#popup-notice-holder').removeClass('hide');
+    }
   }
 
   initSwiper() {

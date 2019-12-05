@@ -27,6 +27,8 @@ get_template_part('partials/seo');
 <!--[if lt IE 9]><p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
 <div id="dissolve"></div>
 
+<?php get_template_part('partials/popup-notice'); ?>
+
 <section id="main-container">
 
   <header id="header" class="padding-top-tiny padding-bottom-tiny">

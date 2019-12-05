@@ -509,3 +509,32 @@ a:not(.button)
   max-height: 125px
   width: auto
   height: auto
+
+#popup-notice-holder
+  position: fixed
+  width: 100vw
+  height: 100vh
+  top: 0
+  left: 0
+  z-index: 900
+  transition: opacity 200ms
+  pointer-events: auto
+  opacity: 1
+  &.hide
+    opacity: 0
+    pointer-events: none
+
+#popup-notice-overlay
+  position: absolute
+  background-color: $color-pale-transparent
+  width: 100vw
+  height: 100vh
+  top: 0
+  left: 0
+
+#popup-notice
+  background-color: $color-pale
+  border: 1px solid $color-grey-dark
+  width: 90vw
+  min-width: 300px
+  max-width: 700px

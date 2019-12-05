@@ -5,27 +5,11 @@ $options = get_site_option('_igv_site_options');
   <footer id="footer" class="background-pale padding-top-small padding-bottom-small font-size-small">
     <div class="container">
       <div class="grid-row">
-      <?php if (!empty($options['mailchimp_action'])) { ?>
-        <div id="footer-form-holder" class="item-s-12 item-m-6 item-l-5 offset-l-1 item-xl-4 text-align-center">
-          <form novalidate="true" id="mailchimp-form" class="grid-row align-items-center">
-            <div class="grid-item item-s-12 margin-bottom-micro grid-row">
-              <div class="grid-item item-s-6 no-gutter form-grid-item">
-                <input type="name" name="FNAME" placeholder="First Name" id="mailchimp-first">
-              </div>
-              <div class="grid-item item-s-6 no-gutter form-grid-item">
-                <input type="name" name="LNAME" placeholder="Last Name" id="mailchimp-last">
-              </div>
-            </div>
-            <div class="grid-item item-s-12 margin-bottom-micro">
-              <input type="email" name="EMAIL" placeholder="Email Address" id="mailchimp-email">
-            </div>
-            <div class="grid-item item-s-12">
-              <button type="submit" id="mailchimp-submit" class="font-heavy">Subscribe</button>
-            </div>
-          </form>
-          <div id="mailchimp-response" class="margin-top-micro">&nbsp;</div>
+        <?php if (!empty($options['mailchimp_action'])) { ?>
+        <div id="footer-form-holder" class="item-s-12 item-m-6 item-l-5 offset-l-1 item-xl-4">
+          <?php get_template_part('partials/newsletter-form'); ?>
         </div>
-      <?php } ?>
+        <?php } ?>
 
         <div id="footer-nav-holder" class="item-s-12 item-m-6 offset-xl-1 grid-column justify-between">
           <div id="footer-nav">

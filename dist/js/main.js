@@ -201,6 +201,7 @@ var Site = function () {
     this.handleArticleRefClick = this.handleArticleRefClick.bind(this);
     this.handleShopMenu = this.handleShopMenu.bind(this);
     this.handleLoadAnimation = this.handleLoadAnimation.bind(this);
+    this.handleClosePopup = this.handleClosePopup.bind(this);
   }
 
   _createClass(Site, [{
@@ -218,6 +219,8 @@ var Site = function () {
       this.swiperInstance = {};
 
       _lazysizes2.default.init();
+      this.handlePopup();
+      this.bindClosePopup();
       this.initSwiper();
       this.bindStickyHeader();
       this.bindMenuToggle();
@@ -230,6 +233,26 @@ var Site = function () {
       this.fixWidows();
 
       $('#dissolve').fadeTo(500, 0);
+    }
+  }, {
+    key: 'bindClosePopup',
+    value: function bindClosePopup() {
+      $('.js-close-popup').on('click', this.handleClosePopup);
+    }
+  }, {
+    key: 'handleClosePopup',
+    value: function handleClosePopup(e) {
+      e.preventDefault();
+      $('#popup-notice-holder').addClass('hide');
+      localStorage.setItem('hidePopup', 'true');
+    }
+  }, {
+    key: 'handlePopup',
+    value: function handlePopup() {
+      var hidePopup = localStorage.getItem('hidePopup');
+      if (hidePopup !== 'true') {
+        $('#popup-notice-holder').removeClass('hide');
+      }
     }
   }, {
     key: 'initSwiper',
