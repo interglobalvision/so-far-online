@@ -50,6 +50,9 @@ get_template_part('partials/seo');
               <a href="<?php echo home_url('artists'); ?>" class="<?php echo $post->post_name === 'artists' ? 'link-underline' : '';?>">Artists</a>
             </li>
             <li class="grid-item item-s-12 item-l-auto">
+              <a href="<?php echo home_url('contributors'); ?>" class="<?php echo $post->post_name === 'contributors' ? 'link-underline' : '';?>">Contributors</a>
+            </li>
+            <li class="grid-item item-s-12 item-l-auto">
               <a href="<?php echo get_post_type_archive_link('product'); ?>" class="<?php echo is_post_type_archive('product') ? 'link-underline' : '';?>">Shop</a>
             </li>
             <li class="grid-item item-s-12 item-l-auto">
@@ -93,6 +96,9 @@ get_template_part('partials/seo');
       </li>
       <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
         <a href="<?php echo home_url('artists'); ?>" class="padding-top-tiny padding-bottom-tiny <?php echo $post->post_name === 'artists' ? 'link-underline' : '';?>">Artists</a>
+      </li>
+      <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
+        <a href="<?php echo home_url('contributors'); ?>" class="padding-top-tiny padding-bottom-tiny <?php echo $post->post_name === 'contributors' ? 'link-underline' : '';?>">Contributors</a>
       </li>
       <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
         <a href="<?php echo get_post_type_archive_link('product'); ?>" class="padding-top-tiny padding-bottom-tiny <?php echo is_post_type_archive('product') ? 'link-underline' : '';?>">Shop</a>
