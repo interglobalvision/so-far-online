@@ -23,8 +23,15 @@ $articles_args = array(
   'orderby' => 'publish_date',
   'post_status' => 'publish',
   'tax_query' => array(
+    'relation' => 'OR',
     array(
-      'taxonomy' => $bio->taxonomy,
+      'taxonomy' => 'artist',
+      'terms' => $bio->slug,
+      'field' => 'slug',
+      'operator' => 'IN',
+    ),
+    array(
+      'taxonomy' => 'contributor',
       'terms' => $bio->slug,
       'field' => 'slug',
       'operator' => 'IN',
@@ -70,6 +77,46 @@ if ($articles_query->have_posts()) {
 }
 
 wp_reset_postdata();
+
+if ($bio->taxonomy === 'artist') {
+
+  $products_args = array(
+    'post_type' => 'product',
+    'posts_per_page' => -1,
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'artist',
+        'terms' => $bio->slug,
+        'field' => 'slug',
+        'operator' => 'IN',
+      ),
+    ),
+  );
+
+  $products_query = new WP_Query($products_args);
+  if ($products_query->have_posts()) {
+?>
+<section class="padding-top-basic padding-bottom-basic background-pale">
+  <div class="container">
+    <h2 class="text-align-center font-uppercase padding-bottom-small font-size-large">Artworks</h2>
+    <div class="grid-row justify-center">
+  <?php
+    while ($products_query->have_posts()) {
+      $products_query->the_post();
+      get_template_part('partials/product-item');
+    }
+  ?>
+    </div>
+    <div class="grid-row justify-center padding-top-small">
+      <div>
+        <a class="button" href="<?php echo home_url('shop'); ?>">Visit the Shop</a>
+      </div>
+    </div>
+  </div>
+</section>
+<?php
+  }
+}
 ?>
 
 </main>
