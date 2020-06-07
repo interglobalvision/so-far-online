@@ -96,9 +96,9 @@ if ($bio->taxonomy === 'artist') {
   $products_query = new WP_Query($products_args);
   if ($products_query->have_posts()) {
 ?>
-<section class="padding-top-basic padding-bottom-basic background-pale">
+<section class="padding-bottom-basic background-pale">
   <div class="container">
-    <h2 class="text-align-center font-uppercase background-pale padding-top-small">Artworks by this Artist</h2>
+    <h2 class="text-align-center font-uppercase background-pale padding-top-small padding-bottom-small">Artworks by this Artist</h2>
     <div class="grid-row justify-center">
   <?php
     while ($products_query->have_posts()) {
