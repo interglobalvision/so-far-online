@@ -157,7 +157,7 @@ exports.document = doc;
 
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* jshint esversion: 6, browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
-/* global $, document */
+/* global $, document, WP */
 
 // Import dependencies
 
@@ -208,6 +208,8 @@ var Site = function () {
     key: 'onResize',
     value: function onResize() {
       this.navbarHeight = $('#header').outerHeight();
+      this.windowHeight = $(window).height();
+      this.documentHeight = $(document).height();
     }
   }, {
     key: 'onReady',
@@ -216,6 +218,8 @@ var Site = function () {
       this.lastScrollTop = 0;
       this.delta = 5;
       this.navbarHeight = $('#header').outerHeight();
+      this.windowHeight = $(window).height();
+      this.documentHeight = $(document).height();
       this.swiperInstance = {};
 
       _lazysizes2.default.init();
@@ -232,6 +236,7 @@ var Site = function () {
       this.handleSortRadioChange();
       this.fixWidows();
 
+      this.handleImageFadeIn($(window).scrollTop());
       $('#dissolve').fadeTo(500, 0);
     }
   }, {
@@ -442,27 +447,40 @@ var Site = function () {
   }, {
     key: 'hasScrolled',
     value: function hasScrolled() {
-      var st = $(window).scrollTop();
+      var scrollTop = $(window).scrollTop();
 
       // Make sure they scroll more than delta
-      if (Math.abs(this.lastScrollTop - st) <= this.delta) {
+      if (Math.abs(this.lastScrollTop - scrollTop) <= this.delta) {
         return;
       }
 
       // If they scrolled down and are past the navbar, add class .nav-up.
       // This is necessary so you never see what is "behind" the navbar.
-      if (st > this.lastScrollTop && st > this.navbarHeight) {
+      if (scrollTop > this.lastScrollTop && scrollTop > this.navbarHeight) {
         // Scroll Down
         $('body').removeClass('search-open');
         $('#header').removeClass('nav-down').addClass('nav-up');
+        this.handleImageFadeIn(scrollTop);
       } else {
         // Scroll Up
-        if (st + $(window).height() < $(document).height()) {
+        if (scrollTop + this.windowHeight < this.documentHeight) {
           $('#header').removeClass('nav-up').addClass('nav-down');
         }
       }
 
-      this.lastScrollTop = st;
+      this.lastScrollTop = scrollTop;
+    }
+  }, {
+    key: 'handleImageFadeIn',
+    value: function handleImageFadeIn(scrollTop) {
+      var windowHeight = this.windowHeight;
+      $('img, div.thumb').each(function () {
+        var imageTop = $(this).offset().top;
+        console.log(imageTop, windowHeight, scrollTop);
+        if (imageTop < windowHeight * 0.95 + scrollTop) {
+          $(this).addClass('fade-in');
+        }
+      });
     }
   }, {
     key: 'bindAnimatedLoad',

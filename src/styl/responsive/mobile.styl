@@ -98,6 +98,14 @@ body
       opacity: .65
       pointer-events: auto
 
+img,
+.thumb
+  opacity: 0
+  will-change: opacity
+  transition: opacity .3s ease-in-out
+  &.fade-in
+    opacity: 1
+
 #header
   background-color: $color-pink
   border-bottom: 1px solid $color-grey-dark
@@ -446,8 +454,8 @@ a, button
 a:not(.button)
   will-change: color
   .thumb-holder div
-    transition: transform 0.2s ease-in-out
-    will-change: transform
+    transition: transform 0.2s ease-in-out, opacity .3s ease-in-out
+    will-change: transform, opacity
   *:not(img)
     will-change: color
   &:hover
