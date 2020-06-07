@@ -98,7 +98,7 @@ if ($bio->taxonomy === 'artist') {
 ?>
 <section class="padding-top-basic padding-bottom-basic background-pale">
   <div class="container">
-    <h2 class="text-align-center font-uppercase padding-bottom-small font-size-large">Artworks</h2>
+    <h2 class="text-align-center font-uppercase background-pale padding-top-small">Artworks by this Artist</h2>
     <div class="grid-row justify-center">
   <?php
     while ($products_query->have_posts()) {
