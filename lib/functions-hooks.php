@@ -54,6 +54,10 @@ function igv_allowed_block_types( $allowed_blocks, $post ) {
       'core-embed/youtube',
       'core-embed/instagram',
       'core-embed/vimeo',
+      'core-embed/soundcloud',
+      'core-embed/spotify',
+      'core/audio',
+      'core/video',
     ));
 	};
 

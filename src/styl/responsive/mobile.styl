@@ -281,6 +281,8 @@ img,
     &:first-of-type
       font-size: $font-size-mid
       margin-bottom: 4rem
+  a
+    text-decoration: underline !important
   ol
     list-style-type: decimal
   ul
@@ -313,14 +315,33 @@ img,
     text-align: center
     padding-top: 3em
     padding-bottom: 3em
-  .wp-block-embed__wrapper
-    text-align: center
+  .wp-block-embed
     padding-top: 3em
     padding-bottom: 3em
+  .wp-block-embed-instagram,
+  .wp-block-embed-twitter
+    iframe,
+    twitter-widget
+      margin-left: auto !important
+      margin-right: auto !important
+  .wp-block-embed-soundcloud
     iframe
+      max-width: none !important
+      width: 100% !important
+  .wp-block-embed-youtube,
+  .wp-block-embed-vimeo
+    .wp-block-embed__wrapper
+      position: relative
+      padding-bottom: 56.25%
+      height: 0
+      overflow: hidden
       max-width: 100%
-  a
-    text-decoration: underline !important
+      iframe, object, embed
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
 
 ol
   list-style-type: decimal
