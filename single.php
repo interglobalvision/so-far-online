@@ -128,6 +128,9 @@ if (have_posts()) {
                 <div id="article-content" class="grid-item item-s-12 font-serif font-light">
                   <?php the_content(); ?>
                 </div>
+                <div class="grid-item item-s-12 font-size-small text-align-right padding-top-tiny">
+                  <span><?php the_date('j F, Y'); ?></span>
+                </div>
               </div>
             </div>
           </section>
