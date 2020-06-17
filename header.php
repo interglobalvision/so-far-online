@@ -36,7 +36,9 @@ get_template_part('partials/seo');
       <h1 class="u-visuallyhidden"><?php bloginfo('name'); ?></h1>
       <div class="grid-row justify-between align-items-center">
         <div class="grid-item font-size-zero">
-          <a href="<?php echo home_url(); ?>"><img id="logo" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/so-far-logo.png" /></a>
+          <a href="<?php echo home_url(); ?>">
+            <?php get_template_part('partials/logo.svg'); ?>
+          </a>
         </div>
         <div id="main-nav" class="desktop-only">
           <ul class="grid-row text-align-center">
