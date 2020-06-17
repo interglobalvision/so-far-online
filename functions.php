@@ -65,6 +65,7 @@ get_template_part( 'lib/post-types' );
 get_template_part( 'lib/taxonomies' );
 get_template_part( 'lib/meta-boxes' );
 get_template_part( 'lib/site-options' );
+get_template_part( 'lib/gutenberg' );
 
 // Add custom functions
 
