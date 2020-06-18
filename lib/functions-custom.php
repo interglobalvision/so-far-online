@@ -72,3 +72,83 @@ function get_terms_by_post_type( $taxonomies, $post_types ) {
 
   return $results;
 }
+
+function query_products_by_artists_then_mediums($artists, $mediums) {
+  $tax_query = array();
+
+  if ($artists) {
+    foreach($artists as $bio) {
+      array_push($tax_query, array(
+        'taxonomy' => 'artist',
+        'terms' => $bio->slug,
+        'field' => 'slug',
+        'operator' => 'IN',
+      ));
+    }
+
+    if (count($artists) > 1) {
+      $tax_query['relation'] = 'AND';
+    }
+  }
+
+  $by_artist_args = array(
+    'post_type' => 'product',
+    'posts_per_page' => -1,
+    'tax_query' => $tax_query,
+  );
+
+  $by_artist_query = new WP_Query($by_artist_args);
+
+  $tax_query = array();
+
+  if ($mediums) {
+    foreach($mediums as $medium) {
+      array_push($tax_query, array(
+        'taxonomy' => 'medium',
+        'terms' => $medium->slug,
+        'field' => 'slug',
+        'operator' => 'IN',
+      ));
+    }
+
+    if (count($mediums) > 1) {
+      $tax_query['relation'] = 'AND';
+    }
+  }
+
+  $by_medium_args = array(
+    'post_type' => 'product',
+    'posts_per_page' => -1,
+    'tax_query' => $tax_query,
+  );
+
+  $by_medium_query = new WP_Query($by_medium_args);
+
+  $product_query = new WP_Query();
+
+  $product_query->posts = $by_artist_query->posts;
+
+  $post_count = $by_artist_query->post_count;
+
+  if ($post_count < 4) {
+    foreach($by_medium_query->posts as $medium_post) {
+      $found = false;
+
+      foreach($by_artist_query->posts as $artist_post) {
+        if ($medium_post->ID === $artist_post->ID) {
+          $found = true;
+          break;
+        }
+      }
+
+      if (!$found && $post_count < 4) {
+        array_push($product_query->posts, $medium_post);
+        $post_count++;
+      }
+    }
+  }
+  
+  $product_query->post_count = $post_count;
+
+  return $product_query;
+}

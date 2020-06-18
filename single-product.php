@@ -18,6 +18,7 @@ if (have_posts()) {
     $authenticity = get_post_meta($post->ID, '_igv_product_authenticity', true);
     $framing = get_post_meta($post->ID, '_igv_product_framing', true);
     $shipping = get_post_meta($post->ID, '_igv_product_shipping', true);
+    $mediums = get_the_terms($post, 'medium');
 ?>
 
     <article
@@ -140,9 +141,7 @@ if (have_posts()) {
     </article>
 
 <?php
-  }
-
-  if($artists) {
+    if($artists) {
 ?>
     <section class="padding-top-small padding-bottom-small">
       <div class="container">
@@ -156,58 +155,84 @@ if (have_posts()) {
       </div>
     </section>
 <?php
-  }
-
-  $articles_args = array(
-    'post_type' => 'post',
-    'posts_per_page' => -1,
-    'meta_query' => array(
-      array(
-        'compare' => 'LIKE',
-        'value' => strval($post->ID),
-        'key' => '_igv_article_artworks',
+    }
+    $articles_args = array(
+      'post_type' => 'post',
+      'posts_per_page' => -1,
+      'meta_query' => array(
+        array(
+          'compare' => 'LIKE',
+          'value' => strval($post->ID),
+          'key' => '_igv_article_artworks',
+        ),
       ),
-    ),
-  );
+    );
 
-  $articles_query = new WP_Query($articles_args);
+    $articles_query = new WP_Query($articles_args);
 
-  if ($articles_query->have_posts()) {
+    if ($articles_query->have_posts()) {
 ?>
     <section>
       <h2 class="text-align-center font-uppercase background-pale padding-top-small font-size-large">This artwork appears in...</h2>
 <?php
-    while ($articles_query->have_posts()) {
-      $articles_query->the_post();
+      while ($articles_query->have_posts()) {
+        $articles_query->the_post();
 
-      $index = $articles_query->current_post + 1;
-      global $index;
+        $index = $articles_query->current_post + 1;
+        global $index;
 
-      $issue_terms = get_the_terms($post, 'issue');
-      $chapter = false;
-      if (!empty($issue_terms)) {
-        $chapter = $issue_terms[0]->parent !== 0 ? $issue_terms[0] : false;
+        $issue_terms = get_the_terms($post, 'issue');
+        $chapter = false;
+        if (!empty($issue_terms)) {
+          $chapter = $issue_terms[0]->parent !== 0 ? $issue_terms[0] : false;
+        }
+        if ($chapter) {
+          $issue = get_term($chapter->parent);
+          $chapter_number = get_term_meta($chapter->term_id, '_igv_issue_number', true);
+          $issue_number = get_term_meta($issue->term_id, '_igv_issue_number', true);
+        }
+
+        global $issue_number;
+        global $issue;
+        global $chapter_number;
+        global $chapter;
+
+        get_template_part('partials/article-full-item');
       }
-      if ($chapter) {
-        $issue = get_term($chapter->parent);
-        $chapter_number = get_term_meta($chapter->term_id, '_igv_issue_number', true);
-        $issue_number = get_term_meta($issue->term_id, '_igv_issue_number', true);
-      }
-
-      global $issue_number;
-      global $issue;
-      global $chapter_number;
-      global $chapter;
-
-      get_template_part('partials/article-full-item');
-
-    }
 ?>
     </section>
 <?php
-  }
+    }
 
-  wp_reset_postdata();
+    wp_reset_postdata();
+
+    $products_query = query_products_by_artists_then_mediums($artists, $mediums);
+
+    if ($products_query->have_posts()) {
+  ?>
+  <section class="padding-bottom-basic background-pale">
+    <div class="container">
+      <h2 class="text-align-center font-uppercase background-pale padding-top-small padding-bottom-small">More Like This</h2>
+      <div class="grid-row justify-center">
+        <?php
+          while ($products_query->have_posts()) {
+            $products_query->the_post();
+            get_template_part('partials/product-item');
+          }
+        ?>
+      </div>
+      <div class="grid-row justify-center padding-top-small">
+        <div>
+          <a class="button" href="<?php echo home_url('shop'); ?>">Visit the Shop</a>
+        </div>
+      </div>
+    </div>
+  </section>
+<?php
+    }
+
+    wp_reset_postdata();
+  }
 }
 
 if (!empty($images)) {
