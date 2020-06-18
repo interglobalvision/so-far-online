@@ -130,24 +130,26 @@ function query_products_by_artists_then_mediums($artists, $mediums) {
 
   $post_count = $by_artist_query->post_count;
 
-  if ($post_count < 4) {
-    foreach($by_medium_query->posts as $medium_post) {
-      $found = false;
+  foreach($by_medium_query->posts as $medium_post) {
+    if ($post_count >= 4) {
+      break;
+    }
 
-      foreach($by_artist_query->posts as $artist_post) {
-        if ($medium_post->ID === $artist_post->ID) {
-          $found = true;
-          break;
-        }
-      }
+    $found = false;
 
-      if (!$found && $post_count < 4) {
-        array_push($product_query->posts, $medium_post);
-        $post_count++;
+    foreach($by_artist_query->posts as $artist_post) {
+      if ($medium_post->ID === $artist_post->ID) {
+        $found = true;
+        break;
       }
     }
+
+    if (!$found) {
+      array_push($product_query->posts, $medium_post);
+      $post_count++;
+    }
   }
-  
+
   $product_query->post_count = $post_count;
 
   return $product_query;
