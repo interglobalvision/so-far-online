@@ -212,7 +212,7 @@ if (have_posts()) {
   ?>
   <section class="padding-bottom-basic background-pale">
     <div class="container">
-      <h2 class="text-align-center font-uppercase background-pale padding-top-small padding-bottom-small">More Like This</h2>
+      <h2 class="text-align-center font-uppercase background-pale padding-top-small font-size-large">More like this</h2>
       <div class="grid-row justify-center">
         <?php
           while ($products_query->have_posts()) {

@@ -131,6 +131,7 @@ function query_products_by_artists_then_mediums($artists, $mediums) {
   $post_count = $by_artist_query->post_count;
 
   foreach($by_medium_query->posts as $medium_post) {
+    echo $post_count;
     if ($post_count >= 4) {
       break;
     }
