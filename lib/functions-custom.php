@@ -93,36 +93,11 @@ function query_products_by_artists_then_mediums($artists, $mediums) {
 
   $by_artist_args = array(
     'post_type' => 'product',
-    'posts_per_page' => -1,
+    'posts_per_page' => 4,
     'tax_query' => $tax_query,
   );
 
   $by_artist_query = new WP_Query($by_artist_args);
-
-  $tax_query = array();
-
-  if ($mediums) {
-    foreach($mediums as $medium) {
-      array_push($tax_query, array(
-        'taxonomy' => 'medium',
-        'terms' => $medium->slug,
-        'field' => 'slug',
-        'operator' => 'IN',
-      ));
-    }
-
-    if (count($mediums) > 1) {
-      $tax_query['relation'] = 'AND';
-    }
-  }
-
-  $by_medium_args = array(
-    'post_type' => 'product',
-    'posts_per_page' => -1,
-    'tax_query' => $tax_query,
-  );
-
-  $by_medium_query = new WP_Query($by_medium_args);
 
   $product_query = new WP_Query();
 
@@ -130,24 +105,46 @@ function query_products_by_artists_then_mediums($artists, $mediums) {
 
   $post_count = $by_artist_query->post_count;
 
-  foreach($by_medium_query->posts as $medium_post) {
-    echo $post_count;
-    if ($post_count >= 4) {
-      break;
-    }
+  if ($post_count < 4) {
+    $tax_query = array();
 
-    $found = false;
+    if ($mediums) {
+      foreach($mediums as $medium) {
+        array_push($tax_query, array(
+          'taxonomy' => 'medium',
+          'terms' => $medium->slug,
+          'field' => 'slug',
+          'operator' => 'IN',
+        ));
+      }
 
-    foreach($by_artist_query->posts as $artist_post) {
-      if ($medium_post->ID === $artist_post->ID) {
-        $found = true;
-        break;
+      if (count($mediums) > 1) {
+        $tax_query['relation'] = 'AND';
       }
     }
 
-    if (!$found) {
-      array_push($product_query->posts, $medium_post);
-      $post_count++;
+    $by_medium_args = array(
+      'post_type' => 'product',
+      'posts_per_page' => 4,
+      'tax_query' => $tax_query,
+    );
+
+    $by_medium_query = new WP_Query($by_medium_args);
+
+    foreach($by_medium_query->posts as $medium_post) {
+      $found = false;
+
+      foreach($by_artist_query->posts as $artist_post) {
+        if ($medium_post->ID === $artist_post->ID) {
+          $found = true;
+          break;
+        }
+      }
+
+      if (!$found && $post_count < 4) {
+        array_push($product_query->posts, $medium_post);
+        $post_count++;
+      }
     }
   }
 
