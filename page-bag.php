@@ -76,7 +76,7 @@ if (have_posts()) {
             <span>Subtotal</span>
           </div>
           <div class="grid-item item-s-6 item-l-5 no-gutter grid-row">
-            <div class="grid-item">$<span id="gws-cart-subtotal"></span></div>
+            <div class="grid-item"><span id="gws-cart-subtotal"></span></div>
             <div class="grid-item gws-currency-select-holder"></div>
           </div>
           <div class="grid-item item-s-12 item-l-11 margin-top-small text-align-right">
