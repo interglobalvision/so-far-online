@@ -75,8 +75,9 @@ if (have_posts()) {
           <div class="grid-item item-s-6 item-l-3 offset-l-4 font-uppercase">
             <span>Subtotal</span>
           </div>
-          <div class="grid-item item-s-6 item-l-2">
-            $<span id="gws-cart-subtotal"></span>
+          <div class="grid-item item-s-6 item-l-5 no-gutter grid-row">
+            <div class="grid-item">$<span id="gws-cart-subtotal"></span></div>
+            <div class="grid-item gws-currency-select-holder"></div>
           </div>
           <div class="grid-item item-s-12 item-l-11 margin-top-small text-align-right">
             <a href="" class="gws-checkout-link button">Proceed to Checkout</a>
