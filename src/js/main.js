@@ -277,7 +277,6 @@ class Site {
     var windowHeight = this.windowHeight;
     $('img, div.thumb').each(function() {
       var imageTop = $(this).offset().top;
-      console.log(imageTop, windowHeight, scrollTop);
       if (imageTop < ((windowHeight * 0.95) + scrollTop)) {
         $(this).addClass('fade-in');
       }
