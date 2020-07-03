@@ -1,91 +1,77 @@
 <?php
-$collections = get_terms_by_post_type( array('collection'), array('product') );
 $mediums = get_terms_by_post_type( array('medium'), array('product') );
 $artists = get_terms_by_post_type( array('artist'), array('product') );
+$collections = get_terms_by_post_type( array('collection'), array('product') );
 ?>
-<section class="padding-top-small background-pale border-bottom">
+<div id="shop-menu" class="background-pale border-bottom">
   <div class="container">
-    <div class="not-desktop">
-      <div class="grid-row justify-center padding-bottom-small">
-        <div class="grid-item">
-          <span class="font-uppercase font-size-mid js-shop-menu-toggle u-pointer">Shop Menu</span>
-        </div>
-      </div>
-    </div>
-    <div id="shop-menu">
-      <div class="grid-row padding-bottom-micro">
-        <?php if (!empty($mediums)) { ?>
-        <div class="grid-item item-s-12 item-m-6 item-l-3">
-          <h3 class="font-size-mid margin-bottom-tiny">Medium</h3>
-          <ul>
+    <ul id="shop-menu-list" class="grid-row padding-top-tiny">
+      <li class="padding-bottom-tiny grid-item item-s-12 item-m-auto offset-l-6 shop-sub-menu-trigger">
+        <span>Mediums</span>
+        <div class="shop-sub-menu padding-top-small padding-bottom-tiny">
+          <ul class="grid-row" id="shop-menu-list">
           <?php
             foreach ($mediums as $term) {
               $params = array('filter' => 'medium', 'by' => $term->slug);
           ?>
-            <li class="margin-bottom-tiny"><a href="<?php echo add_query_arg($params); ?>"><?php echo $term->name; ?></a></li>
+            <li class="grid-item item-s-12 item-m-6 margin-bottom-tiny"><a href="<?php echo add_query_arg($params); ?>"><?php echo $term->name; ?></a></li>
           <?php } ?>
           </ul>
         </div>
-        <?php } if (!empty($artists)) { ?>
-        <div class="grid-item item-s-12 item-m-6 item-l-3">
-          <h3 class="font-size-mid margin-bottom-tiny">Artists</h3>
-          <ul>
+      </li>
+      <li class="padding-bottom-tiny grid-item item-s-12 item-m-auto shop-sub-menu-trigger">
+        <span>Artists</span>
+        <div class="shop-sub-menu padding-top-small padding-bottom-tiny">
+          <ul class="grid-row" id="shop-menu-list">
           <?php
             foreach ($artists as $term) {
               $params = array('filter' => 'artist', 'by' => $term->slug);
           ?>
-            <li class="margin-bottom-tiny"><a href="<?php echo add_query_arg($params); ?>"><?php echo $term->name; ?></a></li>
+            <li class="grid-item item-s-12 item-m-6 margin-bottom-tiny"><a href="<?php echo add_query_arg($params); ?>"><?php echo $term->name; ?></a></li>
           <?php } ?>
           </ul>
         </div>
-        <?php } if (!empty($collections)) { ?>
-        <div class="grid-item item-s-12 item-m-6 item-l-3">
-          <h3 class="font-size-mid margin-bottom-tiny">Collections</h3>
-          <ul>
+      </li>
+      <li class="padding-bottom-tiny grid-item item-s-12 item-m-auto shop-sub-menu-trigger">
+        <span>Collections</span>
+        <div class="shop-sub-menu padding-top-small padding-bottom-tiny">
+          <ul class="grid-row" id="shop-menu-list">
           <?php
             foreach ($collections as $term) {
               $params = array('filter' => 'collection', 'by' => $term->slug);
           ?>
-            <li class="margin-bottom-tiny"><a href="<?php echo add_query_arg($params); ?>"><?php echo $term->name; ?></a></li>
+            <li class="grid-item item-s-12 item-m-6 margin-bottom-tiny"><a href="<?php echo add_query_arg($params); ?>"><?php echo $term->name; ?></a></li>
           <?php } ?>
           </ul>
         </div>
-        <?php } ?>
-        <div class="grid-item item-s-12 item-m-6 item-l-3">
-          <h3 class="font-size-mid margin-bottom-tiny">Sort By</h3>
-          <form>
-            <div class="margin-bottom-tiny grid-row align-items-center">
-              <input type="radio" name="sort" value="newest" checked />
-              <span>Newest</span>
-            </div>
-            <div class="margin-bottom-tiny grid-row align-items-center">
-              <input type="radio" name="sort" value="low-high" />
-              <span>Low to High</span>
-            </div>
-            <div class="margin-bottom-tiny grid-row align-items-center">
-              <input type="radio" name="sort" value="high-low" />
-              <span>High to Low</span>
-            </div>
-            <div class="margin-bottom-tiny grid-row align-items-center">
-              <input type="radio" name="sort" value="under-500" />
-              <span>Under $500</span>
-            </div>
-            <div class="margin-bottom-tiny grid-row align-items-center">
-              <input type="radio" name="sort" value="under-1000" />
-              <span>Under $1000</span>
-            </div>
-            <div class="margin-bottom-tiny grid-row align-items-center">
-              <input type="radio" name="sort" value="editors-picks" />
-              <span>Editor's Picks</span>
-            </div>
-          </form>
+      </li>
+      <?php if (is_post_type_archive('product')) { ?>
+      <li class="padding-bottom-tiny grid-item item-s-12 item-m-auto shop-sub-menu-trigger">
+        <span>Sort By</span>
+        <div class="shop-sub-menu padding-top-small padding-bottom-tiny">
+          <ul class="grid-row" id="shop-menu-list">
+            <li class="grid-item item-s-12 item-m-6 margin-bottom-tiny">
+              <button class="shop-sort-option active" data-sort="newest">Newest</button>
+            </li>
+            <li class="grid-item item-s-12 item-m-6 margin-bottom-tiny">
+              <button class="shop-sort-option" data-sort="editors-picks">Editor's Picks</button>
+            </li>
+            <li class="grid-item item-s-12 item-m-6 margin-bottom-tiny">
+              <button class="shop-sort-option" data-sort="low-high">Low to High</button>
+            </li>
+            <li class="grid-item item-s-12 item-m-6 margin-bottom-tiny">
+              <button class="shop-sort-option" data-sort="high-low">High to Low</button>
+            </li>
+            <li class="grid-item item-s-12 item-m-6 margin-bottom-tiny">
+              <button class="shop-sort-option" data-sort="under-500">Under $500</button>
+            </li>
+            <li class="grid-item item-s-12 item-m-6 margin-bottom-tiny">
+              <button class="shop-sort-option" data-sort="under-1000">Under $1000</button>
+            </li>
+          </ul>
         </div>
-      </div>
-      <div class="grid-row padding-bottom-small">
-        <div class="grid-item item-s-12">
-          <span class="font-size-tiny">All prices indicated in Singapore Dollars.</span>
-        </div>
-      </div>
-    </div>
+      </li>
+      <?php } ?>
+    </ul>
   </div>
-</section>
+</div>

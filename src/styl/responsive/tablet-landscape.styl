@@ -24,8 +24,9 @@
 
   font-sizes($font-size-basic, $font-size-extra, $font-size-large, $font-size-mid, $font-size-small, $font-size-tiny)
 
-  $header-height = 73px
+  $header-height = 87px
   $footer-height = 256px
+  $shop-menu-height = 71px
 
   .not-desktop
     display: none !important
@@ -58,8 +59,56 @@
   .header-icon
     height: 24px
 
-  #shop-menu
-    height: auto !important
+  /*#shop-menu
+    height: auto !important*/
+
+  /*.sub-menu
+    position: absolute
+    width: 100%
+    height: auto
+    top: 100%
+    border: 1px solid $color-grey-dark*/
+
+  /*#shop-sub-menu-holder
+    position: absolute
+    top: 100%
+    left: 0
+    width: 100%
+
+  .shop-sub-menu
+    width: 50%
+    margin-left: 50%
+    background-color $color-pale
+    border: 1px solid $color-grey-dark*/
+
+  #shop-menu-list
+    position: relative
+    transform: rotate(0)
+
+  .shop-sub-menu-trigger
+    cursor: pointer
+    &.show
+      > span
+        text-decoration: underline
+      .shop-sub-menu
+        visibility: visible
+        pointer-events: auto
+        opacity: 1
+
+  .shop-sub-menu
+    position: fixed
+    width: 50%
+    left: 50%
+    top: 100%
+    height: auto
+    max-height: calc('100vh - ' + ($shop-menu-height + $header-height - 2))
+    background-color $color-pale
+    border: 1px solid $color-grey-dark
+    border-right: none
+    visibility: hidden
+    pointer-events: none
+    opacity: 0
+    overflow: scroll
 
   #main-content
     min-height: calc('100vh - ' + ($header-height * 2))
