@@ -87,8 +87,8 @@ get_template_part('partials/seo');
     </div>
   </header>
 
-  <div id="mobile-nav" class="not-desktop">
-    <div class="border-bottom"><?php get_search_form() ?></div>
+  <div id="mobile-nav" class="not-desktop container">
+    <?php get_search_form() ?>
     <ul class="grid-row text-align-center padding-top-basic">
       <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
         <a href="<?php echo home_url('issues'); ?>" class="padding-top-tiny padding-bottom-tiny <?php echo $post->post_name === 'issues' ? 'link-underline' : '';?>">Issues</a>

@@ -405,7 +405,7 @@ var Site = function () {
   }, {
     key: 'bindShopMenuToggle',
     value: function bindShopMenuToggle() {
-      $('.js-shop-menu-toggle').on('click', this.handleShopMenu);
+      $('#shop-menu-toggle').on('click', this.handleShopMenu);
     }
   }, {
     key: 'bindShopSubMenu',
@@ -419,20 +419,7 @@ var Site = function () {
   }, {
     key: 'handleShopMenu',
     value: function handleShopMenu() {
-      var isOpen = $('body').hasClass('shop-menu-open');
-      var autoHeight = $('#shop-menu').height();
-
-      if (isOpen) {
-        $('#shop-menu').animate({ height: 0 }, autoHeight * 1.5, 'swing', function () {
-          $('body').removeClass('shop-menu-open');
-        });
-      } else {
-        $('#shop-menu').css('height', 'auto');
-        autoHeight = $('#shop-menu').height();
-        $('#shop-menu').height(0).animate({ height: autoHeight }, autoHeight * 1.5, 'swing', function () {
-          $('body').addClass('shop-menu-open');
-        });
-      }
+      $('#shop-menu').toggleClass('open');
     }
   }, {
     key: 'scrollToRef',

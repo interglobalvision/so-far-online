@@ -81,6 +81,12 @@
     background-color $color-pale
     border: 1px solid $color-grey-dark*/
 
+  #shop-menu
+    #shop-menu-holder
+      opacity: 1 !important
+      transform: translateY(0%) !important
+      pointer-events: auto !important
+
   #shop-menu-list
     position: relative
     transform: rotate(0)
@@ -101,8 +107,9 @@
   .shop-menu-label
     margin-left: 0
     margin-right: 0
-    padding-bottom: 0
     border-bottom: 0
+    font-size: $font-size-basic
+    font-weight: normal
 
   .shop-sub-menu
     position: fixed
