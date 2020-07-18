@@ -24,6 +24,8 @@
 
   $header-height = 59px
   $footer-height = 405px
+  $shop-toggle-height = 52px
+  $shop-menu-holder-offset = $header-height + $shop-toggle-height
 
   .mobile-only
     display: none !important
@@ -118,6 +120,9 @@
 
   #popup-notice
     width: 75vw
+
+  #shop-menu-holder
+    max-height: calc('100vh - ' + $shop-menu-holder-offset)
 
   .shop-menu-label
     margin-left: $margin-tiny

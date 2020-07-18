@@ -22,6 +22,8 @@ font-sizes($font-size-basic, $font-size-extra, $font-size-large, $font-size-mid,
 
 $header-height = 49px
 $footer-height = 334px
+$shop-toggle-height = 42px
+$shop-menu-holder-offset = $header-height + $shop-toggle-height
 
 .desktop-only
   display: none !important
@@ -214,6 +216,8 @@ img,
   will-change: opacity, transform
   pointer-events: none
   z-index: 0
+  max-height: calc('100vh - ' + $shop-menu-holder-offset)
+  overflow: scroll
 
 .shop-sub-menu-trigger
   &.grid-item
