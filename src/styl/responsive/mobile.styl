@@ -84,6 +84,8 @@ body
   &.nav-open
     #mobile-nav
       transform: translateY(0)
+      opacity: 1
+      pointer-events: auto
     #header
       &.nav-up
         top: 0
@@ -177,11 +179,13 @@ img,
   z-index: 200
   background-color: $color-pink
   border-bottom: 1px solid $color-grey-dark
-  transform: translateY(-100%)
-  transition: transform .5s ease-in-out
-  will-change: transform
+  transform: translateY(-10%)
+  opacity: 0
+  transition: opacity .3s ease-in-out, transform .5s ease-in-out
+  will-change: transform, opacity
   max-height: 100vh
   overflow-y: scroll
+  pointer-events: none
 
 /*#shop-menu
   height: 0
