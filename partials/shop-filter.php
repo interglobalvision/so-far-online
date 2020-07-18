@@ -2,6 +2,8 @@
 $mediums = get_terms_by_post_type( array('medium'), array('product') );
 $artists = get_terms_by_post_type( array('artist'), array('product') );
 $collections = get_terms_by_post_type( array('collection'), array('product') );
+$is_shop_archive = is_post_type_archive('product');
+$shop_archive_url = get_post_type_archive_link('product');
 ?>
 <div id="shop-menu" class="background-pale border-bottom">
   <div class="container">
@@ -13,8 +15,9 @@ $collections = get_terms_by_post_type( array('collection'), array('product') );
           <?php
             foreach ($mediums as $term) {
               $params = array('filter' => 'medium', 'by' => $term->slug);
+              $href = add_query_arg($params, $shop_archive_url);
           ?>
-            <li class="shop-sub-menu-item grid-item item-s-auto item-l-3 margin-bottom-tiny"><a href="<?php echo add_query_arg($params); ?>"><?php echo $term->name; ?></a></li>
+            <li class="shop-sub-menu-item grid-item item-s-auto item-l-3 margin-bottom-tiny"><a href="<?php echo $href; ?>"><?php echo $term->name; ?></a></li>
           <?php } ?>
           </ul>
         </div>
@@ -26,8 +29,9 @@ $collections = get_terms_by_post_type( array('collection'), array('product') );
           <?php
             foreach ($artists as $term) {
               $params = array('filter' => 'artist', 'by' => $term->slug);
+              $href = add_query_arg($params, $shop_archive_url);
           ?>
-            <li class="shop-sub-menu-item grid-item item-s-auto item-l-3 margin-bottom-tiny"><a href="<?php echo add_query_arg($params); ?>"><?php echo $term->name; ?></a></li>
+            <li class="shop-sub-menu-item grid-item item-s-auto item-l-3 margin-bottom-tiny"><a href="<?php echo $href; ?>"><?php echo $term->name; ?></a></li>
           <?php } ?>
           </ul>
         </div>
@@ -39,8 +43,9 @@ $collections = get_terms_by_post_type( array('collection'), array('product') );
           <?php
             foreach ($collections as $term) {
               $params = array('filter' => 'collection', 'by' => $term->slug);
+              $href = add_query_arg($params, $shop_archive_url);
           ?>
-            <li class="shop-sub-menu-item grid-item item-s-auto item-l-3 margin-bottom-tiny"><a href="<?php echo add_query_arg($params); ?>"><?php echo $term->name; ?></a></li>
+            <li class="shop-sub-menu-item grid-item item-s-auto item-l-3 margin-bottom-tiny"><a href="<?php echo $href; ?>"><?php echo $term->name; ?></a></li>
           <?php } ?>
           </ul>
         </div>
