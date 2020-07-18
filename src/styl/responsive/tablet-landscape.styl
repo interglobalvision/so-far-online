@@ -24,7 +24,7 @@
 
   font-sizes($font-size-basic, $font-size-extra, $font-size-large, $font-size-mid, $font-size-small, $font-size-tiny)
 
-  $header-height = 87px
+  $header-height = 73px
   $footer-height = 256px
   $shop-menu-height = 71px
 
@@ -109,6 +109,11 @@
     pointer-events: none
     opacity: 0
     overflow: scroll
+
+  .shop-sub-menu-item
+    &.grid-item
+      padding-left: $margin-tiny
+      padding-right: $margin-tiny
 
   #main-content
     min-height: calc('100vh - ' + ($header-height * 2))
