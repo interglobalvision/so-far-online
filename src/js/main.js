@@ -53,6 +53,7 @@ class Site {
     this.bindSearchToggle();
     this.bindRefClick();
     this.bindShopMenuToggle();
+    this.bindShopSubMenu();
     this.bindAnimatedLoad();
     this.handleSortRadioChange();
     this.fixWidows();
@@ -214,6 +215,17 @@ class Site {
     $('.js-shop-menu-toggle').on('click', this.handleShopMenu);
   }
 
+  bindShopSubMenu() {
+    $('.shop-sub-menu-trigger').hover(
+      function() {
+        $(this).addClass('show');
+      },
+      function() {
+        $(this).removeClass('show');
+      }
+    );
+  }
+
   handleShopMenu() {
     var isOpen = $('body').hasClass('shop-menu-open');
     var autoHeight = $('#shop-menu').height();
@@ -303,14 +315,28 @@ class Site {
   }
 
   handleSortRadioChange() {
-    //$('input[type=radio][name=sort]').on('click', this.handleShopMenu);
-    $('input[type=radio][name=sort]').change(function() {
-
-      switch(this.value) {
+    $('.shop-sort-option').on('click', function() {
+      $('.shop-sort-option.active').removeClass('active');
+      $(this).addClass('active');
+      
+      switch($(this).attr('data-sort')) {
         case 'newest':
           $('.products-holder').each(function() {
             $(this).find('.gws-product').sort(function(a, b) {
               return b.dataset.time - a.dataset.time;
+            }).appendTo(this);
+          });
+          break;
+        case 'editors-picks':
+          $('.products-holder').each(function() {
+            $(this).find('.gws-product').sort(function(a, b) {
+              if (a.dataset.pick === 'on') {
+                return -1;
+              }
+              if (b.dataset.pick === 'on') {
+                return 1;
+              }
+              return -1;
             }).appendTo(this);
           });
           break;
@@ -363,19 +389,6 @@ class Site {
               } else {
                 return a.dataset.gwsPrice - b.dataset.gwsPrice;
               }
-            }).appendTo(this);
-          });
-          break;
-        case 'editors-picks':
-          $('.products-holder').each(function() {
-            $(this).find('.gws-product').sort(function(a, b) {
-              if (a.dataset.pick === 'on') {
-                return -1;
-              }
-              if (b.dataset.pick === 'on') {
-                return 1;
-              }
-              return -1;
             }).appendTo(this);
           });
           break;

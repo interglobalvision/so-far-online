@@ -232,6 +232,7 @@ var Site = function () {
       this.bindSearchToggle();
       this.bindRefClick();
       this.bindShopMenuToggle();
+      this.bindShopSubMenu();
       this.bindAnimatedLoad();
       this.handleSortRadioChange();
       this.fixWidows();
@@ -407,6 +408,15 @@ var Site = function () {
       $('.js-shop-menu-toggle').on('click', this.handleShopMenu);
     }
   }, {
+    key: 'bindShopSubMenu',
+    value: function bindShopSubMenu() {
+      $('.shop-sub-menu-trigger').hover(function () {
+        $(this).addClass('show');
+      }, function () {
+        $(this).removeClass('show');
+      });
+    }
+  }, {
     key: 'handleShopMenu',
     value: function handleShopMenu() {
       var isOpen = $('body').hasClass('shop-menu-open');
@@ -505,14 +515,28 @@ var Site = function () {
   }, {
     key: 'handleSortRadioChange',
     value: function handleSortRadioChange() {
-      //$('input[type=radio][name=sort]').on('click', this.handleShopMenu);
-      $('input[type=radio][name=sort]').change(function () {
+      $('.shop-sort-option').on('click', function () {
+        $('.shop-sort-option.active').removeClass('active');
+        $(this).addClass('active');
 
-        switch (this.value) {
+        switch ($(this).attr('data-sort')) {
           case 'newest':
             $('.products-holder').each(function () {
               $(this).find('.gws-product').sort(function (a, b) {
                 return b.dataset.time - a.dataset.time;
+              }).appendTo(this);
+            });
+            break;
+          case 'editors-picks':
+            $('.products-holder').each(function () {
+              $(this).find('.gws-product').sort(function (a, b) {
+                if (a.dataset.pick === 'on') {
+                  return -1;
+                }
+                if (b.dataset.pick === 'on') {
+                  return 1;
+                }
+                return -1;
               }).appendTo(this);
             });
             break;
@@ -565,19 +589,6 @@ var Site = function () {
                 } else {
                   return a.dataset.gwsPrice - b.dataset.gwsPrice;
                 }
-              }).appendTo(this);
-            });
-            break;
-          case 'editors-picks':
-            $('.products-holder').each(function () {
-              $(this).find('.gws-product').sort(function (a, b) {
-                if (a.dataset.pick === 'on') {
-                  return -1;
-                }
-                if (b.dataset.pick === 'on') {
-                  return 1;
-                }
-                return -1;
               }).appendTo(this);
             });
             break;

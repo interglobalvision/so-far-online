@@ -5,6 +5,8 @@ get_header();
 <main id="main-content">
 
 <?php
+get_template_part('partials/shop-filter');
+
 if (have_posts()) {
   while (have_posts()) {
     the_post();
