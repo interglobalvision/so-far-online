@@ -87,6 +87,9 @@
 
   .shop-sub-menu-trigger
     cursor: pointer
+    &.grid-item
+      padding-left: $margin-tiny
+      padding-right: $margin-tiny
     &.show
       > span
         text-decoration: underline
@@ -94,6 +97,12 @@
         visibility: visible
         pointer-events: auto
         opacity: 1
+
+  .shop-menu-label
+    margin-left: 0
+    margin-right: 0
+    padding-bottom: 0
+    border-bottom: 0
 
   .shop-sub-menu
     position: fixed
@@ -109,6 +118,7 @@
     pointer-events: none
     opacity: 0
     overflow: scroll
+    padding-top: $margin-small
 
   .shop-sub-menu-item
     &.grid-item
