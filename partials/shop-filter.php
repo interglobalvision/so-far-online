@@ -6,7 +6,7 @@ $is_shop_archive = is_post_type_archive('product');
 $shop_archive_url = get_post_type_archive_link('product');
 ?>
 <div id="shop-menu" class="background-pale">
-  <div id="shop-menu-toggle" class="not-desktop border-bottom text-align-center padding-top-tiny padding-bottom-tiny background-pale">
+  <div id="shop-menu-toggle" class="not-desktop border-bottom text-align-center padding-top-tiny padding-bottom-tiny background-pale u-pointer">
     <span class="font-bold font-size-mid font-uppercase">Shop Menu</span>
   </div>
   <div id="shop-menu-holder" class="border-bottom background-pale">
