@@ -92,7 +92,6 @@
 
   #shop-menu-list
     position: relative
-    transform: rotate(0)
 
   .shop-sub-menu-trigger
     cursor: pointer
@@ -103,7 +102,6 @@
       > span
         text-decoration: underline
       .shop-sub-menu
-        visibility: visible
         pointer-events: auto
         opacity: 1
 
@@ -122,14 +120,15 @@
     height: auto
     max-height: calc('100vh - ' + ($shop-menu-height + $header-height - 2))
     background-color $color-pale
-    border: 1px solid $color-grey-dark
-    border-right: none
-    visibility: hidden
+    border: none
+    border-top: 1px solid $color-grey-dark
+    border-bottom: 1px solid $color-grey-dark
     pointer-events: none
     opacity: 0
     overflow: scroll
     padding-top: $margin-small
     cursor: default
+    transition: opacity .2s ease-in-out
 
   .shop-sub-menu-item
     &.grid-item
