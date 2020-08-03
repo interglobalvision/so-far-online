@@ -24,6 +24,7 @@
 
   $header-height = 97px
   $footer-height = 316px
+  $shop-menu-height = 79px
 
   figcaption
     font-size: $font-size-small
@@ -33,6 +34,12 @@
 
   #main-container
     padding-top: $header-height
+
+  /*body
+    &.post-type-archive-product,
+    &.single-product
+      #main-content
+        padding-top: $shop-menu-height*/
 
   #header
     &.nav-up
@@ -77,6 +84,10 @@
       padding-left: 0 !important
     &:last-of-type
       padding-right: 0 !important
+
+  #shop-menu + article,
+  #shop-menu + section
+    padding-top: $shop-menu-height + $margin-small
 
   .shop-sub-menu-trigger
     &.grid-item

@@ -31,7 +31,7 @@ if (have_posts()) {
       data-gws-post-id="<?php echo $post->post_name; ?>"
     >
 
-      <section class="padding-top-basic padding-bottom-small">
+      <section class="padding-top-small padding-bottom-small">
         <div class="container">
           <div class="grid-row">
             <div class="grid-item item-s-12 item-l-7 offset-l-1">

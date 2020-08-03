@@ -29,7 +29,7 @@ if (!empty($filter_tax)) {
   if ($filter_query->have_posts()) {
     $term = get_term_by('slug', $filter_slug, $filter_tax);
 ?>
-  <section class="padding-top-basic padding-bottom-small">
+  <section class="padding-top-small padding-bottom-small">
     <div class="container">
       <div class="grid-row padding-bottom-small">
         <div class="grid-item item-s-12">
