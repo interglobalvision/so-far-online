@@ -35,6 +35,7 @@ if (!empty($thumb) && is_single()) {
 if (is_home()) {
 ?>
   <meta property="og:url" content="<?php bloginfo('url'); ?>"/>
+  <meta name="description" content="<?php bloginfo('description'); ?>" />
   <meta property="og:description" content="<?php bloginfo('description'); ?>" />
   <meta property="og:type" content="website" />
 <?php
@@ -50,12 +51,14 @@ if (is_home()) {
   $excerpt = htmlspecialchars($excerpt);
 ?>
   <meta property="og:url" content="<?php the_permalink(); ?>"/>
+  <meta name="description" content="<?php echo $excerpt; ?>" />
   <meta property="og:description" content="<?php echo $excerpt; ?>" />
   <meta property="og:type" content="article" />
 <?php
 } else {
 ?>
   <meta property="og:url" content="<?php the_permalink() ?>"/>
+  <meta name="description" content="<?php bloginfo('description'); ?>" />
   <meta property="og:description" content="<?php bloginfo('description'); ?>" />
   <meta property="og:type" content="website" />
 <?php
