@@ -28,8 +28,6 @@ if (!empty($thumb) && is_single()) {
   echo '<meta property="og:image" content="' . $thumb[0] . '" />';
 } else if (!empty($ogImage)) {
   echo '<meta property="og:image" content="' . $ogImage[0] . '" />';
-} else {
-  echo '<meta property="og:image" content="' . get_stylesheet_directory_uri() . '/img/dist/favicon.png" />';
 }
 
 if (is_home()) {
