@@ -63,7 +63,7 @@ if (have_posts()) {
       <div class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter-left">
         <?php echo !empty($contributors_image_id) ? wp_get_attachment_image($contributors_image_id, 'article-item') : ''; ?>
       </div>
-      <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter">
+      <div class="grid-item item-s-12 item-l-6 item-xl-4">
         <div class="font-serif"><?php echo !empty($contributors_text) ? apply_filters('the_content', $contributors_text) : ''; ?></div>
         <div class="padding-top-small text-align-center">
           <a class="button" href="<?php echo home_url('contributors'); ?>">Meet Our Contributors</a>
@@ -78,7 +78,7 @@ if (have_posts()) {
       <div class="grid-item item-s-12 item-l-6 item-xl-7 no-gutter-right">
         <?php echo !empty($artists_image_id) ? wp_get_attachment_image($artists_image_id, 'article-item') : ''; ?>
       </div>
-      <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter">
+      <div class="grid-item item-s-12 item-l-6 item-xl-4">
         <div class="font-serif"><?php echo !empty($artists_text) ? apply_filters('the_content', $artists_text) : ''; ?></div>
         <div class="padding-top-small text-align-center">
           <a class="button" href="<?php echo home_url('artists'); ?>">Meet Our Artists</a>
@@ -94,7 +94,7 @@ if (have_posts()) {
       foreach ($partners as $partner) {
         if (!empty($partner['logo_id'])) {
     ?>
-      <div class="grid-item padding-bottom-tiny item-s-12 item-m-auto">
+      <div class="grid-item padding-bottom-small item-s-6 item-m-auto">
         <?php
           echo !empty($partner['link']) ? '<a href="' . $partner['link'] . '">' : '';
           echo wp_get_attachment_image($partner['logo_id'], 'about-partner', false, array( 'class' => 'partner-logo'));
