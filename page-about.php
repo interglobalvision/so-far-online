@@ -94,7 +94,7 @@ if (have_posts()) {
       foreach ($partners as $partner) {
         if (!empty($partner['logo_id'])) {
     ?>
-      <div class="grid-item padding-bottom-small item-s-6 item-m-auto">
+      <div class="grid-item padding-bottom-small item-s-6 item-m-auto text-align-center">
         <?php
           echo !empty($partner['link']) ? '<a href="' . $partner['link'] . '">' : '';
           echo wp_get_attachment_image($partner['logo_id'], 'about-partner', false, array( 'class' => 'partner-logo'));
