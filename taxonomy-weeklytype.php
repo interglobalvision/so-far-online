@@ -9,9 +9,8 @@ get_header();
 <?php
 if (have_posts()) {
   $weeklytype = get_term(get_queried_object()->term_id);
-  pr($weeklytype);
 ?>
-        <h1 class="grid-item item-s-12 font-uppercase font-size-large font-heavy padding-top-small padding-bottom-small">All Weeklies</h1>
+        <h1 class="grid-item item-s-12 font-uppercase font-size-large font-heavy padding-top-small padding-bottom-small"><?php echo $weeklytype->name; ?></h1>
 <?php
   while (have_posts()) {
     the_post();
