@@ -7,7 +7,7 @@ get_header();
     <?php get_search_form(); ?>
   </section>
   <section id="posts">
-    <class="container">
+    <div class="container">
       <div class="grid-row justify-center">
 <?php
 if (have_posts()) {

@@ -4,13 +4,14 @@ global $issue_number;
 global $issue;
 global $chapter_number;
 global $chapter;
+global $pale;
 
 $featured_caption = get_post_meta($post->ID, '_igv_featured_caption', true);
 $subtitle = get_post_meta($post->ID, '_igv_subtitle', true);
 $contributor_names = get_name_list($post->ID, 'contributor');
 $artist_names = get_name_list($post->ID, 'artist');
 $reverse = $index % 2;
-$background_class = $reverse || $index === 0 ? 'background-pale' : '';
+$background_class = $reverse || $index === 0 || $pale === true ? 'background-pale' : '';
 $the_date = get_the_date('j F, Y');
 $weekly_type = get_the_terms($post, 'weeklytype');
 $post_type = get_post_type($post);

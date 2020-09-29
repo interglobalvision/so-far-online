@@ -57,7 +57,7 @@ function register_cpt_weekly() {
     'show_in_nav_menus' => true,
     'publicly_queryable' => true,
     'exclude_from_search' => false,
-    'has_archive' => 'weeklies',
+    'has_archive' => 'weeklies-archive',
     'query_var' => true,
     'can_export' => true,
     'rewrite'     => true,

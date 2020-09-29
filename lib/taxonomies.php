@@ -103,7 +103,7 @@ function create_custom_taxonomies() {
 		'hierarchical'      => true,
 		'labels'            => $labels,
 		'show_ui'           => true,
-		'show_admin_column' => false,
+		'show_admin_column' => true,
 		'query_var'         => true,
 		'rewrite'           => array( 'slug' => 'column' ),
     'public'            => true,

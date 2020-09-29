@@ -6,6 +6,7 @@
 function create_custom_pages() {
   $custom_pages = array(
     'issues' => 'Issues',
+    'weeklies' => 'Weeklies',
     'artists' => 'Artists',
     'contributors' => 'Contributors',
     'about' => 'About',

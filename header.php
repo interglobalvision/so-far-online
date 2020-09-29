@@ -46,7 +46,7 @@ get_template_part('partials/seo');
               <a href="<?php echo home_url('issues'); ?>" class="<?php echo $post->post_name === 'issues' ? 'link-underline' : '';?>">Issues</a>
             </li>
             <li class="grid-item item-s-12 item-l-auto">
-              <a href="<?php echo get_post_type_archive_link('weekly'); ?>" class="<?php echo is_post_type_archive('weekly') ? 'link-underline' : '';?>">Weeklies</a>
+              <a href="<?php echo home_url('weeklies'); ?>" class="<?php echo $post->post_name === 'weeklies' ? 'link-underline' : '';?>">Weeklies</a>
             </li>
             <li class="grid-item item-s-12 item-l-auto">
               <a href="<?php echo home_url('artists'); ?>" class="<?php echo $post->post_name === 'artists' ? 'link-underline' : '';?>">Artists</a>
