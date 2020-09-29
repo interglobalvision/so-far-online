@@ -3,129 +3,42 @@ get_header();
 ?>
 
 <main id="main-content">
+  <section id="posts">
+    <div class="container">
+      <div class="grid-row justify-center">
 <?php
-$top_weekly_args = array(
-  'post_type' => 'weekly',
-  'posts_per_page' => 1,
-  'tax_query' => array(
-    array(
-      'taxonomy' => 'weeklytype',
-      'field'    => 'slug',
-      'terms'    => 'studios',
-    ),
-  ),
-);
-
-$top_weekly_query = new WP_Query($top_weekly_args);
-if ($top_weekly_query->have_posts()) {
-  while ($top_weekly_query->have_posts()) {
-    $top_weekly_query->the_post();
-
-    get_template_part('partials/article-full-item');
+if (have_posts()) {
+?>
+        <h1 class="grid-item item-s-12 font-uppercase font-size-large font-heavy padding-top-small padding-bottom-small">All Weeklies</h1>
+<?php
+  while (have_posts()) {
+    the_post();
+    $contributor_names = get_name_list($post->ID, 'contributor');
+    $subtitle = get_post_meta($post->ID, '_igv_subtitle', true);
+    $the_date = get_the_date('j F, Y');
+    $type = get_weekly_type($post->ID);
+?>
+        <article <?php post_class('grid-item no-gutter item-s-12 padding-bottom-small grid-row'); ?> id="post-<?php the_ID(); ?>">
+          <div class="grid-item item-s-12 item-m-5 padding-bottom-small">
+            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('article-item'); ?></a>
+          </div>
+          <div class="grid-item item-s-12 item-m-7 padding-bottom-small no-gutter grid-row align-content-between">
+            <div class="grid-item item-s-6 margin-bottom-tiny font-color-grey font-heavy font-size-small">
+              <span><?php echo $contributor_names ? $contributor_names : ''; ?></span>
+            </div>
+            <div class="grid-item item-s-6 margin-bottom-tiny font-color-grey font-heavy font-size-small font-uppercase">
+              <span><?php echo $the_date; ?></span>
+            </div>
+            <h2 class="grid-item item-s-6 font-size-mid margin-bottom-micro"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+            <div class="grid-item item-s-10"><span><?php echo !empty($subtitle) ? $subtitle : ''; ?></span></div>
+            <div class="grid-item item-s-6 offset-s-6 font-size-small font-uppercase font-heavy"><span><span><?php echo $type ? $type : ''; ?></span></span></div>
+          </div>
+        </article>
+<?php
   }
+?>
+<?php
 }
-
-wp_reset_postdata();
-
-$weeklies_args = array(
-  'post_type' => 'weekly',
-  'posts_per_page' => 10,
-  'offset' => 1,
-  'tax_query' => array(
-    array(
-      'taxonomy' => 'weeklytype',
-      'field'    => 'slug',
-      'terms'    => 'studios',
-    ),
-  ),
-);
-$weeklies_section_title = 'So-Far Studios';
-global $weeklies_args;
-global $weeklies_section_title;
-
-get_template_part('partials/weeklies');
-
-$top_weekly_args = array(
-  'post_type' => 'weekly',
-  'posts_per_page' => 1,
-  'tax_query' => array(
-    array(
-      'taxonomy' => 'weeklytype',
-      'field'    => 'slug',
-      'terms'    => 'reviews',
-    ),
-  ),
-);
-
-$top_weekly_query = new WP_Query($top_weekly_args);
-if ($top_weekly_query->have_posts()) {
-  while ($top_weekly_query->have_posts()) {
-    $top_weekly_query->the_post();
-
-    get_template_part('partials/article-full-item');
-  }
-}
-
-wp_reset_postdata();
-
-$weeklies_args = array(
-  'post_type' => 'weekly',
-  'posts_per_page' => 10,
-  'offset' => 1,
-  'tax_query' => array(
-    array(
-      'taxonomy' => 'weeklytype',
-      'field'    => 'slug',
-      'terms'    => 'reviews',
-    ),
-  ),
-);
-$weeklies_section_title = 'So-Far Reviews';
-global $weeklies_args;
-global $weeklies_section_title;
-
-get_template_part('partials/weeklies');
-
-$top_weekly_args = array(
-  'post_type' => 'weekly',
-  'posts_per_page' => 1,
-  'tax_query' => array(
-    array(
-      'taxonomy' => 'weeklytype',
-      'field'    => 'slug',
-      'terms'    => 'friendships',
-    ),
-  ),
-);
-
-$top_weekly_query = new WP_Query($top_weekly_args);
-if ($top_weekly_query->have_posts()) {
-  while ($top_weekly_query->have_posts()) {
-    $top_weekly_query->the_post();
-
-    get_template_part('partials/article-full-item');
-  }
-}
-
-wp_reset_postdata();
-
-$weeklies_args = array(
-  'post_type' => 'weekly',
-  'posts_per_page' => 10,
-  'offset' => 1,
-  'tax_query' => array(
-    array(
-      'taxonomy' => 'weeklytype',
-      'field'    => 'slug',
-      'terms'    => 'friendships',
-    ),
-  ),
-);
-$weeklies_section_title = 'So-Far Friendships';
-global $weeklies_args;
-global $weeklies_section_title;
-
-get_template_part('partials/weeklies');
 ?>
 </main>
 
