@@ -133,7 +133,7 @@ get_template_part('partials/weeklies');
   <section class="padding-bottom-basic">
     <div class="container">
       <div class="grid-row justify-center">
-        <div class="grid-item item-s-12 item-m-9 item-l-6 text-align-center margin-top-small padding-top-small border-top">
+        <div class="grid-item item-s-10 item-m-8 item-l-6 text-align-center margin-top-small padding-top-small border-top">
           <a href="<?php echo get_post_type_archive_link('weekly'); ?>" class="link-underline font-uppercase font-size-small font-heavy">View Weeklies Archive</a>
         </div>
       </div>
