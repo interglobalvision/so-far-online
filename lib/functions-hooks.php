@@ -14,6 +14,7 @@ function create_custom_pages() {
     'contribute' => 'How to Contribute',
     'contact' => 'Contact Us',
     'faq' => 'FAQ',
+    'definitions' => 'Definitions',
     'terms-and-conditions' => 'Terms & Conditions',
     'bag' => 'Bag',
   );
