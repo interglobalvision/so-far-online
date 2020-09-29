@@ -1,19 +1,16 @@
 <?php
 get_header();
 ?>
-
 <main id="main-content">
 <div class="container">
 <?php
 if (have_posts()) {
   while (have_posts()) {
     the_post();
-?>
-<div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-<?php
     $headline = get_post_meta($post->ID, '_igv_incubator_headline', true);
+    $projects_brief = get_post_meta($post->ID, '_igv_incubator_projects_brief', true);
 ?>
-
+<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
   <section class="padding-top-small padding-bottom-basic">
     <div class="grid-row">
       <div class="grid-item item-s-12 item-l-8 offset-l-2">
@@ -27,8 +24,17 @@ if (have_posts()) {
   <section class="text-align-center padding-bottom-basic">
     <?php the_post_thumbnail('about-header'); ?>
   </section>
-
-</div>
+</article>
+<section>
+  <div class="grid-row justify-center">
+    <div class="grid-item item-s-12 item-m-9 item-l-6">
+      <h2 class="text-align-center font-size-mid font-uppercase">Incubator Projects</h2>
+      <?php if (!empty($projects_brief)) { ?>
+        <div><?php echo apply_filters('the_content', $projects_brief); ?></div>
+      <?php } ?>
+    </div>
+  </div>
+</section>
 <?php
   }
 }
