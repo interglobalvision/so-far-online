@@ -9,6 +9,7 @@ function create_custom_pages() {
     'weeklies' => 'Weeklies',
     'artists' => 'Artists',
     'contributors' => 'Contributors',
+    'incubator' => 'Incubator',
     'about' => 'About',
     'contribute' => 'How to Contribute',
     'contact' => 'Contact Us',
