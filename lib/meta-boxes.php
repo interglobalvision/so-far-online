@@ -276,7 +276,7 @@ function igv_cmb_metaboxes() {
     $about_metabox->add_field( array(
   		'name' => esc_html__( 'Headline', 'cmb2' ),
   		'id'   => $prefix . 'about_headline',
-  		'type' => 'text',
+  		'type' => 'textarea_small',
   	) );
 
     $about_metabox->add_field( array(
@@ -388,5 +388,33 @@ function igv_cmb_metaboxes() {
 
   }
 
+  // INCUBATOR
+
+  $incubator_page = get_page_by_path('incubator');
+
+  if (!empty($incubator_page)) {
+    $incubator_metabox = new_cmb2_box( array(
+  		'id'            => $prefix . 'incubator_metabox',
+  		'title'         => __( 'Options', 'cmb2' ),
+  		'object_types'  => array( 'page', ), // Post type
+      'show_on'      => array(
+        'key' => 'id',
+        'value' => array( $incubator_page->ID )
+      ),
+  	) );
+
+    $incubator_metabox->add_field( array(
+  		'name' => esc_html__( 'Headline', 'cmb2' ),
+  		'id'   => $prefix . 'incubator_headline',
+  		'type' => 'textarea_small',
+  	) );
+
+    $incubator_metabox->add_field( array(
+  		'name' => esc_html__( 'Projects Brief', 'cmb2' ),
+  		'id'   => $prefix . 'incubator_projects_brief',
+  		'type' => 'textarea_small',
+  	) );
+
+  }
 }
 ?>
