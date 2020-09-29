@@ -104,6 +104,15 @@ body
     #fixed-search-underlay
       opacity: .65
       pointer-events: auto
+  &.page-incubator
+    color: $color-white
+    background-color: $color-black
+    #header,
+    #footer,
+    #fixed-search-holder
+      background-color: $color-black
+    .nav-item-active
+      border-bottom-color: $color-white
 
 img,
 .thumb
@@ -422,6 +431,7 @@ ol
 
 #footer
   border-top: 1px solid $color-grey-dark
+  background-color: $color-pale
 
 #footer-form-holder
   order: 2
