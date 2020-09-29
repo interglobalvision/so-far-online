@@ -48,7 +48,7 @@ function igv_cmb_metaboxes() {
 	$article_metabox->add_field( array(
 		'name' => esc_html__( 'Subtitle', 'cmb2' ),
 		'id'   => $prefix . 'subtitle',
-		'type' => 'text',
+		'type' => 'textarea_small',
 	) );
 
   $article_metabox->add_field( array(
