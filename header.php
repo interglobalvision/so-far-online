@@ -49,13 +49,13 @@ get_template_part('partials/seo');
               <a href="<?php echo home_url('weeklies'); ?>" class="<?php echo $post->post_name === 'weeklies' ? 'nav-item-active' : '';?>">Weeklies</a>
             </li>
             <li class="grid-item item-s-12 item-l-auto">
+              <a href="<?php echo get_post_type_archive_link('product'); ?>" class="<?php echo is_post_type_archive('product') ? 'nav-item-active' : '';?>">Shop</a>
+            </li>
+            <li class="grid-item item-s-12 item-l-auto">
               <a href="<?php echo home_url('artists'); ?>" class="<?php echo $post->post_name === 'artists' ? 'nav-item-active' : '';?>">Artists</a>
             </li>
             <li class="grid-item item-s-12 item-l-auto">
               <a href="<?php echo home_url('contributors'); ?>" class="<?php echo $post->post_name === 'contributors' ? 'nav-item-active' : '';?>">Contributors</a>
-            </li>
-            <li class="grid-item item-s-12 item-l-auto">
-              <a href="<?php echo get_post_type_archive_link('product'); ?>" class="<?php echo is_post_type_archive('product') ? 'nav-item-active' : '';?>">Shop</a>
             </li>
             <li class="grid-item item-s-12 item-l-auto">
               <a href="<?php echo home_url('about'); ?>" class="<?php echo $post->post_name === 'about' ? 'nav-item-active' : '';?>">About</a>
@@ -97,13 +97,13 @@ get_template_part('partials/seo');
         <a href="<?php echo get_post_type_archive_link('weekly'); ?>" class="padding-top-tiny padding-bottom-tiny <?php echo is_post_type_archive('weekly') ? 'nav-item-active' : '';?>">Weeklies</a>
       </li>
       <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
+        <a href="<?php echo get_post_type_archive_link('product'); ?>" class="padding-top-tiny padding-bottom-tiny <?php echo is_post_type_archive('product') ? 'nav-item-active' : '';?>">Shop</a>
+      </li>
+      <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
         <a href="<?php echo home_url('artists'); ?>" class="padding-top-tiny padding-bottom-tiny <?php echo $post->post_name === 'artists' ? 'nav-item-active' : '';?>">Artists</a>
       </li>
       <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
         <a href="<?php echo home_url('contributors'); ?>" class="padding-top-tiny padding-bottom-tiny <?php echo $post->post_name === 'contributors' ? 'nav-item-active' : '';?>">Contributors</a>
-      </li>
-      <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
-        <a href="<?php echo get_post_type_archive_link('product'); ?>" class="padding-top-tiny padding-bottom-tiny <?php echo is_post_type_archive('product') ? 'nav-item-active' : '';?>">Shop</a>
       </li>
       <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
         <a href="<?php echo home_url('about'); ?>" class="padding-top-tiny padding-bottom-tiny <?php echo $post->post_name === 'about' ? 'nav-item-active' : '';?>">About</a>
