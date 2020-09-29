@@ -242,6 +242,22 @@ function igv_cmb_metaboxes() {
 		'type' => 'file',
 	) );
 
+  // WEEKLY TYPE
+
+  $weeklytype_metabox = new_cmb2_box( array(
+		'id'               => $prefix . 'weeklytype_metabox',
+		'title'            => esc_html__( 'Options', 'cmb2' ), // Doesn't output for term boxes
+		'object_types'     => array( 'term' ), // Tells CMB2 to use term_meta vs post_meta
+		'taxonomies'       => array( 'weeklytype' ), // Tells CMB2 which taxonomies should have these fields
+		'new_term_section' => true, // Will display in the "Add New Category" section
+	) );
+
+  $weeklytype_metabox->add_field( array(
+		'name' => esc_html__( 'Color', 'cmb2' ),
+		'id'   => $prefix . 'weeklytype_color',
+		'type' => 'colorpicker'
+	) );
+
   // ABOUT
 
   $about_page = get_page_by_path('about');
