@@ -23,18 +23,22 @@ $post_type = get_post_type($post);
     <div class="desktop-only">
       <div class="grid-row padding-bottom-small font-size-small font-uppercase">
         <div class="grid-item item-l-7 offset-l-1">
-          <span>
-            <?php
-              if ($post_type === 'weekly') {
-                echo !empty($weekly_type) ? $weekly_type[0]->name : '';
-              }
-              if ($post_type === 'post') {
-                echo 'Issue';
-                echo !empty($issue_number) ? ' ' . $issue_number . ': ' : ': ';
-                echo $issue->name;
-              }
-            ?>
-          </span>
+          <?php
+            if ($post_type === 'weekly' && !empty($weekly_type)) {
+              $weeklytype_color = get_term_meta($weekly_type[0]->term_id, '_igv_weeklytype_color', true);
+          ?>
+            <a href="<?php echo get_term_link($weekly_type[0]->term_id); ?>" class="font-heavy" style="<?php echo !empty($weeklytype_color) ? 'color: ' . $weeklytype_color : ''; ?>"><?php echo $weekly_type[0]->name; ?></a>
+          <?php
+            } else if ($post_type === 'post') {
+          ?>
+            <span><?php
+              echo 'Issue';
+              echo !empty($issue_number) ? ' ' . $issue_number . ': ' : ': ';
+              echo $issue->name;
+            ?></span>
+          <?php
+            }
+          ?>
         </div>
         <div class="grid-item item-l-3">
           <span>
