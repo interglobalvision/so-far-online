@@ -66,7 +66,7 @@ foreach ($weekly_types as $weekly_type) {
   <section class="padding-bottom-basic">
     <div class="container">
       <div class="grid-row justify-center">
-        <div class="grid-item item-s-10 item-m-8 item-l-6 text-align-center margin-top-small padding-top-small border-top">
+        <div class="grid-item item-s-10 item-m-8 item-l-6 text-align-center margin-top-small">
           <a href="<?php echo get_post_type_archive_link('weekly'); ?>" class="link-underline font-uppercase font-size-small font-heavy">View Weeklies Archive</a>
         </div>
       </div>
