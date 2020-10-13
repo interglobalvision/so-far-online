@@ -52,7 +52,7 @@ foreach ($weekly_types as $weekly_type) {
   global $weeklies_args;
   global $weeklies_section_title;
 
-  get_template_part('partials/weeklies');
+  get_template_part('partials/weeklies-carousel');
 
   wp_reset_postdata();
 }

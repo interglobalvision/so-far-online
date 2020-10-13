@@ -12,7 +12,7 @@ $contributors = $post_type === 'product' ? get_name_list($result_id, 'artist') :
           echo 'artwork';
           break;
         case 'weekly':
-          $type = get_weekly_type($result_id);
+          $type = get_custom_type_terms($result_id, 'weeklytype');
           echo $type ? $type : '&nbsp;';
           break;
         case 'post':

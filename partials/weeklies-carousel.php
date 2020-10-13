@@ -14,7 +14,7 @@ if ( $weeklies_query->have_posts() ) {
     <?php
     	while ( $weeklies_query->have_posts() ) {
         $weeklies_query->the_post();
-        $type = get_weekly_type($post->ID);
+        $type = get_custom_type_terms($post->ID, 'weeklytype');
         $contributors = get_name_list($post->ID, 'contributor');
     ?>
         <article class="swiper-slide text-align-center">

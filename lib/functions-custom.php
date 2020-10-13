@@ -2,8 +2,8 @@
 
 // Custom functions (like special queries, etc)
 
-function get_weekly_type($id) {
-  $weekly_types = get_the_terms($id, 'weeklytype');
+function get_custom_type_terms($id, $tax) {
+  $weekly_types = get_the_terms($id, $tax);
   if ($weekly_types) {
     return $weekly_types[0]->name;
   }

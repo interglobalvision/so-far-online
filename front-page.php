@@ -85,11 +85,11 @@ if ($issues) {
         get_template_part('partials/article-full-item');
 
         if ($index === 0) {
-          get_template_part('partials/weeklies');
+          get_template_part('partials/weeklies-carousel');
         }
       }
     } else {
-      get_template_part('partials/weeklies');
+      get_template_part('partials/weeklies-carousel');
     }
 
     wp_reset_postdata();

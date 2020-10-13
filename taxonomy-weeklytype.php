@@ -17,7 +17,7 @@ if (have_posts()) {
     $contributor_names = get_name_list($post->ID, 'contributor');
     $subtitle = get_post_meta($post->ID, '_igv_subtitle', true);
     $the_date = get_the_date('j F, Y');
-    $type = get_weekly_type($post->ID);
+    $type = get_custom_type_terms($post->ID, 'weeklytype');
 ?>
         <article <?php post_class('grid-item no-gutter item-s-12 padding-bottom-small grid-row'); ?> id="post-<?php the_ID(); ?>">
           <div class="grid-item item-s-12 item-m-5 padding-bottom-small">
