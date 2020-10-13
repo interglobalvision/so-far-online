@@ -24,6 +24,9 @@ $options = get_site_option('_igv_site_options');
                 <a href="<?php echo home_url('faq'); ?>">FAQ</a>
               </li>
               <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
+                <a href="<?php echo home_url('definitions'); ?>">Definitions</a>
+              </li>
+              <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
                 <a href="<?php echo home_url('terms-and-conditions'); ?>">Terms & Conditions</a>
               </li>
               <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
