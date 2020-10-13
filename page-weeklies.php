@@ -6,11 +6,16 @@ global $pale;
 
 <main id="main-content">
 <?php
-$weekly_types = get_terms(array(
+$weekly_types = array(
+  get_term_by('slug', 'so-far-studios', 'weeklytype'),
+  get_term_by('slug', 'so-far-reviews', 'weeklytype'),
+  get_term_by('slug', 'so-far-friendships', 'weeklytype'),
+);
+/*    get_terms(array(
   'taxonomy' => 'weeklytype',
   'orderby' => 'count',
   'order' => 'DESC',
-));
+));*/
 
 foreach ($weekly_types as $weekly_type) {
   $top_weekly_args = array(
