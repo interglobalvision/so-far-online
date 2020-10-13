@@ -68,6 +68,50 @@ function register_cpt_weekly() {
   register_post_type( 'weekly', $args );
 }
 
+add_action( 'init', 'register_cpt_diary' );
+
+function register_cpt_diary() {
+
+  $labels = array(
+    'name' => _x( 'Diaries', 'diary' ),
+    'singular_name' => _x( 'Diary', 'diary' ),
+    'add_new' => _x( 'Add New', 'diary' ),
+    'add_new_item' => _x( 'Add New Diary', 'diary' ),
+    'edit_item' => _x( 'Edit Diary', 'diary' ),
+    'new_item' => _x( 'New Diary', 'diary' ),
+    'view_item' => _x( 'View Diary', 'diary' ),
+    'search_items' => _x( 'Search Diaries', 'diary' ),
+    'not_found' => _x( 'No Diaries found', 'diary' ),
+    'not_found_in_trash' => _x( 'No Diaries found in Trash', 'diary' ),
+    'parent_item_colon' => _x( 'Parent Diary:', 'diary' ),
+    'menu_name' => _x( 'Diaries', 'diary' ),
+  );
+
+  $args = array(
+    'labels' => $labels,
+    'hierarchical' => false,
+
+    'supports' => array( 'title', 'editor', 'thumbnail' ),
+
+    'public' => true,
+    'show_ui' => true,
+    'show_in_menu' => true,
+    'menu_position' => 5,
+
+    'show_in_nav_menus' => true,
+    'publicly_queryable' => true,
+    'exclude_from_search' => false,
+    'has_archive' => 'incubator-diary',
+    'query_var' => true,
+    'can_export' => true,
+    'rewrite'     => true,
+    'capability_type' => 'post',
+    'show_in_rest' => true,
+  );
+
+  register_post_type( 'diary', $args );
+}
+
 /*
 add_action( 'init', 'register_cpt_issue' );
 
