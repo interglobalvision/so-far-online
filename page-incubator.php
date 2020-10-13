@@ -17,23 +17,29 @@ if (have_posts()) {
         <?php if (!empty($headline)) { ?>
         <div class="padding-bottom-small font-size-mid"><span><?php echo $headline; ?></span></div>
         <?php } ?>
-        <div class="font-serif"><?php the_content(); ?></div>
+        <div><?php the_content(); ?></div>
       </div>
     </div>
   </section>
   <section class="text-align-center padding-bottom-basic">
-    <?php the_post_thumbnail('about-header'); ?>
+    <div><?php the_post_thumbnail('about-header'); ?></div>
+    <div class="grid-row justify-center">
+      <div class="grid-item item-s-12 item-m-9 item-l-6">
+        <span class="font-color-grey font-size-small"><?php the_post_thumbnail_caption(); ?></span>
+      </div>
+    </div>
   </section>
 </article>
 <section>
   <div class="grid-row justify-center">
     <div class="grid-item item-s-12 item-m-9 item-l-6">
-      <h2 class="text-align-center font-size-mid font-uppercase">Incubator Projects</h2>
+      <h2 class="text-align-center font-size-mid font-uppercase margin-bottom-tiny">Incubator Projects</h2>
       <?php if (!empty($projects_brief)) { ?>
-        <div><?php echo apply_filters('the_content', $projects_brief); ?></div>
+        <div class="margin-bottom-basic"><?php echo apply_filters('the_content', $projects_brief); ?></div>
       <?php } ?>
     </div>
   </div>
+  <?php get_template_part('partials/incubator-carousel'); ?>
 </section>
 <?php
   }
