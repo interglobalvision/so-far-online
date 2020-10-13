@@ -30,17 +30,8 @@ if (have_posts()) {
     </div>
   </section>
 </article>
-<section>
-  <div class="grid-row justify-center">
-    <div class="grid-item item-s-12 item-m-9 item-l-6">
-      <h2 class="text-align-center font-size-mid font-uppercase margin-bottom-tiny">Incubator Projects</h2>
-      <?php if (!empty($projects_brief)) { ?>
-        <div class="margin-bottom-basic"><?php echo apply_filters('the_content', $projects_brief); ?></div>
-      <?php } ?>
-    </div>
-  </div>
-  <?php get_template_part('partials/incubator-carousel'); ?>
-</section>
+
+<?php get_template_part('partials/incubator-carousel'); ?>
 <?php
   }
 }
