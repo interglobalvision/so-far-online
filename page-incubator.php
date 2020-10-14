@@ -8,7 +8,6 @@ if (have_posts()) {
   while (have_posts()) {
     the_post();
     $headline = get_post_meta($post->ID, '_igv_incubator_headline', true);
-    $projects_brief = get_post_meta($post->ID, '_igv_incubator_projects_brief', true);
 ?>
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
   <section class="padding-top-small padding-bottom-basic">

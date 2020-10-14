@@ -16,9 +16,10 @@ if (have_posts()) {
     $artworks = get_post_meta($post->ID, '_igv_article_artworks', true);
     $artists = get_the_terms($post, 'artist');
     $contributors = get_the_terms($post, 'contributor');
-    $weekly_type = get_the_terms($post, 'weeklytype');
-    $the_date = get_the_date('j F, Y');
     $post_type = get_post_type($post);
+    $type = $post_type === 'weekly' ? get_the_terms($post, 'weeklytype') : get_the_terms($post, 'diarytype');
+    $the_date = get_the_date('j F, Y');
+
     $further_reading = get_post_meta($post->ID, '_igv_article_related', true);
     $publish_date = get_post_meta($post->ID, '_igv_publish_date', true);
 
@@ -51,18 +52,17 @@ if (have_posts()) {
         <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
           <header class="padding-bottom-basic">
             <div class="container">
-              <?php if ($issue || $post_type === 'weekly') { ?>
+              <?php if ($issue || $post_type === 'weekly' || $post_type === 'diary') { ?>
                 <div class="grid-row padding-top-small padding-bottom-small font-size-small font-uppercase">
                   <div class="grid-item item-s-12 item-l-7 offset-l-1">
                     <span>
                       <?php
-                        if ($post_type === 'weekly') {
-                          echo !empty($weekly_type) ? $weekly_type[0]->name : '';
-                        }
                         if ($post_type === 'post') {
                           echo 'Issue';
                           echo !empty($issue_number) ? ' ' . $issue_number . ': ' : ': ';
                           echo $issue->name;
+                        } else {
+                          echo !empty($type) ? $type[0]->name : '';
                         }
                       ?>
                     </span>
@@ -70,13 +70,12 @@ if (have_posts()) {
                   <div class="grid-item item-s-12 item-l-3">
                     <span>
                       <?php
-                        if ($post_type === 'weekly') {
-                          echo $the_date;
-                        }
                         if ($post_type === 'post' && $chapter) {
                           echo 'Chapter';
                           echo !empty($chapter_number) ? ' ' . $chapter_number . ': ' : ': ';
                           echo $chapter->name;
+                        } else {
+                          echo $the_date;
                         }
                       ?>
                     </span>

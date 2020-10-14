@@ -5,6 +5,7 @@ $args = array(
 );
 
 $query = new WP_Query($args);
+$projects_brief = get_post_meta($post->ID, '_igv_incubator_projects_brief', true);
 
 if ( $query->have_posts() ) {
 ?>
@@ -49,6 +50,9 @@ if ( $query->have_posts() ) {
     <?php
     	} // end while
     ?>
+        <div class="swiper-slide text-align-center flex-column justify-center">
+          <div></div>
+        </div>
       </div>
       <div class="swiper-scrollbar"></div>
     </div>
