@@ -50,9 +50,9 @@ if ( $query->have_posts() ) {
     <?php
     	} // end while
     ?>
-        <div class="swiper-slide text-align-center flex-column justify-center">
+        <!--div class="swiper-slide text-align-center flex-column justify-center">
           <div></div>
-        </div>
+        </div-->
       </div>
       <div class="swiper-scrollbar"></div>
     </div>
