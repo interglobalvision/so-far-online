@@ -116,6 +116,14 @@ body
       color: $color-white
     .nav-item-active
       border-bottom-color: $color-white
+    .social-icon
+      display: none
+      &.social-icon-white
+        display: block
+    .header-icon
+      display: none
+      &.header-icon-white
+        display: block
 
 img,
 .thumb
@@ -169,6 +177,8 @@ img,
 
 .header-icon
   height: 21px
+  &.header-icon-white
+    display: none
 
 .header-bag-holder
   position: relative
@@ -626,6 +636,8 @@ a:not(.button)
   width: 22px
   &:hover
     opacity: 1
+  &.social-icon-white
+    display: none
 
 .partner-logo
   max-width: 200px

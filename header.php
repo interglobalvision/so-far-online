@@ -78,11 +78,15 @@ get_template_part('partials/seo');
         <div class="desktop-only">
           <div class="grid-row">
             <div class="grid-item font-size-zero no-gutter-right header-bag-holder">
-              <a href="<?php echo home_url('bag'); ?>"><img class="header-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-bag.png" /></a>
+              <a href="<?php echo home_url('bag'); ?>">
+                <img class="header-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-bag.png" />
+                <img class="header-icon header-icon-white" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-bag-white.png" />
+              </a>
               <!--div class="header-bag-count font-size-tiny"><span class="gws-cart-counter"></span></div-->
             </div>
             <div class="grid-item">
               <img class="u-pointer header-icon js-toggle-search" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-search.png" />
+              <img class="u-pointer header-icon header-icon-white js-toggle-search" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-search-white.png" />
             </div>
           </div>
         </div>
