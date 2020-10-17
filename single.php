@@ -47,6 +47,16 @@ if (have_posts()) {
         }
       }
     }
+
+    $images = array();
+    $post_blocks = parse_blocks($post->post_content);
+    foreach ($post_blocks as $post_block){
+      if ($post_block['blockName'] == 'core/image'){
+        $attachment_id = $post_block['attrs']['id'];
+        $attachment_src = wp_get_attachment_image_src($attachment_id, 'full')[0];
+        $images[$attachment_id] = $attachment_src;
+      }
+    }
 ?>
 
         <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
@@ -264,6 +274,11 @@ if (have_posts()) {
 
 <?php
   }
+}
+
+if (!empty($images)) {
+  global $images;
+  get_template_part('partials/overlay-gallery');
 }
 ?>
 

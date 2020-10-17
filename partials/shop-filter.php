@@ -12,11 +12,14 @@ $shop_archive_url = get_post_type_archive_link('product');
   <div id="shop-menu-holder" class="border-bottom background-pale">
     <div class="container">
       <div class="not-desktop"><?php get_search_form() ?></div>
-      <ul id="shop-menu-list" class="grid-row padding-top-tiny">
-        <li class="shop-sub-menu-trigger padding-bottom-tiny grid-item item-s-12 item-l-auto offset-l-6">
+      <ul id="shop-menu-list" class="grid-row padding-top-tiny justify-center">
+        <li class="padding-bottom-tiny grid-item item-s-12 item-l-auto">
+          <div class="shop-menu-label"><a href="<?php echo $shop_archive_url; ?>">Shop All</a></div>
+        </li>
+        <li class="shop-sub-menu-trigger padding-bottom-tiny grid-item item-s-12 item-l-auto">
           <div class="shop-menu-label"><span>Mediums</span></div>
-          <div class="shop-sub-menu padding-bottom-tiny grid-row">
-            <ul class="shop-sub-menu-list grid-item item-s-12 item-l-6 offset-l-6 no-gutter grid-row">
+          <div class="shop-sub-menu padding-bottom-tiny grid-row justify-center">
+            <ul class="shop-sub-menu-list grid-item item-s-12 item-l-6 no-gutter grid-row justify-center">
             <?php
               foreach ($mediums as $term) {
                 $params = array('filter' => 'medium', 'by' => $term->slug);
@@ -29,8 +32,8 @@ $shop_archive_url = get_post_type_archive_link('product');
         </li>
         <li class="shop-sub-menu-trigger padding-bottom-tiny grid-item item-s-12 item-l-auto">
           <div class="shop-menu-label"><span>Artists</span></div>
-          <div class="shop-sub-menu padding-bottom-tiny grid-row">
-            <ul class="shop-sub-menu-list grid-item item-s-12 item-l-6 offset-l-6 no-gutter grid-row">
+          <div class="shop-sub-menu padding-bottom-tiny grid-row justify-center">
+            <ul class="shop-sub-menu-list grid-item item-s-12 item-l-6 no-gutter grid-row justify-center">
             <?php
               foreach ($artists as $term) {
                 $params = array('filter' => 'artist', 'by' => $term->slug);
@@ -43,8 +46,8 @@ $shop_archive_url = get_post_type_archive_link('product');
         </li>
         <li class="shop-sub-menu-trigger padding-bottom-tiny grid-item item-s-12 item-l-auto">
           <div class="shop-menu-label"><span>Collections</span></div>
-          <div class="shop-sub-menu padding-bottom-tiny grid-row">
-            <ul class="shop-sub-menu-list grid-item item-s-12 item-l-6 offset-l-6 no-gutter grid-row">
+          <div class="shop-sub-menu padding-bottom-tiny grid-row justify-center">
+            <ul class="shop-sub-menu-list grid-item item-s-12 item-l-6 no-gutter grid-row justify-center">
             <?php
               foreach ($collections as $term) {
                 $params = array('filter' => 'collection', 'by' => $term->slug);
@@ -58,8 +61,8 @@ $shop_archive_url = get_post_type_archive_link('product');
         <?php if (is_post_type_archive('product')) { ?>
         <li class="shop-sub-menu-trigger padding-bottom-tiny grid-item item-s-12 item-l-auto">
           <div class="shop-menu-label"><span>Sort By</span></div>
-          <div class="shop-sub-menu padding-bottom-tiny grid-row">
-            <ul class="shop-sub-menu-list grid-item item-s-12 item-l-6 offset-l-6 no-gutter grid-row">
+          <div class="shop-sub-menu padding-bottom-tiny grid-row justify-center">
+            <ul class="shop-sub-menu-list grid-item item-s-12 item-l-6 no-gutter grid-row justify-center">
               <li class="shop-sub-menu-item grid-item item-s-auto item-l-3 margin-bottom-tiny">
                 <button class="shop-sort-option active" data-sort="newest">Newest</button>
               </li>

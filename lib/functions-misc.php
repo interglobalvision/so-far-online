@@ -49,3 +49,16 @@ function custom_login_logo() {
 }
 add_action( 'login_head', 'custom_login_logo' );
  */
+
+add_filter( 'render_block', 'igv_wrap_image_block', 10, 2 );
+function igv_wrap_image_block( $block_content, $block ) {
+	if ( 'core/image' !== $block['blockName'] ) {
+		return $block_content;
+	}
+
+	$return  = '<div class="igv-block-image">';
+	$return .= $block_content;
+	$return .= '</div>';
+
+	return $return;
+}

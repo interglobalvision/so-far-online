@@ -409,10 +409,27 @@ img,
       font-size: $font-size-large
     cite
       font-size: $font-size-basic
-  .wp-block-image
+  .igv-block-image
     text-align: center
     padding-top: 3em
     padding-bottom: 3em
+    img
+      position: relative
+      content: ''
+    figure
+      position: relative
+      display: inline-block
+      .trigger-overlay
+        content: ''
+        position: absolute
+        width: 40px
+        height: 40px
+        top: 10px
+        right: 10px
+        display: block
+        z-index: 1
+        background-image: url('../img/icon-expand.png')
+        background-size: contain
   .wp-block-embed
     padding-top: 3em
     padding-bottom: 3em

@@ -42,6 +42,7 @@ class Site {
     this.windowHeight = $(window).height();
     this.documentHeight = $(document).height();
     this.swiperInstance = {};
+    this.initialOverlayIndex = 0;
 
     lazySizes.init();
     this.handlePopup();
@@ -156,7 +157,23 @@ class Site {
   }
 
   bindOverlayTriggers() {
-    $('.trigger-overlay').on('click', this.handleOpenOverlay);
+    var _this = this;
+
+    if ($('.igv-block-image').length) {
+      $('.igv-block-image figure').each(function(i) {
+        $(this).prepend('<span class="trigger-overlay" data-index="' + (i + 1) + '"></span>');
+      });
+    }
+
+    $('.trigger-overlay').on('click', function() {
+      var slideIndex = 0;
+      if ($(this).attr('data-index')) {
+        slideIndex = $(this).attr('data-index');
+      } else {
+        slideIndex = _this.swiperInstance.slide.activeIndex;
+      }
+      _this.handleOpenOverlay(slideIndex);
+    });
 
     $('#overlay-gallery').on('click', function(e) {
       if (e.target.tagName === 'IMG' || $(e.target).hasClass('overlay-nav')) {
@@ -167,8 +184,7 @@ class Site {
     });
   }
 
-  handleOpenOverlay() {
-    var slideIndex = this.swiperInstance.slide.activeIndex;
+  handleOpenOverlay(slideIndex) {
     this.swiperInstance.overlay.slideTo(slideIndex, 0);
     $('body').addClass('overlay-open');
   }
