@@ -16,7 +16,7 @@ if (have_posts()) {
         <?php if (!empty($headline)) { ?>
         <div class="padding-bottom-small font-size-mid"><span><?php echo $headline; ?></span></div>
         <?php } ?>
-        <div><?php the_content(); ?></div>
+        <div class="font-serif"><?php the_content(); ?></div>
       </div>
     </div>
   </section>

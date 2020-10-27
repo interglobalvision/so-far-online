@@ -68,10 +68,16 @@ get_template_part('partials/seo');
         <div class="grid-item not-desktop no-gutter">
           <div class="grid-row">
             <div class="grid-item font-size-zero">
-              <a href="<?php echo home_url('bag'); ?>"><img class="header-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-bag.png" /></a>
+              <a href="<?php echo home_url('bag'); ?>">
+                <img class="header-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-bag.png" />
+                <img class="header-icon header-icon-white" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-bag-white.png" />
+              </a>
             </div>
             <div class="grid-item font-size-zero">
-              <span class="js-toggle-menu u-pointer font-size-zero"><img class="header-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-menu.png" /></span>
+              <span class="js-toggle-menu u-pointer font-size-zero">
+                <img class="header-icon" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-menu.png" />
+                <img class="header-icon header-icon-white" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/icon-menu-white.png" />
+              </span>
             </div>
           </div>
         </div>
