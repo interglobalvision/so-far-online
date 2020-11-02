@@ -55,6 +55,7 @@ class Site {
     this.bindRefClick();
     this.bindShopMenuToggle();
     this.bindShopSubMenu();
+    this.bindShopFilterImage();
     this.bindAnimatedLoad();
     this.handleSortRadioChange();
     this.fixWidows();
@@ -244,6 +245,20 @@ class Site {
 
   handleShopMenu() {
     $('#shop-menu').toggleClass('open');
+  }
+
+  bindShopFilterImage() {
+    $('.shop-sub-menu-item').hover(
+      function() {
+        var termId = $(this).attr('data-termid');
+        if (termId) {
+          $('.shop-filter-image[data-termid="' + termId + '"]').addClass('show');
+        }
+      },
+      function() {
+        $('.shop-filter-image.show').removeClass('show');
+      }
+    )
   }
 
   scrollToRef($targetRef, offsetMultiplier) {

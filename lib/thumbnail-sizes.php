@@ -18,4 +18,5 @@ if( function_exists( 'add_image_size' ) ) {
   add_image_size( 'about-team', 300, 300, true );
   add_image_size( 'about-partner', 200, 200, false );
   add_image_size( 'gallery', 1200, 9999, false );
+  add_image_size( 'shop-filter', 300, 300, false );
 }
