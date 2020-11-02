@@ -62,6 +62,59 @@ if ($weekly_types[0]) {
 
     wp_reset_postdata();
   }
+
+  $top_weekly_args = array(
+    'post_type' => 'weekly',
+    'posts_per_page' => 1,
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'weeklytype',
+        'field'    => 'slug',
+        'terms'    => array(
+          'so-far-studios',
+          'so-far-reviews',
+          'so-far-friendships',
+        ),
+        'operator' => 'NOT IN'
+      ),
+    ),
+  );
+
+  $top_weekly_query = new WP_Query($top_weekly_args);
+  if ($top_weekly_query->have_posts()) {
+    while ($top_weekly_query->have_posts()) {
+      $top_weekly_query->the_post();
+
+      get_template_part('partials/article-full-item');
+    }
+  }
+
+  wp_reset_postdata();
+
+  $weeklies_args = array(
+    'post_type' => 'weekly',
+    'posts_per_page' => 10,
+    'offset' => 1,
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'weeklytype',
+        'field'    => 'slug',
+        'terms'    => array(
+          'so-far-studios',
+          'so-far-reviews',
+          'so-far-friendships',
+        ),
+        'operator' => 'NOT IN'
+      ),
+    ),
+  );
+  $weeklies_section_title = 'Other Weeklies';
+  global $weeklies_args;
+  global $weeklies_section_title;
+
+  get_template_part('partials/weeklies-carousel');
+
+  wp_reset_postdata();
 }
 ?>
 

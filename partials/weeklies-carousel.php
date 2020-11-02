@@ -14,13 +14,12 @@ if ( $weeklies_query->have_posts() ) {
     <?php
     	while ( $weeklies_query->have_posts() ) {
         $weeklies_query->the_post();
-        $type = get_custom_type_terms($post->ID, 'weeklytype');
         $contributors = get_name_list($post->ID, 'contributor');
     ?>
         <article class="swiper-slide text-align-center">
           <a href="<?php the_permalink(); ?>">
             <div class="font-color-grey font-size-tiny margin-bottom-micro font-uppercase">
-              <span><?php echo $type ? $type : '&nbsp;'; ?></span>
+              <span><?php the_date('j F, Y'); ?></span>
             </div>
             <div class="thumb-holder scroll-slider-thumb-holder">
               <div class="thumb" style="background-image: url('<?php echo get_the_post_thumbnail_url($post, 'scroll-slider'); ?>')"></div>
