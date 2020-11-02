@@ -242,6 +242,24 @@ function igv_cmb_metaboxes() {
 		'type' => 'file',
 	) );
 
+
+
+  // SHOP FILTER
+
+  $shop_filter_metabox = new_cmb2_box( array(
+		'id'               => $prefix . 'shop_filter_metabox',
+		'title'            => esc_html__( 'Shop Filter', 'cmb2' ), // Doesn't output for term boxes
+		'object_types'     => array( 'term' ), // Tells CMB2 to use term_meta vs post_meta
+		'taxonomies'       => array( 'artist', 'medium', 'collection' ), // Tells CMB2 which taxonomies should have these fields
+		'new_term_section' => true, // Will display in the "Add New Category" section
+	) );
+
+  $shop_filter_metabox->add_field( array(
+		'name' => esc_html__( 'Filter Image', 'cmb2' ),
+		'id'   => $prefix . 'filter_image',
+		'type' => 'file',
+	) );
+
   // WEEKLY TYPE
 
   $weeklytype_metabox = new_cmb2_box( array(
