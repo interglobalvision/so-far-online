@@ -69,7 +69,7 @@ if ($weekly_types[0]) {
     <div class="container">
       <div class="grid-row justify-center">
         <div class="grid-item item-s-10 item-m-8 item-l-6 text-align-center margin-top-small">
-          <a href="<?php echo get_post_type_archive_link('weekly'); ?>" class="link-underline font-uppercase font-size-small font-heavy">View Weeklies Archive</a>
+          <a href="<?php echo get_post_type_archive_link('weekly'); ?>" class="link-underline font-uppercase font-heavy">View Weeklies Archive</a>
         </div>
       </div>
     </div>
