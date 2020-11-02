@@ -42,7 +42,7 @@ function igv_cmb_metaboxes() {
   $article_metabox = new_cmb2_box( array(
  		'id'               => $prefix . 'article_metabox',
  		'title'            => esc_html__( 'Options', 'cmb2' ), // Doesn't output for term boxes
- 		'object_types'     => array( 'post', 'weekly' ), // Tells CMB2 which taxonomies should have these fields
+ 		'object_types'     => array( 'post', 'weekly', 'diary' ), // Tells CMB2 which taxonomies should have these fields
  	) );
 
 	$article_metabox->add_field( array(
