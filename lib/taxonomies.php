@@ -56,7 +56,7 @@ function create_custom_taxonomies() {
     'public'            => true,
 	);
 
-	register_taxonomy( 'contributor', array( 'post','weekly' ), $args );
+	register_taxonomy( 'contributor', array( 'post','weekly','diary' ), $args );
 
 	$labels = array(
 		'name'              => _x( 'Artists', 'taxonomy general name', 'igv' ),
@@ -83,7 +83,7 @@ function create_custom_taxonomies() {
     'public'            => true,
 	);
 
-	register_taxonomy( 'artist', array( 'post','product','weekly' ), $args );
+	register_taxonomy( 'artist', array( 'post','product','weekly','diary' ), $args );
 
 	$labels = array(
 		'name'              => _x( 'Columns', 'taxonomy general name', 'igv' ),
