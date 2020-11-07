@@ -9,7 +9,7 @@ $projects_brief = get_post_meta($post->ID, '_igv_incubator_projects_brief', true
 
 if ( $query->have_posts() ) {
 ?>
-<section>
+<section class="margin-bottom-mid">
   <div class="grid-row justify-center">
     <div class="grid-item item-s-12 item-m-9 item-l-6">
       <h2 class="text-align-center font-size-mid font-uppercase margin-bottom-tiny">Incubator Projects</h2>
@@ -35,11 +35,11 @@ if ( $query->have_posts() ) {
             <div class="thumb-holder scroll-slider-thumb-holder">
               <div class="thumb" style="background-image: url('<?php echo get_the_post_thumbnail_url($post, 'scroll-slider'); ?>')"></div>
             </div>
-            <h3 class="font-serif margin-top-micro js-fix-widows"><?php the_title(); ?></h3>
+            <h3 class="font-size-mid margin-top-micro js-fix-widows"><?php the_title(); ?></h3>
             <?php
               if ($contributors) {
             ?>
-            <div class="font-color-grey font-size-small">
+            <div class="font-size-small">
               <span><?php echo $contributors; ?></span>
             </div>
             <?php
@@ -50,9 +50,9 @@ if ( $query->have_posts() ) {
     <?php
     	} // end while
     ?>
-        <!--div class="swiper-slide text-align-center flex-column justify-center">
-          <div></div>
-        </div-->
+        <div class="swiper-slide align-self-center">
+          <div class="text-align-center"><a href="#" class="link-underline font-size-mid font-uppercase">View All So-Far <br>Incubator Projects</a></div>
+        </div>
       </div>
       <div class="swiper-scrollbar"></div>
     </div>
