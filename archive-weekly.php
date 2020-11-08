@@ -19,7 +19,7 @@ if (have_posts()) {
     $type = get_custom_type_terms($post->ID, 'weeklytype');
 ?>
         <article <?php post_class('grid-item no-gutter item-s-12 padding-bottom-small grid-row'); ?> id="post-<?php the_ID(); ?>">
-          <div class="grid-item item-s-12 item-m-5 padding-bottom-small">
+          <div class="grid-item item-s-12 item-m-4 offset-m-1 padding-bottom-small">
             <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('article-item'); ?></a>
           </div>
           <div class="grid-item item-s-12 item-m-7 padding-bottom-small no-gutter grid-row align-content-between">
