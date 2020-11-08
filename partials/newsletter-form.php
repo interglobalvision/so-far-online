@@ -2,6 +2,11 @@
 $options = get_site_option('_igv_site_options');
 if (!empty($options['mailchimp_action'])) {
 ?>
+<div class="grid-row">
+  <div class="grid-item item-s-12 margin-bottom-micro">
+    <span>Join our mailing list to receive monthly updates</span>
+  </div>
+</div>
 <form novalidate="true" id="mailchimp-form" class="text-align-center">
   <div class="margin-bottom-micro grid-row">
     <div class="grid-item item-s-6">
