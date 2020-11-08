@@ -2,7 +2,7 @@
 $options = get_site_option('_igv_site_options');
 ?>
 
-  <footer id="footer" class="padding-top-small padding-bottom-small font-size-small">
+  <footer id="footer" class="font-size-small">
     <div class="container">
       <div class="grid-row">
         <?php if (!empty($options['mailchimp_action'])) { ?>
@@ -38,11 +38,11 @@ $options = get_site_option('_igv_site_options');
             </ul>
           </div>
 
-          <div class="grid-row align-items-end">
-            <div class="grid-item item-s-12 item-l-auto">
+          <div class="grid-row align-items-center">
+            <div class="grid-item item-s-auto">
               Connect with Us
             </div>
-            <ul class="grid-row item-s-12 item-l-auto padding-top-micro font-size-zero">
+            <ul class="grid-row item-s-auto padding-top-micro font-size-zero">
             <?php if (!empty($options['socialmedia_instagram'])) { ?>
               <li class="grid-item">
                 <a href="https://instagram.com/<?php echo $options['socialmedia_instagram']; ?>">
