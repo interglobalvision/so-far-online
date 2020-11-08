@@ -12,28 +12,28 @@ $options = get_site_option('_igv_site_options');
         <?php } ?>
 
         <div id="footer-nav-holder" class="item-s-12 item-m-6 offset-xl-1 grid-column justify-between">
-          <div id="footer-nav">
+          <div id="footer-nav" class="margin-bottom-tiny">
             <ul class="grid-row">
-              <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
-                <a href="<?php echo home_url('contribute'); ?>">Contribute</a>
+              <li class="grid-item item-s-6 item-l-3 padding-bottom-tiny">
+                <a href="<?php echo home_url('About'); ?>">About</a>
               </li>
-              <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
+              <li class="grid-item item-s-6 item-l-3 padding-bottom-tiny">
                 <a href="<?php echo home_url('contact'); ?>">Contact</a>
               </li>
-              <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
-                <a href="<?php echo home_url('faq'); ?>">FAQ</a>
-              </li>
-              <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
+              <li class="grid-item item-s-6 item-l-3 padding-bottom-tiny">
                 <a href="<?php echo home_url('definitions'); ?>">Definitions</a>
               </li>
-              <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
-                <a href="<?php echo home_url('terms-and-conditions'); ?>">Terms & Conditions</a>
+              <li class="grid-item item-s-6 item-l-3 padding-bottom-tiny">
+                <a href="<?php echo home_url('contribute'); ?>">Contribute</a>
               </li>
-              <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
+              <li class="grid-item item-s-6 item-l-3 padding-bottom-tiny">
+                <a href="<?php echo home_url('faq'); ?>">FAQ</a>
+              </li>
+              <li class="grid-item item-s-6 item-l-3 padding-bottom-tiny">
                 <a href="<?php echo home_url('privacy-policy'); ?>">Privacy Policy</a>
               </li>
-              <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny font-size-tiny font-color-grey">
-                <span>© <?php echo date("Y"); ?> so-far.online</span>
+              <li class="grid-item item-s-6 item-l-3 padding-bottom-tiny">
+                <a href="<?php echo home_url('terms-and-conditions'); ?>">Terms & Conditions</a>
               </li>
             </ul>
           </div>
