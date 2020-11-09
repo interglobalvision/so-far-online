@@ -204,7 +204,7 @@ if (have_posts()) {
 
         <?php } if (!empty($footnotes)) { ?>
 
-          <section class="padding-top-small padding-bottom-small background-pale">
+          <section id="footnotes" class="padding-top-small padding-bottom-small">
             <div class="container">
               <div class="grid-row justify-center">
                 <div class="grid-item item-s-12 item-l-8">
