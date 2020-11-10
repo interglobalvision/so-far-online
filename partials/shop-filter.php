@@ -61,7 +61,7 @@ $shop_archive_url = get_post_type_archive_link('product');
                 $params = array('filter' => 'artist', 'by' => $term->slug);
                 $href = add_query_arg($params, $shop_archive_url);
             ?>
-              <li class="shop-sub-menu-item grid-item item-s-auto item-l-3 margin-bottom-tiny"><a href="<?php echo $href; ?>"><?php echo $term->name; ?></a></li>
+              <li class="shop-sub-menu-item grid-item item-s-auto item-l-3 margin-bottom-tiny" data-termid="<?php echo $term->term_id; ?>"><a href="<?php echo $href; ?>"><?php echo $term->name; ?></a></li>
             <?php } ?>
             </ul>
           </div>
@@ -86,7 +86,7 @@ $shop_archive_url = get_post_type_archive_link('product');
                 $params = array('filter' => 'collection', 'by' => $term->slug);
                 $href = add_query_arg($params, $shop_archive_url);
             ?>
-              <li class="shop-sub-menu-item grid-item item-s-auto item-l-3 margin-bottom-tiny"><a href="<?php echo $href; ?>"><?php echo $term->name; ?></a></li>
+              <li class="shop-sub-menu-item grid-item item-s-auto item-l-3 margin-bottom-tiny" data-termid="<?php echo $term->term_id; ?>"><a href="<?php echo $href; ?>"><?php echo $term->name; ?></a></li>
             <?php } ?>
             </ul>
           </div>
