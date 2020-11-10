@@ -35,11 +35,8 @@ $options = get_site_option('_igv_site_options');
             </ul>
           </div>
 
-          <div class="grid-row align-items-center">
-            <div class="grid-item item-s-auto">
-              <span class="font-size-small">Connect with us on:</span>
-            </div>
-            <ul class="grid-row item-s-auto padding-top-micro font-size-zero">
+          <div class="grid-row align-items-center justify-between">
+            <ul class="grid-row item-s-auto item-l-8 padding-top-micro font-size-zero">
             <?php if (!empty($options['socialmedia_instagram'])) { ?>
               <li class="grid-item">
                 <a href="https://instagram.com/<?php echo $options['socialmedia_instagram']; ?>" class="social-icon-holder">
@@ -70,7 +67,9 @@ $options = get_site_option('_igv_site_options');
               </li>
             <?php } ?>
             </ul>
-            <div class="grid-item item-s-12 margin-top-micro">&nbsp;</div>
+            <div class="grid-item item-s-auto item-l-4 padding-top-micro">
+              <span>© <?php echo date("Y"); ?> so-far.online</span>
+            </div>
           </div>
         </div>
       </div>
