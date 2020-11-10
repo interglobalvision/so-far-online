@@ -12,7 +12,7 @@ get_header();
 <?php
 if (have_posts()) {
 ?>
-        <h1 class="grid-item item-s-12 font-uppercase font-size-basic padding-top-small padding-bottom-basic">Search Results</h1>
+        <h1 class="grid-item item-s-12 font-uppercase font-size-basic padding-top-small padding-bottom-basic text-align-center">Search Results</h1>
 <?php
   while (have_posts()) {
     the_post();
