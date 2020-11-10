@@ -248,9 +248,9 @@ class Site {
   }
 
   bindShopFilterImage() {
-    $('.shop-sub-menu-item').hover(
+    $('.shop-sub-menu-item a').hover(
       function() {
-        var termId = $(this).attr('data-termid');
+        var termId = $(this).parent('li').attr('data-termid');
         if (termId) {
           $('.shop-filter-image[data-termid="' + termId + '"]').addClass('show');
         }
