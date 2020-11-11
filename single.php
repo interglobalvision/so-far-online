@@ -17,7 +17,7 @@ if (have_posts()) {
     $artists = get_the_terms($post, 'artist');
     $contributors = get_the_terms($post, 'contributor');
     $post_type = get_post_type($post);
-    $type = $post_type === 'weekly' ? get_the_terms($post, 'weeklytype') : get_the_terms($post, 'diarytype');
+    $type = $post_type === 'weekly' ? get_the_terms($post, 'weeklytype') : get_the_terms($post, 'incubatortype');
     $the_date = get_the_date('j F, Y');
 
     $further_reading = get_post_meta($post->ID, '_igv_article_related', true);
@@ -62,7 +62,7 @@ if (have_posts()) {
         <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
           <header class="padding-bottom-basic">
             <div class="container">
-              <?php if ($issue || $post_type === 'weekly' || $post_type === 'diary') { ?>
+              <?php if ($issue || $post_type === 'weekly' || $post_type === 'incubator') { ?>
                 <div class="grid-row padding-top-small padding-bottom-small font-size-small font-uppercase">
                   <div class="grid-item item-s-12 item-l-7 offset-l-1">
                     <span>

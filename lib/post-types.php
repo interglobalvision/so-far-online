@@ -112,6 +112,50 @@ function register_cpt_diary() {
   register_post_type( 'diary', $args );
 }
 
+add_action( 'init', 'register_cpt_diary' );
+
+function register_cpt_incubator() {
+
+  $labels = array(
+    'name' => _x( 'Incubators', 'incubator' ),
+    'singular_name' => _x( 'Incubator', 'incubator' ),
+    'add_new' => _x( 'Add New', 'incubator' ),
+    'add_new_item' => _x( 'Add New Incubator', 'incubator' ),
+    'edit_item' => _x( 'Edit Incubator', 'incubator' ),
+    'new_item' => _x( 'New Incubator', 'incubator' ),
+    'view_item' => _x( 'View Incubator', 'incubator' ),
+    'search_items' => _x( 'Search Incubators', 'incubator' ),
+    'not_found' => _x( 'No Incubators found', 'incubator' ),
+    'not_found_in_trash' => _x( 'No Incubators found in Trash', 'incubator' ),
+    'parent_item_colon' => _x( 'Parent Incubator:', 'incubator' ),
+    'menu_name' => _x( 'Incubators', 'incubator' ),
+  );
+
+  $args = array(
+    'labels' => $labels,
+    'hierarchical' => false,
+
+    'supports' => array( 'title', 'editor', 'thumbnail' ),
+
+    'public' => true,
+    'show_ui' => true,
+    'show_in_menu' => true,
+    'menu_position' => 5,
+
+    'show_in_nav_menus' => true,
+    'publicly_queryable' => true,
+    'exclude_from_search' => false,
+    'has_archive' => 'all-incubator',
+    'query_var' => true,
+    'can_export' => true,
+    'rewrite'     => true,
+    'capability_type' => 'post',
+    'show_in_rest' => true,
+  );
+
+  register_post_type( 'incubator', $args );
+}
+
 /*
 add_action( 'init', 'register_cpt_issue' );
 

@@ -1,6 +1,6 @@
 <?php
 $args = array(
-  'post_type' => 'diary',
+  'post_type' => 'incubator',
   'posts_per_page' => 12,
 );
 
@@ -24,7 +24,7 @@ if ( $query->have_posts() ) {
     <?php
     	while ( $query->have_posts() ) {
         $query->the_post();
-        $type = get_custom_type_terms($post->ID, 'diarytype');
+        $type = get_custom_type_terms($post->ID, 'incubatortype');
         $contributors = get_name_list($post->ID, 'contributor');
     ?>
         <article class="swiper-slide text-align-center">
@@ -51,7 +51,7 @@ if ( $query->have_posts() ) {
     	} // end while
     ?>
         <div class="swiper-slide align-self-center">
-          <div class="text-align-center"><a href="<?php echo get_post_type_archive_link('diary'); ?>" class="link-underline font-size-mid font-uppercase">View All So-Far <br>Incubator Projects</a></div>
+          <div class="text-align-center"><a href="<?php echo get_post_type_archive_link('incubator'); ?>" class="link-underline font-size-mid font-uppercase">View All So-Far <br>Incubator Projects</a></div>
         </div>
       </div>
       <div class="swiper-scrollbar"></div>
