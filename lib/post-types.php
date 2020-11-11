@@ -112,7 +112,7 @@ function register_cpt_diary() {
   register_post_type( 'diary', $args );
 }
 
-add_action( 'init', 'register_cpt_diary' );
+add_action( 'init', 'register_cpt_incubator' );
 
 function register_cpt_incubator() {
 
