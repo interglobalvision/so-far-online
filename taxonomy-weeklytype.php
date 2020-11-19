@@ -32,7 +32,7 @@ if (have_posts()) {
             </div>
             <h2 class="grid-item item-s-6 font-size-mid margin-bottom-micro"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
             <div class="grid-item item-s-10"><span><?php echo !empty($subtitle) ? $subtitle : ''; ?></span></div>
-            <div class="grid-item item-s-6 offset-s-6 font-size-small font-uppercase font-heavy"><span><span><?php echo $type ? $type : ''; ?></span></span></div>
+            <div class="grid-item item-s-6 font-size-small font-uppercase font-heavy font-color-blush"><span><span><?php echo $type ? $type : ''; ?></span></span></div>
           </div>
         </article>
 <?php
