@@ -65,7 +65,7 @@ if (have_posts()) {
               <?php if ($issue || $post_type === 'weekly' || $post_type === 'incubator') { ?>
                 <div class="grid-row padding-top-small padding-bottom-small font-size-small font-uppercase">
                   <div class="grid-item item-s-12 item-l-7 offset-l-1">
-                    <span>
+                    <span class="<?php echo $post_type === 'weekly' ? 'font-color-blush' : ''; ?>">
                       <?php
                         if ($post_type === 'post') {
                           echo 'Issue';
