@@ -9,7 +9,7 @@ get_header();
 <?php
 if (have_posts()) {
 ?>
-        <h1 class="grid-item item-s-12 font-uppercase font-size-large font-heavy padding-top-small padding-bottom-small text-align-center">All Weeklies</h1>
+        <h1 class="grid-item item-s-12 font-uppercase font-size-large font-heavy padding-top-small padding-bottom-small text-align-center font-color-blush">All Weeklies</h1>
 <?php
   while (have_posts()) {
     the_post();
