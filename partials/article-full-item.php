@@ -25,9 +25,8 @@ $post_type = get_post_type($post);
         <div class="grid-item item-l-7 offset-l-1">
           <?php
             if ($post_type === 'weekly' && !empty($weekly_type)) {
-              $weeklytype_color = get_term_meta($weekly_type[0]->term_id, '_igv_weeklytype_color', true);
           ?>
-            <a href="<?php echo get_term_link($weekly_type[0]->term_id); ?>" class="font-heavy" style="<?php echo !empty($weeklytype_color) ? 'color: ' . $weeklytype_color : ''; ?>"><?php echo $weekly_type[0]->name; ?></a>
+            <a href="<?php echo get_term_link($weekly_type[0]->term_id); ?>" class="font-heavy <?php echo $post_type === 'weekly' ? 'font-color-blush' : ''; ?>"><?php echo $weekly_type[0]->name; ?></a>
           <?php
             } else if ($post_type === 'post') {
           ?>
