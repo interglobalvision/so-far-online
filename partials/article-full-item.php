@@ -22,11 +22,11 @@ $post_type = get_post_type($post);
     <?php if ($chapter || $post_type === 'weekly') { ?>
     <div class="desktop-only">
       <div class="grid-row padding-bottom-small font-size-small font-uppercase">
-        <div class="grid-item item-l-7 offset-l-1">
+        <div class="grid-item item-l-7 offset-l-1 <?php echo $post_type === 'weekly' ? 'font-color-blush' : ''; ?>">
           <?php
             if ($post_type === 'weekly' && !empty($weekly_type)) {
           ?>
-            <a href="<?php echo get_term_link($weekly_type[0]->term_id); ?>" class="font-heavy <?php echo $post_type === 'weekly' ? 'font-color-blush' : ''; ?>"><?php echo $weekly_type[0]->name; ?></a>
+            <a href="<?php echo get_term_link($weekly_type[0]->term_id); ?>"><?php echo $weekly_type[0]->name; ?></a>
           <?php
             } else if ($post_type === 'post') {
           ?>
