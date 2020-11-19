@@ -36,7 +36,7 @@ $shop_archive_url = get_post_type_archive_link('product');
                 $params = array('filter' => 'medium', 'by' => $term->slug);
                 $href = add_query_arg($params, $shop_archive_url);
             ?>
-              <li class="shop-sub-menu-item grid-item item-s-auto item-l-3 margin-bottom-tiny" data-termid="<?php echo $term->term_id; ?>"><a href="<?php echo $href; ?>"><?php echo $term->name; ?></a></li>
+              <li class="shop-sub-menu-item grid-item item-s-3 margin-bottom-tiny" data-termid="<?php echo $term->term_id; ?>"><a href="<?php echo $href; ?>"><?php echo $term->name; ?></a></li>
             <?php } ?>
             </ul>
           </div>
@@ -61,7 +61,7 @@ $shop_archive_url = get_post_type_archive_link('product');
                 $params = array('filter' => 'artist', 'by' => $term->slug);
                 $href = add_query_arg($params, $shop_archive_url);
             ?>
-              <li class="shop-sub-menu-item grid-item item-s-auto item-l-3 margin-bottom-tiny" data-termid="<?php echo $term->term_id; ?>"><a href="<?php echo $href; ?>"><?php echo $term->name; ?></a></li>
+              <li class="shop-sub-menu-item grid-item item-s-3 margin-bottom-tiny" data-termid="<?php echo $term->term_id; ?>"><a href="<?php echo $href; ?>"><?php echo $term->name; ?></a></li>
             <?php } ?>
             </ul>
           </div>
@@ -86,7 +86,7 @@ $shop_archive_url = get_post_type_archive_link('product');
                 $params = array('filter' => 'collection', 'by' => $term->slug);
                 $href = add_query_arg($params, $shop_archive_url);
             ?>
-              <li class="shop-sub-menu-item grid-item item-s-auto item-l-3 margin-bottom-tiny" data-termid="<?php echo $term->term_id; ?>"><a href="<?php echo $href; ?>"><?php echo $term->name; ?></a></li>
+              <li class="shop-sub-menu-item grid-item item-s-3 margin-bottom-tiny" data-termid="<?php echo $term->term_id; ?>"><a href="<?php echo $href; ?>"><?php echo $term->name; ?></a></li>
             <?php } ?>
             </ul>
           </div>
@@ -96,22 +96,22 @@ $shop_archive_url = get_post_type_archive_link('product');
           <div class="shop-menu-label"><span>Sort By</span></div>
           <div class="shop-sub-menu padding-bottom-tiny grid-row justify-center background-white">
             <ul class="shop-sub-menu-list grid-item item-s-12 item-l-6 offset-l-6 no-gutter grid-row">
-              <li class="shop-sub-menu-item grid-item item-s-auto item-l-3 margin-bottom-tiny">
+              <li class="shop-sub-menu-item grid-item item-s-3 margin-bottom-tiny">
                 <button class="shop-sort-option active" data-sort="newest">Newest</button>
               </li>
-              <li class="shop-sub-menu-item grid-item item-s-auto item-l-3 margin-bottom-tiny">
+              <li class="shop-sub-menu-item grid-item item-s-3 margin-bottom-tiny">
                 <button class="shop-sort-option" data-sort="editors-picks">Editor's Picks</button>
               </li>
-              <li class="shop-sub-menu-item grid-item item-s-auto item-l-3 margin-bottom-tiny">
+              <li class="shop-sub-menu-item grid-item item-s-3 margin-bottom-tiny">
                 <button class="shop-sort-option" data-sort="low-high">Low to High</button>
               </li>
-              <li class="shop-sub-menu-item grid-item item-s-auto item-l-3 margin-bottom-tiny">
+              <li class="shop-sub-menu-item grid-item item-s-3 margin-bottom-tiny">
                 <button class="shop-sort-option" data-sort="high-low">High to Low</button>
               </li>
-              <li class="shop-sub-menu-item grid-item item-s-auto item-l-3 margin-bottom-tiny">
+              <li class="shop-sub-menu-item grid-item item-s-3 margin-bottom-tiny">
                 <button class="shop-sort-option" data-sort="under-500">Under $500</button>
               </li>
-              <li class="shop-sub-menu-item grid-item item-s-auto item-l-3 margin-bottom-tiny">
+              <li class="shop-sub-menu-item grid-item item-s-3 margin-bottom-tiny">
                 <button class="shop-sort-option" data-sort="under-1000">Under $1000</button>
               </li>
             </ul>
