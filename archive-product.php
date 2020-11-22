@@ -49,6 +49,8 @@ if (!empty($filter_tax)) {
 <?php
   $max_page = $filter_query->max_num_pages;
   $paged = get_query_var('paged', 1);
+  var_dump($max_page);
+  var_dump($paged);
   if ($max_page > $paged) {
   ?>
     <section class="padding-bottom-basic">
