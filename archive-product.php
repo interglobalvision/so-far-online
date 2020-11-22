@@ -21,7 +21,7 @@ if (!empty($filter_tax)) {
         'terms' => $filter_slug,
       ),
     ),
-    'posts_per_page' => -1,
+    'posts_per_page' => 12,
   );
 
   $filter_query = new WP_Query($filter_args);
@@ -36,7 +36,7 @@ if (!empty($filter_tax)) {
           <h2 class="font-uppercase font-size-large"><?php echo $term->name; ?></h2>
         </div>
       </div>
-      <div class="grid-row products-holder">
+      <div class="grid-row products-holder" id="posts-holder">
       <?php
         while ($filter_query->have_posts()) {
           $filter_query->the_post();
@@ -47,54 +47,62 @@ if (!empty($filter_tax)) {
     </div>
   </section>
 <?php
+  $max_page = $filter_query->max_num_pages;
+  $paged = get_query_var('paged', 1);
+  if ($max_page > $paged) {
+  ?>
+    <section class="padding-bottom-basic">
+      <div class="container">
+        <div class="grid-row justify-center">
+          <div class="grid-item item-s-10 item-m-8 item-l-6 text-align-center margin-top-small">
+            <a id="load-more" href="<?php echo next_posts( $max_page, false ); ?>" class="link-underline font-uppercase font-heavy u-pointer" data-maxpage="<?php echo $max_page; ?>">Load More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+<?php
   }
+}
 
   wp_reset_postdata();
 
 } else {
-
-  $collections = get_terms( 'collection' );
-
-  foreach ($collections as $collection) {
-
-    $collection_args = array(
-      'post_type' => 'product',
-      'tax_query' => array(
-        array(
-          'taxonomy' => 'collection',
-          'field' => 'slug',
-          'terms' => $collection->slug,
-        ),
-      ),
-      'posts_per_page' => -1,
-    );
-
-    $collection_query = new WP_Query($collection_args);
-
-    if ($collection_query->have_posts()) {
-  ?>
+  if (have_posts()) {
+?>
     <section class="padding-top-small padding-bottom-small">
       <div class="container">
         <div class="grid-row padding-bottom-small">
           <div class="grid-item item-s-12">
-            <h2 class="font-uppercase font-size-large"><?php echo $collection->name; ?></h2>
+            <h2 class="font-uppercase font-size-large">&nbsp;</h2>
           </div>
         </div>
-        <div class="grid-row products-holder">
+        <div class="grid-row products-holder" id="posts-holder">
         <?php
-          while ($collection_query->have_posts()) {
-            $collection_query->the_post();
-
+          while (have_posts()) {
+            the_post();
             get_template_part('partials/product-item');
           }
         ?>
         </div>
       </div>
     </section>
-  <?php
+<?php
+    global $wp_query;
+    $max_page = $wp_query->max_num_pages;
+    $paged = get_query_var('paged', 1);
+    if ($max_page > $paged) {
+?>
+    <section class="padding-bottom-basic">
+      <div class="container">
+        <div class="grid-row justify-center">
+          <div class="grid-item item-s-10 item-m-8 item-l-6 text-align-center margin-top-small">
+            <a id="load-more" href="<?php echo next_posts( $max_page, false ); ?>" class="link-underline font-uppercase font-heavy u-pointer" data-maxpage="<?php echo $max_page; ?>">Load More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+<?php
     }
-
-    wp_reset_postdata();
   }
 }
 ?>

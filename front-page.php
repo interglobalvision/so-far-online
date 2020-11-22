@@ -70,6 +70,10 @@ if ($issues) {
     );
 
     $articles_query = new WP_Query($articles_args);
+
+    $weeklies_carousel_archive_link = get_post_type_archive_link('weekly');
+    global $weeklies_carousel_archive_link;
+
     if ($articles_query->have_posts()) {
       while ($articles_query->have_posts()) {
         $articles_query->the_post();

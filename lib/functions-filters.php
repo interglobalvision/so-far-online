@@ -52,3 +52,10 @@ function custom_query_vars_filter($vars) {
   return $vars;
 }
 add_filter( 'query_vars', 'custom_query_vars_filter' );
+
+function igv_set_product_archive_posts_per_page($query) {
+  if(!is_admin() && $query->is_main_query() && is_post_type_archive('product')){
+    $query->set('posts_per_page', 12);
+  }
+}
+add_filter('pre_get_posts','igv_set_product_archive_posts_per_page');

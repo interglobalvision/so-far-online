@@ -51,7 +51,7 @@ if ( $query->have_posts() ) {
     	} // end while
     ?>
         <div class="swiper-slide align-self-center">
-          <div class="text-align-center"><a href="<?php echo get_post_type_archive_link('incubator'); ?>" class="link-underline font-size-mid font-uppercase">View All</a></div>
+          <div class="text-align-center"><a href="<?php echo get_post_type_archive_link('incubator'); ?>" class="link-underline font-size-mid font-uppercase font-light">View All</a></div>
         </div>
       </div>
       <div class="swiper-scrollbar"></div>

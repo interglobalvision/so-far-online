@@ -55,8 +55,10 @@ if ($weekly_types[0]) {
       ),
     );
     $weeklies_section_title = $weekly_type->name;
+    $weeklies_carousel_archive_link = get_term_link($weekly_type->slug, 'weeklytype');
     global $weeklies_args;
     global $weeklies_section_title;
+    global $weeklies_carousel_archive_link;
 
     get_template_part('partials/weeklies-carousel');
 
@@ -109,8 +111,10 @@ if ($weekly_types[0]) {
     ),
   );
   $weeklies_section_title = 'Other Weeklies';
+  $weeklies_carousel_archive_link = get_post_type_archive_link('weekly');
   global $weeklies_args;
   global $weeklies_section_title;
+  global $weeklies_carousel_archive_link;
 
   get_template_part('partials/weeklies-carousel');
 

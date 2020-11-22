@@ -52,7 +52,7 @@ get_template_part('partials/seo');
               <a href="<?php echo home_url('incubator'); ?>" class="<?php echo $post->post_name === 'incubator' ? 'nav-item-active' : '';?>">Incubator</a>
             </li>
             <li class="grid-item item-s-12 item-l-auto">
-              <a href="<?php echo get_post_type_archive_link('product'); ?>" class="<?php echo is_post_type_archive('product') ? 'nav-item-active' : '';?>">Shop</a>
+              <a href="<?php echo home_url('shop'); ?>" class="<?php echo $post->post_name === 'shop' ? 'nav-item-active' : '';?>">Shop</a>
             </li>
             <li class="grid-item item-s-12 item-l-auto">
               <a href="<?php echo home_url('artists'); ?>" class="<?php echo $post->post_name === 'artists' ? 'nav-item-active' : '';?>">Artists</a>
@@ -113,7 +113,7 @@ get_template_part('partials/seo');
         <a href="<?php echo home_url('incubator'); ?>" class="padding-top-tiny padding-bottom-tiny <?php echo $post->post_name === 'incubator' ? 'nav-item-active' : '';?>">Incubator</a>
       </li>
       <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
-        <a href="<?php echo get_post_type_archive_link('product'); ?>" class="padding-top-tiny padding-bottom-tiny <?php echo is_post_type_archive('product') ? 'nav-item-active' : '';?>">Shop</a>
+        <a href="<?php echo home_url('shop'); ?>" class="padding-top-tiny padding-bottom-tiny <?php echo $post->post_name === 'shop' ? 'nav-item-active' : '';?>">Shop</a>
       </li>
       <li class="grid-item item-s-12 item-l-auto padding-bottom-basic">
         <a href="<?php echo home_url('artists'); ?>" class="padding-top-tiny padding-bottom-tiny <?php echo $post->post_name === 'artists' ? 'nav-item-active' : '';?>">Artists</a>
