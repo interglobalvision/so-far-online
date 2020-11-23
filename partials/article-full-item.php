@@ -76,7 +76,7 @@ $post_type = get_post_type($post);
           <span><?php echo $subtitle; ?></span>
         </div>
         <?php } if ($contributor_names || $artist_names) { ?>
-        <div class="grid-item item-s-12 font-color-grey <?php echo $reverse ? '' : 'offset-l-4 offset-xl-3'; ?>">
+        <div class="grid-item item-s-12 font-color-grey">
         <?php if ($contributor_names) { ?>
           <div class="margin-top-tiny">
             <span>Text by <?php echo $contributor_names; ?></span>
