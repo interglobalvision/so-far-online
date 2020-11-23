@@ -48,9 +48,7 @@ if (!empty($filter_tax)) {
   </section>
 <?php
   $max_page = $filter_query->max_num_pages;
-  $paged = get_query_var('paged', 1);
-  var_dump($max_page);
-  var_dump($paged);
+  $paged = get_query_var('paged') ? get_query_var('paged') : 1;
   if ($max_page > $paged) {
   ?>
     <section class="padding-bottom-basic">
@@ -91,7 +89,7 @@ if (!empty($filter_tax)) {
 <?php
     global $wp_query;
     $max_page = $wp_query->max_num_pages;
-    $paged = get_query_var('paged', 1);
+    $paged = get_query_var('paged') ? get_query_var('paged') : 1;
     if ($max_page > $paged) {
 ?>
     <section class="padding-bottom-basic">
