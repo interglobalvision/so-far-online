@@ -71,11 +71,13 @@ $post_type = get_post_type($post);
         <div class="grid-item item-s-12">
           <h1 class="font-serif font-size-extra"><?php the_title(); ?></h1>
         </div>
+        
         <?php if (!empty($subtitle)) { ?>
         <div class="grid-item item-s-12 font-size-mid margin-top-tiny">
           <span><?php echo $subtitle; ?></span>
         </div>
-        <?php } if ($contributor_names || $artist_names) { ?>
+        <?php } ?>
+
         <div class="grid-item item-s-12 font-color-grey">
         <?php if ($contributor_names) { ?>
           <div class="margin-top-tiny">
@@ -87,7 +89,6 @@ $post_type = get_post_type($post);
           </div>
         <?php } ?>
         </div>
-        <?php } ?>
       </a>
     </div>
   </div>
