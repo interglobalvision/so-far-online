@@ -4,9 +4,9 @@ $options = get_site_option('_igv_site_options');
 
   <footer id="footer" class="font-size-basic padding-bottom-small">
     <div class="container">
-      <div class="grid-row">
+      <div class="grid-row justify-between">
         <?php if (!empty($options['mailchimp_action'])) { ?>
-        <div id="footer-form-holder" class="item-s-12 item-m-6 item-l-5 offset-l-1 item-xl-4 margin-top-basic">
+        <div id="footer-form-holder" class="item-s-12 item-m-6 item-l-5 item-xl-4 margin-top-basic">
           <?php get_template_part('partials/newsletter-form'); ?>
           <div class="grid-item item-s-auto item-l-4 padding-top-tiny not-desktop">
             <span>© <?php echo date("Y"); ?> so-far.online</span>
