@@ -27,14 +27,16 @@ if (have_posts()) {
             <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('article-item'); ?></a>
           </div>
           <div class="grid-item item-s-12 item-m-7 padding-bottom-small no-gutter grid-row align-content-between">
-            <div class="grid-item item-s-6 margin-bottom-tiny font-color-grey font-heavy font-size-small">
-              <span><?php echo $contributor_names ? $contributor_names : ''; ?></span>
-            </div>
-            <div class="grid-item item-s-6 margin-bottom-tiny font-color-grey font-heavy font-size-small font-uppercase">
-              <span><?php echo $the_date; ?></span>
+            <div class="grid-row item-s-12 justify-between">
+              <div class="grid-item item-s-6 margin-bottom-tiny font-color-grey font-heavy font-size-small">
+                <span><?php echo $contributor_names ? $contributor_names : ''; ?></span>
+              </div>
+              <div class="grid-item item-s-auto item-m-6 margin-bottom-tiny font-color-grey font-heavy font-size-small font-uppercase">
+                <span><?php echo $the_date; ?></span>
+              </div>
             </div>
             <h2 class="grid-item item-s-10 font-size-mid margin-bottom-micro"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-            <div class="grid-item item-s-10"><span><?php echo !empty($subtitle) ? $subtitle : ''; ?></span></div>
+            <div class="grid-item item-s-10 margin-bottom-micro"><span><?php echo !empty($subtitle) ? $subtitle : ''; ?></span></div>
             <div class="grid-item item-s-6 font-size-small font-uppercase font-heavy font-color-blush"><span><span><?php echo $type ? $type : ''; ?></span></span></div>
           </div>
         </article>
