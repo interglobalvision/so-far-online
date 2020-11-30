@@ -58,7 +58,6 @@ if (have_posts()) {
       }
     }
 ?>
-
         <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
           <header class="padding-bottom-basic">
             <div class="container">
@@ -71,6 +70,8 @@ if (have_posts()) {
                           echo 'Issue';
                           echo !empty($issue_number) ? ' ' . $issue_number . ': ' : ': ';
                           echo $issue->name;
+                        } else if ($post_type === 'weekly' && !empty($type)) {
+                          echo '<a href="' . get_term_link($type[0]->term_id) . '">' . $type[0]->name . '</a>';
                         } else {
                           echo !empty($type) ? $type[0]->name : '';
                         }

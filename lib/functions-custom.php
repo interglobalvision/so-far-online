@@ -15,7 +15,8 @@ function get_name_list($id, $term) {
   if ($the_terms) {
     $name_list = '';
     foreach($the_terms as $key => $value) {
-      $name_list .= $value->name;
+      $term_link = get_term_link($value->term_id);
+      $name_list .= '<a href="' . $term_link . '">' . $value->name . '</a>';
       if ($key !== count($the_terms) - 1) {
         $name_list .= ', ';
       }

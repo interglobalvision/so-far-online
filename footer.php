@@ -2,38 +2,41 @@
 $options = get_site_option('_igv_site_options');
 ?>
 
-  <footer id="footer" class="font-size-basic padding-top-small padding-bottom-small">
+  <footer id="footer" class="font-size-basic padding-bottom-small">
     <div class="container">
-      <div class="grid-row">
+      <div class="grid-row justify-between">
         <?php if (!empty($options['mailchimp_action'])) { ?>
-        <div id="footer-form-holder" class="item-s-12 item-m-6 item-l-5 offset-l-1 item-xl-4">
+        <div id="footer-form-holder" class="item-s-12 item-m-6 item-l-5 item-xl-4 margin-top-basic">
           <?php get_template_part('partials/newsletter-form'); ?>
+          <div class="grid-item item-s-auto item-l-4 padding-top-tiny not-desktop">
+            <span>© <?php echo date("Y"); ?> so-far.online</span>
+          </div>
         </div>
         <?php } ?>
 
-        <div id="footer-nav-holder" class="item-s-12 item-m-6 offset-xl-1 grid-column justify-between">
-          <div id="footer-nav">
-            <ul class="grid-row">
-              <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
+        <div id="footer-nav-holder" class="item-s-12 item-m-6 offset-xl-1 grid-column margin-top-basic">
+          <nav id="footer-nav">
+            <ul class="grid-row justify-between">
+              <li class="grid-item item-s-6 item-l-4">
                 <a href="<?php echo home_url('definitions'); ?>">Definitions</a>
               </li>
-              <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
+              <li class="grid-item item-s-6 item-l-4">
                 <a href="<?php echo home_url('contribute'); ?>">Contribute</a>
               </li>
-              <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
+              <li class="grid-item item-s-6 item-l-4">
                 <a href="<?php echo home_url('contact'); ?>">Contact</a>
               </li>
-              <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
+              <li class="grid-item item-s-6 item-l-4">
                 <a href="<?php echo home_url('faq'); ?>">FAQ</a>
               </li>
-              <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
+              <li class="grid-item item-s-6 item-l-4">
                 <a href="<?php echo home_url('terms-and-conditions'); ?>">Terms & Conditions</a>
               </li>
-              <li class="grid-item item-s-6 item-l-4 padding-bottom-tiny">
+              <li class="grid-item item-s-6 item-l-4">
                 <a href="<?php echo home_url('privacy-policy'); ?>">Privacy Policy</a>
               </li>
             </ul>
-          </div>
+          </nav>
 
           <div class="grid-row align-items-center justify-between">
             <ul class="grid-row item-s-auto item-l-8 padding-top-micro font-size-zero">
@@ -67,7 +70,7 @@ $options = get_site_option('_igv_site_options');
               </li>
             <?php } ?>
             </ul>
-            <div class="grid-item item-s-auto item-l-4 padding-top-micro">
+            <div class="grid-item item-s-auto item-l-4 padding-top-micro desktop-only">
               <span>© <?php echo date("Y"); ?> so-far.online</span>
             </div>
           </div>

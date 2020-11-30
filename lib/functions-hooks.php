@@ -11,6 +11,7 @@ function create_custom_pages() {
     'contributors' => 'Contributors',
     'incubator' => 'Incubator',
     'about' => 'About',
+    'shop' => 'Shop',
     'contribute' => 'How to Contribute',
     'contact' => 'Contact Us',
     'faq' => 'FAQ',

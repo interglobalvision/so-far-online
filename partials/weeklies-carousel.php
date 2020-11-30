@@ -1,6 +1,7 @@
 <?php
 global $weeklies_args;
 global $weeklies_section_title;
+global $weeklies_carousel_archive_link;
 
 $weeklies_query = new WP_Query($weeklies_args);
 
@@ -38,6 +39,14 @@ if ( $weeklies_query->have_posts() ) {
         </article>
     <?php
     	} // end while
+
+      if ($weeklies_carousel_archive_link) {
+    ?>
+        <div class="swiper-slide align-self-center">
+          <div class="text-align-center"><a href="<?php echo $weeklies_carousel_archive_link; ?>" class="link-underline font-size-mid font-uppercase font-light">View All</a></div>
+        </div>
+    <?php
+      }
     ?>
       </div>
       <div class="swiper-scrollbar"></div>

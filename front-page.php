@@ -33,7 +33,9 @@ global $weeklies_args;
 global $weeklies_section_title;
 
 if ($issues) {
-  $issue = array_shift(array_values($issues));
+  $array_values = array_values($issues);
+  $issue = array_shift($array_values);
+
   $issue_number = get_term_meta($issue->term_id, '_igv_issue_number', true);
 
   $chapters = get_terms( array(
@@ -54,7 +56,8 @@ if ($issues) {
   ) );
 
   if (count($chapters) > 0) {
-    $chapter = array_shift(array_values($chapters));
+    $array_values = array_values($chapters);
+    $chapter = array_shift($array_values);
     $chapter_number = get_term_meta($chapter->term_id, '_igv_issue_number', true);
 
     $articles_args = array(
@@ -70,6 +73,10 @@ if ($issues) {
     );
 
     $articles_query = new WP_Query($articles_args);
+
+    $weeklies_carousel_archive_link = get_post_type_archive_link('weekly');
+    global $weeklies_carousel_archive_link;
+
     if ($articles_query->have_posts()) {
       while ($articles_query->have_posts()) {
         $articles_query->the_post();

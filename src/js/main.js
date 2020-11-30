@@ -26,6 +26,7 @@ class Site {
     this.handleShopMenu = this.handleShopMenu.bind(this);
     this.handleLoadAnimation = this.handleLoadAnimation.bind(this);
     this.handleClosePopup = this.handleClosePopup.bind(this);
+    this.handleLoadMore = this.handleLoadMore.bind(this);
   }
 
   onResize() {
@@ -43,6 +44,7 @@ class Site {
     this.documentHeight = $(document).height();
     this.swiperInstance = {};
     this.initialOverlayIndex = 0;
+    this.archivePage = 1;
 
     lazySizes.init();
     this.handlePopup();
@@ -58,6 +60,7 @@ class Site {
     this.bindShopFilterImage();
     this.bindAnimatedLoad();
     this.handleSortRadioChange();
+    this.bindLoadMore();
     this.fixWidows();
 
     this.handleImageFadeIn($(window).scrollTop());
@@ -258,7 +261,7 @@ class Site {
       function() {
         $('.shop-filter-image.show').removeClass('show');
       }
-    )
+    );
   }
 
   scrollToRef($targetRef, offsetMultiplier) {
@@ -314,7 +317,7 @@ class Site {
   }
 
   bindAnimatedLoad() {
-    $('a').on('click', this.handleLoadAnimation);
+    $('a:not(#load-more)').on('click', this.handleLoadAnimation);
     $('#searchform').on('submit', this.handleSearchLoadAnimation);
   }
 
@@ -415,6 +418,41 @@ class Site {
       }
 
     });
+  }
+
+  bindLoadMore() {
+    $('#load-more').on('click', this.handleLoadMore);
+  }
+
+  handleLoadMore(e) {
+    const maxPage = e.currentTarget.dataset.maxpage;
+
+    if (this.archivePage < maxPage) {
+      this.archivePage = this.archivePage + 1;
+
+      const href = e.currentTarget.href;
+
+      $.ajax({
+        url: href,
+        success: function(data){
+          const newPosts = $(data).find('#posts-holder')[0].innerHTML;
+          const newLoadMore = $(data).find('#load-more')[0];
+
+          $('#posts-holder').append(newPosts);
+
+          if (newLoadMore) {
+            $('#load-more').attr('href', newLoadMore.href);
+          } else {
+            $('#load-more').remove();
+          }
+        }
+      });
+
+    } else {
+      $('#load-more').remove();
+    }
+
+    return false;
   }
 
   fixWidows() {

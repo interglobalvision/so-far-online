@@ -67,16 +67,22 @@ $post_type = get_post_type($post);
         <?php } ?>
       </figure>
 
-      <a href="<?php the_permalink() ?>" class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter grid-row align-content-center">
+      <div class="grid-item item-s-12 item-l-6 item-xl-4 no-gutter grid-row align-content-center">
         <div class="grid-item item-s-12">
-          <h1 class="font-serif font-size-extra"><?php the_title(); ?></h1>
+          <h1 class="font-serif font-size-extra">
+            <a href="<?php the_permalink() ?>">
+              <?php the_title(); ?>
+            </a>
+          </h1>
         </div>
+
         <?php if (!empty($subtitle)) { ?>
         <div class="grid-item item-s-12 font-size-mid margin-top-tiny">
           <span><?php echo $subtitle; ?></span>
         </div>
-        <?php } if ($contributor_names || $artist_names) { ?>
-        <div class="grid-item item-s-12 font-color-grey <?php echo $reverse ? '' : 'offset-l-4 offset-xl-3'; ?>">
+        <?php } ?>
+
+        <div class="grid-item item-s-12 font-color-grey">
         <?php if ($contributor_names) { ?>
           <div class="margin-top-tiny">
             <span>Text by <?php echo $contributor_names; ?></span>
@@ -87,8 +93,7 @@ $post_type = get_post_type($post);
           </div>
         <?php } ?>
         </div>
-        <?php } ?>
-      </a>
+      </div>
     </div>
   </div>
 </article>
