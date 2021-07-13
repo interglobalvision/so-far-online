@@ -7,7 +7,7 @@
 
         <p>We send out personalised messages from the Chief Editor and announce offline events once a month. Subscribe to our newsletter:</p>
       </div>
-      <div id="popup-form-hodler" class="grid-item item-s-11 item-m-10 item-l-9 item-xl-8 no-gutter font-size-small">
+      <div class="grid-item item-s-11 item-m-10 item-l-9 item-xl-8 no-gutter font-size-small">
         <?php get_template_part('partials/newsletter-form'); ?>
       </div>
       <div class="grid-item item-s-12 text-align-center font-size-small margin-top-tiny">
