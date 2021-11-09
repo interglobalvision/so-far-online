@@ -20,7 +20,7 @@ if (have_posts()) {
     $contributor_names = get_name_list($post->ID, 'contributor');
     $subtitle = get_post_meta($post->ID, '_igv_subtitle', true);
     $the_date = get_the_date('j F, Y');
-    $type = get_custom_type_terms($post->ID, 'weeklytype');
+    $weekly_type = get_the_terms($post, 'weeklytype');
 ?>
         <article <?php post_class('grid-item no-gutter item-s-12 padding-bottom-small grid-row'); ?> id="post-<?php the_ID(); ?>">
           <div class="grid-item item-s-12 item-m-4 offset-m-1 padding-bottom-small">
@@ -37,7 +37,9 @@ if (have_posts()) {
             </div>
             <h2 class="grid-item item-s-10 font-size-mid margin-bottom-micro"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
             <div class="grid-item item-s-10 margin-bottom-micro"><span><?php echo !empty($subtitle) ? $subtitle : ''; ?></span></div>
-            <div class="grid-item item-s-6 font-size-small font-uppercase font-heavy font-color-blush"><span><span><?php echo $type ? $type : ''; ?></span></span></div>
+            <div class="grid-item item-s-6 font-size-small font-uppercase font-heavy font-color-blush"><?php if ($weekly_type) { ?>
+              <a href="<?php echo get_term_link($weekly_type[0]->term_id); ?>"><?php echo $weekly_type[0]->name; ?></a>
+            <?php } ?></div>
           </div>
         </article>
 <?php
