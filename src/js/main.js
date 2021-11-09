@@ -17,6 +17,8 @@ class Site {
 
     $(document).ready(this.onReady.bind(this));
 
+    $(window).on('pageshow', this.onPageShow.bind(this));
+
     this.onScroll = this.onScroll.bind(this);
     this.onScrollInterval = this.onScrollInterval.bind(this);
     this.setupSwiperInstance = this.setupSwiperInstance.bind(this);
@@ -64,6 +66,10 @@ class Site {
     this.fixWidows();
 
     this.handleImageFadeIn($(window).scrollTop());
+  }
+
+  onPageShow() {
+    console.log('page show');
     $('#dissolve').fadeTo(500, 0);
   }
 
@@ -317,6 +323,7 @@ class Site {
   }
 
   bindAnimatedLoad() {
+    console.log('bind2');
     $('a:not(#load-more)').on('click', this.handleLoadAnimation);
     $('#searchform').on('submit', this.handleSearchLoadAnimation);
   }
