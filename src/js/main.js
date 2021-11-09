@@ -69,7 +69,6 @@ class Site {
   }
 
   onPageShow() {
-    console.log('page show');
     $('#dissolve').fadeTo(500, 0);
   }
 
@@ -323,7 +322,6 @@ class Site {
   }
 
   bindAnimatedLoad() {
-    console.log('bind2');
     $('a:not(#load-more)').on('click', this.handleLoadAnimation);
     $('#searchform').on('submit', this.handleSearchLoadAnimation);
   }
