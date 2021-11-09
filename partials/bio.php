@@ -8,7 +8,7 @@ $bio_photo_id = get_term_meta($bio->term_id, '_igv_bio_photo_id', true);
     <?php echo !empty($bio_photo_id) ? wp_get_attachment_image($bio_photo_id, 'full') : ''; ?>
   </div>
   <div class="grid-item item-s-6 mobile-only font-serif">
-    <div><span class="font-size-mid"><?php echo $bio->name; ?></span></div>
+    <div><span class="font-size-mid"><a href="<?php echo get_term_link($bio->term_id); ?>"><?php echo $bio->name; ?></a></span></div>
     <div><span><?php echo !empty($birth_year) ? 'b. ' . $birth_year : ''; ?></span></div>
   </div>
   <div class="grid-item item-s-12 item-l-5">
