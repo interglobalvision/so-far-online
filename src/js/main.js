@@ -5,6 +5,7 @@
 import lazySizes from 'lazysizes';
 import Swiper from 'swiper';
 import Mailchimp from './mailchimp';
+import Shop from './shop';
 
 // Import style
 import '../styl/site.styl';
@@ -471,4 +472,5 @@ class Site {
 }
 
 new Site();
+new Shop();
 new Mailchimp();
