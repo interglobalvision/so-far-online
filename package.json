@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/interglobalvision/interglobalvision_wp_boil",
   "devDependencies": {
+    "@stripe/stripe-js": "^1.21.1",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.0",
     "babel-minify": "^0.2.0",
