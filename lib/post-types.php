@@ -156,6 +156,53 @@ function register_cpt_incubator() {
   register_post_type( 'incubator', $args );
 }
 
+add_action( 'init', 'register_cpt_product' );
+
+function register_cpt_product() {
+  $site_options = get_site_option('_igv_site_options');
+  $archive_slug = !empty($site_options['shop_archive_slug']) ? $site_options['shop_archive_slug'] : 'shop';
+  //$archive_slug = gws_get_option('_gws_shopify_archive_slug') === false || empty(gws_get_option('_gws_shopify_archive_slug')) ? 'shop' : gws_get_option('_gws_shopify_archive_slug');
+  //$archive_slug = 'shop-all';
+  $item_slug = !empty($site_options['shop_item_slug']) ? $site_options['shop_item_slug'] : 'product';
+  //$item_slug = gws_get_option('_gws_shopify_item_slug') === false || empty(gws_get_option('_gws_shopify_item_slug')) ? 'product' : gws_get_option('_gws_shopify_item_slug');
+  //$item_slug = 'artwork';
+
+  $labels = array(
+    'name' => _x( 'Products', 'product' ),
+    'singular_name' => _x( 'Product', 'product' ),
+    'add_new' => _x( 'Add New', 'product' ),
+    'add_new_item' => _x( 'Add New Product', 'product' ),
+    'edit_item' => _x( 'Edit Product', 'product' ),
+    'new_item' => _x( 'New Product', 'product' ),
+    'view_item' => _x( 'View Product', 'product' ),
+    'search_items' => _x( 'Search Products', 'product' ),
+    'not_found' => _x( 'No products found', 'product' ),
+    'not_found_in_trash' => _x( 'No products found in Trash', 'product' ),
+    'parent_item_colon' => _x( 'Parent Product:', 'product' ),
+    'menu_name' => _x( 'Products', 'product' ),
+  );
+
+  $args = array(
+    'labels' => $labels,
+    'hierarchical' => false,
+    'supports' => array( 'title', 'editor', 'thumbnail' ),
+    'public' => true,
+    'show_ui' => true,
+    'show_in_menu' => true,
+    'menu_position' => 5,
+    'show_in_nav_menus' => true,
+    'publicly_queryable' => true,
+    'exclude_from_search' => false,
+    'has_archive' => $archive_slug,
+    'query_var' => true,
+    'can_export' => true,
+    'rewrite' => array('slug' => $item_slug, 'with_front' => false),
+    'capability_type' => 'post'
+  );
+
+  register_post_type( 'product', $args );
+}
+
 /*
 add_action( 'init', 'register_cpt_issue' );
 

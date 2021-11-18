@@ -16,6 +16,7 @@ function scripts_and_styles_method() {
     'themeUrl' => get_template_directory_uri(),
     'isAdmin' => $is_admin,
     'mailchimp' => !empty($site_options['mailchimp_action']) ? $site_options['mailchimp_action'] : null,
+    'shopItemSlug' => !empty($site_options['shop_item_slug']) ? $$site_options['shop_item_slug'] : 'product'
   );
 
   wp_register_script('javascript-main', $javascriptMain);

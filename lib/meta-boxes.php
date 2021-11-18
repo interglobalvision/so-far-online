@@ -107,6 +107,12 @@ function igv_cmb_metaboxes() {
  		'object_types'     => array( 'product' ), // Tells CMB2 which taxonomies should have these fields
  	) );
 
+  $artwork_metabox->add_field( array(
+    'name'       => __( 'Stripe Price ID', 'igv' ),
+    'id'         => $prefix . 'artwork_price_id',
+    'type'       => 'text',
+  ) );
+
 	$artwork_metabox->add_field( array(
 		'name' => esc_html__( 'Title', 'cmb2' ),
 		'id'   => $prefix . 'artwork_title',

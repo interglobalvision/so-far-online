@@ -55,6 +55,20 @@ function igv_register_theme_options_metabox() {
   ) );
 
   $site_options->add_field( array(
+    'name'    => esc_html__( 'Shop Archive Slug', 'igv' ),
+    'desc'    => esc_html__( 'Defaults to \'shop\'. You must update permalinks after changing.', 'igv' ),
+    'id'      => $prefix . 'shop_archive_slug',
+    'type'    => 'text',
+  ) );
+
+  $site_options->add_field( array(
+    'name'    => esc_html__( 'Shop Item Slug', 'igv' ),
+    'desc'    => esc_html__( 'Defaults to \'product\'. You must update permalinks after changing.', 'igv' ),
+    'id'      => $prefix . 'shop_item_slug',
+    'type'    => 'text',
+  ) );
+
+  $site_options->add_field( array(
     'name'    => esc_html__( 'Mailchimp Action', 'cmb2' ),
     'id'      => 'mailchimp_action',
     'type'    => 'text',
