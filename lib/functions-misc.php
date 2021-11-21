@@ -62,3 +62,38 @@ function igv_wrap_image_block( $block_content, $block ) {
 
 	return $return;
 }
+
+// Guest nonce
+function create_guest_nonce( $action = -1 ) {
+  $ip = $_SERVER['REMOTE_ADDR'];
+  $i     = wp_nonce_tick();
+
+  return substr( wp_hash( $i . '|' . $action . '|' . $ip . '|' . $ip, 'nonce' ), -12, 10 );
+}
+
+function verify_guest_nonce( $nonce, $action = -1 ) {
+  $nonce = (string) $nonce;
+  $ip = $_SERVER['REMOTE_ADDR'];
+
+  if ( empty( $nonce ) ) {
+    return false;
+  }
+
+  $i     = wp_nonce_tick();
+
+  // Nonce generated 0-12 hours ago
+  $expected = substr( wp_hash( $i . '|' . $action . '|' . $ip . '|' . $ip, 'nonce' ), -12, 10 );
+
+  if ( hash_equals( $expected, $nonce ) ) {
+    return 1;
+  }
+
+  // Nonce generated 12-24 hours ago
+  $expected = substr( wp_hash( ( $i - 1 ) . '|' . $action . '|' . $ip . '|' . $ip, 'nonce' ), -12, 10 );
+  if ( hash_equals( $expected, $nonce ) ) {
+    return 2;
+  }
+
+  // Invalid nonce
+  return false;
+}

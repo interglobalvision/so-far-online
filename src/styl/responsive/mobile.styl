@@ -211,23 +211,22 @@ img,
   &.header-icon-white
     display: none
 
-.header-bag-holder
+.header-bag-holder 
   position: relative
+  display: block
 
-.header-bag-count
-  padding: .1em .2em
-  border-radius: 100%
-  background: $color-pink
-  border: 2px solid $color-black
-  display: flex
-  justify-content: center
-  align-items: center
-  text-align: center
-  font-weight: 500
+.cart-count-holder 
   position: absolute
-  bottom: 0
-  right: 0
-  pointer-events: none
+  display: flex
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+  align-items: center
+  justify-content: center
+
+.cart-count
+  padding-top: .6em
 
 #mobile-nav
   position: fixed
@@ -665,23 +664,17 @@ a:not(.button)
   padding-left: 2px !important
   padding-right: 2px !important
 
-.gws-product
-  .product-sold
-    display: none
+.product
   .item-in-cart
     display: none
-  &[data-gws-available='false']
-    .product-sold
-      display: block
-    .product-price
-      display: none
-  &[data-gws-in-cart='true']
+  &[data-in-cart='true']
     .item-in-cart
       display: block
     .add-to-cart
       display: none
 
-.gws-cart-thumb
+.cart-thumb
+  display: block
   width: 200px
   height: 200px
   background-size: cover
@@ -690,13 +683,13 @@ a:not(.button)
 #cart-header, #cart-body, #cart-footer, #cart-empty
   display: none
 
-[data-gws-cart-empty="false"]
+[data-cart-empty="false"]
   #cart-header, #cart-body, #cart-footer
     display: block
   #cart-empty
     display: none
 
-[data-gws-cart-empty="true"]
+[data-cart-empty="true"]
   #cart-header, #cart-body, #cart-footer
     display: none
   #cart-empty

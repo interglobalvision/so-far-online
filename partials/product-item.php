@@ -1,5 +1,4 @@
 <?php
-$product_handle = get_post_meta($post->ID, '_gws_product_handle', true);
 $artists = get_name_list($post->ID, 'artist');
 $title = get_post_meta($post->ID, '_igv_artwork_title', true);
 $year = get_post_meta($post->ID, '_igv_artwork_year', true);
@@ -7,12 +6,10 @@ $time = get_post_time();
 $pick = get_post_meta($post->ID, '_igv_product_pick', true);
 ?>
 <article
-  <?php post_class('gws-product grid-item grid-item-product item-s-6 item-m-4 item-l-3 margin-bottom-small'); ?>
+  <?php post_class('grid-item grid-item-product item-s-6 item-m-4 item-l-3 margin-bottom-small'); ?>
   id="post-<?php the_ID(); ?>"
-  data-gws-product-handle="<?php echo $product_handle; ?>"
-  data-gws-available="true"
+  data-post-id="<?php the_ID(); ?>"
   data-time="<?php echo $time; ?>"
-  data-gws-price="false"
   data-pick="<?php echo $pick; ?>"
 >
   <a class="font-size-small" href="<?php the_permalink(); ?>">
@@ -28,8 +25,7 @@ $pick = get_post_meta($post->ID, '_igv_product_pick', true);
           echo !empty($year) ? '<span>' . $year . '</span>' : '';
         ?>
       </div>
-      <div class="product-price"><span>$</span><span class="gws-product-price"></span></div>
-      <div class="product-sold"><span>Sold</span></div>
+      <?php productPrice($post->ID); ?>
     </div>
   </a>
 </article>

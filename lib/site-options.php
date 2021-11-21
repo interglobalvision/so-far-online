@@ -54,18 +54,121 @@ function igv_register_theme_options_metabox() {
     // 'save_button'     => esc_html__( 'Save Theme Options', 'cmb2' ), // The text for the options-page save button. Defaults to 'Save'.
   ) );
 
+  // Shop
+
+  $site_options->add_field( array(
+    'name'    => esc_html__( 'Shop', 'cmb2' ),
+    'id'      => $prefix . 'shop_title',
+    'type'    => 'title',
+  ) );
+
+  $site_options->add_field( array(
+    'name'    => esc_html__( 'Stripe API Private Key', 'cmb2' ),
+    'id'      => 'shop_stripe_key',
+    'type'    => 'text',
+  ) );
+
   $site_options->add_field( array(
     'name'    => esc_html__( 'Shop Archive Slug', 'igv' ),
     'desc'    => esc_html__( 'Defaults to \'shop\'. You must update permalinks after changing.', 'igv' ),
-    'id'      => $prefix . 'shop_archive_slug',
+    'id'      => 'shop_archive_slug',
     'type'    => 'text',
   ) );
 
   $site_options->add_field( array(
     'name'    => esc_html__( 'Shop Item Slug', 'igv' ),
     'desc'    => esc_html__( 'Defaults to \'product\'. You must update permalinks after changing.', 'igv' ),
-    'id'      => $prefix . 'shop_item_slug',
+    'id'      => 'shop_item_slug',
     'type'    => 'text',
+  ) );
+
+  // Currencies
+
+  $site_options->add_field( array(
+    'name' => esc_html__( 'Currency Codes', 'cmb2' ),
+    'id'          => 'shop_currencies',
+    'type'        => 'text_small',
+    'desc'        => 'Add all currencies here, including default currency',
+    'repeatable' => true,
+    'options'     => array(
+      'repeatable' => true
+    )
+  ) );
+
+  // Shipping
+
+  $site_options->add_field( array(
+    'name' => esc_html__( 'Domestic shipping label', 'cmb2' ),
+    'id'   => 'shop_shipping_domestic_label',
+    'type'    => 'text',
+    'default' => 'Domestic'
+  ) );
+
+  $domestic_shipping_group_id = $site_options->add_field( array(
+    'name'        => 'Domestic options',
+    'desc'        => 'Must be ordered by cost, low to high',
+    'id'          => 'shop_shipping_domestic',
+    'type'        => 'group',
+    'options'     => array(
+      'group_title'    => esc_html__( 'Option {#}', 'cmb2' ), // {#} gets replaced by row number
+      'add_button'     => esc_html__( 'Add Another Option', 'cmb2' ),
+      'remove_button'  => esc_html__( 'Remove Option', 'cmb2' ),
+      'sortable'       => true,
+      'closed'     => true
+    ),
+  ) );
+
+  $site_options->add_group_field( $domestic_shipping_group_id, array(
+    'name' => esc_html__( 'Cost (SGD)', 'cmb2' ),
+    'id'   => 'cost',
+    'type'    => 'text',
+  ) );
+
+  $site_options->add_group_field( $domestic_shipping_group_id, array(
+    'name' => esc_html__( 'Max Weight (if any)', 'cmb2' ),
+    'id'   => 'max',
+    'type'    => 'text',
+  ) );
+
+  $site_options->add_field( array(
+    'name' => esc_html__( 'International shipping label', 'cmb2' ),
+    'id'   => 'shop_shipping_international_label',
+    'type'    => 'text',
+    'default' => 'International'
+  ) );
+
+  $international_shipping_group_id = $site_options->add_field( array(
+    'name'        => 'International shipping',
+    'desc'        => 'Must be ordered by cost, low to high',
+    'id'          => 'shop_shipping_international',
+    'type'        => 'group',
+    'options'     => array(
+      'group_title'    => esc_html__( 'Option {#}', 'cmb2' ), // {#} gets replaced by row number
+      'add_button'     => esc_html__( 'Add Another Option', 'cmb2' ),
+      'remove_button'  => esc_html__( 'Remove Option', 'cmb2' ),
+      'sortable'       => true,
+      'closed'     => true
+    ),
+  ) );
+
+  $site_options->add_group_field( $international_shipping_group_id, array(
+    'name' => esc_html__( 'Cost (SGD)', 'cmb2' ),
+    'id'   => 'cost',
+    'type'    => 'text',
+  ) );
+
+  $site_options->add_group_field( $international_shipping_group_id, array(
+    'name' => esc_html__( 'Max Weight (if any)', 'cmb2' ),
+    'id'   => 'max',
+    'type'    => 'text',
+  ) );
+
+  // Mailchimp
+
+  $site_options->add_field( array(
+    'name'    => esc_html__( 'Mailchimp', 'cmb2' ),
+    'id'      => $prefix . 'mailchimp_title',
+    'type'    => 'title',
   ) );
 
   $site_options->add_field( array(

@@ -197,7 +197,8 @@ function register_cpt_product() {
     'query_var' => true,
     'can_export' => true,
     'rewrite' => array('slug' => $item_slug, 'with_front' => false),
-    'capability_type' => 'post'
+    'capability_type' => 'post',
+    'show_in_rest' => true
   );
 
   register_post_type( 'product', $args );

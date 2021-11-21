@@ -16,7 +16,13 @@ function scripts_and_styles_method() {
     'themeUrl' => get_template_directory_uri(),
     'isAdmin' => $is_admin,
     'mailchimp' => !empty($site_options['mailchimp_action']) ? $site_options['mailchimp_action'] : null,
-    'shopItemSlug' => !empty($site_options['shop_item_slug']) ? $$site_options['shop_item_slug'] : 'product'
+    'shopItemSlug' => !empty($site_options['shop_item_slug']) ? $site_options['shop_item_slug'] : 'product',
+    'shippingDomesticLabel' => !empty($site_options['shop_shipping_domestic_label']) ? $site_options['shop_shipping_domestic_label'] : 'Domestic',
+    'shippingInternationalLabel' => !empty($site_options['shop_shipping_international_label']) ? $site_options['shop_shipping_international_label'] : 'International',
+    'shippingOptions' => [
+      'domestic' => !empty($site_options['shop_shipping_domestic']) ? $site_options['shop_shipping_domestic'] : false,
+      'international' => !empty($site_options['shop_shipping_international']) ? $site_options['shop_shipping_international'] : false,
+    ]
   );
 
   wp_register_script('javascript-main', $javascriptMain);
@@ -59,6 +65,15 @@ function composer_autoload() {
 }
 add_action( 'init', 'composer_autoload', 10 );
 
+// Setup stripe api endpoint
+
+function load_stripe_client() {
+  require_once( 'vendor/stripe/stripe-php/init.php' );
+}
+add_action( 'init', 'load_stripe_client', 11 );
+
+get_template_part('lib/endpoint');
+
 // Add libs
 
 get_template_part( 'lib/custom-gallery' );
@@ -74,6 +89,7 @@ get_template_part( 'lib/functions-custom' );
 get_template_part( 'lib/functions-filters' );
 get_template_part( 'lib/functions-hooks' );
 get_template_part( 'lib/functions-utility' );
+get_template_part( 'lib/functions-product' );
 
 add_action('admin_head', 'igv_admin_css');
 

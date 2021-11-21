@@ -10,7 +10,6 @@ get_template_part('partials/shop-filter');
 if (have_posts()) {
   while (have_posts()) {
     the_post();
-    $product_handle = get_post_meta($post->ID, '_gws_product_handle', true);
     $images = get_post_meta($post->ID, '_igv_artwork_images', true);
     $artist_names = get_name_list($post->ID, 'artist');
     $title = get_post_meta($post->ID, '_igv_artwork_title', true);
@@ -21,14 +20,13 @@ if (have_posts()) {
     $framing = get_post_meta($post->ID, '_igv_product_framing', true);
     $shipping = get_post_meta($post->ID, '_igv_product_shipping', true);
     $mediums = get_the_terms($post, 'medium');
+    $price = get_post_meta($post->ID, '_igv_product_price', true);
 ?>
 
     <article
-      <?php post_class('gws-product'); ?>
+      <?php post_class(); ?>
       id="post-<?php the_ID(); ?>"
-      <?php echo !empty($product_handle) ? 'data-gws-product-handle="' . $product_handle . '"' : ''; ?>
-      data-gws-available="true"
-      data-gws-post-id="<?php echo $post->post_name; ?>"
+      data-in-cart=""
     >
 
       <section class="padding-top-small padding-bottom-small">
@@ -88,15 +86,22 @@ if (have_posts()) {
                 </div>
               </div>
               <?php } ?>
+
               <div class="margin-bottom-tiny font-color-grey">
-                <div class="product-price font-size-mid"><span>$</span><span class="gws-product-price"></span></div>
-                <div class="product-sold"><span>Sold</span></div>
+                <?php productPrice($post->ID, 'font-size-mid'); ?>
               </div>
-              <form class="gws-product-form cart grid-row" method="post" enctype='multipart/form-data'>
-                <input type="hidden" name="variant-id" class="gws-variant-id" value="" />
-                <button type="submit" class="button gws-product-add add-to-cart js-product-button item-s-6 item-m-4 item-l-12">Purchase this Artwork</button>
-                <button class="button item-in-cart item-s-6 item-m-4 item-l-12" disabled>Added to Bag</button>
-              </form>
+
+              <div>
+                <button 
+                  type="submit" 
+                  data-post-id="<?php the_ID(); ?>" 
+                  data-price="<?php echo !empty($price) ? $price : ''; ?>"
+                  class="button add-to-cart item-s-6 item-m-4 item-l-12">Purchase this Artwork</button>
+                <div class="item-in-cart">
+                  <span class="item-in-cart item-s-6 item-m-4 item-l-12" disabled>Added to Bag</span>
+                </div>
+              </div>
+              
               <div class="padding-top-tiny font-size-tiny font-color-grey font-light">
                 <span>Contact <a href="team@so-far.online" class="link-underline">team@so-far.online</a> if you would like to purchase in installments. We can create a payment plan tailored to your needs. For collectors in the US, Australia or New Zealand, we partner with Art Money: 10 payments, 10 months, no interest.</span>
               </div>

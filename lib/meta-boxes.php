@@ -105,12 +105,27 @@ function igv_cmb_metaboxes() {
  		'id'               => $prefix . 'artwork_metabox',
  		'title'            => esc_html__( 'Options', 'cmb2' ), // Doesn't output for term boxes
  		'object_types'     => array( 'product' ), // Tells CMB2 which taxonomies should have these fields
+    'show_in_rest'     => WP_REST_Server::READABLE
  	) );
 
   $artwork_metabox->add_field( array(
-    'name'       => __( 'Stripe Price ID', 'igv' ),
-    'id'         => $prefix . 'artwork_price_id',
+    'name'       => __( 'Product Price', 'igv' ),
+    'id'         => $prefix . 'product_price',
     'type'       => 'text',
+  ) );
+
+  $artwork_metabox->add_field( array(
+    'name'       => __( 'Product Inventory', 'igv' ),
+    'id'         => $prefix . 'product_inventory',
+    'type'       => 'text_small',
+    'default'    => '1',
+  ) );
+
+  $artwork_metabox->add_field( array(
+    'name'       => __( 'Product Weight Kg', 'igv' ),
+    'id'         => $prefix . 'product_weight',
+    'type'       => 'text_small',
+    'default'    => '0',
   ) );
 
 	$artwork_metabox->add_field( array(
