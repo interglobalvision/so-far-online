@@ -26,6 +26,7 @@ if (have_posts()) {
     <article
       <?php post_class(); ?>
       id="post-<?php the_ID(); ?>"
+      data-post-id="<?php the_ID(); ?>" 
       data-in-cart=""
     >
 
@@ -97,9 +98,7 @@ if (have_posts()) {
                   data-post-id="<?php the_ID(); ?>" 
                   data-price="<?php echo !empty($price) ? $price : ''; ?>"
                   class="button add-to-cart item-s-6 item-m-4 item-l-12">Purchase this Artwork</button>
-                <div class="item-in-cart">
-                  <span class="item-in-cart item-s-6 item-m-4 item-l-12" disabled>Added to Bag</span>
-                </div>
+                <button class="button item-in-cart item-s-6 item-m-4 item-l-12" disabled>Added to Bag</button>
               </div>
               
               <div class="padding-top-tiny font-size-tiny font-color-grey font-light">

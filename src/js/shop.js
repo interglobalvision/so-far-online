@@ -99,6 +99,16 @@ class Shop {
     this.saveCart()
   }
 
+  setInCartAttr($product) {
+    const postId = $product.data('postId')
+    const productInCart = this.state.cart.find(i => i.postId === postId)
+    if (productInCart) {
+      $product.attr('data-in-cart', 'true')
+    } else {
+      $product.attr('data-in-cart', 'false')
+    }
+  }
+
   handleRemoveFromCart(postId) {
     this.state.cart = this.state.cart.filter(p => p.postId !== postId)
     if (this.state.cart.length === 0) { this.showEmptyCart() }
@@ -109,19 +119,6 @@ class Shop {
   updateCartCount() {
     const count = this.state.cart.length > 0 ? this.state.cart.length.toString() : ''
     $('.cart-count').html(count)
-  }
-
-  setInCartAttr($product) {
-    const postId = $product.data('postId')
-    if (this.productInCart(postId)) {
-      $product.attr('data-in-cart', 'true')
-    } else {
-      $product.attr('data-in-cart', 'false')
-    }
-  }
-
-  productInCart(id) {
-    return this.state.cart.find(i => i.postId === id)
   }
 
   setupCart() {
