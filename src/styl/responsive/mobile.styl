@@ -729,9 +729,6 @@ a:not(.button)
   &.hide
     opacity: 0
     pointer-events: none
-  *
-    color: $color-black !important
-    border-color: $color-black !important
 
 #popup-notice-overlay
   position: absolute
@@ -747,3 +744,19 @@ a:not(.button)
   width: 90vw
   min-width: 300px
   max-width: 700px
+
+#popup-cookies
+  position: fixed 
+  bottom: 0
+  left: 0
+  width: 100vw
+  background-color: $color-pale
+  border-top 1px solid $color-grey-dark
+  padding: $margin-tiny $margin-tiny 0
+  z-index: 901
+  transition: opacity 200ms
+  pointer-events: auto
+  opacity: 1
+  &.hide
+    opacity: 0
+    pointer-events: none

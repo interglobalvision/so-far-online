@@ -29,6 +29,7 @@ class Site {
     this.handleShopMenu = this.handleShopMenu.bind(this);
     this.handleLoadAnimation = this.handleLoadAnimation.bind(this);
     this.handleClosePopup = this.handleClosePopup.bind(this);
+    this.handleCloseCookies = this.handleCloseCookies.bind(this);
     this.handleLoadMore = this.handleLoadMore.bind(this);
   }
 
@@ -51,7 +52,8 @@ class Site {
 
     lazySizes.init();
     this.handlePopup();
-    this.bindClosePopup();
+    this.handleCookiesPopup();
+    this.bindClosePopups();
     this.initSwiper();
     this.bindStickyHeader();
     this.bindMenuToggle();
@@ -73,8 +75,9 @@ class Site {
     $('#dissolve').fadeTo(500, 0);
   }
 
-  bindClosePopup() {
+  bindClosePopups() {
     $('.js-close-popup').on('click', this.handleClosePopup);
+    $('#accept-cookies').on('click', this.handleCloseCookies);
   }
 
   handleClosePopup(e) {
@@ -83,10 +86,23 @@ class Site {
     localStorage.setItem('hidePopup', 'true');
   }
 
+  handleCloseCookies(e) {
+    e.preventDefault();
+    $('#popup-cookies').addClass('hide');
+    localStorage.setItem('cookiesAccepted', 'true');
+  }
+
   handlePopup() {
     var hidePopup = localStorage.getItem('hidePopup');
     if (hidePopup !== 'true') {
       $('#popup-notice-holder').removeClass('hide');
+    }
+  }
+
+  handleCookiesPopup() {
+    var cookiesAccepted = localStorage.getItem('cookiesAccepted');
+    if (cookiesAccepted !== 'true') {
+      $('#popup-cookies').removeClass('hide');
     }
   }
 

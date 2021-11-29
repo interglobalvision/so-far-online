@@ -28,6 +28,7 @@ get_template_part('partials/seo');
 <div id="dissolve"></div>
 
 <?php get_template_part('partials/popup-notice'); ?>
+<?php get_template_part('partials/popup-cookies'); ?>
 
 <section id="main-container">
 
