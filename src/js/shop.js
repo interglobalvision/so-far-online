@@ -37,7 +37,7 @@ class Shop {
   }
 
   loadCart() {
-    const savedCart = localStorage.getItem('cart')
+    const savedCart = localStorage.getItem('cartData')
     if (savedCart) {
       this.state.cart = JSON.parse(savedCart).sort((a,b) => a.createdAt - b.createdAt)
       this.updateCartCount()
@@ -47,7 +47,7 @@ class Shop {
   }
 
   saveCart() {
-    localStorage.setItem('cart', JSON.stringify(this.state.cart)) 
+    localStorage.setItem('cartData', JSON.stringify(this.state.cart)) 
     this.updateCartCount()
   }
 
