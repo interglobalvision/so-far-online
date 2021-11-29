@@ -125,7 +125,7 @@ function igv_register_theme_options_metabox() {
   ) );
 
   $site_options->add_group_field( $domestic_shipping_group_id, array(
-    'name' => esc_html__( 'Max Weight (if any)', 'cmb2' ),
+    'name' => esc_html__( 'Max Weight Kg (if any)', 'cmb2' ),
     'id'   => 'max',
     'type'    => 'text',
   ) );
