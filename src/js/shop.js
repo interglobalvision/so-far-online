@@ -83,13 +83,13 @@ class Shop {
 
       $(this).on('click', function() {
         const price = $(this).data('price')
-        _this.handleAddToCart(postId, price)
+        _this.handleAddToCart(postId)
         _this.setInCartAttr($product)
       })
     })
   }
 
-  handleAddToCart(postId, price) {
+  handleAddToCart(postId) {
     const cartItem = {
       createdAt: Date.now(),
       postId,
@@ -162,10 +162,10 @@ class Shop {
       const title = data.title.rendered
       const link = data.link
       const imageSrc = data._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url
-      const price = meta._igv_product_price
+      const price = parseInt(meta._igv_product_price)
 
       $item.find('.cart-title')
-        .text(title)
+        .html(title)
         .attr('href', link)
       
       $item.find('.cart-thumb')
@@ -174,7 +174,7 @@ class Shop {
 
       $item.find('.cart-quantity').val(p.qty)
 
-      $item.find('.cart-item-subtotal').text(price)
+      $item.find('.cart-item-subtotal').html(price)
 
       this.bindRemoveItem($item, id)
       this.bindQuantityChange($item, id)
@@ -247,7 +247,7 @@ class Shop {
       const data = this.state.cartData.find(d => d.id === p.postId)
       const price = data.cmb2._igv_artwork_metabox._igv_product_price
       const qty = p.qty
-      return (price * this.state.rate * qty) + v
+      return (parseInt(price) * this.state.rate * qty) + v
     }, 0)
     return subtotal.toFixed(2)
   }
@@ -276,8 +276,8 @@ class Shop {
     })
   }
 
-  getUnitAmount(price) {
-    const amount = this.state.rate * price
+  getUnitAmount(price = 0) {
+    const amount = this.state.rate * parseInt(price)
     return parseFloat(amount.toFixed(2)) * 100
   }
 
