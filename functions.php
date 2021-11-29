@@ -25,7 +25,7 @@ function scripts_and_styles_method() {
     ]
   );
 
-  wp_register_script('javascript-main', $javascriptMain);
+  wp_register_script('javascript-main', $javascriptMain, array(), '3.0.1', true);
   wp_localize_script('javascript-main', 'WP', $javascriptVars);
   wp_enqueue_script('javascript-main', $javascriptMain, '', '', true);
 
