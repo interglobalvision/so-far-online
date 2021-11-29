@@ -93,7 +93,7 @@ function igv_cmb_metaboxes() {
 		'limit'      	=> 3, 		// Limit selection to X items only (default 1)
 		'sortable' 	 	=> true, 	// Allow selected items to be sortable (default false)
 		'query_args'	=> array(
-			'post_type'			=> array( 'post', 'weekly' ),
+			'post_type'			=> array( 'post', 'weekly', 'incubator', 'diary' ),
 			'post_status'		=> array( 'publish' ),
 			'posts_per_page'	=> -1
 		)

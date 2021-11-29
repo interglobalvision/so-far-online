@@ -66,10 +66,12 @@ if (have_posts()) {
                   <div class="grid-item item-s-12 item-l-7 offset-l-1">
                     <span class="<?php echo $post_type === 'weekly' ? 'font-color-blush' : ''; ?>">
                       <?php
-                        if ($post_type === 'post') {
+                        if ($post_type === 'post' && $issue) {
+                          echo '<a href="' . get_term_link($issue->term_id) . '">';
                           echo 'Issue';
                           echo !empty($issue_number) ? ' ' . $issue_number . ': ' : ': ';
                           echo $issue->name;
+                          echo '</a>';
                         } else if ($post_type === 'weekly' && !empty($type)) {
                           echo '<a href="' . get_term_link($type[0]->term_id) . '">' . $type[0]->name . '</a>';
                         } else {
@@ -82,9 +84,11 @@ if (have_posts()) {
                     <span>
                       <?php
                         if ($post_type === 'post' && $chapter) {
+                          echo $issue ? '<a href="' . get_term_link($issue->term_id) . '">' : '';
                           echo 'Chapter';
                           echo !empty($chapter_number) ? ' ' . $chapter_number . ': ' : ': ';
                           echo $chapter->name;
+                          echo $issue ? '</a>' : '';
                         } else {
                           echo $the_date;
                         }

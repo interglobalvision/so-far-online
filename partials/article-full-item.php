@@ -28,12 +28,14 @@ $post_type = get_post_type($post);
           ?>
             <a href="<?php echo get_term_link($weekly_type[0]->term_id); ?>"><?php echo $weekly_type[0]->name; ?></a>
           <?php
-            } else if ($post_type === 'post') {
+            } else if ($post_type === 'post' && $issue) {
           ?>
             <span><?php
+              echo '<a href="' . get_term_link($issue->term_id) . '">';
               echo 'Issue';
               echo !empty($issue_number) ? ' ' . $issue_number . ': ' : ': ';
               echo $issue->name;
+              echo '</a>';
             ?></span>
           <?php
             }
@@ -46,9 +48,11 @@ $post_type = get_post_type($post);
                 echo $the_date;
               }
               if ($post_type === 'post') {
+                echo $issue ? '<a href="' . get_term_link($issue->term_id) . '">' : '';
                 echo 'Chapter';
                 echo !empty($chapter_number) ? ' ' . $chapter_number . ': ' : ': ';
                 echo $chapter->name;
+                echo $issue ? '</a>' : '';
               }
             ?>
           </span>

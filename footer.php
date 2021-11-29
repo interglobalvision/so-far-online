@@ -27,6 +27,9 @@ $options = get_site_option('_igv_site_options');
                 <a href="<?php echo home_url('contact'); ?>">Contact</a>
               </li>
               <li class="grid-item item-s-6 item-l-4">
+                <a href="<?php echo home_url('jobs'); ?>">Jobs</a>
+              </li>
+              <li class="grid-item item-s-6 item-l-4">
                 <a href="<?php echo home_url('faq'); ?>">FAQ</a>
               </li>
               <li class="grid-item item-s-6 item-l-4">
