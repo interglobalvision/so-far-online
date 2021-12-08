@@ -121,8 +121,10 @@ class Shop {
     $('.cart-count').html(count)
   }
 
-  setupCart() {
+  async setupCart() {
     this.$cart = $('#cart')
+    this.state.cartData = await this.getCartData()
+    this.removeSoldOutItems()
     if (this.state.cart.length > 0) {
       this.displayCartItems()
       this.bindCurrencyChange()
@@ -131,6 +133,16 @@ class Shop {
     } else {
       this.showEmptyCart()
     }
+  }
+
+  removeSoldOutItems() {
+    let _this = this
+    this.state.cart = this.state.cart.filter(p => {
+      const data = _this.state.cartData.find(d => d.id === p.postId)
+      const inventory = parseInt(data.cmb2._igv_artwork_metabox._igv_product_inventory)
+      return inventory > 0
+    })
+    this.saveCart()
   }
 
   showEmptyCart() {
@@ -143,12 +155,11 @@ class Shop {
     return $.get(WP.siteUrl + '/wp-json/wp/v2/product?include=' + cartIds.toString() + '&_embed=wp:featuredmedia')
   }
 
-  async displayCartItems() {
+  displayCartItems() {
     let _this = this
     const $items = $('.cart-item')
     const $container = $('#cart-items')
     const itemHtml = $items[0].outerHTML
-    this.state.cartData = await this.getCartData()
 
     $container.html('');
     
