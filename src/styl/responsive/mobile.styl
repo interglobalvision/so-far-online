@@ -665,13 +665,18 @@ a:not(.button)
   padding-right: 2px !important
 
 .product
-  .item-in-cart
+  .item-in-cart, .sold-out
     display: none
   &[data-in-cart='true']
     .item-in-cart
       display: block
     .add-to-cart
       display: none
+  &[data-inventory='0']
+    .add-to-cart, .item-in-cart
+      display: none
+    .sold-out 
+      display: block
 
 .cart-thumb
   display: block

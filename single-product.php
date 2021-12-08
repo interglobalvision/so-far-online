@@ -21,6 +21,7 @@ if (have_posts()) {
     $shipping = get_post_meta($post->ID, '_igv_product_shipping', true);
     $mediums = get_the_terms($post, 'medium');
     $price = get_post_meta($post->ID, '_igv_product_price', true);
+    $inventory = get_post_meta($post->ID, '_igv_product_inventory', true);
 ?>
 
     <article
@@ -28,6 +29,7 @@ if (have_posts()) {
       id="post-<?php the_ID(); ?>"
       data-post-id="<?php the_ID(); ?>" 
       data-in-cart=""
+      data-inventory="<?php echo $inventory; ?>"
     >
 
       <section class="padding-top-small padding-bottom-small">
@@ -99,6 +101,7 @@ if (have_posts()) {
                   data-price="<?php echo !empty($price) ? $price : ''; ?>"
                   class="button add-to-cart item-s-6 item-m-4 item-l-12">Purchase this Artwork</button>
                 <button class="button item-in-cart item-s-6 item-m-4 item-l-12" disabled>Added to Bag</button>
+                <div class="sold-out item-s-6 item-m-4 item-l-12 font-bold font-color-grey"><span>Sold Out</span></div>
               </div>
               
               <div class="padding-top-tiny font-size-tiny font-color-grey font-light">
